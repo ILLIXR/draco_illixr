@@ -7,6 +7,3 @@
 [submodule "third_party/filesystem"]
 	path = third_party/filesystem
 	url = https://github.com/gulrak/filesystem
-[submodule "third_party/eigen"]
-	path = third_party/eigen
-	url = https://gitlab.com/libeigen/eigen.git
