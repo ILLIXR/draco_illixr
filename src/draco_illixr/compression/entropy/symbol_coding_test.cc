@@ -12,15 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/compression/config/compression_shared.h"
-#include "draco/compression/entropy/symbol_decoding.h"
-#include "draco/compression/entropy/symbol_encoding.h"
-#include "draco/core/bit_utils.h"
-#include "draco/core/decoder_buffer.h"
-#include "draco/core/draco_test_base.h"
-#include "draco/core/encoder_buffer.h"
+#include "draco_illixr/compression/config/compression_shared.h"
+#include "draco_illixr/compression/entropy/symbol_decoding.h"
+#include "draco_illixr/compression/entropy/symbol_encoding.h"
+#include "draco_illixr/core/bit_utils.h"
+#include "draco_illixr/core/decoder_buffer.h"
+#include "draco_illixr/core/draco_test_base.h"
+#include "draco_illixr/core/encoder_buffer.h"
 
-namespace draco {
+namespace draco_illixr {
 
 class SymbolCodingTest : public ::testing::Test {
  protected:
@@ -167,4 +167,4 @@ TEST_F(SymbolCodingTest, TestConversionFullRange) {
   TestConvertToSymbolAndBack(static_cast<int8_t>(127));
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

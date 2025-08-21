@@ -15,14 +15,14 @@
 #ifndef DRACO_COMPRESSION_POINT_CLOUD_POINT_CLOUD_ENCODER_H_
 #define DRACO_COMPRESSION_POINT_CLOUD_POINT_CLOUD_ENCODER_H_
 
-#include "draco/compression/attributes/attributes_encoder.h"
-#include "draco/compression/config/compression_shared.h"
-#include "draco/compression/config/encoder_options.h"
-#include "draco/core/encoder_buffer.h"
-#include "draco/core/status.h"
-#include "draco/point_cloud/point_cloud.h"
+#include "draco_illixr/compression/attributes/attributes_encoder.h"
+#include "draco_illixr/compression/config/compression_shared.h"
+#include "draco_illixr/compression/config/encoder_options.h"
+#include "draco_illixr/core/encoder_buffer.h"
+#include "draco_illixr/core/status.h"
+#include "draco_illixr/point_cloud/point_cloud.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Abstract base class for all point cloud and mesh encoders. It provides a
 // basic functionality that's shared between different encoders.
@@ -153,6 +153,6 @@ class PointCloudEncoder {
   size_t num_encoded_points_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_POINT_CLOUD_POINT_CLOUD_ENCODER_H_

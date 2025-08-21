@@ -15,11 +15,11 @@
 #ifndef DRACO_COMPRESSION_MESH_TRAVERSER_MESH_ATTRIBUTE_INDICES_ENCODING_OBSERVER_H_
 #define DRACO_COMPRESSION_MESH_TRAVERSER_MESH_ATTRIBUTE_INDICES_ENCODING_OBSERVER_H_
 
-#include "draco/compression/attributes/mesh_attribute_indices_encoding_data.h"
-#include "draco/compression/attributes/points_sequencer.h"
-#include "draco/mesh/mesh.h"
+#include "draco_illixr/compression/attributes/mesh_attribute_indices_encoding_data.h"
+#include "draco_illixr/compression/attributes/points_sequencer.h"
+#include "draco_illixr/mesh/mesh.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Class that can be used to generate encoding (and decoding) order of attribute
 // values based on the traversal of the encoded mesh. The class should be used
@@ -71,6 +71,6 @@ class MeshAttributeIndicesEncodingObserver {
   PointsSequencer *sequencer_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_MESH_TRAVERSER_MESH_ATTRIBUTE_INDICES_ENCODING_OBSERVER_H_

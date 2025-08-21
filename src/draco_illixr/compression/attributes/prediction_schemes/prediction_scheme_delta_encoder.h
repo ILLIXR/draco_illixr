@@ -15,9 +15,9 @@
 #ifndef DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_PREDICTION_SCHEME_DELTA_ENCODER_H_
 #define DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_PREDICTION_SCHEME_DELTA_ENCODER_H_
 
-#include "draco/compression/attributes/prediction_schemes/prediction_scheme_encoder.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/prediction_scheme_encoder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Basic prediction scheme based on computing backward differences between
 // stored attribute values (also known as delta-coding). Usually works better
@@ -64,6 +64,6 @@ bool PredictionSchemeDeltaEncoder<
   return true;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_PREDICTION_SCHEME_DELTA_ENCODER_H_

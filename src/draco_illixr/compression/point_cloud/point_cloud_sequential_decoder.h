@@ -15,9 +15,9 @@
 #ifndef DRACO_COMPRESSION_POINT_CLOUD_POINT_CLOUD_SEQUENTIAL_DECODER_H_
 #define DRACO_COMPRESSION_POINT_CLOUD_POINT_CLOUD_SEQUENTIAL_DECODER_H_
 
-#include "draco/compression/point_cloud/point_cloud_decoder.h"
+#include "draco_illixr/compression/point_cloud/point_cloud_decoder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Point cloud decoder for data encoded by the PointCloudSequentialEncoder.
 // All attribute values are decoded using an identity mapping between point ids
@@ -28,6 +28,6 @@ class PointCloudSequentialDecoder : public PointCloudDecoder {
   bool CreateAttributesDecoder(int32_t att_decoder_id) override;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_POINT_CLOUD_POINT_CLOUD_SEQUENTIAL_DECODER_H_

@@ -42,13 +42,13 @@ macro(draco_setup_install_target)
 
   foreach(draco_api_include ${draco_api_includes})
     get_filename_component(file_directory ${draco_api_include} DIRECTORY)
-    set(target_directory "${includes_path}/draco/${file_directory}")
+    set(target_directory "${includes_path}/draco_illixr/${file_directory}")
     install(FILES ${draco_src_root}/${draco_api_include}
             DESTINATION "${target_directory}")
   endforeach()
 
-  install(FILES "${draco_build}/draco/draco_features.h"
-          DESTINATION "${includes_path}/draco/")
+  install(FILES "${draco_build}/draco_illixr/draco_features.h"
+          DESTINATION "${includes_path}/draco_illixr/")
 
   install(TARGETS draco_decoder DESTINATION "${bin_path}")
   install(TARGETS draco_encoder DESTINATION "${bin_path}")
@@ -90,32 +90,32 @@ macro(draco_setup_install_target)
 
   # pkg-config: draco.pc
   configure_file("${draco_root}/cmake/draco.pc.template"
-                 "${draco_build}/draco.pc" @ONLY NEWLINE_STYLE UNIX)
-  install(FILES "${draco_build}/draco.pc" DESTINATION "${libs_path}/pkgconfig")
+                 "${draco_build}/draco_illixr.pc" @ONLY NEWLINE_STYLE UNIX)
+  install(FILES "${draco_build}/draco_illixr.pc" DESTINATION "${libs_path}/pkgconfig")
 
   # CMake config: draco-config.cmake
   configure_package_config_file(
     "${draco_root}/cmake/draco-config.cmake.template"
-    "${draco_build}/draco-config.cmake"
-    INSTALL_DESTINATION "${data_path}/cmake/draco")
+    "${draco_build}/draco_illixr-config.cmake"
+    INSTALL_DESTINATION "${data_path}/cmake/draco_illixr")
 
   write_basic_package_version_file(
-    "${draco_build}/draco-config-version.cmake"
+    "${draco_build}/draco_illixr-config-version.cmake"
     VERSION ${DRACO_VERSION}
     COMPATIBILITY AnyNewerVersion)
 
   export(
     EXPORT dracoExport
-    NAMESPACE draco::
-    FILE "${draco_build}/draco-targets.cmake")
+    NAMESPACE draco_illixr::
+    FILE "${draco_build}/draco_illixr-targets.cmake")
 
   install(
     EXPORT dracoExport
-    NAMESPACE draco::
-    FILE draco-targets.cmake
-    DESTINATION "${data_path}/cmake/draco")
+    NAMESPACE draco_illixr::
+    FILE draco_illixr-targets.cmake
+    DESTINATION "${data_path}/cmake/draco_illixr")
 
-  install(FILES "${draco_build}/draco-config.cmake"
-                "${draco_build}/draco-config-version.cmake"
-          DESTINATION "${data_path}/cmake/draco")
+  install(FILES "${draco_build}/draco_illixr-config.cmake"
+                "${draco_build}/draco_illixr-config-version.cmake"
+          DESTINATION "${data_path}/cmake/draco_illixr")
 endmacro()

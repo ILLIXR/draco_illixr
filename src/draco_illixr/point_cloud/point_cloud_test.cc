@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/point_cloud/point_cloud.h"
+#include "draco_illixr/point_cloud/point_cloud.h"
 
 #include <string>
 #include <utility>
 
-#include "draco/core/draco_test_base.h"
-#include "draco/core/draco_test_utils.h"
-#include "draco/metadata/geometry_metadata.h"
+#include "draco_illixr/core/draco_test_base.h"
+#include "draco_illixr/core/draco_test_utils.h"
+#include "draco_illixr/metadata/geometry_metadata.h"
 
 namespace {
 
@@ -31,26 +31,26 @@ class PointCloudTest : public ::testing::Test {
 #ifdef DRACO_TRANSCODER_SUPPORTED
 TEST_F(PointCloudTest, PointCloudCopy) {
   // Tests that we can copy a point cloud.
-  std::unique_ptr<draco::PointCloud> pc =
-      draco::ReadPointCloudFromTestFile("pc_kd_color.drc");
+  std::unique_ptr<draco_illixr::PointCloud> pc =
+      draco_illixr::ReadPointCloudFromTestFile("pc_kd_color.drc");
   ASSERT_NE(pc, nullptr);
 
   // Add metadata to the point cloud.
-  std::unique_ptr<draco::GeometryMetadata> metadata(
-      new draco::GeometryMetadata());
+  std::unique_ptr<draco_illixr::GeometryMetadata> metadata(
+      new draco_illixr::GeometryMetadata());
   metadata->AddEntryInt("speed", 1050);
   metadata->AddEntryString("code", "YT-1300f");
 
   // Add attribute metadata.
-  std::unique_ptr<draco::AttributeMetadata> a_metadata(
-      new draco::AttributeMetadata());
+  std::unique_ptr<draco_illixr::AttributeMetadata> a_metadata(
+      new draco_illixr::AttributeMetadata());
   a_metadata->set_att_unique_id(pc->attribute(0)->unique_id());
   a_metadata->AddEntryInt("attribute_test", 3);
   metadata->AddAttributeMetadata(std::move(a_metadata));
   pc->AddMetadata(std::move(metadata));
 
   // Create a copy of the point cloud.
-  draco::PointCloud pc_copy;
+  draco_illixr::PointCloud pc_copy;
   pc_copy.Copy(*pc);
 
   // Check the point cloud data.
@@ -80,17 +80,17 @@ TEST_F(PointCloudTest, PointCloudCopy) {
 #endif
 
 TEST_F(PointCloudTest, TestAttributeDeletion) {
-  draco::PointCloud pc;
+  draco_illixr::PointCloud pc;
   // Test whether we can correctly delete an attribute from a point cloud.
   // Create some attributes for the point cloud.
-  draco::GeometryAttribute pos_att;
-  pos_att.Init(draco::GeometryAttribute::POSITION, nullptr, 3,
-               draco::DT_FLOAT32, false, 12, 0);
-  draco::GeometryAttribute norm_att;
-  norm_att.Init(draco::GeometryAttribute::NORMAL, nullptr, 3, draco::DT_FLOAT32,
+  draco_illixr::GeometryAttribute pos_att;
+  pos_att.Init(draco_illixr::GeometryAttribute::POSITION, nullptr, 3,
+               draco_illixr::DT_FLOAT32, false, 12, 0);
+  draco_illixr::GeometryAttribute norm_att;
+  norm_att.Init(draco_illixr::GeometryAttribute::NORMAL, nullptr, 3, draco_illixr::DT_FLOAT32,
                 false, 12, 0);
-  draco::GeometryAttribute gen_att;
-  gen_att.Init(draco::GeometryAttribute::GENERIC, nullptr, 3, draco::DT_FLOAT32,
+  draco_illixr::GeometryAttribute gen_att;
+  gen_att.Init(draco_illixr::GeometryAttribute::GENERIC, nullptr, 3, draco_illixr::DT_FLOAT32,
                false, 12, 0);
 
   // Add one position, two normal and two generic attributes.
@@ -102,61 +102,61 @@ TEST_F(PointCloudTest, TestAttributeDeletion) {
 
   ASSERT_EQ(pc.num_attributes(), 5);
   ASSERT_EQ(pc.attribute(0)->attribute_type(),
-            draco::GeometryAttribute::POSITION);
+            draco_illixr::GeometryAttribute::POSITION);
   ASSERT_EQ(pc.attribute(3)->attribute_type(),
-            draco::GeometryAttribute::GENERIC);
+            draco_illixr::GeometryAttribute::GENERIC);
 
   // Delete generic attribute.
   pc.DeleteAttribute(1);
   ASSERT_EQ(pc.num_attributes(), 4);
   ASSERT_EQ(pc.attribute(1)->attribute_type(),
-            draco::GeometryAttribute::NORMAL);
-  ASSERT_EQ(pc.NumNamedAttributes(draco::GeometryAttribute::NORMAL), 2);
-  ASSERT_EQ(pc.GetNamedAttributeId(draco::GeometryAttribute::NORMAL, 1), 3);
+            draco_illixr::GeometryAttribute::NORMAL);
+  ASSERT_EQ(pc.NumNamedAttributes(draco_illixr::GeometryAttribute::NORMAL), 2);
+  ASSERT_EQ(pc.GetNamedAttributeId(draco_illixr::GeometryAttribute::NORMAL, 1), 3);
 
   // Delete the first normal attribute.
   pc.DeleteAttribute(1);
   ASSERT_EQ(pc.num_attributes(), 3);
   ASSERT_EQ(pc.attribute(1)->attribute_type(),
-            draco::GeometryAttribute::GENERIC);
-  ASSERT_EQ(pc.NumNamedAttributes(draco::GeometryAttribute::NORMAL), 1);
-  ASSERT_EQ(pc.GetNamedAttributeId(draco::GeometryAttribute::NORMAL, 0), 2);
+            draco_illixr::GeometryAttribute::GENERIC);
+  ASSERT_EQ(pc.NumNamedAttributes(draco_illixr::GeometryAttribute::NORMAL), 1);
+  ASSERT_EQ(pc.GetNamedAttributeId(draco_illixr::GeometryAttribute::NORMAL, 0), 2);
 }
 
 TEST_F(PointCloudTest, TestPointCloudWithMetadata) {
-  draco::PointCloud pc;
-  std::unique_ptr<draco::GeometryMetadata> metadata =
-      std::unique_ptr<draco::GeometryMetadata>(new draco::GeometryMetadata());
+  draco_illixr::PointCloud pc;
+  std::unique_ptr<draco_illixr::GeometryMetadata> metadata =
+      std::unique_ptr<draco_illixr::GeometryMetadata>(new draco_illixr::GeometryMetadata());
 
   // Add a position attribute metadata.
-  draco::GeometryAttribute pos_att;
-  pos_att.Init(draco::GeometryAttribute::POSITION, nullptr, 3,
-               draco::DT_FLOAT32, false, 12, 0);
+  draco_illixr::GeometryAttribute pos_att;
+  pos_att.Init(draco_illixr::GeometryAttribute::POSITION, nullptr, 3,
+               draco_illixr::DT_FLOAT32, false, 12, 0);
   const uint32_t pos_att_id = pc.AddAttribute(pos_att, false, 0);
   ASSERT_EQ(pos_att_id, 0);
-  std::unique_ptr<draco::AttributeMetadata> pos_metadata =
-      std::unique_ptr<draco::AttributeMetadata>(new draco::AttributeMetadata());
+  std::unique_ptr<draco_illixr::AttributeMetadata> pos_metadata =
+      std::unique_ptr<draco_illixr::AttributeMetadata>(new draco_illixr::AttributeMetadata());
   pos_metadata->AddEntryString("name", "position");
   pc.AddAttributeMetadata(pos_att_id, std::move(pos_metadata));
-  const draco::GeometryMetadata *pc_metadata = pc.GetMetadata();
+  const draco_illixr::GeometryMetadata *pc_metadata = pc.GetMetadata();
   ASSERT_NE(pc_metadata, nullptr);
   // Add a generic material attribute metadata.
-  draco::GeometryAttribute material_att;
-  material_att.Init(draco::GeometryAttribute::GENERIC, nullptr, 3,
-                    draco::DT_FLOAT32, false, 12, 0);
+  draco_illixr::GeometryAttribute material_att;
+  material_att.Init(draco_illixr::GeometryAttribute::GENERIC, nullptr, 3,
+                    draco_illixr::DT_FLOAT32, false, 12, 0);
   const uint32_t material_att_id = pc.AddAttribute(material_att, false, 0);
   ASSERT_EQ(material_att_id, 1);
-  std::unique_ptr<draco::AttributeMetadata> material_metadata =
-      std::unique_ptr<draco::AttributeMetadata>(new draco::AttributeMetadata());
+  std::unique_ptr<draco_illixr::AttributeMetadata> material_metadata =
+      std::unique_ptr<draco_illixr::AttributeMetadata>(new draco_illixr::AttributeMetadata());
   material_metadata->AddEntryString("name", "material");
   // The material attribute has id of 1 now.
   pc.AddAttributeMetadata(material_att_id, std::move(material_metadata));
 
   // Test if the attribute metadata is correctly added.
-  const draco::AttributeMetadata *requested_pos_metadata =
+  const draco_illixr::AttributeMetadata *requested_pos_metadata =
       pc.GetAttributeMetadataByStringEntry("name", "position");
   ASSERT_NE(requested_pos_metadata, nullptr);
-  const draco::AttributeMetadata *requested_mat_metadata =
+  const draco_illixr::AttributeMetadata *requested_mat_metadata =
       pc.GetAttributeMetadataByStringEntry("name", "material");
   ASSERT_NE(requested_mat_metadata, nullptr);
 

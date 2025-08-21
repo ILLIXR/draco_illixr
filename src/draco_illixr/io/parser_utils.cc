@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/io/parser_utils.h"
+#include "draco_illixr/io/parser_utils.h"
 
 #include <algorithm>
 #include <cctype>
@@ -20,7 +20,7 @@
 #include <iterator>
 #include <limits>
 
-namespace draco {
+namespace draco_illixr {
 namespace parser {
 
 void SkipCharacters(DecoderBuffer *buffer, const char *skip_chars) {
@@ -267,4 +267,4 @@ std::string ToLower(const std::string &str) {
 }
 
 }  // namespace parser
-}  // namespace draco
+}  // namespace draco_illixr

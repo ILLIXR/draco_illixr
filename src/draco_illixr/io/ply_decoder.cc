@@ -12,16 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/io/ply_decoder.h"
+#include "draco_illixr/io/ply_decoder.h"
 
-#include "draco/core/macros.h"
-#include "draco/core/status.h"
-#include "draco/io/file_utils.h"
-#include "draco/io/ply_property_reader.h"
+#include "draco_illixr/core/macros.h"
+#include "draco_illixr/core/status.h"
+#include "draco_illixr/io/file_utils.h"
+#include "draco_illixr/io/ply_property_reader.h"
 //930
 #include <omp.h>
 #include <chrono>
-namespace draco {
+namespace draco_illixr {
 namespace {
 int64_t CountNumTriangles(const PlyElement &face_element,
                           const PlyProperty &vertex_indices) {
@@ -79,10 +79,10 @@ void PlyDecoder::DecodeMerge(Mesh &new_mesh){
 	printf("updated mesh has %u faces\n", out_mesh_->num_faces());
 
 	for(FaceIndex face_index(old_num_faces); face_index < out_mesh_->num_faces(); ++face_index){
-		
+
 	}
-        //const draco::PointAttribute* pos_attribute = incoming_mesh->GetNamedAttribute(draco::GeometryAttribute::POSITION);
-        //const draco::PointAttribute* color_attribute = incoming_mesh->GetNamedAttribute(draco::GeometryAttribute::COLOR);
+        //const draco_illixr::PointAttribute* pos_attribute = incoming_mesh->GetNamedAttribute(draco_illixr::GeometryAttribute::POSITION);
+        //const draco_illixr::PointAttribute* color_attribute = incoming_mesh->GetNamedAttribute(draco_illixr::GeometryAttribute::COLOR);
         //const int vb_id = incoming_mesh->GetAttributeIdByMetadataEntry("attribute_name", "_VOXELBLOCK_INFO");
         //auto vb = incoming_mesh->GetAttributeByUniqueId(vb_id);
 
@@ -91,9 +91,9 @@ void PlyDecoder::DecodeMerge(Mesh &new_mesh){
         //        float dracoVertex_v2[3];
         //        float dracoVertex_v3[3];
         //        auto face = new_mesh->face(face_Index).data();
-        //        auto v1 = draco::PointIndex(face[0].value());
-        //        auto v2 = draco::PointIndex(face[1].value());
-        //        auto v3 = draco::PointIndex(face[2].value());
+        //        auto v1 = draco_illixr::PointIndex(face[0].value());
+        //        auto v2 = draco_illixr::PointIndex(face[1].value());
+        //        auto v3 = draco_illixr::PointIndex(face[2].value());
         //        pos_attribute->GetMappedValue(v1, dracoVertex_v1);
         //        pos_attribute->GetMappedValue(v2, dracoVertex_v2);
         //        pos_attribute->GetMappedValue(v3, dracoVertex_v3);
@@ -104,9 +104,9 @@ void PlyDecoder::DecodeMerge(Mesh &new_mesh){
         //        color_attribute->GetMappedValue(v1, dracoColors_v1);
         //        color_attribute->GetMappedValue(v2, dracoColors_v2);
         //        color_attribute->GetMappedValue(v3, dracoColors_v3);
-	//	
+	//
 	//}
-		
+
 }
 //Status PlyDecoder::DecodeExternal(PlyReader &ply_reader) {
 Status PlyDecoder::DecodeExternal(PlyReader &ply_reader, bool skip_deduplication) {
@@ -118,8 +118,8 @@ Status PlyDecoder::DecodeExternal(PlyReader &ply_reader, bool skip_deduplication
   // Decode all attributes.
   DRACO_RETURN_IF_ERROR(
       DecodeVertexData(ply_reader.GetElementByName("vertex")));
-  const PlyElement *face_element = ply_reader.GetElementByName("face"); 
-  
+  const PlyElement *face_element = ply_reader.GetElementByName("face");
+
   //pyh try to grab voxel block info as well
   const PlyProperty *voxelblock_x = face_element->GetPropertyByName("vb_x");
   const PlyProperty *voxelblock_y = face_element->GetPropertyByName("vb_y");
@@ -129,23 +129,23 @@ Status PlyDecoder::DecodeExternal(PlyReader &ply_reader, bool skip_deduplication
   }else{
 	 // printf("voxel block info found\n");
   }
-  PlyPropertyReader<int> vb_x_reader(voxelblock_x); 
-  PlyPropertyReader<int> vb_y_reader(voxelblock_y); 
+  PlyPropertyReader<int> vb_x_reader(voxelblock_x);
+  PlyPropertyReader<int> vb_y_reader(voxelblock_y);
   PlyPropertyReader<int> vb_z_reader(voxelblock_z);
 
 
   //pyh inspired by /mesh/mesh_test.cc TEST(MeshTest, TestAddNewAttributeWithConnectivity)
-  std::unique_ptr<draco::PointAttribute> vb_info(new draco::PointAttribute());
-  vb_info->Init(draco::GeometryAttribute::GENERIC, 3, draco::DT_INT32, false, out_mesh_->num_faces());
+  std::unique_ptr<draco_illixr::PointAttribute> vb_info(new draco_illixr::PointAttribute());
+  vb_info->Init(draco_illixr::GeometryAttribute::GENERIC, 3, draco_illixr::DT_INT32, false, out_mesh_->num_faces());
 
   for(int i = 0; i < out_mesh_->num_faces(); ++i){
 	  std::array<int, 3> vb_val;
 	  vb_val[0] = vb_x_reader.ReadValue(i);
 	  vb_val[1] = vb_y_reader.ReadValue(i);
 	  vb_val[2] = vb_z_reader.ReadValue(i);
-	  vb_info->SetAttributeValue(draco::AttributeValueIndex(i), &vb_val[0]);	
+	  vb_info->SetAttributeValue(draco_illixr::AttributeValueIndex(i), &vb_val[0]);
   }
-  const int att_id_info = out_mesh_->AddPerFaceAttribute(std::move(vb_info)); 
+  const int att_id_info = out_mesh_->AddPerFaceAttribute(std::move(vb_info));
   std::unique_ptr<AttributeMetadata> vb_metadata(new AttributeMetadata());
   vb_metadata->AddEntryString("attribute_name", "_VOXELBLOCK_INFO");
   out_mesh_->AddAttributeMetadata(att_id_info, std::move(vb_metadata));
@@ -222,9 +222,9 @@ Status PlyDecoder::DecodeFaceData(const PlyElement *face_element) {
   FaceIndex face_index(0);
   //std::cout<<"this mesh has: "<<num_polygons <<" polygons" <<std::endl;
   auto start = std::chrono::high_resolution_clock::now();
-  //pyh add to track # of invalid polygons 
-  unsigned invalid_counter=0; 
-//#pragma omp parallel for  
+  //pyh add to track # of invalid polygons
+  unsigned invalid_counter=0;
+//#pragma omp parallel for
   for (int i = 0; i < num_polygons; ++i) {
     const int64_t list_offset = vertex_indices->GetListEntryOffset(i);
     const int64_t list_size = vertex_indices->GetListEntryNumValues(i);
@@ -247,12 +247,12 @@ Status PlyDecoder::DecodeFaceData(const PlyElement *face_element) {
       face_index++;
     }
   }
-  auto end = std::chrono::high_resolution_clock::now(); 
+  auto end = std::chrono::high_resolution_clock::now();
   auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
   //printf("Time to generate face data: %.3ld microseconds\n", duration);
-  //printf("# of invalid polygons: %u, # of faces %u\n", invalid_counter, face_index.value());								     
+  //printf("# of invalid polygons: %u, # of faces %u\n", invalid_counter, face_index.value());
   out_mesh_->SetNumFaces(face_index.value());
-  
+
   return OkStatus();
 }
 
@@ -278,7 +278,7 @@ bool PlyDecoder::ReadPropertiesToAttribute(
 }
 
 Status PlyDecoder::DecodeVertexData(const PlyElement *vertex_element) {
-  auto start = std::chrono::high_resolution_clock::now(); 
+  auto start = std::chrono::high_resolution_clock::now();
   if (vertex_element == nullptr) {
     return Status(Status::INVALID_PARAMETER, "vertex_element is null");
   }
@@ -303,7 +303,7 @@ Status PlyDecoder::DecodeVertexData(const PlyElement *vertex_element) {
                     "x, y, and z properties must have the same type");
     }
     // TODO(ostava): For now assume the position types are float32 or int32.
-    
+
     //pyh: for now we are still using float 32
     //TODO add support float64
     const DataType dt = x_prop->data_type();
@@ -321,7 +321,7 @@ Status PlyDecoder::DecodeVertexData(const PlyElement *vertex_element) {
     properties.push_back(y_prop);
     properties.push_back(z_prop);
     if (dt == DT_FLOAT32) {
-      
+
       //printf("float32 detected\n");
       ReadPropertiesToAttribute<float>(
           properties, out_point_cloud_->attribute(att_id), num_vertices);
@@ -446,11 +446,11 @@ Status PlyDecoder::DecodeVertexData(const PlyElement *vertex_element) {
           AttributeValueIndex(i), &val[0]);
     }
   }
-  auto end = std::chrono::high_resolution_clock::now(); 
+  auto end = std::chrono::high_resolution_clock::now();
   auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
   //printf("Time to generate vertex data: %.3ld microseconds\n", duration);
 
   return OkStatus();
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

@@ -18,16 +18,16 @@
 #include <unordered_map>
 #include <unordered_set>
 
-#include "draco/compression/attributes/mesh_attribute_indices_encoding_data.h"
-#include "draco/compression/mesh/mesh_edgebreaker_decoder_impl_interface.h"
-#include "draco/compression/mesh/mesh_edgebreaker_shared.h"
-#include "draco/compression/mesh/traverser/mesh_traversal_sequencer.h"
-#include "draco/core/decoder_buffer.h"
-#include "draco/draco_features.h"
-#include "draco/mesh/corner_table.h"
-#include "draco/mesh/mesh_attribute_corner_table.h"
+#include "draco_illixr/compression/attributes/mesh_attribute_indices_encoding_data.h"
+#include "draco_illixr/compression/mesh/mesh_edgebreaker_decoder_impl_interface.h"
+#include "draco_illixr/compression/mesh/mesh_edgebreaker_shared.h"
+#include "draco_illixr/compression/mesh/traverser/mesh_traversal_sequencer.h"
+#include "draco_illixr/core/decoder_buffer.h"
+#include "draco_illixr/draco_features.h"
+#include "draco_illixr/mesh/corner_table.h"
+#include "draco_illixr/mesh/mesh_attribute_corner_table.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Implementation of the edgebreaker decoder that decodes data encoded with the
 // MeshEdgebreakerEncoderImpl class. The implementation of the decoder is based
@@ -223,6 +223,6 @@ class MeshEdgebreakerDecoderImpl : public MeshEdgebreakerDecoderImplInterface {
   TraversalDecoderT traversal_decoder_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_MESH_MESH_EDGEBREAKER_DECODER_IMPL_H_

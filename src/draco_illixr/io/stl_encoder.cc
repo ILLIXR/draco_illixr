@@ -12,17 +12,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/io/stl_encoder.h"
+#include "draco_illixr/io/stl_encoder.h"
 
 #include <iomanip>
 #include <memory>
 #include <sstream>
 #include <string>
 
-#include "draco/io/file_writer_factory.h"
-#include "draco/io/file_writer_interface.h"
+#include "draco_illixr/io/file_writer_factory.h"
+#include "draco_illixr/io/file_writer_interface.h"
 
-namespace draco {
+namespace draco_illixr {
 
 StlEncoder::StlEncoder()
     : out_buffer_(nullptr), in_point_cloud_(nullptr), in_mesh_(nullptr) {}
@@ -108,4 +108,4 @@ Status StlEncoder::EncodeInternal() {
   return OkStatus();
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

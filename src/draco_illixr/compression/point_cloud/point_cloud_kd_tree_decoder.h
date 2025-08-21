@@ -15,9 +15,9 @@
 #ifndef DRACO_COMPRESSION_POINT_CLOUD_POINT_CLOUD_KD_TREE_DECODER_H_
 #define DRACO_COMPRESSION_POINT_CLOUD_POINT_CLOUD_KD_TREE_DECODER_H_
 
-#include "draco/compression/point_cloud/point_cloud_decoder.h"
+#include "draco_illixr/compression/point_cloud/point_cloud_decoder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Decodes PointCloud encoded with the PointCloudKdTreeEncoder.
 class PointCloudKdTreeDecoder : public PointCloudDecoder {
@@ -26,6 +26,6 @@ class PointCloudKdTreeDecoder : public PointCloudDecoder {
   bool CreateAttributesDecoder(int32_t att_decoder_id) override;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_POINT_CLOUD_POINT_CLOUD_KD_TREE_DECODER_H_

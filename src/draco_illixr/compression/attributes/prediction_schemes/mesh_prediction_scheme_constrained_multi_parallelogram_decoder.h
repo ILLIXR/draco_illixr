@@ -18,15 +18,15 @@
 #include <algorithm>
 #include <cmath>
 
-#include "draco/compression/attributes/prediction_schemes/mesh_prediction_scheme_constrained_multi_parallelogram_shared.h"
-#include "draco/compression/attributes/prediction_schemes/mesh_prediction_scheme_decoder.h"
-#include "draco/compression/attributes/prediction_schemes/mesh_prediction_scheme_parallelogram_shared.h"
-#include "draco/compression/bit_coders/rans_bit_decoder.h"
-#include "draco/core/math_utils.h"
-#include "draco/core/varint_decoding.h"
-#include "draco/draco_features.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/mesh_prediction_scheme_constrained_multi_parallelogram_shared.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/mesh_prediction_scheme_decoder.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/mesh_prediction_scheme_parallelogram_shared.h"
+#include "draco_illixr/compression/bit_coders/rans_bit_decoder.h"
+#include "draco_illixr/core/math_utils.h"
+#include "draco_illixr/core/varint_decoding.h"
+#include "draco_illixr/draco_features.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Decoder for predictions encoded with the constrained multi-parallelogram
 // encoder. See the corresponding encoder for more details about the prediction
@@ -231,6 +231,6 @@ bool MeshPredictionSchemeConstrainedMultiParallelogramDecoder<
                                      MeshDataT>::DecodePredictionData(buffer);
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_MESH_PREDICTION_SCHEME_CONSTRAINED_MULTI_PARALLELOGRAM_DECODER_H_

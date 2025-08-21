@@ -15,16 +15,16 @@
 #ifndef DRACO_TEXTURE_TEXTURE_H_
 #define DRACO_TEXTURE_TEXTURE_H_
 
-#include "draco/draco_features.h"
+#include "draco_illixr/draco_features.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 #include <memory>
 #include <vector>
 
-#include "draco/io/image_compression_options.h"
-#include "draco/texture/source_image.h"
+#include "draco_illixr/io/image_compression_options.h"
+#include "draco_illixr/texture/source_image.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Texture class storing the source image data.
 class Texture {
@@ -40,7 +40,7 @@ class Texture {
   SourceImage source_image_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED
 #endif  // DRACO_TEXTURE_TEXTURE_H_

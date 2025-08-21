@@ -15,10 +15,10 @@
 #ifndef DRACO_COMPRESSION_MESH_MESH_EDGEBREAKER_DECODER_IMPL_INTERFACE_H_
 #define DRACO_COMPRESSION_MESH_MESH_EDGEBREAKER_DECODER_IMPL_INTERFACE_H_
 
-#include "draco/compression/attributes/mesh_attribute_indices_encoding_data.h"
-#include "draco/mesh/mesh_attribute_corner_table.h"
+#include "draco_illixr/compression/attributes/mesh_attribute_indices_encoding_data.h"
+#include "draco_illixr/mesh/mesh_attribute_corner_table.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Forward declaration is necessary here to avoid circular dependencies.
 class MeshEdgebreakerDecoder;
@@ -42,6 +42,6 @@ class MeshEdgebreakerDecoderImplInterface {
   virtual const CornerTable *GetCornerTable() const = 0;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_MESH_MESH_EDGEBREAKER_DECODER_IMPL_INTERFACE_H_

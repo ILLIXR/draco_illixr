@@ -261,25 +261,6 @@ def build_and_install_transcoder_dependencies():
   """Builds and installs Draco dependencies for transcoder enabled builds."""
   orig_dir = os.getcwd()
 
-  # The Eigen CMake build in the release Draco has pinned is, to put it mildly,
-  # user unfriendly. Instead of wasting time trying to integrate it here, just
-  # shutil.copytree() everything in $eigen_submodule_path to
-  # $CMAKE_INSTALL_PREFIX/include/Eigen.
-  # Eigen claims to be header-only, so this should be adequate for Draco's
-  # needs here.
-  eigen_submodule_path = os.path.join(
-      DRACO_SOURCES_PATH, 'third_party', 'eigen', 'Eigen')
-
-  # "Install" Eigen for the shared install root.
-  eigen_install_path = os.path.join(
-      DRACO_SHARED_INSTALL_PATH, 'include', 'Eigen')
-  shutil.copytree(src=eigen_submodule_path, dst=eigen_install_path)
-
-  # "Install" Eigen for the static install root.
-  eigen_install_path = os.path.join(
-      DRACO_STATIC_INSTALL_PATH, 'include', 'Eigen')
-  shutil.copytree(src=eigen_submodule_path, dst=eigen_install_path)
-
   # Build and install gulrak/filesystem for shared and static configurations.
   # Note that this is basically running gulrak/filesystem's CMake build as an
   # install script.

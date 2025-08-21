@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/io/ply_reader.h"
+#include "draco_illixr/io/ply_reader.h"
 
-#include "draco/core/draco_test_base.h"
-#include "draco/core/draco_test_utils.h"
-#include "draco/io/file_utils.h"
-#include "draco/io/ply_property_reader.h"
+#include "draco_illixr/core/draco_test_base.h"
+#include "draco_illixr/core/draco_test_utils.h"
+#include "draco_illixr/io/file_utils.h"
+#include "draco_illixr/io/ply_property_reader.h"
 
-namespace draco {
+namespace draco_illixr {
 
 class PlyReaderTest : public ::testing::Test {
  protected:
@@ -140,4 +140,4 @@ TEST_F(PlyReaderTest, TestReaderMoreDataTypes) {
   }
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

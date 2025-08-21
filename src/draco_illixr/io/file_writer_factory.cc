@@ -1,9 +1,9 @@
-#include "draco/io/file_writer_factory.h"
+#include "draco_illixr/io/file_writer_factory.h"
 
 #include <string>
 #include <vector>
 
-namespace draco {
+namespace draco_illixr {
 namespace {
 
 #define FILEWRITER_LOG_ERROR(error_string)                             \
@@ -43,4 +43,4 @@ std::unique_ptr<FileWriterInterface> FileWriterFactory::OpenWriter(
   return nullptr;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

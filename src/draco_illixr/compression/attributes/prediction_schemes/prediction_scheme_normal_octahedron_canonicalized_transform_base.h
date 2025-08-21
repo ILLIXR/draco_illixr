@@ -17,14 +17,14 @@
 
 #include <cmath>
 
-#include "draco/compression/attributes/normal_compression_utils.h"
-#include "draco/compression/attributes/prediction_schemes/prediction_scheme_normal_octahedron_transform_base.h"
-#include "draco/compression/config/compression_shared.h"
-#include "draco/core/bit_utils.h"
-#include "draco/core/macros.h"
-#include "draco/core/vector_d.h"
+#include "draco_illixr/compression/attributes/normal_compression_utils.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/prediction_scheme_normal_octahedron_transform_base.h"
+#include "draco_illixr/compression/config/compression_shared.h"
+#include "draco_illixr/core/bit_utils.h"
+#include "draco_illixr/core/macros.h"
+#include "draco_illixr/core/vector_d.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Base class containing shared functionality used by both encoding and decoding
 // canonicalized normal octahedron prediction scheme transforms. See the
@@ -97,6 +97,6 @@ class PredictionSchemeNormalOctahedronCanonicalizedTransformBase
   }
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_PREDICTION_SCHEME_NORMAL_OCTAHEDRON_CANONICALIZED_TRANSFORM_BASE_H_

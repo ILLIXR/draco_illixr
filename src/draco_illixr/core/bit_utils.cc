@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/core/bit_utils.h"
+#include "draco_illixr/core/bit_utils.h"
 
-namespace draco {
+namespace draco_illixr {
 
 void ConvertSignedIntsToSymbols(const int32_t *in, int in_values,
                                 uint32_t *out) {
@@ -33,4 +33,4 @@ void ConvertSymbolsToSignedInts(const uint32_t *in, int in_values,
   }
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

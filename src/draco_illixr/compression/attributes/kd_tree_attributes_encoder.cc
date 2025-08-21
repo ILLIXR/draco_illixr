@@ -12,16 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/compression/attributes/kd_tree_attributes_encoder.h"
+#include "draco_illixr/compression/attributes/kd_tree_attributes_encoder.h"
 
-#include "draco/compression/attributes/kd_tree_attributes_shared.h"
-#include "draco/compression/attributes/point_d_vector.h"
-#include "draco/compression/point_cloud/algorithms/dynamic_integer_points_kd_tree_encoder.h"
-#include "draco/compression/point_cloud/algorithms/float_points_tree_encoder.h"
-#include "draco/compression/point_cloud/point_cloud_encoder.h"
-#include "draco/core/varint_encoding.h"
+#include "draco_illixr/compression/attributes/kd_tree_attributes_shared.h"
+#include "draco_illixr/compression/attributes/point_d_vector.h"
+#include "draco_illixr/compression/point_cloud/algorithms/dynamic_integer_points_kd_tree_encoder.h"
+#include "draco_illixr/compression/point_cloud/algorithms/float_points_tree_encoder.h"
+#include "draco_illixr/compression/point_cloud/point_cloud_encoder.h"
+#include "draco_illixr/core/varint_encoding.h"
 
-namespace draco {
+namespace draco_illixr {
 
 KdTreeAttributesEncoder::KdTreeAttributesEncoder() : num_components_(0) {}
 
@@ -303,4 +303,4 @@ bool KdTreeAttributesEncoder::EncodePortableAttributes(
   return true;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

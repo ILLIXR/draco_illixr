@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/texture/texture_utils.h"
+#include "draco_illixr/texture/texture_utils.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 #include <unordered_set>
 
-namespace draco {
+namespace draco_illixr {
 
 std::string TextureUtils::GetTargetStem(const Texture &texture) {
   // Return stem of the source image if there is one.
@@ -133,6 +133,6 @@ std::vector<const Texture *> TextureUtils::FindTextures(
   return result;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED

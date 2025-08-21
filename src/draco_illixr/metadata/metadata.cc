@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/metadata/metadata.h"
+#include "draco_illixr/metadata/metadata.h"
 
 #include <utility>
 
-namespace draco {
+namespace draco_illixr {
 
 EntryValue::EntryValue(const EntryValue &value) {
   data_.resize(value.data_.size());
@@ -137,4 +137,4 @@ void Metadata::RemoveEntry(const std::string &name) {
     entries_.erase(entry_ptr);
   }
 }
-}  // namespace draco
+}  // namespace draco_illixr

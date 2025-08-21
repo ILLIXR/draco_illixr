@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/io/gltf_test_helper.h"
+#include "draco_illixr/io/gltf_test_helper.h"
 
 #include <array>
 #include <memory>
@@ -20,12 +20,12 @@
 #include <utility>
 #include <vector>
 
-#include "draco/core/draco_test_base.h"
-#include "draco/core/draco_test_utils.h"
-#include "draco/metadata/property_table.h"
-#include "draco/texture/texture_library.h"
+#include "draco_illixr/core/draco_test_base.h"
+#include "draco_illixr/core/draco_test_utils.h"
+#include "draco_illixr/metadata/property_table.h"
+#include "draco_illixr/texture/texture_library.h"
 
-namespace draco {
+namespace draco_illixr {
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 
@@ -820,4 +820,4 @@ void GltfTestHelper::CheckBoxMetaStructuralMetadata(
 
 #endif  // DRACO_TRANSCODER_SUPPORTED
 
-}  // namespace draco
+}  // namespace draco_illixr

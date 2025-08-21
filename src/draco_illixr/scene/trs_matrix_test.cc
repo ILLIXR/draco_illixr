@@ -12,17 +12,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/scene/trs_matrix.h"
+#include "draco_illixr/scene/trs_matrix.h"
 
-#include "draco/core/draco_test_base.h"
-#include "draco/core/draco_test_utils.h"
+#include "draco_illixr/core/draco_test_base.h"
+#include "draco_illixr/core/draco_test_utils.h"
 
 namespace {
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 
 TEST(TrsMatrixTest, TestIsMatrixIdentity) {
-  draco::TrsMatrix trs;
+  draco_illixr::TrsMatrix trs;
   ASSERT_EQ(trs.MatrixSet(), false);
   ASSERT_EQ(trs.IsMatrixIdentity(), true);
 
@@ -43,7 +43,7 @@ TEST(TrsMatrixTest, TestIsMatrixIdentity) {
 }
 
 TEST(TrsMatrixTest, TestIsMatrixTranslationOnly) {
-  draco::TrsMatrix trs;
+  draco_illixr::TrsMatrix trs;
   ASSERT_EQ(trs.MatrixSet(), false);
   ASSERT_EQ(trs.IsMatrixTranslationOnly(), false);
 

@@ -15,11 +15,11 @@
 #include <cinttypes>
 #include <cstdlib>
 
-#include "draco/core/cycle_timer.h"
-#include "draco/core/status.h"
-#include "draco/draco_features.h"
-#include "draco/texture/texture_utils.h"
-#include "draco/tools/draco_transcoder_lib.h"
+#include "draco_illixr/core/cycle_timer.h"
+#include "draco_illixr/core/status.h"
+#include "draco_illixr/draco_features.h"
+#include "draco_illixr/texture/texture_utils.h"
+#include "draco_illixr/tools/draco_transcoder_lib.h"
 
 namespace {
 
@@ -60,27 +60,27 @@ bool MatchesBooleanOption(const std::string &option, const std::string &value) {
   return value == opt || value == noopt;
 }
 
-draco::Status TranscodeFile(
-    const draco::DracoTranscoder::FileOptions &file_options,
-    const draco::DracoTranscodingOptions &transcode_options) {
-  draco::CycleTimer timer;
+draco_illixr::Status TranscodeFile(
+    const draco_illixr::DracoTranscoder::FileOptions &file_options,
+    const draco_illixr::DracoTranscodingOptions &transcode_options) {
+  draco_illixr::CycleTimer timer;
   timer.Start();
-  DRACO_ASSIGN_OR_RETURN(std::unique_ptr<draco::DracoTranscoder> dt,
-                         draco::DracoTranscoder::Create(transcode_options));
+  DRACO_ASSIGN_OR_RETURN(std::unique_ptr<draco_illixr::DracoTranscoder> dt,
+                         draco_illixr::DracoTranscoder::Create(transcode_options));
 
   DRACO_RETURN_IF_ERROR(dt->Transcode(file_options));
   timer.Stop();
   printf("Transcode\t%s\t%" PRId64 "\n", file_options.input_filename.c_str(),
          timer.GetInMs());
 
-  return draco::OkStatus();
+  return draco_illixr::OkStatus();
 }
 
 }  // anonymous namespace
 
 int main(int argc, char **argv) {
-  draco::DracoTranscoder::FileOptions file_options;
-  draco::DracoTranscodingOptions transcode_options;
+  draco_illixr::DracoTranscoder::FileOptions file_options;
+  draco_illixr::DracoTranscodingOptions transcode_options;
   const int argc_check = argc - 1;
 
   for (int i = 1; i < argc; ++i) {
@@ -120,7 +120,7 @@ int main(int argc, char **argv) {
     return -1;
   }
 
-  const draco::Status status = TranscodeFile(file_options, transcode_options);
+  const draco_illixr::Status status = TranscodeFile(file_options, transcode_options);
   if (!status.ok()) {
     printf("Failed\t%s\t%s\n", file_options.input_filename.c_str(),
            status.error_msg());

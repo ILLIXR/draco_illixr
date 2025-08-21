@@ -15,10 +15,10 @@
 #ifndef DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_PREDICTION_SCHEME_DECODING_TRANSFORM_H_
 #define DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_PREDICTION_SCHEME_DECODING_TRANSFORM_H_
 
-#include "draco/compression/config/compression_shared.h"
-#include "draco/core/decoder_buffer.h"
+#include "draco_illixr/compression/config/compression_shared.h"
+#include "draco_illixr/core/decoder_buffer.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // PredictionSchemeDecodingTransform is used to transform predicted values and
 // correction values into the final original attribute values.
@@ -60,6 +60,6 @@ class PredictionSchemeDecodingTransform {
   int num_components_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_PREDICTION_SCHEME_DECODING_TRANSFORM_H_

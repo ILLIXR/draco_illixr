@@ -4,9 +4,9 @@
 #include <memory>
 #include <string>
 
-#include "draco/io/file_writer_interface.h"
+#include "draco_illixr/io/file_writer_interface.h"
 
-namespace draco {
+namespace draco_illixr {
 
 class FileWriterFactory {
  public:
@@ -29,6 +29,6 @@ class FileWriterFactory {
       const std::string &file_name);
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_IO_FILE_WRITER_FACTORY_H_

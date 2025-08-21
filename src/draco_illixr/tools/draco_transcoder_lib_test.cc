@@ -14,130 +14,130 @@
 //
 #ifdef DRACO_TRANSCODER_SUPPORTED
 
-#include "draco/tools/draco_transcoder_lib.h"
+#include "draco_illixr/tools/draco_transcoder_lib.h"
 
-#include "draco/core/draco_test_base.h"
-#include "draco/core/draco_test_utils.h"
-#include "draco/io/file_utils.h"
+#include "draco_illixr/core/draco_test_base.h"
+#include "draco_illixr/core/draco_test_utils.h"
+#include "draco_illixr/io/file_utils.h"
 
 // Tests encoding a .gltf file with default Draco compression.
 TEST(DracoTranscoderTest, DefaultDracoCompression) {
   const std::string input_name = "sphere.gltf";
-  const std::string input_filename = draco::GetTestFileFullPath(input_name);
+  const std::string input_filename = draco_illixr::GetTestFileFullPath(input_name);
   const std::string output_filename =
-      draco::GetTestTempFileFullPath("test.gltf");
+      draco_illixr::GetTestTempFileFullPath("test.gltf");
 
-  const draco::DracoTranscodingOptions options;
-  DRACO_ASSIGN_OR_ASSERT(std::unique_ptr<draco::DracoTranscoder> dt,
-                         draco::DracoTranscoder::Create(options));
+  const draco_illixr::DracoTranscodingOptions options;
+  DRACO_ASSIGN_OR_ASSERT(std::unique_ptr<draco_illixr::DracoTranscoder> dt,
+                         draco_illixr::DracoTranscoder::Create(options));
 
-  draco::DracoTranscoder::FileOptions file_options;
+  draco_illixr::DracoTranscoder::FileOptions file_options;
   file_options.input_filename = input_filename;
   file_options.output_filename = output_filename;
   DRACO_ASSERT_OK(dt->Transcode(file_options));
 
   const std::string output_bin_filename =
-      draco::GetTestTempFileFullPath("test.bin");
-  const size_t output_bin_size = draco::GetFileSize(output_bin_filename);
+      draco_illixr::GetTestTempFileFullPath("test.bin");
+  const size_t output_bin_size = draco_illixr::GetFileSize(output_bin_filename);
   ASSERT_GT(output_bin_size, 0);
 }
 
 // Tests setting the output glTF .bin name.
 TEST(DracoTranscoderTest, TestBinName) {
   const std::string input_name = "sphere.gltf";
-  const std::string input_filename = draco::GetTestFileFullPath(input_name);
+  const std::string input_filename = draco_illixr::GetTestFileFullPath(input_name);
   const std::string output_filename =
-      draco::GetTestTempFileFullPath("test.gltf");
+      draco_illixr::GetTestTempFileFullPath("test.gltf");
   const std::string output_bin_filename =
-      draco::GetTestTempFileFullPath("different_name.bin");
+      draco_illixr::GetTestTempFileFullPath("different_name.bin");
 
-  const draco::DracoTranscodingOptions options;
-  DRACO_ASSIGN_OR_ASSERT(std::unique_ptr<draco::DracoTranscoder> dt,
-                         draco::DracoTranscoder::Create(options));
+  const draco_illixr::DracoTranscodingOptions options;
+  DRACO_ASSIGN_OR_ASSERT(std::unique_ptr<draco_illixr::DracoTranscoder> dt,
+                         draco_illixr::DracoTranscoder::Create(options));
 
-  draco::DracoTranscoder::FileOptions file_options;
+  draco_illixr::DracoTranscoder::FileOptions file_options;
   file_options.input_filename = input_filename;
   file_options.output_filename = output_filename;
   file_options.output_bin_filename = output_bin_filename;
   DRACO_ASSERT_OK(dt->Transcode(file_options));
 
-  const size_t output_bin_size = draco::GetFileSize(output_bin_filename);
+  const size_t output_bin_size = draco_illixr::GetFileSize(output_bin_filename);
   ASSERT_GT(output_bin_size, 0);
 }
 
 // Tests setting the output glTF resource directory.
 TEST(DracoTranscoderTest, TestResourceDirName) {
   const std::string input_name = "sphere.gltf";
-  const std::string input_filename = draco::GetTestFileFullPath(input_name);
+  const std::string input_filename = draco_illixr::GetTestFileFullPath(input_name);
   const std::string output_filename =
-      draco::GetTestTempFileFullPath("test.gltf");
+      draco_illixr::GetTestTempFileFullPath("test.gltf");
   const std::string output_bin_filename =
-      draco::GetTestTempFileFullPath("another_name.bin");
+      draco_illixr::GetTestTempFileFullPath("another_name.bin");
   const std::string output_resource_directory =
-      draco::GetTestTempFileFullPath("res/other_files");
+      draco_illixr::GetTestTempFileFullPath("res/other_files");
 
-  const draco::DracoTranscodingOptions options;
-  DRACO_ASSIGN_OR_ASSERT(std::unique_ptr<draco::DracoTranscoder> dt,
-                         draco::DracoTranscoder::Create(options));
+  const draco_illixr::DracoTranscodingOptions options;
+  DRACO_ASSIGN_OR_ASSERT(std::unique_ptr<draco_illixr::DracoTranscoder> dt,
+                         draco_illixr::DracoTranscoder::Create(options));
 
-  draco::DracoTranscoder::FileOptions file_options;
+  draco_illixr::DracoTranscoder::FileOptions file_options;
   file_options.input_filename = input_filename;
   file_options.output_filename = output_filename;
   file_options.output_bin_filename = output_bin_filename;
   file_options.output_resource_directory = output_resource_directory;
   DRACO_ASSERT_OK(dt->Transcode(file_options));
 
-  const size_t output_bin_size = draco::GetFileSize(output_bin_filename);
+  const size_t output_bin_size = draco_illixr::GetFileSize(output_bin_filename);
   ASSERT_GT(output_bin_size, 0);
 
-  const std::string res_dir_png_filename = draco::GetTestTempFileFullPath(
+  const std::string res_dir_png_filename = draco_illixr::GetTestTempFileFullPath(
       "res/other_files/sphere_Texture0_Normal.png");
-  const size_t output_png_size = draco::GetFileSize(res_dir_png_filename);
+  const size_t output_png_size = draco_illixr::GetFileSize(res_dir_png_filename);
   ASSERT_GT(output_png_size, 0);
 }
 
 // Tests creating one transcoder to encode multiple files.
 TEST(DracoTranscoderTest, EncodeMultipleFiles) {
-  const draco::DracoTranscodingOptions options;
-  DRACO_ASSIGN_OR_ASSERT(std::unique_ptr<draco::DracoTranscoder> dt,
-                         draco::DracoTranscoder::Create(options));
+  const draco_illixr::DracoTranscodingOptions options;
+  DRACO_ASSIGN_OR_ASSERT(std::unique_ptr<draco_illixr::DracoTranscoder> dt,
+                         draco_illixr::DracoTranscoder::Create(options));
 
-  draco::DracoTranscoder::FileOptions file_options;
-  file_options.input_filename = draco::GetTestFileFullPath("sphere.gltf");
-  file_options.output_filename = draco::GetTestTempFileFullPath("first.gltf");
+  draco_illixr::DracoTranscoder::FileOptions file_options;
+  file_options.input_filename = draco_illixr::GetTestFileFullPath("sphere.gltf");
+  file_options.output_filename = draco_illixr::GetTestTempFileFullPath("first.gltf");
   DRACO_ASSERT_OK(dt->Transcode(file_options));
   const size_t first_bin_size =
-      draco::GetFileSize(draco::GetTestTempFileFullPath("first.bin"));
+      draco_illixr::GetFileSize(draco_illixr::GetTestTempFileFullPath("first.bin"));
   ASSERT_GT(first_bin_size, 0);
 
   file_options.input_filename =
-      draco::GetTestFileFullPath("CesiumMan/glTF/CesiumMan.gltf");
-  file_options.output_filename = draco::GetTestTempFileFullPath("second.gltf");
+      draco_illixr::GetTestFileFullPath("CesiumMan/glTF/CesiumMan.gltf");
+  file_options.output_filename = draco_illixr::GetTestTempFileFullPath("second.gltf");
   DRACO_ASSERT_OK(dt->Transcode(file_options));
   const size_t second_bin_size =
-      draco::GetFileSize(draco::GetTestTempFileFullPath("second.bin"));
+      draco_illixr::GetFileSize(draco_illixr::GetTestTempFileFullPath("second.bin"));
   ASSERT_GT(second_bin_size, 0);
 }
 
 // Tests using glTF binary as input.
 TEST(DracoTranscoderTest, SimpleGlbInput) {
   const std::string input_name = "Box/glTF_Binary/Box.glb";
-  const std::string input_filename = draco::GetTestFileFullPath(input_name);
+  const std::string input_filename = draco_illixr::GetTestFileFullPath(input_name);
   const std::string output_filename =
-      draco::GetTestTempFileFullPath("test.gltf");
+      draco_illixr::GetTestTempFileFullPath("test.gltf");
 
-  const draco::DracoTranscodingOptions options;
-  DRACO_ASSIGN_OR_ASSERT(std::unique_ptr<draco::DracoTranscoder> dt,
-                         draco::DracoTranscoder::Create(options));
+  const draco_illixr::DracoTranscodingOptions options;
+  DRACO_ASSIGN_OR_ASSERT(std::unique_ptr<draco_illixr::DracoTranscoder> dt,
+                         draco_illixr::DracoTranscoder::Create(options));
 
-  draco::DracoTranscoder::FileOptions file_options;
+  draco_illixr::DracoTranscoder::FileOptions file_options;
   file_options.input_filename = input_filename;
   file_options.output_filename = output_filename;
   DRACO_ASSERT_OK(dt->Transcode(file_options));
 
   const std::string output_bin_filename =
-      draco::GetTestTempFileFullPath("test.bin");
-  const size_t output_bin_size = draco::GetFileSize(output_bin_filename);
+      draco_illixr::GetTestTempFileFullPath("test.bin");
+  const size_t output_bin_size = draco_illixr::GetFileSize(output_bin_filename);
   ASSERT_GT(output_bin_size, 0);
 }
 
@@ -146,26 +146,26 @@ TEST(DracoTranscoderTest, SimpleGlbInput) {
 TEST(DracoTranscoderTest, TestPositionQuantization) {
   const std::string input_name =
       "KhronosSampleModels/Duck/glTF_Binary/Duck.glb";
-  const std::string input_filename = draco::GetTestFileFullPath(input_name);
+  const std::string input_filename = draco_illixr::GetTestFileFullPath(input_name);
 
-  draco::DracoTranscodingOptions options;
-  DRACO_ASSIGN_OR_ASSERT(std::unique_ptr<draco::DracoTranscoder> dt,
-                         draco::DracoTranscoder::Create(options));
+  draco_illixr::DracoTranscodingOptions options;
+  DRACO_ASSIGN_OR_ASSERT(std::unique_ptr<draco_illixr::DracoTranscoder> dt,
+                         draco_illixr::DracoTranscoder::Create(options));
 
-  draco::DracoTranscoder::FileOptions file_options;
+  draco_illixr::DracoTranscoder::FileOptions file_options;
   file_options.input_filename = input_filename;
-  file_options.output_filename = draco::GetTestTempFileFullPath("first.glb");
+  file_options.output_filename = draco_illixr::GetTestTempFileFullPath("first.glb");
   DRACO_ASSERT_OK(dt->Transcode(file_options));
   const size_t first_glb_size =
-      draco::GetFileSize(draco::GetTestTempFileFullPath("first.glb"));
+      draco_illixr::GetFileSize(draco_illixr::GetTestTempFileFullPath("first.glb"));
 
   options.geometry.quantization_position.SetQuantizationBits(10);
-  DRACO_ASSIGN_OR_ASSERT(std::unique_ptr<draco::DracoTranscoder> dt2,
-                         draco::DracoTranscoder::Create(options));
-  file_options.output_filename = draco::GetTestTempFileFullPath("second.glb");
+  DRACO_ASSIGN_OR_ASSERT(std::unique_ptr<draco_illixr::DracoTranscoder> dt2,
+                         draco_illixr::DracoTranscoder::Create(options));
+  file_options.output_filename = draco_illixr::GetTestTempFileFullPath("second.glb");
   DRACO_ASSERT_OK(dt2->Transcode(file_options));
   const size_t second_glb_size =
-      draco::GetFileSize(draco::GetTestTempFileFullPath("second.glb"));
+      draco_illixr::GetFileSize(draco_illixr::GetTestTempFileFullPath("second.glb"));
   ASSERT_GT(first_glb_size, second_glb_size);
 }
 

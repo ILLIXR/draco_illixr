@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/metadata/geometry_metadata.h"
+#include "draco_illixr/metadata/geometry_metadata.h"
 
 #include <utility>
 
-namespace draco {
+namespace draco_illixr {
 
 AttributeMetadata::AttributeMetadata(const AttributeMetadata &metadata)
     : Metadata(metadata) {
@@ -54,4 +54,4 @@ bool GeometryMetadata::AddAttributeMetadata(
   att_metadatas_.push_back(std::move(att_metadata));
   return true;
 }
-}  // namespace draco
+}  // namespace draco_illixr

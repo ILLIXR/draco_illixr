@@ -16,11 +16,11 @@
 #ifndef DRACO_ATTRIBUTES_ATTRIBUTE_OCTAHEDRON_TRANSFORM_H_
 #define DRACO_ATTRIBUTES_ATTRIBUTE_OCTAHEDRON_TRANSFORM_H_
 
-#include "draco/attributes/attribute_transform.h"
-#include "draco/attributes/point_attribute.h"
-#include "draco/core/encoder_buffer.h"
+#include "draco_illixr/attributes/attribute_transform.h"
+#include "draco_illixr/attributes/point_attribute.h"
+#include "draco_illixr/core/encoder_buffer.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Attribute transform for attributes transformed to octahedral coordinates.
 class AttributeOctahedronTransform : public AttributeTransform {
@@ -76,6 +76,6 @@ class AttributeOctahedronTransform : public AttributeTransform {
   int32_t quantization_bits_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_ATTRIBUTES_ATTRIBUTE_OCTAHEDRON_TRANSFORM_H_

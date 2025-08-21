@@ -15,11 +15,11 @@
 #ifndef DRACO_METADATA_METADATA_DECODER_H_
 #define DRACO_METADATA_METADATA_DECODER_H_
 
-#include "draco/core/decoder_buffer.h"
-#include "draco/metadata/geometry_metadata.h"
-#include "draco/metadata/metadata.h"
+#include "draco_illixr/core/decoder_buffer.h"
+#include "draco_illixr/metadata/geometry_metadata.h"
+#include "draco_illixr/metadata/metadata.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Class for decoding the metadata.
 class MetadataDecoder {
@@ -37,6 +37,6 @@ class MetadataDecoder {
 
   DecoderBuffer *buffer_;
 };
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_METADATA_METADATA_DECODER_H_

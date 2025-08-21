@@ -15,13 +15,13 @@
 #ifndef DRACO_POINT_CLOUD_POINT_CLOUD_H_
 #define DRACO_POINT_CLOUD_POINT_CLOUD_H_
 
-#include "draco/attributes/point_attribute.h"
-#include "draco/core/bounding_box.h"
-#include "draco/core/vector_d.h"
-#include "draco/draco_features.h"
-#include "draco/metadata/geometry_metadata.h"
+#include "draco_illixr/attributes/point_attribute.h"
+#include "draco_illixr/core/bounding_box.h"
+#include "draco_illixr/core/vector_d.h"
+#include "draco_illixr/draco_features.h"
+#include "draco_illixr/metadata/geometry_metadata.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // PointCloud is a collection of n-dimensional points that are described by a
 // set of PointAttributes that can represent data such as positions or colors
@@ -72,7 +72,7 @@ class PointCloud {
   }
 
   // Returned attribute can be modified, but it's caller's responsibility to
-  // maintain the attribute's consistency with draco::PointCloud.
+  // maintain the attribute's consistency with draco_illixr::PointCloud.
   PointAttribute *attribute(int32_t att_id) {
     DRACO_DCHECK_LE(0, att_id);
     DRACO_DCHECK_LT(att_id, static_cast<int32_t>(attributes_.size()));
@@ -249,6 +249,6 @@ struct PointCloudHasher {
   }
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_POINT_CLOUD_POINT_CLOUD_H_

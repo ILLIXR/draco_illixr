@@ -15,15 +15,15 @@
 #ifndef DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_MESH_PREDICTION_SCHEME_TEX_COORDS_ENCODER_H_
 #define DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_MESH_PREDICTION_SCHEME_TEX_COORDS_ENCODER_H_
 
-#include <math.h>
+#include <cmath>
 
-#include "draco/compression/attributes/prediction_schemes/mesh_prediction_scheme_encoder.h"
-#include "draco/compression/bit_coders/rans_bit_encoder.h"
-#include "draco/core/varint_encoding.h"
-#include "draco/core/vector_d.h"
-#include "draco/mesh/corner_table.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/mesh_prediction_scheme_encoder.h"
+#include "draco_illixr/compression/bit_coders/rans_bit_encoder.h"
+#include "draco_illixr/core/varint_encoding.h"
+#include "draco_illixr/core/vector_d.h"
+#include "draco_illixr/mesh/corner_table.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Prediction scheme designed for predicting texture coordinates from known
 // spatial position of vertices. For good parametrization, the ratios between
@@ -313,6 +313,6 @@ void MeshPredictionSchemeTexCoordsEncoder<DataTypeT, TransformT, MeshDataT>::
   }
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_MESH_PREDICTION_SCHEME_TEX_COORDS_H_

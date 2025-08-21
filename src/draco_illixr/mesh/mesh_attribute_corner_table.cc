@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/mesh/mesh_attribute_corner_table.h"
+#include "draco_illixr/mesh/mesh_attribute_corner_table.h"
 
-#include "draco/mesh/corner_table_iterators.h"
-#include "draco/mesh/mesh_misc_functions.h"
+#include "draco_illixr/mesh/corner_table_iterators.h"
+#include "draco_illixr/mesh/mesh_misc_functions.h"
 
-namespace draco {
+namespace draco_illixr {
 
 MeshAttributeCornerTable::MeshAttributeCornerTable()
     : no_interior_seams_(true), corner_table_(nullptr), valence_cache_(*this) {}
@@ -206,7 +206,7 @@ int MeshAttributeCornerTable::Valence(VertexIndex v) const {
 
 int MeshAttributeCornerTable::ConfidentValence(VertexIndex v) const {
   DRACO_DCHECK_LT(v.value(), num_vertices());
-  draco::VertexRingIterator<MeshAttributeCornerTable> vi(this, v);
+  draco_illixr::VertexRingIterator<MeshAttributeCornerTable> vi(this, v);
   int valence = 0;
   for (; !vi.End(); vi.Next()) {
     ++valence;
@@ -214,4 +214,4 @@ int MeshAttributeCornerTable::ConfidentValence(VertexIndex v) const {
   return valence;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

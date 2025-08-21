@@ -12,17 +12,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/compression/entropy/symbol_encoding.h"
+#include "draco_illixr/compression/entropy/symbol_encoding.h"
 
 #include <algorithm>
 #include <cmath>
 
-#include "draco/compression/entropy/rans_symbol_encoder.h"
-#include "draco/compression/entropy/shannon_entropy.h"
-#include "draco/core/bit_utils.h"
-#include "draco/core/macros.h"
+#include "draco_illixr/compression/entropy/rans_symbol_encoder.h"
+#include "draco_illixr/compression/entropy/shannon_entropy.h"
+#include "draco_illixr/core/bit_utils.h"
+#include "draco_illixr/core/macros.h"
 
-namespace draco {
+namespace draco_illixr {
 
 constexpr int32_t kMaxTagSymbolBitLength = 32;
 constexpr int kMaxRawEncodingBitLength = 18;
@@ -373,4 +373,4 @@ bool EncodeRawSymbols(const uint32_t *symbols, int num_values,
   }
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

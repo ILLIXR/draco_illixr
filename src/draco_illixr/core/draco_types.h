@@ -19,9 +19,9 @@
 
 #include <string>
 
-#include "draco/draco_features.h"
+#include "draco_illixr/draco_features.h"
 
-namespace draco {
+namespace draco_illixr {
 
 enum DataType {
   // Not a legal value for DataType. Used to indicate a field has not been set.
@@ -42,11 +42,11 @@ enum DataType {
 
 int32_t DataTypeLength(DataType dt);
 
-// Equivalent to std::is_integral for draco::DataType. Returns true for all
+// Equivalent to std::is_integral for draco_illixr::DataType. Returns true for all
 // signed and unsigned integer types (including DT_BOOL). Returns false
 // otherwise.
 bool IsDataTypeIntegral(DataType dt);
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_CORE_DRACO_TYPES_H_

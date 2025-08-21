@@ -15,13 +15,13 @@
 #ifndef DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_PREDICTION_SCHEME_ENCODER_INTERFACE_H_
 #define DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_PREDICTION_SCHEME_ENCODER_INTERFACE_H_
 
-#include "draco/compression/attributes/prediction_schemes/prediction_scheme_interface.h"
-#include "draco/core/encoder_buffer.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/prediction_scheme_interface.h"
+#include "draco_illixr/core/encoder_buffer.h"
 
 // Prediction schemes can be used during encoding and decoding of attributes
 // to predict attribute values based on the previously encoded/decoded data.
 // See prediction_scheme.h for more details.
-namespace draco {
+namespace draco_illixr {
 
 // Abstract interface for all prediction schemes used during attribute encoding.
 class PredictionSchemeEncoderInterface : public PredictionSchemeInterface {
@@ -50,6 +50,6 @@ class PredictionSchemeTypedEncoderInterface
       int num_components, const PointIndex *entry_to_point_id_map) = 0;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_PREDICTION_SCHEME_ENCODER_INTERFACE_H_

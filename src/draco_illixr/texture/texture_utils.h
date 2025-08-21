@@ -15,19 +15,19 @@
 #ifndef DRACO_TEXTURE_TEXTURE_UTILS_H_
 #define DRACO_TEXTURE_TEXTURE_UTILS_H_
 
-#include "draco/draco_features.h"
+#include "draco_illixr/draco_features.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
-#include "draco/core/status.h"
-#include "draco/core/status_or.h"
-#include "draco/io/file_utils.h"
-#include "draco/material/material_library.h"
-#include "draco/texture/texture_library.h"
-#include "draco/texture/texture_map.h"
+#include "draco_illixr/core/status.h"
+#include "draco_illixr/core/status_or.h"
+#include "draco_illixr/io/file_utils.h"
+#include "draco_illixr/material/material_library.h"
+#include "draco_illixr/texture/texture_library.h"
+#include "draco_illixr/texture/texture_map.h"
 
-namespace draco {
+namespace draco_illixr {
 
-// Helper class implementing various utilities operating on draco::Texture.
+// Helper class implementing various utilities operating on draco_illixr::Texture.
 class TextureUtils {
  public:
   // Returns |texture| image stem (file basename without extension) based on the
@@ -72,7 +72,7 @@ class TextureUtils {
       const MaterialLibrary *material_library);
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED
 #endif  // DRACO_TEXTURE_TEXTURE_UTILS_H_

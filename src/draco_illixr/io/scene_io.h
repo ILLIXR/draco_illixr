@@ -15,17 +15,17 @@
 #ifndef DRACO_IO_SCENE_IO_H_
 #define DRACO_IO_SCENE_IO_H_
 
-#include "draco/draco_features.h"
+#include "draco_illixr/draco_features.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 #include <string>
 #include <vector>
 
-#include "draco/core/options.h"
-#include "draco/core/status_or.h"
-#include "draco/scene/scene.h"
+#include "draco_illixr/core/options.h"
+#include "draco_illixr/core/status_or.h"
+#include "draco_illixr/scene/scene.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Reads a scene from a file. Currently only GLTF 2.0 scene files are supported.
 // The second form returns the files associated with the scene via the
@@ -49,7 +49,7 @@ Status WriteSceneToFile(const std::string &file_name, const Scene &scene);
 Status WriteSceneToFile(const std::string &file_name, const Scene &scene,
                         const Options &options);
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED
 #endif  // DRACO_IO_SCENE_IO_H_

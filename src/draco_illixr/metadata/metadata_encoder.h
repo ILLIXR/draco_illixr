@@ -15,11 +15,11 @@
 #ifndef DRACO_METADATA_METADATA_ENCODER_H_
 #define DRACO_METADATA_METADATA_ENCODER_H_
 
-#include "draco/core/encoder_buffer.h"
-#include "draco/metadata/geometry_metadata.h"
-#include "draco/metadata/metadata.h"
+#include "draco_illixr/core/encoder_buffer.h"
+#include "draco_illixr/metadata/geometry_metadata.h"
+#include "draco_illixr/metadata/metadata.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Class for encoding metadata. It could encode either base Metadata class or
 // a metadata of a geometry, e.g. a point cloud.
@@ -36,6 +36,6 @@ class MetadataEncoder {
                                const AttributeMetadata *metadata);
   bool EncodeString(EncoderBuffer *out_buffer, const std::string &str);
 };
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_METADATA_METADATA_ENCODER_H_

@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/point_cloud/point_cloud_builder.h"
+#include "draco_illixr/point_cloud/point_cloud_builder.h"
 
-#include "draco/core/draco_test_base.h"
+#include "draco_illixr/core/draco_test_base.h"
 
-namespace draco {
+namespace draco_illixr {
 
 class PointCloudBuilderTest : public ::testing::Test {
  protected:
@@ -168,4 +168,4 @@ TEST_F(PointCloudBuilderTest, MultiUse) {
   }
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

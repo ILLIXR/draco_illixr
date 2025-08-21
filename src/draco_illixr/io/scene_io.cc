@@ -12,17 +12,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/io/scene_io.h"
+#include "draco_illixr/io/scene_io.h"
 
 #include <string>
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
-#include "draco/io/gltf_decoder.h"
-#include "draco/io/gltf_encoder.h"
-#include "draco/io/obj_encoder.h"
-#include "draco/io/ply_encoder.h"
+#include "draco_illixr/io/gltf_decoder.h"
+#include "draco_illixr/io/gltf_encoder.h"
+#include "draco_illixr/io/obj_encoder.h"
+#include "draco_illixr/io/ply_encoder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 enum SceneFileFormat { UNKNOWN, GLTF, USD, PLY, OBJ };
 
@@ -76,7 +76,7 @@ Status WriteSceneToFile(const std::string &file_name, const Scene &scene,
   const std::string extension = LowercaseFileExtension(file_name);
   std::string folder_path;
   std::string out_file_name;
-  draco::SplitPath(file_name, &folder_path, &out_file_name);
+  draco_illixr::SplitPath(file_name, &folder_path, &out_file_name);
   const auto format = GetSceneFileFormat(file_name);
   switch (format) {
     case GLTF: {
@@ -121,6 +121,6 @@ Status WriteSceneToFile(const std::string &file_name, const Scene &scene,
   }
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED

@@ -12,16 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/mesh/triangle_soup_mesh_builder.h"
+#include "draco_illixr/mesh/triangle_soup_mesh_builder.h"
 
 #include <cstdint>
 #include <memory>
 
-#include "draco/core/draco_test_base.h"
-#include "draco/core/draco_test_utils.h"
-#include "draco/core/vector_d.h"
+#include "draco_illixr/core/draco_test_base.h"
+#include "draco_illixr/core/draco_test_utils.h"
+#include "draco_illixr/core/vector_d.h"
 
-namespace draco {
+namespace draco_illixr {
 
 class TriangleSoupMeshBuilderTest : public ::testing::Test {};
 
@@ -241,13 +241,13 @@ TEST_F(TriangleSoupMeshBuilderTest, NormalizedColor) {
   EXPECT_EQ(mesh->num_faces(), 2) << "Unexpected number of faces.";
 
   const auto *col_att =
-      mesh->GetNamedAttribute(draco::GeometryAttribute::COLOR);
+      mesh->GetNamedAttribute(draco_illixr::GeometryAttribute::COLOR);
   ASSERT_NE(col_att, nullptr) << "Missing color attribute.";
   ASSERT_EQ(col_att->size(), 4);
 
   // All colors should be in range 0-255.
   uint8_t max_val = 0, min_val = 255;
-  for (draco::AttributeValueIndex avi(0); avi < col_att->size(); ++avi) {
+  for (draco_illixr::AttributeValueIndex avi(0); avi < col_att->size(); ++avi) {
     VectorD<uint8_t, 3> cval;
     col_att->GetValue(avi, &cval);
     const uint8_t max = cval.MaxCoeff();
@@ -264,4 +264,4 @@ TEST_F(TriangleSoupMeshBuilderTest, NormalizedColor) {
 }
 #endif
 
-}  // namespace draco
+}  // namespace draco_illixr

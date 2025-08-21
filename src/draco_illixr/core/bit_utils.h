@@ -27,7 +27,7 @@
 #include <intrin.h>
 #endif  // defined(_MSC_VER)
 
-namespace draco {
+namespace draco_illixr {
 
 // Returns the number of '1' bits within the input 32 bit integer.
 inline int CountOneBits32(uint32_t n) {
@@ -119,6 +119,6 @@ typename std::make_signed<IntTypeT>::type ConvertSymbolToSignedInt(
   return ret;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_CORE_BIT_UTILS_H_

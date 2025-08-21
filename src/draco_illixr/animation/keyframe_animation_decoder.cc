@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/animation/keyframe_animation_decoder.h"
+#include "draco_illixr/animation/keyframe_animation_decoder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 Status KeyframeAnimationDecoder::Decode(const DecoderOptions &options,
                                         DecoderBuffer *in_buffer,
@@ -27,4 +27,4 @@ Status KeyframeAnimationDecoder::Decode(const DecoderOptions &options,
   return OkStatus();
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

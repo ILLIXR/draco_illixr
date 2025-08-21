@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/core/cycle_timer.h"
+#include "draco_illixr/core/cycle_timer.h"
 
-namespace draco {
+namespace draco_illixr {
 void DracoTimer::Start() {
 #ifdef _WIN32
   QueryPerformanceCounter(&tv_start_);
@@ -46,4 +46,4 @@ int64_t DracoTimer::GetInMs() {
 #endif
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

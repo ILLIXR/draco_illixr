@@ -15,14 +15,14 @@
 #ifndef DRACO_COMPRESSION_DECODE_H_
 #define DRACO_COMPRESSION_DECODE_H_
 
-#include "draco/compression/config/compression_shared.h"
-#include "draco/compression/config/decoder_options.h"
-#include "draco/core/decoder_buffer.h"
-#include "draco/core/status_or.h"
-#include "draco/draco_features.h"
-#include "draco/mesh/mesh.h"
+#include "draco_illixr/compression/config/compression_shared.h"
+#include "draco_illixr/compression/config/decoder_options.h"
+#include "draco_illixr/core/decoder_buffer.h"
+#include "draco_illixr/core/status_or.h"
+#include "draco_illixr/draco_features.h"
+#include "draco_illixr/mesh/mesh.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Class responsible for decoding of meshes and point clouds that were
 // compressed by a Draco encoder.
@@ -52,7 +52,7 @@ class Decoder {
 
   // Decodes the buffer into a provided geometry. If the geometry is
   // incompatible with the encoded data. For example, when |out_geometry| is
-  // draco::Mesh while the data contains a point cloud, the function will return
+  // draco_illixr::Mesh while the data contains a point cloud, the function will return
   // an error status.
   Status DecodeBufferToGeometry(DecoderBuffer *in_buffer,
                                 PointCloud *out_geometry);
@@ -75,6 +75,6 @@ class Decoder {
   DecoderOptions options_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_DECODE_H_

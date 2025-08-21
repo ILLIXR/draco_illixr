@@ -15,11 +15,11 @@
 #ifndef DRACO_MESH_MESH_STRIPIFIER_H_
 #define DRACO_MESH_MESH_STRIPIFIER_H_
 
-#include "draco/mesh/mesh_misc_functions.h"
+#include "draco_illixr/mesh/mesh_misc_functions.h"
 
-namespace draco {
+namespace draco_illixr {
 
-// Class that generates triangle strips from a provided draco::Mesh data
+// Class that generates triangle strips from a provided draco_illixr::Mesh data
 // structure. The strips represent a more memory efficient storage of triangle
 // connectivity that can be used directly on the GPU (see
 // https://en.wikipedia.org/wiki/Triangle_strip ). In general, a mesh needs to
@@ -253,6 +253,6 @@ bool MeshStripifier::GenerateTriangleStripsWithDegenerateTriangles(
   return true;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_MESH_MESH_STRIPIFIER_H_

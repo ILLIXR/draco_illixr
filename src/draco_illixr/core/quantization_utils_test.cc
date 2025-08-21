@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/core/quantization_utils.h"
+#include "draco_illixr/core/quantization_utils.h"
 
-#include "draco/core/draco_test_base.h"
+#include "draco_illixr/core/draco_test_base.h"
 
-namespace draco {
+namespace draco_illixr {
 
 class QuantizationUtilsTest : public ::testing::Test {};
 
@@ -88,4 +88,4 @@ TEST_F(QuantizationUtilsTest, TestDeltaQuantization) {
             dequantizer_range.DequantizeFloat(0));
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

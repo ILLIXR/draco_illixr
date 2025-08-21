@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/compression/draco_compression_options.h"
+#include "draco_illixr/compression/draco_compression_options.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 
-namespace draco {
+namespace draco_illixr {
 
 SpatialQuantizationOptions::SpatialQuantizationOptions(int quantization_bits) {
   SetQuantizationBits(quantization_bits);
@@ -54,6 +54,6 @@ bool SpatialQuantizationOptions::operator==(
   return true;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED

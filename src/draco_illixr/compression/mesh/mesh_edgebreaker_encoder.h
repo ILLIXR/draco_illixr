@@ -17,12 +17,12 @@
 
 #include <unordered_map>
 
-#include "draco/compression/mesh/mesh_edgebreaker_encoder_impl_interface.h"
-#include "draco/compression/mesh/mesh_edgebreaker_shared.h"
-#include "draco/compression/mesh/mesh_encoder.h"
-#include "draco/mesh/corner_table.h"
+#include "draco_illixr/compression/mesh/mesh_edgebreaker_encoder_impl_interface.h"
+#include "draco_illixr/compression/mesh/mesh_edgebreaker_shared.h"
+#include "draco_illixr/compression/mesh/mesh_encoder.h"
+#include "draco_illixr/mesh/corner_table.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Class implements the edge breaker geometry compression method as described
 // in "3D Compression Made Simple: Edgebreaker on a Corner-Table" by Rossignac
@@ -68,6 +68,6 @@ class MeshEdgebreakerEncoder : public MeshEncoder {
   std::unique_ptr<MeshEdgebreakerEncoderImplInterface> impl_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_MESH_MESH_EDGEBREAKER_ENCODER_H_

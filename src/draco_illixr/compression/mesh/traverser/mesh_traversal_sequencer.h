@@ -15,12 +15,12 @@
 #ifndef DRACO_COMPRESSION_MESH_TRAVERSER_MESH_TRAVERSAL_SEQUENCER_H_
 #define DRACO_COMPRESSION_MESH_TRAVERSER_MESH_TRAVERSAL_SEQUENCER_H_
 
-#include "draco/attributes/geometry_indices.h"
-#include "draco/compression/attributes/mesh_attribute_indices_encoding_data.h"
-#include "draco/compression/attributes/points_sequencer.h"
-#include "draco/mesh/mesh.h"
+#include "draco_illixr/attributes/geometry_indices.h"
+#include "draco_illixr/compression/attributes/mesh_attribute_indices_encoding_data.h"
+#include "draco_illixr/compression/attributes/points_sequencer.h"
+#include "draco_illixr/mesh/mesh.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Sequencer that generates point sequence in an order given by a deterministic
 // traversal on the mesh surface. Note that all attributes encoded with this
@@ -108,6 +108,6 @@ class MeshTraversalSequencer : public PointsSequencer {
   const std::vector<CornerIndex> *corner_order_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_MESH_TRAVERSER_MESH_TRAVERSAL_SEQUENCER_H_

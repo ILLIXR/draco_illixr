@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/core/encoder_buffer.h"
+#include "draco_illixr/core/encoder_buffer.h"
 
 #include <cstring>  // for memcpy
 
-#include "draco/core/varint_encoding.h"
+#include "draco_illixr/core/varint_encoding.h"
 
-namespace draco {
+namespace draco_illixr {
 
 EncoderBuffer::EncoderBuffer()
     : bit_encoder_reserved_bytes_(false), encode_bit_sequence_size_(false) {}
@@ -90,4 +90,4 @@ void EncoderBuffer::EndBitEncoding() {
   bit_encoder_reserved_bytes_ = 0;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

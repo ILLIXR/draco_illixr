@@ -15,11 +15,11 @@
 #ifndef DRACO_COMPRESSION_ENTROPY_SHANNON_ENTROPY_H_
 #define DRACO_COMPRESSION_ENTROPY_SHANNON_ENTROPY_H_
 
-#include <stdint.h>
+#include <cstdint>
 
 #include <vector>
 
-namespace draco {
+namespace draco_illixr {
 
 // Computes an approximate Shannon entropy of symbols stored in the provided
 // input array |symbols|. The entropy corresponds to the number of bits that is
@@ -105,6 +105,6 @@ class ShannonEntropyTracker {
   EntropyData entropy_data_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ENTROPY_SHANNON_ENTROPY_H_

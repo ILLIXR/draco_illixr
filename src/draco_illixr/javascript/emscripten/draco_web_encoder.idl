@@ -9,23 +9,23 @@ enum draco_GeometryAttribute_Type {
   "draco_GeometryAttribute::GENERIC"
 };
 
-[Prefix="draco::"]
+[Prefix="draco_illixr::"]
 interface GeometryAttribute {
   void GeometryAttribute();
 };
 
 enum draco_EncodedGeometryType {
-  "draco::INVALID_GEOMETRY_TYPE",
-  "draco::POINT_CLOUD",
-  "draco::TRIANGULAR_MESH"
+  "draco_illixr::INVALID_GEOMETRY_TYPE",
+  "draco_illixr::POINT_CLOUD",
+  "draco_illixr::TRIANGULAR_MESH"
 };
 
 enum draco_MeshEncoderMethod {
-  "draco::MESH_SEQUENTIAL_ENCODING",
-  "draco::MESH_EDGEBREAKER_ENCODING"
+  "draco_illixr::MESH_SEQUENTIAL_ENCODING",
+  "draco_illixr::MESH_EDGEBREAKER_ENCODING"
 };
 
-[Prefix="draco::"]
+[Prefix="draco_illixr::"]
 interface PointAttribute {
   void PointAttribute();
   long size();
@@ -40,7 +40,7 @@ interface PointAttribute {
   long unique_id();
 };
 
-[Prefix="draco::"]
+[Prefix="draco_illixr::"]
 interface PointCloud {
   void PointCloud();
 
@@ -48,7 +48,7 @@ interface PointCloud {
   long num_points();
 };
 
-[Prefix="draco::"]
+[Prefix="draco_illixr::"]
 interface Mesh : PointCloud {
   void Mesh();
   long num_faces();
@@ -59,7 +59,7 @@ interface Mesh : PointCloud {
   void set_num_points(long num_points);
 };
 
-[Prefix="draco::"]
+[Prefix="draco_illixr::"]
 interface Metadata {
   void Metadata();
 };

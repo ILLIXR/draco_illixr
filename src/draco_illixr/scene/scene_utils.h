@@ -15,22 +15,22 @@
 #ifndef DRACO_SCENE_SCENE_UTILS_H_
 #define DRACO_SCENE_SCENE_UTILS_H_
 
-#include "draco/draco_features.h"
+#include "draco_illixr/draco_features.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
-#include "draco/attributes/geometry_attribute.h"
-#include "draco/scene/scene.h"
+#include "draco_illixr/attributes/geometry_attribute.h"
+#include "draco_illixr/scene/scene.h"
 
-namespace draco {
+namespace draco_illixr {
 
-// Helper class containing various utility functions operating on draco::Scene.
+// Helper class containing various utility functions operating on draco_illixr::Scene.
 class SceneUtils {
  public:
   // Helper struct holding instanced meshes and their transformations.
   struct MeshInstance {
-    // Index of the parent mesh in the draco::Scene.
+    // Index of the parent mesh in the draco_illixr::Scene.
     MeshIndex mesh_index;
-    // Index of the node in the draco::Scene.
+    // Index of the node in the draco_illixr::Scene.
     SceneNodeIndex scene_node_index;
     // Index of the mesh in the mesh group.
     int mesh_group_mesh_index;
@@ -93,7 +93,7 @@ class SceneUtils {
   static void PrintInfo(const Scene &input, const Scene &simplified,
                         bool verbose);
 
-  // Converts a draco::Mesh into a draco::Scene. If the passed-in `mesh` has
+  // Converts a draco_illixr::Mesh into a draco_illixr::Scene. If the passed-in `mesh` has
   // multiple materials, the returned scene will contain multiple meshes, one
   // for each of the source mesh's materials; if `mesh` has no material, one
   // will be created for it.
@@ -144,7 +144,7 @@ class SceneUtils {
   FindLargestBaseMeshTransforms(const Scene &scene);
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED
 #endif  // DRACO_SCENE_SCENE_UTILS_H_

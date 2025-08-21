@@ -22,12 +22,12 @@
 #ifndef DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_PREDICTION_SCHEME_FACTORY_H_
 #define DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_PREDICTION_SCHEME_FACTORY_H_
 
-#include "draco/compression/attributes/mesh_attribute_indices_encoding_data.h"
-#include "draco/compression/attributes/prediction_schemes/mesh_prediction_scheme_data.h"
-#include "draco/compression/config/compression_shared.h"
-#include "draco/mesh/mesh_attribute_corner_table.h"
+#include "draco_illixr/compression/attributes/mesh_attribute_indices_encoding_data.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/mesh_prediction_scheme_data.h"
+#include "draco_illixr/compression/config/compression_shared.h"
+#include "draco_illixr/mesh/mesh_attribute_corner_table.h"
 
-namespace draco {
+namespace draco_illixr {
 
 template <class EncodingDataSourceT, class PredictionSchemeT,
           class MeshPredictionSchemeFactoryT>
@@ -80,6 +80,6 @@ std::unique_ptr<PredictionSchemeT> CreateMeshPredictionScheme(
   return nullptr;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_PREDICTION_SCHEME_FACTORY_H_

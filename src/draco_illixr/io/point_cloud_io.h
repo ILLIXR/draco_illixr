@@ -15,11 +15,11 @@
 #ifndef DRACO_IO_POINT_CLOUD_IO_H_
 #define DRACO_IO_POINT_CLOUD_IO_H_
 
-#include "draco/compression/config/compression_shared.h"
-#include "draco/compression/decode.h"
-#include "draco/compression/expert_encode.h"
+#include "draco_illixr/compression/config/compression_shared.h"
+#include "draco_illixr/compression/decode.h"
+#include "draco_illixr/compression/expert_encode.h"
 
-namespace draco {
+namespace draco_illixr {
 
 template <typename OutStreamT>
 OutStreamT WritePointCloudIntoStream(const PointCloud *pc, OutStreamT &&os,
@@ -79,11 +79,11 @@ InStreamT &ReadPointCloudFromStream(std::unique_ptr<PointCloud> *point_cloud,
 // Reads a point cloud from a file. The function automatically chooses the
 // correct decoder based on the extension of the files. Currently, .obj and .ply
 // files are supported. Other file extensions are processed by the default
-// draco::PointCloudDecoder.
+// draco_illixr::PointCloudDecoder.
 // Returns nullptr with an error status if the decoding failed.
 StatusOr<std::unique_ptr<PointCloud>> ReadPointCloudFromFile(
     const std::string &file_name);
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_IO_POINT_CLOUD_IO_H_

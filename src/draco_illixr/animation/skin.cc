@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/animation/skin.h"
+#include "draco_illixr/animation/skin.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 
-namespace draco {
+namespace draco_illixr {
 
 void Skin::Copy(const Skin &s) {
   inverse_bind_matrices_.Copy(s.GetInverseBindMatrices());
@@ -24,6 +24,6 @@ void Skin::Copy(const Skin &s) {
   joint_root_index_ = s.GetJointRoot();
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED

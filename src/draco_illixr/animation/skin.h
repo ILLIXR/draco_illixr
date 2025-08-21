@@ -15,16 +15,16 @@
 #ifndef DRACO_ANIMATION_SKIN_H_
 #define DRACO_ANIMATION_SKIN_H_
 
-#include "draco/draco_features.h"
+#include "draco_illixr/draco_features.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 
 #include <vector>
 
-#include "draco/animation/node_animation_data.h"
-#include "draco/scene/scene_indices.h"
+#include "draco_illixr/animation/node_animation_data.h"
+#include "draco_illixr/scene/scene_indices.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // This class is used to store information on animation skins.
 class Skin {
@@ -58,7 +58,7 @@ class Skin {
   SceneNodeIndex joint_root_index_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED
 #endif  // DRACO_ANIMATION_SKIN_H_

@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/animation/animation.h"
+#include "draco_illixr/animation/animation.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 
-namespace draco {
+namespace draco_illixr {
 
 void Animation::Copy(const Animation &src) {
   name_ = src.name_;
@@ -42,6 +42,6 @@ void Animation::Copy(const Animation &src) {
   }
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED

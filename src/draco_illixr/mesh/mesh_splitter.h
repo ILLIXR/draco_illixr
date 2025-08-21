@@ -18,15 +18,15 @@
 #include <memory>
 #include <vector>
 
-#include "draco/draco_features.h"
+#include "draco_illixr/draco_features.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
-#include "draco/core/status_or.h"
-#include "draco/mesh/mesh.h"
-#include "draco/mesh/mesh_connected_components.h"
-#include "draco/mesh/triangle_soup_mesh_builder.h"
+#include "draco_illixr/core/status_or.h"
+#include "draco_illixr/mesh/mesh.h"
+#include "draco_illixr/mesh/mesh_connected_components.h"
+#include "draco_illixr/mesh/triangle_soup_mesh_builder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Class that can be used to split a single mesh into multiple sub-meshes
 // according to specified criteria.
@@ -103,7 +103,7 @@ class MeshSplitter {
   friend class MeshSplitterInternal;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED
 #endif  // DRACO_MESH_MESH_SPLITTER_H_

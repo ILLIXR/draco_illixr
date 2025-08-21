@@ -17,10 +17,10 @@
 
 #include <inttypes.h>
 
-#include "draco/compression/point_cloud/algorithms/point_cloud_types.h"
-#include "draco/core/quantization_utils.h"
+#include "draco_illixr/compression/point_cloud/algorithms/point_cloud_types.h"
+#include "draco_illixr/core/quantization_utils.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // TODO(b/199760123): Make this a stable bounding box.
 struct QuantizationInfo {
@@ -79,6 +79,6 @@ void DequantizePoints3(const QPointIterator &begin, const QPointIterator &end,
   }
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_POINT_CLOUD_ALGORITHMS_QUANTIZE_POINTS_3_H_

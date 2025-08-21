@@ -11,11 +11,11 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-#include "draco/core/status.h"
+#include "draco_illixr/core/status.h"
 
 #include <string>
 
-namespace draco {
+namespace draco_illixr {
 
 std::string Status::code_string() const {
   switch (code_) {
@@ -40,4 +40,4 @@ std::string Status::code_and_error_string() const {
   return code_string() + ": " + error_msg_string();
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

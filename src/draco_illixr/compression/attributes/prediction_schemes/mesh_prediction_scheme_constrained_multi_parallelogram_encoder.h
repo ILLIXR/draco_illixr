@@ -18,14 +18,14 @@
 #include <algorithm>
 #include <cmath>
 
-#include "draco/compression/attributes/prediction_schemes/mesh_prediction_scheme_constrained_multi_parallelogram_shared.h"
-#include "draco/compression/attributes/prediction_schemes/mesh_prediction_scheme_encoder.h"
-#include "draco/compression/attributes/prediction_schemes/mesh_prediction_scheme_parallelogram_shared.h"
-#include "draco/compression/bit_coders/rans_bit_encoder.h"
-#include "draco/compression/entropy/shannon_entropy.h"
-#include "draco/core/varint_encoding.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/mesh_prediction_scheme_constrained_multi_parallelogram_shared.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/mesh_prediction_scheme_encoder.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/mesh_prediction_scheme_parallelogram_shared.h"
+#include "draco_illixr/compression/bit_coders/rans_bit_encoder.h"
+#include "draco_illixr/compression/entropy/shannon_entropy.h"
+#include "draco_illixr/core/varint_encoding.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Compared to standard multi-parallelogram, constrained multi-parallelogram can
 // explicitly select which of the available parallelograms are going to be used
@@ -409,6 +409,6 @@ bool MeshPredictionSchemeConstrainedMultiParallelogramEncoder<
                                      MeshDataT>::EncodePredictionData(buffer);
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_MESH_PREDICTION_SCHEME_CONSTRAINED_MULTI_PARALLELOGRAM_ENCODER_H_

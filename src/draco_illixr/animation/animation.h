@@ -15,16 +15,16 @@
 #ifndef DRACO_ANIMATION_ANIMATION_H_
 #define DRACO_ANIMATION_ANIMATION_H_
 
-#include "draco/draco_features.h"
+#include "draco_illixr/draco_features.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 #include <memory>
 #include <vector>
 
-#include "draco/animation/node_animation_data.h"
-#include "draco/core/status.h"
+#include "draco_illixr/animation/node_animation_data.h"
+#include "draco_illixr/core/status.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Struct to hold information about an animation's sampler.
 struct AnimationSampler {
@@ -143,7 +143,7 @@ class Animation {
   std::vector<std::unique_ptr<NodeAnimationData>> node_animation_data_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED
 #endif  // DRACO_ANIMATION_ANIMATION_H_

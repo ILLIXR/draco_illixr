@@ -19,9 +19,9 @@
 
 #include <limits>
 
-#include "draco/core/draco_index_type.h"
+#include "draco_illixr/core/draco_index_type.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Index of an attribute value entry stored in a GeometryAttribute.
 DEFINE_NEW_DRACO_INDEX_TYPE(uint32_t, AttributeValueIndex)
@@ -49,6 +49,6 @@ static constexpr FaceIndex kInvalidFaceIndex(
 // TODO(ostava): Add strongly typed indices for attribute id and unique
 // attribute id.
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_ATTRIBUTES_GEOMETRY_INDICES_H_

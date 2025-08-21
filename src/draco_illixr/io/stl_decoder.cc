@@ -12,17 +12,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/io/stl_decoder.h"
+#include "draco_illixr/io/stl_decoder.h"
 
 #include <string>
 
-#include "draco/core/macros.h"
-#include "draco/core/status.h"
-#include "draco/core/status_or.h"
-#include "draco/io/file_utils.h"
-#include "draco/mesh/triangle_soup_mesh_builder.h"
+#include "draco_illixr/core/macros.h"
+#include "draco_illixr/core/status.h"
+#include "draco_illixr/core/status_or.h"
+#include "draco_illixr/io/file_utils.h"
+#include "draco_illixr/mesh/triangle_soup_mesh_builder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 StatusOr<std::unique_ptr<Mesh>> StlDecoder::DecodeFromFile(
     const std::string &file_name) {
@@ -60,18 +60,18 @@ StatusOr<std::unique_ptr<Mesh>> StlDecoder::DecodeFromBuffer(
     buffer->Decode(&unused, 2);
 
     builder.SetPerFaceAttributeValueForFace(
-        norm_att_id, draco::FaceIndex(i),
-        draco::Vector3f(data[0], data[1], data[2]).data());
+        norm_att_id, draco_illixr::FaceIndex(i),
+        draco_illixr::Vector3f(data[0], data[1], data[2]).data());
 
     builder.SetAttributeValuesForFace(
-        pos_att_id, draco::FaceIndex(i),
-        draco::Vector3f(data[3], data[4], data[5]).data(),
-        draco::Vector3f(data[6], data[7], data[8]).data(),
-        draco::Vector3f(data[9], data[10], data[11]).data());
+        pos_att_id, draco_illixr::FaceIndex(i),
+        draco_illixr::Vector3f(data[3], data[4], data[5]).data(),
+        draco_illixr::Vector3f(data[6], data[7], data[8]).data(),
+        draco_illixr::Vector3f(data[9], data[10], data[11]).data());
   }
 
   std::unique_ptr<Mesh> mesh = builder.Finalize();
   return mesh;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

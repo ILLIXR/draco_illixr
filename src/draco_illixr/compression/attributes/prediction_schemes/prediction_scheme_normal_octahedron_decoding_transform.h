@@ -18,14 +18,14 @@
 
 #include <cmath>
 
-#include "draco/compression/attributes/normal_compression_utils.h"
-#include "draco/compression/attributes/prediction_schemes/prediction_scheme_normal_octahedron_transform_base.h"
-#include "draco/core/decoder_buffer.h"
-#include "draco/core/macros.h"
-#include "draco/core/vector_d.h"
-#include "draco/draco_features.h"
+#include "draco_illixr/compression/attributes/normal_compression_utils.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/prediction_scheme_normal_octahedron_transform_base.h"
+#include "draco_illixr/core/decoder_buffer.h"
+#include "draco_illixr/core/macros.h"
+#include "draco_illixr/core/vector_d.h"
+#include "draco_illixr/draco_features.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Class for converting correction values transformed by the octahedral normal
 // transform back to the original values. See the corresponding encoder for more
@@ -109,7 +109,7 @@ class PredictionSchemeNormalOctahedronDecodingTransform
   }
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_PREDICTION_SCHEME_NORMAL_OCTAHEDRON_DECODING_TRANSFORM_H_
 #endif

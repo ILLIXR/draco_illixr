@@ -15,11 +15,11 @@
 #ifndef DRACO_COMPRESSION_MESH_MESH_EDGEBREAKER_TRAVERSAL_VALENCE_ENCODER_H_
 #define DRACO_COMPRESSION_MESH_MESH_EDGEBREAKER_TRAVERSAL_VALENCE_ENCODER_H_
 
-#include "draco/compression/entropy/symbol_encoding.h"
-#include "draco/compression/mesh/mesh_edgebreaker_traversal_encoder.h"
-#include "draco/core/varint_encoding.h"
+#include "draco_illixr/compression/entropy/symbol_encoding.h"
+#include "draco_illixr/compression/mesh/mesh_edgebreaker_traversal_encoder.h"
+#include "draco_illixr/core/varint_encoding.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Predictive encoder for the Edgebreaker symbols based on valences of the
 // previously encoded vertices, following the method described in: Szymczak'02,
@@ -221,6 +221,6 @@ class MeshEdgebreakerTraversalValenceEncoder
   std::vector<std::vector<uint32_t>> context_symbols_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_MESH_MESH_EDGEBREAKER_TRAVERSAL_VALENCE_ENCODER_H_

@@ -8,7 +8,7 @@ interface DracoInt8Array {
   long size();
 };
 
-[Prefix="draco::"]
+[Prefix="draco_illixr::"]
 interface KeyframeAnimation {
   void KeyframeAnimation();
   long num_frames();

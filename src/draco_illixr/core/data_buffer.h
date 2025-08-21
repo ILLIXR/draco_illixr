@@ -19,9 +19,9 @@
 #include <ostream>
 #include <vector>
 
-#include "draco/core/draco_types.h"
+#include "draco_illixr/core/draco_types.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Buffer descriptor servers as a unique identifier of a buffer.
 struct DataBufferDescriptor {
@@ -77,6 +77,6 @@ class DataBuffer {
   DataBufferDescriptor descriptor_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_CORE_DATA_BUFFER_H_

@@ -18,9 +18,9 @@
 #include <map>
 #include <memory>
 
-#include "draco/core/options.h"
+#include "draco_illixr/core/options.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Base option class used to control encoding and decoding. The geometry coding
 // can be controlled through the following options:
@@ -244,6 +244,6 @@ void DracoOptions<AttributeKeyT>::SetAttributeOptions(
   *att_options = options;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_CONFIG_DRACO_OPTIONS_H_

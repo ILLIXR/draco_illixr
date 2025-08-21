@@ -3,11 +3,11 @@
 
 #include <cstddef>
 
-namespace draco {
+namespace draco_illixr {
 
 const size_t kFileSizeCarDrc = 69892;
 const size_t kFileSizeCubePcDrc = 224;
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_IO_FILE_READER_TEST_COMMON_H_

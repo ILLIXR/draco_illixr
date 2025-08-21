@@ -12,15 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/scene/scene.h"
+#include "draco_illixr/scene/scene.h"
 
 #include <utility>
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
-#include "draco/core/macros.h"
-#include "draco/scene/scene_indices.h"
+#include "draco_illixr/core/macros.h"
+#include "draco_illixr/scene/scene_indices.h"
 
-namespace draco {
+namespace draco_illixr {
 
 void Scene::Copy(const Scene &s) {
   meshes_.resize(s.meshes_.size());
@@ -169,6 +169,6 @@ Status Scene::RemoveMaterial(int index) {
   return OkStatus();
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED

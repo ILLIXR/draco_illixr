@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/metadata/property_table.h"
+#include "draco_illixr/metadata/property_table.h"
 
 #include <memory>
 #include <utility>
 #include <vector>
 
-#include "draco/core/draco_test_base.h"
-#include "draco/core/draco_test_utils.h"
+#include "draco_illixr/core/draco_test_base.h"
+#include "draco_illixr/core/draco_test_utils.h"
 
 namespace {
 
@@ -27,14 +27,14 @@ namespace {
 
 TEST(PropertyTableTest, TestPropertyDataDefaults) {
   // Test construction of an empty property data.
-  draco::PropertyTable::Property::Data data;
+  draco_illixr::PropertyTable::Property::Data data;
   ASSERT_TRUE(data.data.empty());
   ASSERT_EQ(data.target, 0);
 }
 
 TEST(PropertyTableTest, TestPropertyDefaults) {
   // Test construction of an empty property table property.
-  draco::PropertyTable::Property property;
+  draco_illixr::PropertyTable::Property property;
   ASSERT_TRUE(property.GetName().empty());
   ASSERT_TRUE(property.GetData().data.empty());
   {
@@ -53,7 +53,7 @@ TEST(PropertyTableTest, TestPropertyDefaults) {
 
 TEST(PropertyTableTest, TestPropertyTableDefaults) {
   // Test construction of an empty property table.
-  draco::PropertyTable table;
+  draco_illixr::PropertyTable table;
   ASSERT_TRUE(table.GetName().empty());
   ASSERT_TRUE(table.GetClass().empty());
   ASSERT_EQ(table.GetCount(), 0);
@@ -62,11 +62,11 @@ TEST(PropertyTableTest, TestPropertyTableDefaults) {
 
 TEST(PropertyTableTest, TestSchemaDefaults) {
   // Test construction of an empty property table schema.
-  draco::PropertyTable::Schema schema;
+  draco_illixr::PropertyTable::Schema schema;
   ASSERT_TRUE(schema.Empty());
   ASSERT_EQ(schema.json.GetName(), "schema");
   ASSERT_EQ(schema.json.GetType(),
-            draco::PropertyTable::Schema::Object::OBJECT);
+            draco_illixr::PropertyTable::Schema::Object::OBJECT);
   ASSERT_TRUE(schema.json.GetObjects().empty());
   ASSERT_TRUE(schema.json.GetArray().empty());
   ASSERT_TRUE(schema.json.GetString().empty());
@@ -76,9 +76,9 @@ TEST(PropertyTableTest, TestSchemaDefaults) {
 
 TEST(PropertyTableTest, TestSchemaObjectDefaultConstructor) {
   // Test construction of an empty property table schema object.
-  draco::PropertyTable::Schema::Object object;
+  draco_illixr::PropertyTable::Schema::Object object;
   ASSERT_TRUE(object.GetName().empty());
-  ASSERT_EQ(object.GetType(), draco::PropertyTable::Schema::Object::OBJECT);
+  ASSERT_EQ(object.GetType(), draco_illixr::PropertyTable::Schema::Object::OBJECT);
   ASSERT_TRUE(object.GetObjects().empty());
   ASSERT_TRUE(object.GetArray().empty());
   ASSERT_TRUE(object.GetString().empty());
@@ -88,39 +88,39 @@ TEST(PropertyTableTest, TestSchemaObjectDefaultConstructor) {
 
 TEST(PropertyTableTest, TestSchemaObjectNamedConstructor) {
   // Test construction of a named property table schema object.
-  draco::PropertyTable::Schema::Object object("Flexible Demeanour");
+  draco_illixr::PropertyTable::Schema::Object object("Flexible Demeanour");
   ASSERT_EQ(object.GetName(), "Flexible Demeanour");
-  ASSERT_EQ(object.GetType(), draco::PropertyTable::Schema::Object::OBJECT);
+  ASSERT_EQ(object.GetType(), draco_illixr::PropertyTable::Schema::Object::OBJECT);
   ASSERT_TRUE(object.GetObjects().empty());
 }
 
 TEST(PropertyTableTest, TestSchemaObjectStringConstructor) {
   // Test construction of property table schema object storing a string.
-  draco::PropertyTable::Schema::Object object("Flexible Demeanour", "GCU");
+  draco_illixr::PropertyTable::Schema::Object object("Flexible Demeanour", "GCU");
   ASSERT_EQ(object.GetName(), "Flexible Demeanour");
-  ASSERT_EQ(object.GetType(), draco::PropertyTable::Schema::Object::STRING);
+  ASSERT_EQ(object.GetType(), draco_illixr::PropertyTable::Schema::Object::STRING);
   ASSERT_EQ(object.GetString(), "GCU");
 }
 
 TEST(PropertyTableTest, TestSchemaObjectIntegerConstructor) {
   // Test construction of property table schema object storing an integer.
-  draco::PropertyTable::Schema::Object object("Flexible Demeanour", 12);
+  draco_illixr::PropertyTable::Schema::Object object("Flexible Demeanour", 12);
   ASSERT_EQ(object.GetName(), "Flexible Demeanour");
-  ASSERT_EQ(object.GetType(), draco::PropertyTable::Schema::Object::INTEGER);
+  ASSERT_EQ(object.GetType(), draco_illixr::PropertyTable::Schema::Object::INTEGER);
   ASSERT_EQ(object.GetInteger(), 12);
 }
 
 TEST(PropertyTableTest, TestSchemaObjectBooleanConstructor) {
   // Test construction of property table schema object storing a boolean.
-  draco::PropertyTable::Schema::Object object("Flexible Demeanour", true);
+  draco_illixr::PropertyTable::Schema::Object object("Flexible Demeanour", true);
   ASSERT_EQ(object.GetName(), "Flexible Demeanour");
-  ASSERT_EQ(object.GetType(), draco::PropertyTable::Schema::Object::BOOLEAN);
+  ASSERT_EQ(object.GetType(), draco_illixr::PropertyTable::Schema::Object::BOOLEAN);
   ASSERT_TRUE(object.GetBoolean());
 }
 
 TEST(PropertyTableTest, TestSchemaObjectSettersAndGetters) {
   // Test value setters and getters of property table schema object.
-  typedef draco::PropertyTable::Schema::Object Object;
+  typedef draco_illixr::PropertyTable::Schema::Object Object;
   Object object;
   ASSERT_EQ(object.GetType(), Object::OBJECT);
 
@@ -150,7 +150,7 @@ TEST(PropertyTableTest, TestSchemaObjectSettersAndGetters) {
 }
 
 TEST(PropertyTableTest, TestSchemaCompare) {
-  typedef draco::PropertyTable::Schema Schema;
+  typedef draco_illixr::PropertyTable::Schema Schema;
   // Test comparison of two schema objects.
   {
     // Compare the same empty schema object.
@@ -178,7 +178,7 @@ TEST(PropertyTableTest, TestSchemaCompare) {
 
 TEST(PropertyTableTest, TestSchemaObjectCompare) {
   // Test comparison of two schema JSON objects.
-  typedef draco::PropertyTable::Schema::Object Object;
+  typedef draco_illixr::PropertyTable::Schema::Object Object;
   {
     // Compare the same object.
     Object a;
@@ -322,7 +322,7 @@ TEST(PropertyTableTest, TestSchemaObjectCompare) {
 
 TEST(PropertyTableTest, TestPropertySettersAndGetters) {
   // Test setter and getter methods of the property table property.
-  draco::PropertyTable::Property property;
+  draco_illixr::PropertyTable::Property property;
   property.SetName("Unfortunate Conflict Of Evidence");
   property.GetData().data.push_back(2);
 
@@ -334,19 +334,19 @@ TEST(PropertyTableTest, TestPropertySettersAndGetters) {
 
 TEST(PropertyTableTest, TestPropertyTableSettersAndGetters) {
   // Test setter and getter methods of the property table.
-  draco::PropertyTable table;
+  draco_illixr::PropertyTable table;
   table.SetName("Just Read The Instructions");
   table.SetClass("General Contact Unit");
   table.SetCount(456);
   {
-    std::unique_ptr<draco::PropertyTable::Property> property(
-        new draco::PropertyTable::Property());
+    std::unique_ptr<draco_illixr::PropertyTable::Property> property(
+        new draco_illixr::PropertyTable::Property());
     property->SetName("Determinist");
     ASSERT_EQ(table.AddProperty(std::move(property)), 0);
   }
   {
-    std::unique_ptr<draco::PropertyTable::Property> property(
-        new draco::PropertyTable::Property());
+    std::unique_ptr<draco_illixr::PropertyTable::Property> property(
+        new draco_illixr::PropertyTable::Property());
     property->SetName("Revisionist");
     ASSERT_EQ(table.AddProperty(std::move(property)), 1);
   }
@@ -369,12 +369,12 @@ TEST(PropertyTableTest, TestPropertyTableSettersAndGetters) {
 
 TEST(PropertyTableTest, TestPropertyCopy) {
   // Test that property table property can be copied.
-  draco::PropertyTable::Property property;
+  draco_illixr::PropertyTable::Property property;
   property.SetName("Unfortunate Conflict Of Evidence");
   property.GetData().data.push_back(2);
 
   // Make a copy.
-  draco::PropertyTable::Property copy;
+  draco_illixr::PropertyTable::Property copy;
   copy.Copy(property);
 
   // Check the copy.
@@ -385,25 +385,25 @@ TEST(PropertyTableTest, TestPropertyCopy) {
 
 TEST(PropertyTableTest, TestPropertyTableCopy) {
   // Test that property table can be copied.
-  draco::PropertyTable table;
+  draco_illixr::PropertyTable table;
   table.SetName("Just Read The Instructions");
   table.SetClass("General Contact Unit");
   table.SetCount(456);
   {
-    std::unique_ptr<draco::PropertyTable::Property> property(
-        new draco::PropertyTable::Property());
+    std::unique_ptr<draco_illixr::PropertyTable::Property> property(
+        new draco_illixr::PropertyTable::Property());
     property->SetName("Determinist");
     table.AddProperty(std::move(property));
   }
   {
-    std::unique_ptr<draco::PropertyTable::Property> property(
-        new draco::PropertyTable::Property());
+    std::unique_ptr<draco_illixr::PropertyTable::Property> property(
+        new draco_illixr::PropertyTable::Property());
     property->SetName("Revisionist");
     table.AddProperty(std::move(property));
   }
 
   // Make a copy.
-  draco::PropertyTable copy;
+  draco_illixr::PropertyTable copy;
   copy.Copy(table);
 
   // Check the copy.
@@ -417,7 +417,7 @@ TEST(PropertyTableTest, TestPropertyTableCopy) {
 
 TEST(PropertyTableTest, TestPropertyDataCompare) {
   // Test comparison of two property data objects.
-  typedef draco::PropertyTable::Property::Data Data;
+  typedef draco_illixr::PropertyTable::Property::Data Data;
   {
     // Compare the same data object.
     Data a;
@@ -453,7 +453,7 @@ TEST(PropertyTableTest, TestPropertyDataCompare) {
 
 TEST(PropertyTableTest, TestPropertyOffsets) {
   // Test comparison of two property offsets.
-  typedef draco::PropertyTable::Property::Offsets Offsets;
+  typedef draco_illixr::PropertyTable::Property::Offsets Offsets;
   {
     // Compare the same offsets object.
     Offsets a;
@@ -489,7 +489,7 @@ TEST(PropertyTableTest, TestPropertyOffsets) {
 
 TEST(PropertyTableTest, TestPropertyCompare) {
   // Test comparison of two properties.
-  typedef draco::PropertyTable::Property Property;
+  typedef draco_illixr::PropertyTable::Property Property;
   {
     // Compare the same property object.
     Property a;
@@ -543,8 +543,8 @@ TEST(PropertyTableTest, TestPropertyCompare) {
 
 TEST(PropertyTableTest, TestPropertyTableCompare) {
   // Test comparison of two property tables.
-  typedef draco::PropertyTable PropertyTable;
-  typedef draco::PropertyTable::Property Property;
+  typedef draco_illixr::PropertyTable PropertyTable;
+  typedef draco_illixr::PropertyTable::Property Property;
   {
     // Compare the same property table object.
     PropertyTable a;

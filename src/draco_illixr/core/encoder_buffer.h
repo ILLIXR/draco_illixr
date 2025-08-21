@@ -18,10 +18,10 @@
 #include <memory>
 #include <vector>
 
-#include "draco/core/bit_utils.h"
-#include "draco/core/macros.h"
+#include "draco_illixr/core/bit_utils.h"
+#include "draco_illixr/core/macros.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Class representing a buffer that can be used for either for byte-aligned
 // encoding of arbitrary data structures or for encoding of variable-length
@@ -147,6 +147,6 @@ class EncoderBuffer {
   bool encode_bit_sequence_size_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_CORE_ENCODER_BUFFER_H_

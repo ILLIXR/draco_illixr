@@ -15,15 +15,15 @@
 #ifndef DRACO_TEXTURE_TEXTURE_MAP_H_
 #define DRACO_TEXTURE_TEXTURE_MAP_H_
 
-#include "draco/draco_features.h"
+#include "draco_illixr/draco_features.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 #include <memory>
 
-#include "draco/texture/texture.h"
-#include "draco/texture/texture_transform.h"
+#include "draco_illixr/texture/texture.h"
+#include "draco_illixr/texture/texture_transform.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Class representing mapping of one texture to a mesh. A texture map
 // specifies the mesh attribute that contains texture coordinates used by the
@@ -165,7 +165,7 @@ class TextureMap {
   TextureTransform texture_transform_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED
 #endif  // DRACO_TEXTURE_TEXTURE_MAP_H_

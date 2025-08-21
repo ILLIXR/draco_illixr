@@ -12,23 +12,23 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/compression/mesh/mesh_edgebreaker_encoder_impl.h"
+#include "draco_illixr/compression/mesh/mesh_edgebreaker_encoder_impl.h"
 
 #include <algorithm>
 
-#include "draco/compression/attributes/sequential_attribute_encoders_controller.h"
-#include "draco/compression/mesh/mesh_edgebreaker_encoder.h"
-#include "draco/compression/mesh/mesh_edgebreaker_traversal_predictive_encoder.h"
-#include "draco/compression/mesh/mesh_edgebreaker_traversal_valence_encoder.h"
-#include "draco/compression/mesh/traverser/depth_first_traverser.h"
-#include "draco/compression/mesh/traverser/max_prediction_degree_traverser.h"
-#include "draco/compression/mesh/traverser/mesh_attribute_indices_encoding_observer.h"
-#include "draco/compression/mesh/traverser/mesh_traversal_sequencer.h"
-#include "draco/compression/mesh/traverser/traverser_base.h"
-#include "draco/mesh/corner_table_iterators.h"
-#include "draco/mesh/mesh_misc_functions.h"
+#include "draco_illixr/compression/attributes/sequential_attribute_encoders_controller.h"
+#include "draco_illixr/compression/mesh/mesh_edgebreaker_encoder.h"
+#include "draco_illixr/compression/mesh/mesh_edgebreaker_traversal_predictive_encoder.h"
+#include "draco_illixr/compression/mesh/mesh_edgebreaker_traversal_valence_encoder.h"
+#include "draco_illixr/compression/mesh/traverser/depth_first_traverser.h"
+#include "draco_illixr/compression/mesh/traverser/max_prediction_degree_traverser.h"
+#include "draco_illixr/compression/mesh/traverser/mesh_attribute_indices_encoding_observer.h"
+#include "draco_illixr/compression/mesh/traverser/mesh_traversal_sequencer.h"
+#include "draco_illixr/compression/mesh/traverser/traverser_base.h"
+#include "draco_illixr/mesh/corner_table_iterators.h"
+#include "draco_illixr/mesh/mesh_misc_functions.h"
 
-namespace draco {
+namespace draco_illixr {
 // TODO(draco-eng) consider converting 'typedef' to 'using' and deduplicate.
 typedef CornerIndex CornerIndex;
 typedef FaceIndex FaceIndex;
@@ -233,7 +233,7 @@ bool MeshEdgebreakerEncoderImpl<TraversalEncoder>::GenerateAttributesEncoder(
   attribute_encoder_to_data_id_map_.push_back(att_data_id);
   GetEncoder()->AddAttributesEncoder(std::move(att_controller));
   return true;
-}  // namespace draco
+}  // namespace draco_illixr
 
 template <class TraversalEncoder>
 bool MeshEdgebreakerEncoderImpl<TraversalEncoder>::
@@ -852,4 +852,4 @@ template class MeshEdgebreakerEncoderImpl<
 template class MeshEdgebreakerEncoderImpl<
     MeshEdgebreakerTraversalValenceEncoder>;
 
-}  // namespace draco
+}  // namespace draco_illixr

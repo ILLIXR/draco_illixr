@@ -15,12 +15,12 @@
 #ifndef DRACO_IO_GLTF_DECODER_TEST_HELPER_H_
 #define DRACO_IO_GLTF_DECODER_TEST_HELPER_H_
 
-#include "draco/draco_features.h"
+#include "draco_illixr/draco_features.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
-#include "draco/scene/scene.h"
+#include "draco_illixr/scene/scene.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Helper class for testing Draco glTF encoder and decoder.
 class GltfTestHelper {
@@ -31,7 +31,7 @@ class GltfTestHelper {
   static void AddBoxMetaMeshFeatures(Scene *scene);
   static void AddBoxMetaStructuralMetadata(Scene *scene);
 
-  // Checks the box |geometry| (draco::Mesh or draco::Scene) with  mesh features
+  // Checks the box |geometry| (draco_illixr::Mesh or draco_illixr::Scene) with  mesh features
   // loaded from one of these test files, with or without Draco compression:
   // 1. testdata/BoxMeta/glTF/BoxMeta.gltf
   // 2. testdata/BoxMetaDraco/glTF/BoxMetaDraco.gltf
@@ -39,7 +39,7 @@ class GltfTestHelper {
   static void CheckBoxMetaMeshFeatures(const GeometryT &geometry,
                                        bool has_draco_compression);
 
-  // Checks the box |geometry| (draco::Mesh or draco::Scene) with structural
+  // Checks the box |geometry| (draco_illixr::Mesh or draco_illixr::Scene) with structural
   // metadata that includes property table and property table schema loaded from
   // test file testdata/BoxMeta/glTF/BoxMeta.gltf.
   template <typename GeometryT>
@@ -55,7 +55,7 @@ class GltfTestHelper {
       const StructuralMetadata &structural_metadata);
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED
 #endif  // DRACO_IO_GLTF_DECODER_TEST_HELPER_H_

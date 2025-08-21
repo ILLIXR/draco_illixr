@@ -15,17 +15,17 @@
 #ifndef DRACO_MESH_MESH_UTILS_H_
 #define DRACO_MESH_MESH_UTILS_H_
 
-#include "draco/draco_features.h"
+#include "draco_illixr/draco_features.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 #include <Eigen/Geometry>
 
-#include "draco/core/status_or.h"
-#include "draco/mesh/mesh.h"
+#include "draco_illixr/core/status_or.h"
+#include "draco_illixr/mesh/mesh.h"
 
-namespace draco {
+namespace draco_illixr {
 
-// Helper class containing various utilities operating on draco::Mesh.
+// Helper class containing various utilities operating on draco_illixr::Mesh.
 // TODO(ostava): Move scattered functions in this folder here (e.g. corner table
 // construction).
 class MeshUtils {
@@ -97,7 +97,7 @@ class MeshUtils {
       uint32_t max_quantized_value, bool quantized_degenerate_only);
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED
 #endif  // DRACO_MESH_MESH_UTILS_H_

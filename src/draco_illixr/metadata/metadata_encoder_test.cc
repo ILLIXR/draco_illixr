@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/metadata/metadata_encoder.h"
+#include "draco_illixr/metadata/metadata_encoder.h"
 
-#include "draco/core/decoder_buffer.h"
-#include "draco/core/draco_test_base.h"
-#include "draco/core/encoder_buffer.h"
-#include "draco/metadata/metadata.h"
-#include "draco/metadata/metadata_decoder.h"
+#include "draco_illixr/core/decoder_buffer.h"
+#include "draco_illixr/core/draco_test_base.h"
+#include "draco_illixr/core/encoder_buffer.h"
+#include "draco_illixr/metadata/metadata.h"
+#include "draco_illixr/metadata/metadata_decoder.h"
 
 namespace {
 
@@ -29,7 +29,7 @@ class MetadataEncoderTest : public ::testing::Test {
   void TestEncodingMetadata() {
     ASSERT_TRUE(encoder.EncodeMetadata(&encoder_buffer, &metadata));
 
-    draco::Metadata decoded_metadata;
+    draco_illixr::Metadata decoded_metadata;
     decoder_buffer.Init(encoder_buffer.data(), encoder_buffer.size());
     ASSERT_TRUE(decoder.DecodeMetadata(&decoder_buffer, &decoded_metadata));
     CheckMetadatasAreEqual(metadata, decoded_metadata);
@@ -39,7 +39,7 @@ class MetadataEncoderTest : public ::testing::Test {
     ASSERT_TRUE(
         encoder.EncodeGeometryMetadata(&encoder_buffer, &geometry_metadata));
 
-    draco::GeometryMetadata decoded_metadata;
+    draco_illixr::GeometryMetadata decoded_metadata;
     decoder_buffer.Init(encoder_buffer.data(), encoder_buffer.size());
     ASSERT_TRUE(
         decoder.DecodeGeometryMetadata(&decoder_buffer, &decoded_metadata));
@@ -55,31 +55,31 @@ class MetadataEncoderTest : public ::testing::Test {
   }
 
   void CheckGeometryMetadatasAreEqual(
-      const draco::GeometryMetadata &metadata0,
-      const draco::GeometryMetadata &metadata1) {
+      const draco_illixr::GeometryMetadata &metadata0,
+      const draco_illixr::GeometryMetadata &metadata1) {
     ASSERT_EQ(metadata0.attribute_metadatas().size(),
               metadata1.attribute_metadatas().size());
-    const std::vector<std::unique_ptr<draco::AttributeMetadata>>
+    const std::vector<std::unique_ptr<draco_illixr::AttributeMetadata>>
         &att_metadatas0 = metadata0.attribute_metadatas();
-    const std::vector<std::unique_ptr<draco::AttributeMetadata>>
+    const std::vector<std::unique_ptr<draco_illixr::AttributeMetadata>>
         &att_metadatas1 = metadata1.attribute_metadatas();
     // Compare each attribute metadata.
     for (int i = 0; i < metadata0.attribute_metadatas().size(); ++i) {
       CheckMetadatasAreEqual(
-          static_cast<const draco::Metadata &>(*att_metadatas0[i]),
-          static_cast<const draco::Metadata &>(*att_metadatas1[i]));
+          static_cast<const draco_illixr::Metadata &>(*att_metadatas0[i]),
+          static_cast<const draco_illixr::Metadata &>(*att_metadatas1[i]));
     }
     // Compare entries and sub metadata.
-    CheckMetadatasAreEqual(static_cast<const draco::Metadata &>(metadata0),
-                           static_cast<const draco::Metadata &>(metadata1));
+    CheckMetadatasAreEqual(static_cast<const draco_illixr::Metadata &>(metadata0),
+                           static_cast<const draco_illixr::Metadata &>(metadata1));
   }
 
-  void CheckMetadatasAreEqual(const draco::Metadata &metadata0,
-                              const draco::Metadata &metadata1) {
+  void CheckMetadatasAreEqual(const draco_illixr::Metadata &metadata0,
+                              const draco_illixr::Metadata &metadata1) {
     ASSERT_EQ(metadata0.num_entries(), metadata1.num_entries());
-    const std::map<std::string, draco::EntryValue> &entries0 =
+    const std::map<std::string, draco_illixr::EntryValue> &entries0 =
         metadata0.entries();
-    const std::map<std::string, draco::EntryValue> &entries1 =
+    const std::map<std::string, draco_illixr::EntryValue> &entries1 =
         metadata1.entries();
     for (const auto &entry : entries0) {
       const std::string &entry_name = entry.first;
@@ -92,7 +92,7 @@ class MetadataEncoderTest : public ::testing::Test {
     // Check nested metadata.
     ASSERT_EQ(metadata0.sub_metadatas().size(),
               metadata1.sub_metadatas().size());
-    const std::map<std::string, std::unique_ptr<draco::Metadata>>
+    const std::map<std::string, std::unique_ptr<draco_illixr::Metadata>>
         &sub_metadatas0 = metadata0.sub_metadatas();
     // Encode each sub-metadata
     for (auto &&sub_metadata_entry0 : sub_metadatas0) {
@@ -103,12 +103,12 @@ class MetadataEncoderTest : public ::testing::Test {
     }
   }
 
-  draco::MetadataEncoder encoder;
-  draco::MetadataDecoder decoder;
-  draco::EncoderBuffer encoder_buffer;
-  draco::DecoderBuffer decoder_buffer;
-  draco::Metadata metadata;
-  draco::GeometryMetadata geometry_metadata;
+  draco_illixr::MetadataEncoder encoder;
+  draco_illixr::MetadataDecoder decoder;
+  draco_illixr::EncoderBuffer encoder_buffer;
+  draco_illixr::DecoderBuffer decoder_buffer;
+  draco_illixr::Metadata metadata;
+  draco_illixr::GeometryMetadata geometry_metadata;
 };
 
 TEST_F(MetadataEncoderTest, TestSingleEntry) {
@@ -147,8 +147,8 @@ TEST_F(MetadataEncoderTest, TestEncodingBinaryEntry) {
 
 TEST_F(MetadataEncoderTest, TestEncodingNestedMetadata) {
   metadata.AddEntryDouble("double", 1.234);
-  std::unique_ptr<draco::Metadata> sub_metadata =
-      std::unique_ptr<draco::Metadata>(new draco::Metadata());
+  std::unique_ptr<draco_illixr::Metadata> sub_metadata =
+      std::unique_ptr<draco_illixr::Metadata>(new draco_illixr::Metadata());
   sub_metadata->AddEntryInt("int", 100);
   metadata.AddSubMetadata("sub0", std::move(sub_metadata));
 
@@ -156,8 +156,8 @@ TEST_F(MetadataEncoderTest, TestEncodingNestedMetadata) {
 }
 
 TEST_F(MetadataEncoderTest, TestEncodingGeometryMetadata) {
-  std::unique_ptr<draco::AttributeMetadata> att_metadata =
-      std::unique_ptr<draco::AttributeMetadata>(new draco::AttributeMetadata);
+  std::unique_ptr<draco_illixr::AttributeMetadata> att_metadata =
+      std::unique_ptr<draco_illixr::AttributeMetadata>(new draco_illixr::AttributeMetadata);
   att_metadata->AddEntryInt("int", 100);
   att_metadata->AddEntryString("name", "pos");
   ASSERT_TRUE(geometry_metadata.AddAttributeMetadata(std::move(att_metadata)));

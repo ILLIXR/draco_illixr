@@ -15,16 +15,16 @@
 #ifndef DRACO_IO_TEXTURE_IO_H_
 #define DRACO_IO_TEXTURE_IO_H_
 
-#include "draco/draco_features.h"
+#include "draco_illixr/draco_features.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 #include <memory>
 
-#include "draco/core/draco_types.h"
-#include "draco/core/status_or.h"
-#include "draco/texture/texture.h"
+#include "draco_illixr/core/draco_types.h"
+#include "draco_illixr/core/status_or.h"
+#include "draco_illixr/texture/texture.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Reads a texture from a file. Reads PNG, JPEG and WEBP texture files.
 // Returns nullptr with an error status if the decoding failed.
@@ -50,7 +50,7 @@ Status WriteTextureToFile(const std::string &file_name, const Texture &texture);
 Status WriteTextureToBuffer(const Texture &texture,
                             std::vector<uint8_t> *buffer);
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED
 #endif  // DRACO_IO_TEXTURE_IO_H_

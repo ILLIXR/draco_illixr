@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/animation/keyframe_animation_encoder.h"
+#include "draco_illixr/animation/keyframe_animation_encoder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 KeyframeAnimationEncoder::KeyframeAnimationEncoder() {}
 
@@ -25,4 +25,4 @@ Status KeyframeAnimationEncoder::EncodeKeyframeAnimation(
   return Encode(options, out_buffer);
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

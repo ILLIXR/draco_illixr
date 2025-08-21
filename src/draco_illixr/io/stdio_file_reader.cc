@@ -1,4 +1,4 @@
-#include "draco/io/stdio_file_reader.h"
+#include "draco_illixr/io/stdio_file_reader.h"
 
 #include <algorithm>
 #include <cstdint>
@@ -11,9 +11,9 @@
 #include <io.h>
 #endif
 
-#include "draco/io/file_reader_factory.h"
+#include "draco_illixr/io/file_reader_factory.h"
 
-namespace draco {
+namespace draco_illixr {
 
 #define FILEREADER_LOG_ERROR(error_string)                             \
   do {                                                                 \
@@ -100,4 +100,4 @@ size_t StdioFileReader::GetFileSize() {
   return file_size;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

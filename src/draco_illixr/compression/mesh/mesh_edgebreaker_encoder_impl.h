@@ -17,15 +17,15 @@
 
 #include <unordered_map>
 
-#include "draco/compression/attributes/mesh_attribute_indices_encoding_data.h"
-#include "draco/compression/config/compression_shared.h"
-#include "draco/compression/mesh/mesh_edgebreaker_encoder_impl_interface.h"
-#include "draco/compression/mesh/mesh_edgebreaker_shared.h"
-#include "draco/compression/mesh/traverser/mesh_traversal_sequencer.h"
-#include "draco/core/encoder_buffer.h"
-#include "draco/mesh/mesh_attribute_corner_table.h"
+#include "draco_illixr/compression/attributes/mesh_attribute_indices_encoding_data.h"
+#include "draco_illixr/compression/config/compression_shared.h"
+#include "draco_illixr/compression/mesh/mesh_edgebreaker_encoder_impl_interface.h"
+#include "draco_illixr/compression/mesh/mesh_edgebreaker_shared.h"
+#include "draco_illixr/compression/mesh/traverser/mesh_traversal_sequencer.h"
+#include "draco_illixr/core/encoder_buffer.h"
+#include "draco_illixr/mesh/mesh_attribute_corner_table.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Class implementing the edgebreaker encoding as described in "3D Compression
 // Made Simple: Edgebreaker on a Corner-Table" by Rossignac at al.'01.
@@ -204,6 +204,6 @@ class MeshEdgebreakerEncoderImpl : public MeshEdgebreakerEncoderImplInterface {
   bool use_single_connectivity_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_MESH_MESH_EDGEBREAKER_ENCODER_IMPL_H_

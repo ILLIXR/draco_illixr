@@ -12,19 +12,19 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/compression/expert_encode.h"
+#include "draco_illixr/compression/expert_encode.h"
 
-#include "draco/compression/mesh/mesh_edgebreaker_encoder.h"
-#include "draco/compression/mesh/mesh_sequential_encoder.h"
+#include "draco_illixr/compression/mesh/mesh_edgebreaker_encoder.h"
+#include "draco_illixr/compression/mesh/mesh_sequential_encoder.h"
 #ifdef DRACO_POINT_CLOUD_COMPRESSION_SUPPORTED
-#include "draco/compression/point_cloud/point_cloud_kd_tree_encoder.h"
-#include "draco/compression/point_cloud/point_cloud_sequential_encoder.h"
+#include "draco_illixr/compression/point_cloud/point_cloud_kd_tree_encoder.h"
+#include "draco_illixr/compression/point_cloud/point_cloud_sequential_encoder.h"
 #endif
 #ifdef DRACO_TRANSCODER_SUPPORTED
-#include "draco/core/bit_utils.h"
+#include "draco_illixr/core/bit_utils.h"
 #endif
 
-namespace draco {
+namespace draco_illixr {
 
 ExpertEncoder::ExpertEncoder(const PointCloud &point_cloud)
     : point_cloud_(&point_cloud), mesh_(nullptr) {}
@@ -291,4 +291,4 @@ Status ExpertEncoder::ApplyGridQuantization(const Mesh &mesh,
 }
 #endif  // DRACO_TRANSCODER_SUPPORTED
 
-}  // namespace draco
+}  // namespace draco_illixr

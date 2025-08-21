@@ -29,7 +29,7 @@ typedef timeval DracoTimeVal;
 #include <cinttypes>
 #include <cstddef>
 
-namespace draco {
+namespace draco_illixr {
 
 class DracoTimer {
  public:
@@ -46,6 +46,6 @@ class DracoTimer {
 
 typedef DracoTimer CycleTimer;
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_CORE_CYCLE_TIMER_H_

@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/io/obj_decoder.h"
+#include "draco_illixr/io/obj_decoder.h"
 
 #include <sstream>
 
-#include "draco/core/draco_test_base.h"
-#include "draco/core/draco_test_utils.h"
+#include "draco_illixr/core/draco_test_base.h"
+#include "draco_illixr/core/draco_test_utils.h"
 
-namespace draco {
+namespace draco_illixr {
 
 class ObjDecoderTest : public ::testing::Test {
  protected:
@@ -299,4 +299,4 @@ TEST_F(ObjDecoderTest, TestObjDecodingAll) {
   test_decoding("inf_nan.obj");
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

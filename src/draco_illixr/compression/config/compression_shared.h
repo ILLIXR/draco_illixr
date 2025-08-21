@@ -17,10 +17,10 @@
 
 #include <stdint.h>
 
-#include "draco/core/macros.h"
-#include "draco/draco_features.h"
+#include "draco_illixr/core/macros.h"
+#include "draco_illixr/draco_features.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Latest Draco bit-stream version.
 static constexpr uint8_t kDracoPointCloudBitstreamVersionMajor = 2;
@@ -150,6 +150,6 @@ enum SymbolCodingMethod {
 // Mask for setting and getting the bit for metadata in |flags| of header.
 #define METADATA_FLAG_MASK 0x8000
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_CONFIG_COMPRESSION_SHARED_H_

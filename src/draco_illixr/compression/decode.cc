@@ -12,21 +12,21 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/compression/decode.h"
+#include "draco_illixr/compression/decode.h"
 
-#include "draco/compression/config/compression_shared.h"
+#include "draco_illixr/compression/config/compression_shared.h"
 
 #ifdef DRACO_MESH_COMPRESSION_SUPPORTED
-#include "draco/compression/mesh/mesh_edgebreaker_decoder.h"
-#include "draco/compression/mesh/mesh_sequential_decoder.h"
+#include "draco_illixr/compression/mesh/mesh_edgebreaker_decoder.h"
+#include "draco_illixr/compression/mesh/mesh_sequential_decoder.h"
 #endif
 
 #ifdef DRACO_POINT_CLOUD_COMPRESSION_SUPPORTED
-#include "draco/compression/point_cloud/point_cloud_kd_tree_decoder.h"
-#include "draco/compression/point_cloud/point_cloud_sequential_decoder.h"
+#include "draco_illixr/compression/point_cloud/point_cloud_kd_tree_decoder.h"
+#include "draco_illixr/compression/point_cloud/point_cloud_sequential_decoder.h"
 #endif
 
-namespace draco {
+namespace draco_illixr {
 
 #ifdef DRACO_POINT_CLOUD_COMPRESSION_SUPPORTED
 StatusOr<std::unique_ptr<PointCloudDecoder>> CreatePointCloudDecoder(
@@ -132,4 +132,4 @@ void Decoder::SetSkipAttributeTransform(GeometryAttribute::Type att_type) {
   options_.SetAttributeBool(att_type, "skip_attribute_transform", true);
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

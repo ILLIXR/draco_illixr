@@ -15,11 +15,11 @@
 #ifndef DRACO_MESH_VALENCE_CACHE_H_
 #define DRACO_MESH_VALENCE_CACHE_H_
 
-#include "draco/attributes/geometry_indices.h"
-#include "draco/core/draco_index_type_vector.h"
-#include "draco/core/macros.h"
+#include "draco_illixr/attributes/geometry_indices.h"
+#include "draco_illixr/core/draco_index_type_vector.h"
+#include "draco_illixr/core/macros.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // ValenceCache provides support for the caching of valences off of some kind of
 // CornerTable 'type' of class.
@@ -137,6 +137,6 @@ class ValenceCache {
   mutable IndexTypeVector<VertexIndex, int32_t> vertex_valence_cache_32_bit_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_MESH_VALENCE_CACHE_H_

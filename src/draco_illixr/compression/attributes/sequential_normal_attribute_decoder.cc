@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/compression/attributes/sequential_normal_attribute_decoder.h"
+#include "draco_illixr/compression/attributes/sequential_normal_attribute_decoder.h"
 
-#include "draco/compression/attributes/normal_compression_utils.h"
+#include "draco_illixr/compression/attributes/normal_compression_utils.h"
 
-namespace draco {
+namespace draco_illixr {
 
 SequentialNormalAttributeDecoder::SequentialNormalAttributeDecoder() {}
 
@@ -73,4 +73,4 @@ bool SequentialNormalAttributeDecoder::StoreValues(uint32_t num_points) {
       *GetPortableAttribute(), attribute());
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

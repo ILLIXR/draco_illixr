@@ -15,14 +15,14 @@
 #ifndef DRACO_SCENE_TRS_MATRIX_H_
 #define DRACO_SCENE_TRS_MATRIX_H_
 
-#include "draco/draco_features.h"
+#include "draco_illixr/draco_features.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 #include <Eigen/Geometry>
 
-#include "draco/core/status_or.h"
+#include "draco_illixr/core/status_or.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // This class is used to store one or more of a translation, rotation, scale
 // vectors or a transformation matrix.
@@ -119,7 +119,7 @@ class TrsMatrix {
   bool scale_set_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED
 #endif  // DRACO_SCENE_TRS_MATRIX_H_

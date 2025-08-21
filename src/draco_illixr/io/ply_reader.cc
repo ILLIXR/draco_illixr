@@ -12,16 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/io/ply_reader.h"
+#include "draco_illixr/io/ply_reader.h"
 
 #include <array>
 #include <regex>
 
-#include "draco/core/status.h"
-#include "draco/io/parser_utils.h"
-#include "draco/io/ply_property_writer.h"
+#include "draco_illixr/core/status.h"
+#include "draco_illixr/io/parser_utils.h"
+#include "draco_illixr/io/ply_property_writer.h"
 
-namespace draco {
+namespace draco_illixr {
 
 PlyProperty::PlyProperty(const std::string &name, DataType data_type,
                          DataType list_type)
@@ -246,7 +246,7 @@ bool PlyReader::ParseElementDataAscii(DecoderBuffer *buffer,
           if (!parser::ParseFloat(buffer, &val)) {
             return false;
           }
-	  //this work for the vertices data 
+	  //this work for the vertices data
 	  if(entry==0){
 		  printf("entry 0 val: %f\n", val);
 	  }
@@ -314,4 +314,4 @@ DataType PlyReader::GetDataTypeFromString(const std::string &name) const {
   return DT_INVALID;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

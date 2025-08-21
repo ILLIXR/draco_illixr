@@ -15,14 +15,14 @@
 #ifndef DRACO_SCENE_LIGHT_H_
 #define DRACO_SCENE_LIGHT_H_
 
-#include "draco/draco_features.h"
+#include "draco_illixr/draco_features.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 #include <string>
 
-#include "draco/core/vector_d.h"
+#include "draco_illixr/core/vector_d.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Describes a light in a scene according to the KHR_lights_punctual extension.
 class Light {
@@ -75,7 +75,7 @@ class Light {
   double outer_cone_angle_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED
 #endif  // DRACO_SCENE_LIGHT_H_

@@ -17,9 +17,9 @@
 
 #include <inttypes.h>
 
-#include "draco/core/vector_d.h"
+#include "draco_illixr/core/vector_d.h"
 
-namespace draco {
+namespace draco_illixr {
 
 #define DRACO_INCREMENT_MOD(I, M) (((I) == ((M)-1)) ? 0 : ((I) + 1))
 
@@ -74,6 +74,6 @@ inline DataTypeT AddAsUnsigned(DataTypeT a, DataTypeT b) {
   return a + b;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_CORE_MATH_UTILS_H_

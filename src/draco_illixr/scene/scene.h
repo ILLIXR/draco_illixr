@@ -15,22 +15,22 @@
 #ifndef DRACO_SCENE_SCENE_H_
 #define DRACO_SCENE_SCENE_H_
 
-#include "draco/draco_features.h"
+#include "draco_illixr/draco_features.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 #include <memory>
 
-#include "draco/animation/animation.h"
-#include "draco/animation/skin.h"
-#include "draco/mesh/mesh.h"
-#include "draco/metadata/structural_metadata.h"
-#include "draco/scene/instance_array.h"
-#include "draco/scene/light.h"
-#include "draco/scene/mesh_group.h"
-#include "draco/scene/scene_indices.h"
-#include "draco/scene/scene_node.h"
+#include "draco_illixr/animation/animation.h"
+#include "draco_illixr/animation/skin.h"
+#include "draco_illixr/mesh/mesh.h"
+#include "draco_illixr/metadata/structural_metadata.h"
+#include "draco_illixr/scene/instance_array.h"
+#include "draco_illixr/scene/light.h"
+#include "draco_illixr/scene/mesh_group.h"
+#include "draco_illixr/scene/scene_indices.h"
+#include "draco_illixr/scene/scene_node.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Class used to hold all of the geometry to create a scene. A scene is
 // comprised of one or more meshes, one or more scene nodes, one or more
@@ -252,7 +252,7 @@ class Scene {
   StructuralMetadata structural_metadata_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED
 #endif  // DRACO_SCENE_SCENE_H_

@@ -15,14 +15,14 @@
 #ifndef DRACO_COMPRESSION_ENCODE_H_
 #define DRACO_COMPRESSION_ENCODE_H_
 
-#include "draco/compression/config/compression_shared.h"
-#include "draco/compression/config/encoder_options.h"
-#include "draco/compression/encode_base.h"
-#include "draco/core/encoder_buffer.h"
-#include "draco/core/status.h"
-#include "draco/mesh/mesh.h"
+#include "draco_illixr/compression/config/compression_shared.h"
+#include "draco_illixr/compression/config/encoder_options.h"
+#include "draco_illixr/compression/encode_base.h"
+#include "draco_illixr/core/encoder_buffer.h"
+#include "draco_illixr/core/status.h"
+#include "draco_illixr/mesh/mesh.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Basic helper class for encoding geometry using the Draco compression library.
 // The class provides various methods that can be used to control several common
@@ -134,6 +134,6 @@ class Encoder
   EncoderOptions CreateExpertEncoderOptions(const PointCloud &pc) const;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ENCODE_H_

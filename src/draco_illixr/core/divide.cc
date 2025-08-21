@@ -14,9 +14,9 @@
 //
 // This file is based off libvpx's divide.c.
 
-#include "draco/core/divide.h"
+#include "draco_illixr/core/divide.h"
 
-namespace draco {
+namespace draco_illixr {
 
 const struct fastdiv_elem vp10_fastdiv_tab[256] = {
     {0, 0},          {0, 0},          {0, 1},          {1431655766, 2},
@@ -85,4 +85,4 @@ const struct fastdiv_elem vp10_fastdiv_tab[256] = {
     {68174085, 8},   {50928466, 8},   {33818641, 8},   {16843010, 8},
 };
 
-}  // namespace draco
+}  // namespace draco_illixr

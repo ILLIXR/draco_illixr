@@ -1,13 +1,13 @@
-#include "draco/io/file_reader_factory.h"
+#include "draco_illixr/io/file_reader_factory.h"
 
 #include <memory>
 #include <string>
 #include <vector>
 
-#include "draco/core/draco_test_base.h"
-#include "draco/io/file_reader_interface.h"
+#include "draco_illixr/core/draco_test_base.h"
+#include "draco_illixr/io/file_reader_interface.h"
 
-namespace draco {
+namespace draco_illixr {
 namespace {
 
 class AlwaysFailFileReader : public FileReaderInterface {
@@ -82,4 +82,4 @@ TEST(FileReaderFactoryTest, OpenReader) {
 }
 
 }  // namespace
-}  // namespace draco
+}  // namespace draco_illixr

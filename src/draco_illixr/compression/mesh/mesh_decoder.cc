@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/compression/mesh/mesh_decoder.h"
+#include "draco_illixr/compression/mesh/mesh_decoder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 MeshDecoder::MeshDecoder() : mesh_(nullptr) {}
 
@@ -34,4 +34,4 @@ bool MeshDecoder::DecodeGeometryData() {
   return PointCloudDecoder::DecodeGeometryData();
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

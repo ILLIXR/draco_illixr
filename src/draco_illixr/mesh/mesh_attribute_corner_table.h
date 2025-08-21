@@ -15,12 +15,12 @@
 #ifndef DRACO_MESH_MESH_ATTRIBUTE_CORNER_TABLE_H_
 #define DRACO_MESH_MESH_ATTRIBUTE_CORNER_TABLE_H_
 
-#include "draco/core/macros.h"
-#include "draco/mesh/corner_table.h"
-#include "draco/mesh/mesh.h"
-#include "draco/mesh/valence_cache.h"
+#include "draco_illixr/core/macros.h"
+#include "draco_illixr/mesh/corner_table.h"
+#include "draco_illixr/mesh/mesh.h"
+#include "draco_illixr/mesh/valence_cache.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Class for storing connectivity of mesh attributes. The connectivity is stored
 // as a difference from the base mesh's corner table, where the differences are
@@ -198,5 +198,5 @@ class MeshAttributeCornerTable {
   ValenceCache<MeshAttributeCornerTable> valence_cache_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 #endif  // DRACO_MESH_MESH_ATTRIBUTE_CORNER_TABLE_H_

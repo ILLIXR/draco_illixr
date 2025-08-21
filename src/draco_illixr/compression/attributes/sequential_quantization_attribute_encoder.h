@@ -15,10 +15,10 @@
 #ifndef DRACO_COMPRESSION_ATTRIBUTES_SEQUENTIAL_QUANTIZATION_ATTRIBUTE_ENCODER_H_
 #define DRACO_COMPRESSION_ATTRIBUTES_SEQUENTIAL_QUANTIZATION_ATTRIBUTE_ENCODER_H_
 
-#include "draco/attributes/attribute_quantization_transform.h"
-#include "draco/compression/attributes/sequential_integer_attribute_encoder.h"
+#include "draco_illixr/attributes/attribute_quantization_transform.h"
+#include "draco_illixr/compression/attributes/sequential_integer_attribute_encoder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 class MeshEncoder;
 
@@ -47,6 +47,6 @@ class SequentialQuantizationAttributeEncoder
   AttributeQuantizationTransform attribute_quantization_transform_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_SEQUENTIAL_QUANTIZATION_ATTRIBUTE_ENCODER_H_

@@ -18,9 +18,9 @@
 
 #include <vector>
 
-#include "draco/core/decoder_buffer.h"
+#include "draco_illixr/core/decoder_buffer.h"
 
-namespace draco {
+namespace draco_illixr {
 
 class DirectBitDecoder {
  public:
@@ -84,6 +84,6 @@ class DirectBitDecoder {
   uint32_t num_used_bits_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_BIT_CODERS_DIRECT_BIT_DECODER_H_

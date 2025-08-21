@@ -18,12 +18,12 @@
 #include <memory>
 #include <vector>
 
-#include "draco/compression/point_cloud/algorithms/point_cloud_compression_method.h"
-#include "draco/compression/point_cloud/algorithms/point_cloud_types.h"
-#include "draco/compression/point_cloud/algorithms/quantize_points_3.h"
-#include "draco/core/encoder_buffer.h"
+#include "draco_illixr/compression/point_cloud/algorithms/point_cloud_compression_method.h"
+#include "draco_illixr/compression/point_cloud/algorithms/point_cloud_types.h"
+#include "draco_illixr/compression/point_cloud/algorithms/quantize_points_3.h"
+#include "draco_illixr/core/encoder_buffer.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // This class encodes a given point cloud based on the point cloud compression
 // algorithm in:
@@ -121,6 +121,6 @@ bool FloatPointsTreeEncoder::EncodePointCloud(InputIteratorT points_begin,
   }
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_POINT_CLOUD_ALGORITHMS_FLOAT_POINTS_TREE_ENCODER_H_

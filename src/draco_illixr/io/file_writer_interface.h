@@ -3,7 +3,7 @@
 
 #include <cstddef>
 
-namespace draco {
+namespace draco_illixr {
 
 class FileWriterInterface {
  public:
@@ -21,6 +21,6 @@ class FileWriterInterface {
   virtual bool Write(const char *buffer, size_t size) = 0;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_IO_FILE_WRITER_INTERFACE_H_

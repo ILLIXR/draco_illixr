@@ -12,15 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/compression/mesh/mesh_encoder.h"
+#include "draco_illixr/compression/mesh/mesh_encoder.h"
 
-#include "draco/compression/expert_encode.h"
-#include "draco/core/decoder_buffer.h"
-#include "draco/core/draco_test_base.h"
-#include "draco/core/draco_test_utils.h"
-#include "draco/io/obj_decoder.h"
+#include "draco_illixr/compression/expert_encode.h"
+#include "draco_illixr/core/decoder_buffer.h"
+#include "draco_illixr/core/draco_test_base.h"
+#include "draco_illixr/core/draco_test_utils.h"
+#include "draco_illixr/io/obj_decoder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 struct MeshEncoderTestParams {
   MeshEncoderTestParams(const std::string &encoding_method, int cl)
@@ -115,4 +115,4 @@ INSTANTIATE_TEST_SUITE_P(
                       MeshEncoderTestParams("edgebreaker", 4),
                       MeshEncoderTestParams("edgebreaker", 10)));
 
-}  // namespace draco
+}  // namespace draco_illixr

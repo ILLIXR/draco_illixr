@@ -12,16 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/io/tiny_gltf_utils.h"
+#include "draco_illixr/io/tiny_gltf_utils.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
-#include "draco/animation/animation.h"
-#include "draco/animation/node_animation_data.h"
-#include "draco/core/status.h"
-#include "draco/core/vector_d.h"
+#include "draco_illixr/animation/animation.h"
+#include "draco_illixr/animation/node_animation_data.h"
+#include "draco_illixr/core/status.h"
+#include "draco_illixr/core/vector_d.h"
 #include "tiny_gltf.h"
 
-namespace draco {
+namespace draco_illixr {
 
 int TinyGltfUtils::GetNumComponentsForType(int type) {
   switch (type) {
@@ -217,7 +217,7 @@ void TinyGltfUtils::SetDataImpl(float value, int index,
   (*values)(index) = value;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 // Actual definitions needed by the tinygltf library using our configuration.
 #define STB_IMAGE_IMPLEMENTATION

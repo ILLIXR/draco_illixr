@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/core/options.h"
+#include "draco_illixr/core/options.h"
 
 #include <cstdlib>
 #include <string>
 #include <utility>
 
-namespace draco {
+namespace draco_illixr {
 
 void Options::MergeAndReplace(const Options &other_options) {
   for (const auto &item : other_options.options_) {
@@ -89,4 +89,4 @@ std::string Options::GetString(const std::string &name,
   return it->second;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

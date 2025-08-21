@@ -12,17 +12,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/io/obj_decoder.h"
+#include "draco_illixr/io/obj_decoder.h"
 
 #include <cctype>
 #include <cmath>
 #include <utility>
 
-#include "draco/io/file_utils.h"
-#include "draco/io/parser_utils.h"
-#include "draco/metadata/geometry_metadata.h"
+#include "draco_illixr/io/file_utils.h"
+#include "draco_illixr/io/parser_utils.h"
+#include "draco_illixr/metadata/geometry_metadata.h"
 
-namespace draco {
+namespace draco_illixr {
 
 ObjDecoder::ObjDecoder()
     : counting_mode_(true),
@@ -175,7 +175,7 @@ Status ObjDecoder::DecodeInternal() {
     }
 
     // Add attribute metadata with name.
-    std::unique_ptr<AttributeMetadata> metadata(new draco::AttributeMetadata());
+    std::unique_ptr<AttributeMetadata> metadata(new draco_illixr::AttributeMetadata());
     metadata->AddEntryString("name", "added_edges");
     pc->AddAttributeMetadata(added_edge_att_id_, std::move(metadata));
   }
@@ -782,4 +782,4 @@ inline bool ObjDecoder::IsNewEdge(int tri_count, int tri_index,
   return tri_index != tri_count - 1 && tri_corner == 1;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

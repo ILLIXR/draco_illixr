@@ -12,19 +12,19 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/io/obj_encoder.h"
+#include "draco_illixr/io/obj_encoder.h"
 
 #include <sstream>
 
-#include "draco/attributes/geometry_attribute.h"
-#include "draco/core/draco_test_base.h"
-#include "draco/core/draco_test_utils.h"
-#include "draco/io/file_reader_factory.h"
-#include "draco/io/file_reader_interface.h"
-#include "draco/io/file_utils.h"
-#include "draco/io/obj_decoder.h"
+#include "draco_illixr/attributes/geometry_attribute.h"
+#include "draco_illixr/core/draco_test_base.h"
+#include "draco_illixr/core/draco_test_utils.h"
+#include "draco_illixr/io/file_reader_factory.h"
+#include "draco_illixr/io/file_reader_interface.h"
+#include "draco_illixr/io/file_utils.h"
+#include "draco_illixr/io/obj_decoder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 class ObjEncoderTest : public ::testing::Test {
  protected:
@@ -112,16 +112,16 @@ TEST_F(ObjEncoderTest, TestObjEncodingAll) {
 TEST_F(ObjEncoderTest, TestObjOctagonPreserved) {
   // Test verifies that OBJ encoder can reconstruct and encode an octagon.
   // Decode triangulated octagon and an extra attribute for reconstruction.
-  std::unique_ptr<draco::Mesh> mesh =
+  std::unique_ptr<draco_illixr::Mesh> mesh =
       ReadMeshFromTestFile("octagon_preserved.drc");
   ASSERT_NE(mesh, nullptr);
   ASSERT_EQ(mesh->num_faces(), 6);
   ASSERT_EQ(mesh->NumNamedAttributes(GeometryAttribute::GENERIC), 1);
 
   // Reconstruct octagon and encode it into an OBJ file.
-  draco::ObjEncoder obj_encoder;
+  draco_illixr::ObjEncoder obj_encoder;
   ASSERT_TRUE(obj_encoder.EncodeToFile(
-      *mesh, draco::GetTestTempFileFullPath("encoded.obj")));
+      *mesh, draco_illixr::GetTestTempFileFullPath("encoded.obj")));
 
   // Read encoded OBJ file and golden OBJ file contents into buffers.
   std::vector<char> data_encoded;
@@ -136,4 +136,4 @@ TEST_F(ObjEncoderTest, TestObjOctagonPreserved) {
   ASSERT_EQ(data_encoded, data_golden);
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

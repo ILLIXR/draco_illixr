@@ -15,11 +15,11 @@
 #ifndef DRACO_COMPRESSION_ATTRIBUTES_SEQUENTIAL_INTEGER_ATTRIBUTE_DECODER_H_
 #define DRACO_COMPRESSION_ATTRIBUTES_SEQUENTIAL_INTEGER_ATTRIBUTE_DECODER_H_
 
-#include "draco/compression/attributes/prediction_schemes/prediction_scheme_decoder.h"
-#include "draco/compression/attributes/sequential_attribute_decoder.h"
-#include "draco/draco_features.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/prediction_scheme_decoder.h"
+#include "draco_illixr/compression/attributes/sequential_attribute_decoder.h"
+#include "draco_illixr/draco_features.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Decoder for attributes encoded with the SequentialIntegerAttributeEncoder.
 class SequentialIntegerAttributeDecoder : public SequentialAttributeDecoder {
@@ -71,6 +71,6 @@ class SequentialIntegerAttributeDecoder : public SequentialAttributeDecoder {
       prediction_scheme_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_SEQUENTIAL_INTEGER_ATTRIBUTE_DECODER_H_

@@ -1,11 +1,11 @@
-#include "draco/io/file_writer_utils.h"
+#include "draco_illixr/io/file_writer_utils.h"
 
 #include <string>
 
-#include "draco/core/draco_test_base.h"
-#include "draco/core/draco_test_utils.h"
+#include "draco_illixr/core/draco_test_base.h"
+#include "draco_illixr/core/draco_test_utils.h"
 
-namespace draco {
+namespace draco_illixr {
 namespace {
 
 TEST(FileWriterUtilsTest, SplitPathPrivateNonWindows) {
@@ -46,4 +46,4 @@ TEST(FileWriterUtilsTest, CheckAndCreatePathForFileTest) {
 #endif  // DRACO_TRANSCODER_SUPPORTED
 
 }  // namespace
-}  // namespace draco
+}  // namespace draco_illixr

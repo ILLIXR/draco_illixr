@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/attributes/attribute_transform.h"
+#include "draco_illixr/attributes/attribute_transform.h"
 
-namespace draco {
+namespace draco_illixr {
 
 bool AttributeTransform::TransferToAttribute(PointAttribute *attribute) const {
   std::unique_ptr<AttributeTransformData> transform_data(
@@ -38,4 +38,4 @@ std::unique_ptr<PointAttribute> AttributeTransform::InitTransformedAttribute(
   return transformed_attribute;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

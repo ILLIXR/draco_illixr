@@ -17,10 +17,10 @@
 
 #include <type_traits>
 
-#include "draco/core/bit_utils.h"
-#include "draco/core/encoder_buffer.h"
+#include "draco_illixr/core/bit_utils.h"
+#include "draco_illixr/core/encoder_buffer.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Encodes a specified integer as varint. Note that different coding is used
 // when IntTypeT is an unsigned data type.
@@ -56,6 +56,6 @@ bool EncodeVarint(IntTypeT val, EncoderBuffer *out_buffer) {
   return true;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_CORE_VARINT_ENCODING_H_

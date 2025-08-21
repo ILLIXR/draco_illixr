@@ -27,13 +27,13 @@
 #ifndef DRACO_COMPRESSION_CONFIG_ENCODING_FEATURES_H_
 #define DRACO_COMPRESSION_CONFIG_ENCODING_FEATURES_H_
 
-namespace draco {
+namespace draco_illixr {
 namespace features {
 
 constexpr const char *kEdgebreaker = "standard_edgebreaker";
 constexpr const char *kPredictiveEdgebreaker = "predictive_edgebreaker";
 
 }  // namespace features
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_CONFIG_ENCODING_FEATURES_H_

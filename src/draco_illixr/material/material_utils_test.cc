@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/material/material_utils.h"
+#include "draco_illixr/material/material_utils.h"
 
 #include <string>
 #include <tuple>
 #include <vector>
 
-#include "draco/core/draco_test_utils.h"
-#include "draco/io/texture_io.h"
+#include "draco_illixr/core/draco_test_utils.h"
+#include "draco_illixr/io/texture_io.h"
 
 namespace {}  // namespace

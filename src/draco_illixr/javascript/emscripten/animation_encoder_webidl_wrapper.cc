@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/javascript/emscripten/animation_encoder_webidl_wrapper.h"
+#include "draco_illixr/javascript/emscripten/animation_encoder_webidl_wrapper.h"
 
-#include "draco/animation/keyframe_animation.h"
-#include "draco/animation/keyframe_animation_encoder.h"
+#include "draco_illixr/animation/keyframe_animation.h"
+#include "draco_illixr/animation/keyframe_animation_encoder.h"
 
 DracoInt8Array::DracoInt8Array() {}
 
@@ -28,17 +28,17 @@ bool DracoInt8Array::SetValues(const char *values, int count) {
 
 AnimationBuilder::AnimationBuilder() {}
 
-bool AnimationBuilder::SetTimestamps(draco::KeyframeAnimation *animation,
+bool AnimationBuilder::SetTimestamps(draco_illixr::KeyframeAnimation *animation,
                                      long num_frames, const float *timestamps) {
   if (!animation || !timestamps) {
     return false;
   }
-  std::vector<draco::KeyframeAnimation::TimestampType> timestamps_arr(
+  std::vector<draco_illixr::KeyframeAnimation::TimestampType> timestamps_arr(
       timestamps, timestamps + num_frames);
   return animation->SetTimestamps(timestamps_arr);
 }
 
-int AnimationBuilder::AddKeyframes(draco::KeyframeAnimation *animation,
+int AnimationBuilder::AddKeyframes(draco_illixr::KeyframeAnimation *animation,
                                    long num_frames, long num_components,
                                    const float *animation_data) {
   if (!animation || !animation_data) {
@@ -46,14 +46,14 @@ int AnimationBuilder::AddKeyframes(draco::KeyframeAnimation *animation,
   }
   std::vector<float> keyframes_arr(
       animation_data, animation_data + num_frames * num_components);
-  return animation->AddKeyframes(draco::DT_FLOAT32, num_components,
+  return animation->AddKeyframes(draco_illixr::DT_FLOAT32, num_components,
                                  keyframes_arr);
 }
 
 AnimationEncoder::AnimationEncoder()
     : timestamps_quantization_bits_(-1),
       keyframes_quantization_bits_(-1),
-      options_(draco::EncoderOptions::CreateDefaultOptions()) {}
+      options_(draco_illixr::EncoderOptions::CreateDefaultOptions()) {}
 
 void AnimationEncoder::SetTimestampsQuantization(long quantization_bits) {
   timestamps_quantization_bits_ = quantization_bits;
@@ -64,11 +64,11 @@ void AnimationEncoder::SetKeyframesQuantization(long quantization_bits) {
 }
 
 int AnimationEncoder::EncodeAnimationToDracoBuffer(
-    draco::KeyframeAnimation *animation, DracoInt8Array *draco_buffer) {
+    draco_illixr::KeyframeAnimation *animation, DracoInt8Array *draco_buffer) {
   if (!animation) {
     return 0;
   }
-  draco::EncoderBuffer buffer;
+  draco_illixr::EncoderBuffer buffer;
 
   if (timestamps_quantization_bits_ > 0) {
     options_.SetAttributeInt(0, "quantization_bits",

@@ -15,9 +15,9 @@
 #ifndef DRACO_IO_PARSER_UTILS_H_
 #define DRACO_IO_PARSER_UTILS_H_
 
-#include "draco/core/decoder_buffer.h"
+#include "draco_illixr/core/decoder_buffer.h"
 
-namespace draco {
+namespace draco_illixr {
 namespace parser {
 
 // Skips to first character not included in |skip_chars|.
@@ -61,6 +61,6 @@ DecoderBuffer ParseLineIntoDecoderBuffer(DecoderBuffer *buffer);
 std::string ToLower(const std::string &str);
 
 }  // namespace parser
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_IO_PARSER_UTILS_H_

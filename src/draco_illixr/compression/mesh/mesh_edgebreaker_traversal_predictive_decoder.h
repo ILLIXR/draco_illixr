@@ -16,10 +16,10 @@
 #ifndef DRACO_COMPRESSION_MESH_MESH_EDGEBREAKER_TRAVERSAL_PREDICTIVE_DECODER_H_
 #define DRACO_COMPRESSION_MESH_MESH_EDGEBREAKER_TRAVERSAL_PREDICTIVE_DECODER_H_
 
-#include "draco/compression/mesh/mesh_edgebreaker_traversal_decoder.h"
-#include "draco/draco_features.h"
+#include "draco_illixr/compression/mesh/mesh_edgebreaker_traversal_decoder.h"
+#include "draco_illixr/draco_features.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Decoder for traversal encoded with the
 // MeshEdgebreakerTraversalPredictiveEncoder. The decoder maintains valences
@@ -128,7 +128,7 @@ class MeshEdgebreakerTraversalPredictiveDecoder
   int predicted_symbol_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_MESH_MESH_EDGEBREAKER_TRAVERSAL_PREDICTIVE_DECODER_H_
 #endif

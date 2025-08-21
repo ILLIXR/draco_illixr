@@ -18,11 +18,11 @@
 
 #include <vector>
 
-#include "draco/compression/entropy/ans.h"
-#include "draco/core/decoder_buffer.h"
-#include "draco/draco_features.h"
+#include "draco_illixr/compression/entropy/ans.h"
+#include "draco_illixr/core/decoder_buffer.h"
+#include "draco_illixr/draco_features.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Class for decoding a sequence of bits that were encoded with RAnsBitEncoder.
 class RAnsBitDecoder {
@@ -50,6 +50,6 @@ class RAnsBitDecoder {
   uint8_t prob_zero_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_BIT_CODERS_RANS_BIT_DECODER_H_

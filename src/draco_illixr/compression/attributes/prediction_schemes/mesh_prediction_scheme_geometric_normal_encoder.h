@@ -15,12 +15,12 @@
 #ifndef DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_MESH_PREDICTION_SCHEME_GEOMETRIC_NORMAL_ENCODER_H_
 #define DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_MESH_PREDICTION_SCHEME_GEOMETRIC_NORMAL_ENCODER_H_
 
-#include "draco/compression/attributes/prediction_schemes/mesh_prediction_scheme_encoder.h"
-#include "draco/compression/attributes/prediction_schemes/mesh_prediction_scheme_geometric_normal_predictor_area.h"
-#include "draco/compression/bit_coders/rans_bit_encoder.h"
-#include "draco/compression/config/compression_shared.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/mesh_prediction_scheme_encoder.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/mesh_prediction_scheme_geometric_normal_predictor_area.h"
+#include "draco_illixr/compression/bit_coders/rans_bit_encoder.h"
+#include "draco_illixr/compression/config/compression_shared.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Prediction scheme for normals based on the underlying geometry.
 // At a smooth vertices normals are computed by weighting the normals of
@@ -175,6 +175,6 @@ bool MeshPredictionSchemeGeometricNormalEncoder<
   return true;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_MESH_PREDICTION_SCHEME_GEOMETRIC_NORMAL_ENCODER_H_

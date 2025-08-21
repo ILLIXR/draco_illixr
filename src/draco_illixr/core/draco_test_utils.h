@@ -15,16 +15,16 @@
 #ifndef DRACO_CORE_DRACO_TEST_UTILS_H_
 #define DRACO_CORE_DRACO_TEST_UTILS_H_
 
-#include "draco/core/draco_test_base.h"
-#include "draco/draco_features.h"
-#include "draco/io/mesh_io.h"
-#include "draco/io/point_cloud_io.h"
+#include "draco_illixr/core/draco_test_base.h"
+#include "draco_illixr/draco_features.h"
+#include "draco_illixr/io/mesh_io.h"
+#include "draco_illixr/io/point_cloud_io.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
-#include "draco/io/scene_io.h"
+#include "draco_illixr/io/scene_io.h"
 #endif
 
-namespace draco {
+namespace draco_illixr {
 
 // Returns test temporary directory.
 std::string GetTestTempDir();
@@ -88,11 +88,11 @@ std::unique_ptr<T> ReadGeometryFromTestFile(const std::string &file_name);
 
 #endif  // DRACO_TRANSCODER_SUPPORTED
 
-// Evaluates an expression that returns draco::Status. If the status is not OK,
+// Evaluates an expression that returns draco_illixr::Status. If the status is not OK,
 // the macro asserts and logs the error message.
 #define DRACO_ASSERT_OK(expression)                                      \
   {                                                                      \
-    const draco::Status _local_status = (expression);                    \
+    const draco_illixr::Status _local_status = (expression);                    \
     ASSERT_TRUE(_local_status.ok()) << _local_status.error_msg_string(); \
   }
 
@@ -111,6 +111,6 @@ std::unique_ptr<T> ReadGeometryFromTestFile(const std::string &file_name);
   ASSERT_TRUE(statusor.ok()) << statusor.status().error_msg_string();       \
   lhs = std::move(statusor).value();
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_CORE_DRACO_TEST_UTILS_H_

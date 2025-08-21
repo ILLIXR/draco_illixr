@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/mesh/mesh_cleanup.h"
+#include "draco_illixr/mesh/mesh_cleanup.h"
 
 #include <unordered_set>
 
-#include "draco/core/hash_utils.h"
+#include "draco_illixr/core/hash_utils.h"
 
-namespace draco {
+namespace draco_illixr {
 
 Status MeshCleanup::Cleanup(Mesh *mesh, const MeshCleanupOptions &options) {
   if (!options.remove_degenerated_faces && !options.remove_unused_attributes &&
@@ -248,4 +248,4 @@ Status MeshCleanup::MakeGeometryManifold(Mesh *mesh) {
   return Status(Status::DRACO_ERROR, "Unsupported function.");
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

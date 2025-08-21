@@ -17,9 +17,9 @@
 #ifndef DRACO_COMPRESSION_ENTROPY_RANS_SYMBOL_CODING_H_
 #define DRACO_COMPRESSION_ENTROPY_RANS_SYMBOL_CODING_H_
 
-#include "draco/compression/entropy/ans.h"
+#include "draco_illixr/compression/entropy/ans.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Computes the desired precision of the rANS method for the specified number of
 // unique symbols the input data (defined by their bit_length).
@@ -48,6 +48,6 @@ static inline int64_t ApproximateRAnsFrequencyTableBits(
   return 8 * num_unique_symbols + table_zero_frequency_bits;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ENTROPY_RANS_SYMBOL_CODING_H_

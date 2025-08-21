@@ -4,9 +4,9 @@
 #include <algorithm>
 #include <vector>
 
-#include "draco/core/encoder_buffer.h"
+#include "draco_illixr/core/encoder_buffer.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Class for encoding bits using the symbol entropy encoding. Wraps
 // |EncodeSymbols|. Note that this uses a symbol-based encoding scheme for
@@ -31,6 +31,6 @@ class SymbolBitEncoder {
   std::vector<uint32_t> symbols_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_BIT_CODERS_SYMBOL_BIT_ENCODER_H_

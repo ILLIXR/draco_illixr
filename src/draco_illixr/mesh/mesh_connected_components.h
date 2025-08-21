@@ -15,9 +15,9 @@
 #ifndef DRACO_MESH_MESH_CONNECTED_COMPONENTS_H_
 #define DRACO_MESH_MESH_CONNECTED_COMPONENTS_H_
 
-#include "draco/mesh/corner_table.h"
+#include "draco_illixr/mesh/corner_table.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Class for detecting connected components on an input mesh defined by a
 // corner table. Degenerated faces and their vertices are not assigned to any
@@ -154,6 +154,6 @@ void MeshConnectedComponents::FindConnectedComponents(
   }
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_MESH_MESH_CONNECTED_COMPONENTS_H_

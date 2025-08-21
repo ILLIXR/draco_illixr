@@ -6,9 +6,9 @@
 #include <memory>
 #include <string>
 
-#include "draco/io/file_writer_interface.h"
+#include "draco_illixr/io/file_writer_interface.h"
 
-namespace draco {
+namespace draco_illixr {
 
 class StdioFileWriter : public FileWriterInterface {
  public:
@@ -37,6 +37,6 @@ class StdioFileWriter : public FileWriterInterface {
   static bool registered_in_factory_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_IO_STDIO_FILE_WRITER_H_

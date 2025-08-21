@@ -17,9 +17,9 @@
 
 #include <functional>
 
-#include "draco/io/ply_reader.h"
+#include "draco_illixr/io/ply_reader.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Class for writing PlyProperty with a given type, performing data conversion
 // if necessary.
@@ -89,6 +89,6 @@ class PlyPropertyWriter {
   std::function<void(WriteTypeT)> convert_value_func_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_IO_PLY_PROPERTY_WRITER_H_

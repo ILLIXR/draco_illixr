@@ -17,13 +17,13 @@
 
 #include <string>
 
-#include "draco/core/encoder_buffer.h"
-#include "draco/draco_features.h"
-#include "draco/mesh/mesh.h"
+#include "draco_illixr/core/encoder_buffer.h"
+#include "draco_illixr/draco_features.h"
+#include "draco_illixr/mesh/mesh.h"
 
-namespace draco {
+namespace draco_illixr {
 
-// Class for encoding draco::Mesh into the STL file format.
+// Class for encoding draco_illixr::Mesh into the STL file format.
 class StlEncoder {
  public:
   StlEncoder();
@@ -47,6 +47,6 @@ class StlEncoder {
   const Mesh *in_mesh_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_IO_STL_ENCODER_H_

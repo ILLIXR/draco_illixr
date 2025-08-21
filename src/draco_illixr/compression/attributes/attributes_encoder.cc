@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/compression/attributes/attributes_encoder.h"
+#include "draco_illixr/compression/attributes/attributes_encoder.h"
 
-#include "draco/core/varint_encoding.h"
-#include "draco/draco_features.h"
+#include "draco_illixr/core/varint_encoding.h"
+#include "draco_illixr/draco_features.h"
 
-namespace draco {
+namespace draco_illixr {
 
 AttributesEncoder::AttributesEncoder()
     : point_cloud_encoder_(nullptr), point_cloud_(nullptr) {}
@@ -56,4 +56,4 @@ bool AttributesEncoder::EncodeAttributesEncoderData(EncoderBuffer *out_buffer) {
   return true;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

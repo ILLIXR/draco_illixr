@@ -12,15 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/io/point_cloud_io.h"
+#include "draco_illixr/io/point_cloud_io.h"
 
 #include <sstream>
 
-#include "draco/core/draco_test_base.h"
-#include "draco/core/draco_test_utils.h"
-#include "draco/io/obj_decoder.h"
+#include "draco_illixr/core/draco_test_base.h"
+#include "draco_illixr/core/draco_test_utils.h"
+#include "draco_illixr/io/obj_decoder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 class IoPointCloudIoTest : public ::testing::Test {
  protected:
@@ -112,4 +112,4 @@ TEST_F(IoPointCloudIoTest, WrongFile) {
   ASSERT_EQ(pc, nullptr);
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

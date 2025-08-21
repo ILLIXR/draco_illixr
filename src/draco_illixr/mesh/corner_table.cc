@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/mesh/corner_table.h"
+#include "draco_illixr/mesh/corner_table.h"
 
 #include <limits>
 
-#include "draco/attributes/geometry_indices.h"
-#include "draco/mesh/corner_table_iterators.h"
+#include "draco_illixr/attributes/geometry_indices.h"
+#include "draco_illixr/mesh/corner_table_iterators.h"
 
-namespace draco {
+namespace draco_illixr {
 
 CornerTable::CornerTable()
     : num_original_vertices_(0),
@@ -438,4 +438,4 @@ void CornerTable::UpdateFaceToVertexMap(const VertexIndex vertex) {
   }
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

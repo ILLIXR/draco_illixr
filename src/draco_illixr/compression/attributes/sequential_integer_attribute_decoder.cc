@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/compression/attributes/sequential_integer_attribute_decoder.h"
+#include "draco_illixr/compression/attributes/sequential_integer_attribute_decoder.h"
 
-#include "draco/compression/attributes/prediction_schemes/prediction_scheme_decoder_factory.h"
-#include "draco/compression/attributes/prediction_schemes/prediction_scheme_wrap_decoding_transform.h"
-#include "draco/compression/entropy/symbol_decoding.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/prediction_scheme_decoder_factory.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/prediction_scheme_wrap_decoding_transform.h"
+#include "draco_illixr/compression/entropy/symbol_decoding.h"
 
-namespace draco {
+namespace draco_illixr {
 
 SequentialIntegerAttributeDecoder::SequentialIntegerAttributeDecoder() {}
 
@@ -239,4 +239,4 @@ void SequentialIntegerAttributeDecoder::PreparePortableAttribute(
   SetPortableAttribute(std::move(port_att));
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

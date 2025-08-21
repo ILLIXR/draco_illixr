@@ -19,9 +19,9 @@
 
 #include <vector>
 
-#include "draco/core/vector_d.h"
+#include "draco_illixr/core/vector_d.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Using Eigen as this is favored by project Cartographer.
 typedef Vector3f Point3f;
@@ -71,6 +71,6 @@ class PointTraits<VectorD<CoordinateTypeT, dimension_t>> {
   }
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_POINT_CLOUD_ALGORITHMS_POINT_CLOUD_TYPES_H_

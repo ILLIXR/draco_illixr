@@ -15,12 +15,12 @@
 #ifndef DRACO_COMPRESSION_MESH_MESH_EDGEBREAKER_TRAVERSAL_VALENCE_DECODER_H_
 #define DRACO_COMPRESSION_MESH_MESH_EDGEBREAKER_TRAVERSAL_VALENCE_DECODER_H_
 
-#include "draco/compression/entropy/symbol_decoding.h"
-#include "draco/compression/mesh/mesh_edgebreaker_traversal_decoder.h"
-#include "draco/core/varint_decoding.h"
-#include "draco/draco_features.h"
+#include "draco_illixr/compression/entropy/symbol_decoding.h"
+#include "draco_illixr/compression/mesh/mesh_edgebreaker_traversal_decoder.h"
+#include "draco_illixr/core/varint_decoding.h"
+#include "draco_illixr/draco_features.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Decoder for traversal encoded with MeshEdgebreakerTraversalValenceEncoder.
 // The decoder maintains valences of the decoded portion of the traversed mesh
@@ -214,6 +214,6 @@ class MeshEdgebreakerTraversalValenceDecoder
   std::vector<int> context_counters_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_MESH_MESH_EDGEBREAKER_TRAVERSAL_VALENCE_DECODER_H_

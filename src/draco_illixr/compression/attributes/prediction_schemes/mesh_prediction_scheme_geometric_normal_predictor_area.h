@@ -15,9 +15,9 @@
 #ifndef DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_MESH_PREDICTION_SCHEME_GEOMETRIC_NORMAL_PREDICTOR_AREA_H_
 #define DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_MESH_PREDICTION_SCHEME_GEOMETRIC_NORMAL_PREDICTOR_AREA_H_
 
-#include "draco/compression/attributes/prediction_schemes/mesh_prediction_scheme_geometric_normal_predictor_base.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/mesh_prediction_scheme_geometric_normal_predictor_base.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // This predictor estimates the normal via the surrounding triangles of the
 // given corner. Triangles are weighted according to their area.
@@ -112,6 +112,6 @@ class MeshPredictionSchemeGeometricNormalPredictorArea
   }
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_MESH_PREDICTION_SCHEME_GEOMETRIC_NORMAL_PREDICTOR_AREA_H_

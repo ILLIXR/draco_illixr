@@ -15,16 +15,16 @@
 #ifndef DRACO_SCENE_INSTANCE_ARRAY_H_
 #define DRACO_SCENE_INSTANCE_ARRAY_H_
 
-#include "draco/draco_features.h"
+#include "draco_illixr/draco_features.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 #include <string>
 #include <vector>
 
-#include "draco/core/vector_d.h"
-#include "draco/scene/trs_matrix.h"
+#include "draco_illixr/core/vector_d.h"
+#include "draco_illixr/scene/trs_matrix.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Describes a mesh group instancing array that includes TRS transformation
 // for multiple instance positions and possibly other custom instance attributes
@@ -55,7 +55,7 @@ class InstanceArray {
   std::vector<Instance> instances_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED
 #endif  // DRACO_SCENE_INSTANCE_ARRAY_H_

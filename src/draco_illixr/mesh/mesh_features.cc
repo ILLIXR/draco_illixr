@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/mesh/mesh_features.h"
+#include "draco_illixr/mesh/mesh_features.h"
 
 #include <string>
 #include <vector>
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 
-namespace draco {
+namespace draco_illixr {
 
 MeshFeatures::MeshFeatures()
     : feature_count_(0),
@@ -93,6 +93,6 @@ int MeshFeatures::GetPropertyTableIndex() const {
   return property_table_index_;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED

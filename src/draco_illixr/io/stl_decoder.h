@@ -17,15 +17,15 @@
 
 #include <string>
 
-#include "draco/core/decoder_buffer.h"
-#include "draco/core/status.h"
-#include "draco/core/status_or.h"
-#include "draco/draco_features.h"
-#include "draco/mesh/mesh.h"
+#include "draco_illixr/core/decoder_buffer.h"
+#include "draco_illixr/core/status.h"
+#include "draco_illixr/core/status_or.h"
+#include "draco_illixr/draco_features.h"
+#include "draco_illixr/mesh/mesh.h"
 
-namespace draco {
+namespace draco_illixr {
 
-// Decodes an STL file into draco::Mesh (or draco::PointCloud if the
+// Decodes an STL file into draco_illixr::Mesh (or draco_illixr::PointCloud if the
 // connectivity data is not needed).
 class StlDecoder {
  public:
@@ -33,6 +33,6 @@ class StlDecoder {
   StatusOr<std::unique_ptr<Mesh>> DecodeFromBuffer(DecoderBuffer *buffer);
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_IO_STL_DECODER_H_

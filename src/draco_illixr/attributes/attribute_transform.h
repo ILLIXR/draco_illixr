@@ -15,12 +15,12 @@
 #ifndef DRACO_ATTRIBUTES_ATTRIBUTE_TRANSFORM_H_
 #define DRACO_ATTRIBUTES_ATTRIBUTE_TRANSFORM_H_
 
-#include "draco/attributes/attribute_transform_data.h"
-#include "draco/attributes/point_attribute.h"
-#include "draco/core/decoder_buffer.h"
-#include "draco/core/encoder_buffer.h"
+#include "draco_illixr/attributes/attribute_transform_data.h"
+#include "draco_illixr/attributes/point_attribute.h"
+#include "draco_illixr/core/decoder_buffer.h"
+#include "draco_illixr/core/encoder_buffer.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Virtual base class for various attribute transforms, enforcing common
 // interface where possible.
@@ -71,6 +71,6 @@ class AttributeTransform {
       const PointAttribute &attribute) const = 0;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_ATTRIBUTES_ATTRIBUTE_OCTAHEDRON_TRANSFORM_H_

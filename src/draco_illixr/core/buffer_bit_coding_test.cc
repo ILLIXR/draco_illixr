@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/core/decoder_buffer.h"
-#include "draco/core/draco_test_base.h"
-#include "draco/core/encoder_buffer.h"
+#include "draco_illixr/core/decoder_buffer.h"
+#include "draco_illixr/core/draco_test_base.h"
+#include "draco_illixr/core/encoder_buffer.h"
 
-namespace draco {
+namespace draco_illixr {
 
 class BufferBitCodingTest : public ::testing::Test {
  public:
@@ -112,4 +112,4 @@ TEST_F(BufferBitCodingTest, TestMultipleBits) {
   }
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

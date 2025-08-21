@@ -15,12 +15,12 @@
 #ifndef DRACO_COMPRESSION_DRACO_COMPRESSION_OPTIONS_H_
 #define DRACO_COMPRESSION_DRACO_COMPRESSION_OPTIONS_H_
 
-#include "draco/draco_features.h"
+#include "draco_illixr/draco_features.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
-#include "draco/core/status.h"
+#include "draco_illixr/core/status.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Quantization options for positions. Currently there are two modes for
 // quantizing positions:
@@ -135,7 +135,7 @@ struct DracoCompressionOptions {
   }
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED
 #endif  // DRACO_COMPRESSION_DRACO_COMPRESSION_OPTIONS_H_

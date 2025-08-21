@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/io/gltf_decoder.h"
+#include "draco_illixr/io/gltf_decoder.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 
@@ -24,26 +24,26 @@
 #include <utility>
 #include <vector>
 
-#include "draco/core/draco_types.h"
-#include "draco/core/hash_utils.h"
-#include "draco/core/status.h"
-#include "draco/core/status_or.h"
-#include "draco/io/tiny_gltf_utils.h"
-#include "draco/material/material_library.h"
-#include "draco/mesh/mesh.h"
-#include "draco/mesh/mesh_features.h"
-#include "draco/mesh/triangle_soup_mesh_builder.h"
-#include "draco/metadata/property_table.h"
-#include "draco/point_cloud/point_cloud_builder.h"
-#include "draco/scene/scene_indices.h"
-#include "draco/texture/source_image.h"
-#include "draco/texture/texture_utils.h"
+#include "draco_illixr/core/draco_types.h"
+#include "draco_illixr/core/hash_utils.h"
+#include "draco_illixr/core/status.h"
+#include "draco_illixr/core/status_or.h"
+#include "draco_illixr/io/tiny_gltf_utils.h"
+#include "draco_illixr/material/material_library.h"
+#include "draco_illixr/mesh/mesh.h"
+#include "draco_illixr/mesh/mesh_features.h"
+#include "draco_illixr/mesh/triangle_soup_mesh_builder.h"
+#include "draco_illixr/metadata/property_table.h"
+#include "draco_illixr/point_cloud/point_cloud_builder.h"
+#include "draco_illixr/scene/scene_indices.h"
+#include "draco_illixr/texture/source_image.h"
+#include "draco_illixr/texture/texture_utils.h"
 #include "tiny_gltf.h"
 
-namespace draco {
+namespace draco_illixr {
 
 namespace {
-draco::DataType GltfComponentTypeToDracoType(int component_type) {
+draco_illixr::DataType GltfComponentTypeToDracoType(int component_type) {
   switch (component_type) {
     case TINYGLTF_COMPONENT_TYPE_BYTE:
       return DT_INT8;
@@ -240,7 +240,7 @@ StatusOr<std::vector<TypeT>> CopyDataAs(const tinygltf::Model &model,
   return output;
 }
 
-// Specialization for remaining types is used for draco::VectorD.
+// Specialization for remaining types is used for draco_illixr::VectorD.
 template <typename TypeT,
           typename std::enable_if<!std::is_arithmetic<TypeT>::value>::type * =
               nullptr>
@@ -692,7 +692,7 @@ Status GltfDecoder::DecodePrimitive(const tinygltf::Primitive &primitive,
                   "Primitive does not contain triangles or points.");
   }
 
-  // Store the transformation scale of this primitive loading as draco::Mesh.
+  // Store the transformation scale of this primitive loading as draco_illixr::Mesh.
   if (scene_ == nullptr) {
     // TODO(vytyaz): Do something for non-uniform scaling.
     const float scale = transform_matrix.col(0).norm();
@@ -860,7 +860,7 @@ Status GltfDecoder::AddAttributesToDracoMesh(BuilderT *builder) {
 
   // Add the material attribute.
   if (gltf_model_.materials.size() > 1) {
-    draco::DataType component_type = DT_UINT32;
+    draco_illixr::DataType component_type = DT_UINT32;
     if (gltf_model_.materials.size() < 256) {
       component_type = DT_UINT8;
     } else if (gltf_model_.materials.size() < (1 << 16)) {
@@ -974,7 +974,7 @@ Status GltfDecoder::AddFeatureIdToBuilder(
   if (num_components != 1) {
     return ErrorStatus("Invalid feature ID attribute type.");
   }
-  const draco::DataType draco_component_type =
+  const draco_illixr::DataType draco_component_type =
       GltfComponentTypeToDracoType(accessor.componentType);
   if (draco_component_type != DT_UINT8 && draco_component_type != DT_UINT16 &&
       draco_component_type != DT_FLOAT32) {
@@ -988,7 +988,7 @@ Status GltfDecoder::AddFeatureIdToBuilder(
 
   // Store feature ID attribute name with index like _FEATURE_ID_5 in Draco
   // attribute metadata.
-  std::unique_ptr<AttributeMetadata> metadata(new draco::AttributeMetadata());
+  std::unique_ptr<AttributeMetadata> metadata(new draco_illixr::AttributeMetadata());
   metadata->AddEntryString("attribute_name", attribute_name);
   builder->AddAttributeMetadata(att_id, std::move(metadata));
   return OkStatus();
@@ -2132,7 +2132,7 @@ StatusOr<int> GltfDecoder::AddAttribute(GeometryAttribute::Type attribute_type,
                   "Could not add attribute with 0 components.");
   }
 
-  const draco::DataType draco_component_type =
+  const draco_illixr::DataType draco_component_type =
       GltfComponentTypeToDracoType(component_type);
   if (draco_component_type == DT_INVALID) {
     return Status(Status::DRACO_ERROR,
@@ -2439,10 +2439,10 @@ Status GltfDecoder::DecodeMaterialVolumeExtension(
       success, DecodeFloat("thicknessFactor", extension_object, &value));
   if (success) {
     // Volume thickness factor is given in the coordinate space of the model.
-    // When the model is loaded as draco::Mesh, the scene graph transformations
+    // When the model is loaded as draco_illixr::Mesh, the scene graph transformations
     // are applied to position attribute. Since this effectively scales the
     // model coordinate space, the volume thickness factor also must be scaled.
-    // No scaling is done when the model is loaded as draco::Scene.
+    // No scaling is done when the model is loaded as draco_illixr::Scene.
     float scale = 1.0f;
     if (scene_ == nullptr) {
       if (gltf_primitive_material_to_scales_.count(input_material_index) == 1) {
@@ -2881,6 +2881,6 @@ StatusOr<std::unique_ptr<Mesh>> GltfDecoder::BuildMeshFromBuilder(
   return mesh;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED

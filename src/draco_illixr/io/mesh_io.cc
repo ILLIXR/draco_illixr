@@ -12,26 +12,26 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/io/mesh_io.h"
+#include "draco_illixr/io/mesh_io.h"
 
 #include <fstream>
 #include <string>
 
-#include "draco/io/file_utils.h"
-#include "draco/io/file_writer_interface.h"
-#include "draco/io/obj_decoder.h"
-#include "draco/io/ply_decoder.h"
-#include "draco/io/stl_decoder.h"
+#include "draco_illixr/io/file_utils.h"
+#include "draco_illixr/io/file_writer_interface.h"
+#include "draco_illixr/io/obj_decoder.h"
+#include "draco_illixr/io/ply_decoder.h"
+#include "draco_illixr/io/stl_decoder.h"
 #ifdef DRACO_TRANSCODER_SUPPORTED
-#include "draco/compression/draco_compression_options.h"
-#include "draco/compression/encode.h"
-#include "draco/io/gltf_decoder.h"
-#include "draco/io/gltf_encoder.h"
-#include "draco/io/obj_encoder.h"
-#include "draco/io/ply_encoder.h"
+#include "draco_illixr/compression/draco_compression_options.h"
+#include "draco_illixr/compression/encode.h"
+#include "draco_illixr/io/gltf_decoder.h"
+#include "draco_illixr/io/gltf_encoder.h"
+#include "draco_illixr/io/obj_encoder.h"
+#include "draco_illixr/io/ply_encoder.h"
 #endif
 
-namespace draco {
+namespace draco_illixr {
 
 StatusOr<std::unique_ptr<Mesh>> ReadMeshFromFile(const std::string &file_name) {
   const Options options;
@@ -107,4 +107,4 @@ StatusOr<std::unique_ptr<Mesh>> ReadMeshFromFile(
   return std::move(statusor).value();
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

@@ -15,10 +15,10 @@
 #ifndef DRACO_UNITY_DRACO_UNITY_PLUGIN_H_
 #define DRACO_UNITY_DRACO_UNITY_PLUGIN_H_
 
-#include "draco/attributes/geometry_attribute.h"
-#include "draco/compression/config/compression_shared.h"
-#include "draco/compression/decode.h"
-#include "draco/core/draco_types.h"
+#include "draco_illixr/attributes/geometry_attribute.h"
+#include "draco_illixr/compression/config/compression_shared.h"
+#include "draco_illixr/compression/decode.h"
+#include "draco_illixr/core/draco_types.h"
 
 #ifdef DRACO_UNITY_PLUGIN
 
@@ -30,7 +30,7 @@
 #define EXPORT_API
 #endif  // defined(_MSC_VER)
 
-namespace draco {
+namespace draco_illixr {
 
 extern "C" {
 
@@ -147,7 +147,7 @@ int EXPORT_API DecodeMeshForUnity(char *data, unsigned int length,
                                   DracoToUnityMesh **tmp_mesh);
 }  // extern "C"
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_UNITY_PLUGIN
 

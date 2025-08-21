@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/material/material.h"
+#include "draco_illixr/material/material.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 
-namespace draco {
+namespace draco_illixr {
 
 Material::Material() : Material(nullptr) {}
 
@@ -253,6 +253,6 @@ std::unique_ptr<TextureMap> Material::RemoveTextureMapByType(
   return RemoveTextureMapByIndex(it->second);
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED

@@ -21,16 +21,16 @@
 #include <stack>
 #include <vector>
 
-#include "draco/compression/bit_coders/adaptive_rans_bit_encoder.h"
-#include "draco/compression/bit_coders/direct_bit_encoder.h"
-#include "draco/compression/bit_coders/folded_integer_bit_encoder.h"
-#include "draco/compression/bit_coders/rans_bit_encoder.h"
-#include "draco/compression/point_cloud/algorithms/point_cloud_types.h"
-#include "draco/core/bit_utils.h"
-#include "draco/core/encoder_buffer.h"
-#include "draco/core/math_utils.h"
+#include "draco_illixr/compression/bit_coders/adaptive_rans_bit_encoder.h"
+#include "draco_illixr/compression/bit_coders/direct_bit_encoder.h"
+#include "draco_illixr/compression/bit_coders/folded_integer_bit_encoder.h"
+#include "draco_illixr/compression/bit_coders/rans_bit_encoder.h"
+#include "draco_illixr/compression/point_cloud/algorithms/point_cloud_types.h"
+#include "draco_illixr/core/bit_utils.h"
+#include "draco_illixr/core/encoder_buffer.h"
+#include "draco_illixr/core/math_utils.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // This policy class provides several configurations for the encoder that allow
 // to trade speed vs compression rate. Level 0 is fastest while 6 is the best
@@ -367,6 +367,6 @@ extern template class DynamicIntegerPointsKdTreeEncoder<2>;
 extern template class DynamicIntegerPointsKdTreeEncoder<4>;
 extern template class DynamicIntegerPointsKdTreeEncoder<6>;
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_POINT_CLOUD_ALGORITHMS_DYNAMIC_INTEGER_POINTS_KD_TREE_ENCODER_H_

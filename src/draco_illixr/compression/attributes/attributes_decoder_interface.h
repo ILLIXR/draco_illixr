@@ -17,10 +17,10 @@
 
 #include <vector>
 
-#include "draco/core/decoder_buffer.h"
-#include "draco/point_cloud/point_cloud.h"
+#include "draco_illixr/core/decoder_buffer.h"
+#include "draco_illixr/point_cloud/point_cloud.h"
 
-namespace draco {
+namespace draco_illixr {
 
 class PointCloudDecoder;
 
@@ -57,6 +57,6 @@ class AttributesDecoderInterface {
   }
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_ATTRIBUTES_DECODER_INTERFACE_H_

@@ -15,16 +15,16 @@
 #ifndef DRACO_TEXTURE_SOURCE_IMAGE_H_
 #define DRACO_TEXTURE_SOURCE_IMAGE_H_
 
-#include "draco/draco_features.h"
+#include "draco_illixr/draco_features.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 #include <cstdint>
 #include <string>
 #include <vector>
 
-#include "draco/core/status.h"
+#include "draco_illixr/core/status.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // This class is used to hold the encoded and decoded data and characteristics
 // for an image. In order for the image to contain "valid" encoded data, either
@@ -66,7 +66,7 @@ class SourceImage {
   std::vector<uint8_t> encoded_data_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED
 #endif  // DRACO_TEXTURE_SOURCE_IMAGE_H_

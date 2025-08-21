@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/compression/attributes/sequential_attribute_encoder.h"
+#include "draco_illixr/compression/attributes/sequential_attribute_encoder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 SequentialAttributeEncoder::SequentialAttributeEncoder()
     : encoder_(nullptr),
@@ -40,7 +40,7 @@ bool SequentialAttributeEncoder::InitializeStandalone(
 bool SequentialAttributeEncoder::TransformAttributeToPortableFormat(
     const std::vector<PointIndex> &point_ids) {
   // Default implementation doesn't transform the input data.
-  printf("sequential attribute encoder, always true\n"); 
+  printf("sequential attribute encoder, always true\n");
   return true;
 }
 
@@ -106,4 +106,4 @@ bool SequentialAttributeEncoder::SetPredictionSchemeParentAttributes(
   return true;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

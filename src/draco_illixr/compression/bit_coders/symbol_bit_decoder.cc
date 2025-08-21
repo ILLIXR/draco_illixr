@@ -1,8 +1,8 @@
-#include "draco/compression/bit_coders/symbol_bit_decoder.h"
+#include "draco_illixr/compression/bit_coders/symbol_bit_decoder.h"
 
-#include "draco/compression/entropy/symbol_decoding.h"
+#include "draco_illixr/compression/entropy/symbol_decoding.h"
 
-namespace draco {
+namespace draco_illixr {
 
 bool SymbolBitDecoder::StartDecoding(DecoderBuffer *source_buffer) {
   uint32_t size;
@@ -46,4 +46,4 @@ void SymbolBitDecoder::Clear() {
   symbols_.shrink_to_fit();
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

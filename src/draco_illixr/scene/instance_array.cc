@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/scene/instance_array.h"
+#include "draco_illixr/scene/instance_array.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 
 #include <utility>
 
-namespace draco {
+namespace draco_illixr {
 
 void InstanceArray::Copy(const InstanceArray &other) {
   instances_.resize(other.instances_.size());
@@ -40,6 +40,6 @@ Status InstanceArray::AddInstance(const Instance &instance) {
   return OkStatus();
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED

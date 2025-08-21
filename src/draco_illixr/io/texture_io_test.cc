@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/io/texture_io.h"
+#include "draco_illixr/io/texture_io.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 #include <memory>
@@ -21,20 +21,20 @@
 #include <utility>
 #include <vector>
 
-#include "draco/core/draco_test_utils.h"
-#include "draco/io/file_utils.h"
+#include "draco_illixr/core/draco_test_utils.h"
+#include "draco_illixr/io/file_utils.h"
 
 namespace {
 
 // Tests loading of textures from a buffer.
 TEST(TextureIoTest, TestLoadFromBuffer) {
-  const std::string file_name = draco::GetTestFileFullPath("test.png");
+  const std::string file_name = draco_illixr::GetTestFileFullPath("test.png");
   std::vector<uint8_t> image_data;
-  ASSERT_TRUE(draco::ReadFileToBuffer(file_name, &image_data));
+  ASSERT_TRUE(draco_illixr::ReadFileToBuffer(file_name, &image_data));
 
   DRACO_ASSIGN_OR_ASSERT(
-      std::unique_ptr<draco::Texture> texture,
-      draco::ReadTextureFromBuffer(image_data.data(), image_data.size(),
+      std::unique_ptr<draco_illixr::Texture> texture,
+      draco_illixr::ReadTextureFromBuffer(image_data.data(), image_data.size(),
                                    "image/png"));
   ASSERT_NE(texture, nullptr);
 
@@ -42,7 +42,7 @@ TEST(TextureIoTest, TestLoadFromBuffer) {
 
   // Re-encode the texture again to ensure the content hasn't changed.
   std::vector<uint8_t> encoded_buffer;
-  DRACO_ASSERT_OK(draco::WriteTextureToBuffer(*texture, &encoded_buffer));
+  DRACO_ASSERT_OK(draco_illixr::WriteTextureToBuffer(*texture, &encoded_buffer));
 
   ASSERT_EQ(image_data.size(), encoded_buffer.size());
   for (int i = 0; i < encoded_buffer.size(); ++i) {

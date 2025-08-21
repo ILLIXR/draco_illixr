@@ -22,7 +22,7 @@ cmake $SRC/draco
 make -j$(nproc)
 
 # build fuzzers
-for fuzzer in $(find $SRC/draco/src/draco/tools/fuzz -name '*.cc'); do
+for fuzzer in $(find $SRC/draco/src/draco_illixr/tools/fuzz -name '*.cc'); do
   fuzzer_basename=$(basename -s .cc $fuzzer)
   $CXX $CXXFLAGS \
     -I $SRC/ \

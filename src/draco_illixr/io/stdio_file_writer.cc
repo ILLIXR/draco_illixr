@@ -1,4 +1,4 @@
-#include "draco/io/stdio_file_writer.h"
+#include "draco_illixr/io/stdio_file_writer.h"
 
 #include <algorithm>
 #include <cstdint>
@@ -6,11 +6,11 @@
 #include <memory>
 #include <string>
 
-#include "draco/draco_features.h"
-#include "draco/io/file_writer_factory.h"
-#include "draco/io/file_writer_utils.h"
+#include "draco_illixr/draco_features.h"
+#include "draco_illixr/io/file_writer_factory.h"
+#include "draco_illixr/io/file_writer_utils.h"
 
-namespace draco {
+namespace draco_illixr {
 
 #define FILEWRITER_LOG_ERROR(error_string)                             \
   do {                                                                 \
@@ -57,4 +57,4 @@ bool StdioFileWriter::Write(const char *buffer, size_t size) {
   return fwrite(buffer, 1, size, file_) == size;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

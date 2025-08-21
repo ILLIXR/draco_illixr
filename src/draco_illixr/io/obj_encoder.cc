@@ -12,17 +12,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/io/obj_encoder.h"
+#include "draco_illixr/io/obj_encoder.h"
 
 #include <memory>
 
-#include "draco/attributes/geometry_attribute.h"
-#include "draco/io/file_writer_factory.h"
-#include "draco/io/file_writer_interface.h"
-#include "draco/mesh/mesh_misc_functions.h"
-#include "draco/metadata/geometry_metadata.h"
+#include "draco_illixr/attributes/geometry_attribute.h"
+#include "draco_illixr/io/file_writer_factory.h"
+#include "draco_illixr/io/file_writer_interface.h"
+#include "draco_illixr/mesh/mesh_misc_functions.h"
+#include "draco_illixr/metadata/geometry_metadata.h"
 
-namespace draco {
+namespace draco_illixr {
 
 ObjEncoder::ObjEncoder()
     : pos_att_(nullptr),
@@ -459,7 +459,7 @@ void ObjEncoder::FindOriginalFaceEdges(FaceIndex face_index,
     // 2. Degenerate triangles created by position quantization are encoded and
     //    decoded by Draco, but not captured into the |corner_table|, causing a
     //    mismatch between the corner table and the "added_edges" attribute.
-    //    Solution is to use corner table from draco::MeshDecoder here.
+    //    Solution is to use corner table from draco_illixr::MeshDecoder here.
     //
     if (is_new_edge && co != kInvalidCornerIndex) {
       // Visit triangle across the new edge.
@@ -476,4 +476,4 @@ void ObjEncoder::FindOriginalFaceEdges(FaceIndex face_index,
   }
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

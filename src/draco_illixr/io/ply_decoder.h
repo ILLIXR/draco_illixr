@@ -17,15 +17,15 @@
 
 #include <string>
 
-#include "draco/core/decoder_buffer.h"
-#include "draco/core/status.h"
-#include "draco/draco_features.h"
-#include "draco/io/ply_reader.h"
-#include "draco/mesh/mesh.h"
+#include "draco_illixr/core/decoder_buffer.h"
+#include "draco_illixr/core/status.h"
+#include "draco_illixr/draco_features.h"
+#include "draco_illixr/io/ply_reader.h"
+#include "draco_illixr/mesh/mesh.h"
 
-namespace draco {
+namespace draco_illixr {
 
-// Decodes a PLY file into draco::Mesh (or draco::PointCloud if the
+// Decodes a PLY file into draco_illixr::Mesh (or draco_illixr::PointCloud if the
 // connectivity data is not needed).
 // TODO(b/34330853): The current implementation assumes that the input vertices
 // are defined with x, y, z properties. The decoder also reads uint8 red, green,
@@ -70,6 +70,6 @@ class PlyDecoder {
   // always set but |out_mesh_| is optional.
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_IO_PLY_DECODER_H_

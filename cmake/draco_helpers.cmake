@@ -105,7 +105,7 @@ macro(draco_create_dummy_source_file)
   endif()
 endmacro()
 
-# Loads the version string from $draco_source/draco/version.h and sets
+# Loads the version string from $draco_source/draco_illixr/version.h and sets
 # $DRACO_VERSION.
 macro(draco_load_version_info)
   file(STRINGS "${draco_src_root}/core/draco_version.h" version_file_strings)

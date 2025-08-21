@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/metadata/structural_metadata.h"
+#include "draco_illixr/metadata/structural_metadata.h"
 
 #include <memory>
 #include <utility>
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 
-namespace draco {
+namespace draco_illixr {
 
 StructuralMetadata::StructuralMetadata() {}
 
@@ -69,6 +69,6 @@ void StructuralMetadata::RemovePropertyTable(int index) {
   property_tables_.erase(property_tables_.begin() + index);
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED

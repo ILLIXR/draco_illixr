@@ -14,15 +14,15 @@
 
 #include <fuzzer/FuzzedDataProvider.h>
 
-#include "draco/src/draco/compression/decode.h"
-#include "draco/src/draco/core/decoder_buffer.h"
-#include "draco/src/draco/mesh/mesh.h"
+#include "draco_illixr/compression/decode.h"
+#include "draco_illixr/core/decoder_buffer.h"
+#include "draco_illixr/mesh/mesh.h"
 
 extern "C" int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size) {
-  draco::DecoderBuffer buffer;
+  draco_illixr::DecoderBuffer buffer;
   buffer.Init(reinterpret_cast<const char *>(data), size);
 
-  draco::Decoder decoder;
+  draco_illixr::Decoder decoder;
   decoder.DecodeMeshFromBuffer(&buffer);
 
   return 0;

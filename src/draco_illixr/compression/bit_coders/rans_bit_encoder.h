@@ -18,9 +18,9 @@
 
 #include <vector>
 
-#include "draco/core/encoder_buffer.h"
+#include "draco_illixr/core/encoder_buffer.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Class for encoding a sequence of bits using rANS. The probability table used
 // to encode the bits is based off the total counts of bits.
@@ -52,6 +52,6 @@ class RAnsBitEncoder {
   uint32_t num_local_bits_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_BIT_CODERS_RANS_BIT_ENCODER_H_

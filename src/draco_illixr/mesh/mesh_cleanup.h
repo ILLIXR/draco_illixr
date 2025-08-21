@@ -15,10 +15,10 @@
 #ifndef DRACO_MESH_MESH_CLEANUP_H_
 #define DRACO_MESH_MESH_CLEANUP_H_
 
-#include "draco/core/status.h"
-#include "draco/mesh/mesh.h"
+#include "draco_illixr/core/status.h"
+#include "draco_illixr/mesh/mesh.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Options used by the MeshCleanup class.
 struct MeshCleanupOptions {
@@ -42,7 +42,7 @@ struct MeshCleanupOptions {
   bool make_geometry_manifold = false;
 };
 
-// Tool that can be used for removing bad or unused data from draco::Meshes.
+// Tool that can be used for removing bad or unused data from draco_illixr::Meshes.
 class MeshCleanup {
  public:
   // Performs in-place cleanup of the input mesh according to the input options.
@@ -55,6 +55,6 @@ class MeshCleanup {
   static Status MakeGeometryManifold(Mesh *mesh);
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_MESH_MESH_CLEANUP_H_

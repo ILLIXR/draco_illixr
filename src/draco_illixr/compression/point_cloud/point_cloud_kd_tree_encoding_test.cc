@@ -12,15 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/compression/point_cloud/point_cloud_kd_tree_decoder.h"
-#include "draco/compression/point_cloud/point_cloud_kd_tree_encoder.h"
-#include "draco/core/draco_test_base.h"
-#include "draco/core/draco_test_utils.h"
-#include "draco/core/vector_d.h"
-#include "draco/io/obj_decoder.h"
-#include "draco/point_cloud/point_cloud_builder.h"
+#include "draco_illixr/compression/point_cloud/point_cloud_kd_tree_decoder.h"
+#include "draco_illixr/compression/point_cloud/point_cloud_kd_tree_encoder.h"
+#include "draco_illixr/core/draco_test_base.h"
+#include "draco_illixr/core/draco_test_utils.h"
+#include "draco_illixr/core/vector_d.h"
+#include "draco_illixr/io/obj_decoder.h"
+#include "draco_illixr/point_cloud/point_cloud_builder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 class PointCloudKdTreeEncodingTest : public ::testing::Test {
  protected:
@@ -455,4 +455,4 @@ TEST_F(PointCloudKdTreeEncodingTest, TestIntKdTreeEncodingHighDimensional) {
   TestKdTreeEncoding(*pc);
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

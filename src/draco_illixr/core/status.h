@@ -19,7 +19,7 @@
 #include <ostream>
 #include <string>
 
-namespace draco {
+namespace draco_illixr {
 
 // Class encapsulating a return status of an operation with an optional error
 // message. Intended to be used as a return type for functions instead of bool.
@@ -69,16 +69,16 @@ inline Status ErrorStatus(const std::string &msg) {
   return Status(Status::DRACO_ERROR, msg);
 }
 
-// Evaluates an expression that returns draco::Status. If the status is not OK,
+// Evaluates an expression that returns draco_illixr::Status. If the status is not OK,
 // the macro returns the status object.
 #define DRACO_RETURN_IF_ERROR(expression)             \
   {                                                   \
-    const draco::Status _local_status = (expression); \
+    const draco_illixr::Status _local_status = (expression); \
     if (!_local_status.ok()) {                        \
       return _local_status;                           \
     }                                                 \
   }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_CORE_STATUS_H_

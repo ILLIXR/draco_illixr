@@ -15,12 +15,12 @@
 #ifndef DRACO_COMPRESSION_MESH_MESH_EDGEBREAKER_TRAVERSAL_ENCODER_H_
 #define DRACO_COMPRESSION_MESH_MESH_EDGEBREAKER_TRAVERSAL_ENCODER_H_
 
-#include "draco/compression/bit_coders/rans_bit_encoder.h"
-#include "draco/compression/mesh/mesh_edgebreaker_encoder.h"
-#include "draco/compression/mesh/mesh_edgebreaker_encoder_impl_interface.h"
-#include "draco/core/macros.h"
+#include "draco_illixr/compression/bit_coders/rans_bit_encoder.h"
+#include "draco_illixr/compression/mesh/mesh_edgebreaker_encoder.h"
+#include "draco_illixr/compression/mesh/mesh_edgebreaker_encoder_impl_interface.h"
+#include "draco_illixr/core/macros.h"
 
-namespace draco {
+namespace draco_illixr {
 
 typedef RAnsBitEncoder BinaryEncoder;
 
@@ -134,6 +134,6 @@ class MeshEdgebreakerTraversalEncoder {
   int num_attribute_data_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_MESH_MESH_EDGEBREAKER_TRAVERSAL_ENCODER_H_

@@ -15,11 +15,11 @@
 #ifndef DRACO_COMPRESSION_ENCODE_BASE_H_
 #define DRACO_COMPRESSION_ENCODE_BASE_H_
 
-#include "draco/attributes/geometry_attribute.h"
-#include "draco/compression/config/compression_shared.h"
-#include "draco/core/status.h"
+#include "draco_illixr/attributes/geometry_attribute.h"
+#include "draco_illixr/compression/config/compression_shared.h"
+#include "draco_illixr/core/status.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Base class for our geometry encoder classes. |EncoderOptionsT| specifies
 // options class used by the encoder. Please, see encode.h and expert_encode.h
@@ -126,6 +126,6 @@ void EncoderBase<EncoderOptionsT>::SetTrackEncodedProperties(bool flag) {
   options_.SetGlobalBool("store_number_of_encoded_faces", flag);
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ENCODE_BASE_H_

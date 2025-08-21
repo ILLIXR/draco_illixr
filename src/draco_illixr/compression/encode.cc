@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/compression/encode.h"
+#include "draco_illixr/compression/encode.h"
 
-#include "draco/compression/expert_encode.h"
+#include "draco_illixr/compression/expert_encode.h"
 
-namespace draco {
+namespace draco_illixr {
 
 Encoder::Encoder() {}
 
@@ -93,4 +93,4 @@ Status Encoder::SetAttributePredictionScheme(GeometryAttribute::Type type,
   return status;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

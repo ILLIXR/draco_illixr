@@ -16,9 +16,9 @@
 #ifndef DRACO_COMPRESSION_BIT_CODERS_ADAPTIVE_RANS_BIT_CODING_SHARED_H_
 #define DRACO_COMPRESSION_BIT_CODERS_ADAPTIVE_RANS_BIT_CODING_SHARED_H_
 
-#include "draco/core/macros.h"
+#include "draco_illixr/core/macros.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Clamp the probability p to a uint8_t in the range [1,255].
 inline uint8_t clamp_probability(double p) {
@@ -38,6 +38,6 @@ inline double update_probability(double old_p, bool bit) {
   return old_p * w0 + (!bit) * w1;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_BIT_CODERS_ADAPTIVE_RANS_BIT_CODING_SHARED_H_

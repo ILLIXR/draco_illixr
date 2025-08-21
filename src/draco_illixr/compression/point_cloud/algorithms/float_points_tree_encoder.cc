@@ -12,15 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/compression/point_cloud/algorithms/float_points_tree_encoder.h"
+#include "draco_illixr/compression/point_cloud/algorithms/float_points_tree_encoder.h"
 
 #include <algorithm>
 #include <cmath>
 
-#include "draco/compression/point_cloud/algorithms/dynamic_integer_points_kd_tree_encoder.h"
-#include "draco/core/math_utils.h"
+#include "draco_illixr/compression/point_cloud/algorithms/dynamic_integer_points_kd_tree_encoder.h"
+#include "draco_illixr/core/math_utils.h"
 
-namespace draco {
+namespace draco_illixr {
 
 const uint32_t FloatPointsTreeEncoder::version_ = 3;
 
@@ -91,4 +91,4 @@ bool FloatPointsTreeEncoder::EncodePointCloudKdTreeInternal(
   return true;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

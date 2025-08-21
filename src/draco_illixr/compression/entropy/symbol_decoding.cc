@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/compression/entropy/symbol_decoding.h"
+#include "draco_illixr/compression/entropy/symbol_decoding.h"
 
 #include <algorithm>
 #include <cmath>
 
-#include "draco/compression/entropy/rans_symbol_decoder.h"
+#include "draco_illixr/compression/entropy/rans_symbol_decoder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 template <template <int> class SymbolDecoderT>
 bool DecodeTaggedSymbols(uint32_t num_values, int num_components,
@@ -178,4 +178,4 @@ bool DecodeRawSymbols(uint32_t num_values, DecoderBuffer *src_buffer,
   }
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

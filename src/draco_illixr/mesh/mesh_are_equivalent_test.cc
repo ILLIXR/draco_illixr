@@ -12,18 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/mesh/mesh_are_equivalent.h"
+#include "draco_illixr/mesh/mesh_are_equivalent.h"
 
 #include <sstream>
 #include <utility>
 
-#include "draco/core/draco_test_base.h"
-#include "draco/core/draco_test_utils.h"
-#include "draco/io/mesh_io.h"
-#include "draco/io/obj_decoder.h"
-#include "draco/mesh/mesh.h"
+#include "draco_illixr/core/draco_test_base.h"
+#include "draco_illixr/core/draco_test_utils.h"
+#include "draco_illixr/io/mesh_io.h"
+#include "draco_illixr/io/obj_decoder.h"
+#include "draco_illixr/mesh/mesh.h"
 
-namespace draco {
+namespace draco_illixr {
 
 class MeshAreEquivalentTest : public ::testing::Test {};
 
@@ -132,4 +132,4 @@ TEST_F(MeshAreEquivalentTest, TestMeshFeatures) {
   ASSERT_TRUE(equiv(*mesh0, *mesh1));
 }
 #endif  // DRACO_TRANSCODER_SUPPORTED
-}  // namespace draco
+}  // namespace draco_illixr

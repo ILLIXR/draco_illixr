@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/metadata/property_table.h"
+#include "draco_illixr/metadata/property_table.h"
 
 #include <memory>
 #include <string>
@@ -21,7 +21,7 @@
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 
-namespace draco {
+namespace draco_illixr {
 
 bool PropertyTable::Schema::Object::operator==(const Object& other) const {
   if (type_ != other.type_ || name_ != other.name_) {
@@ -178,6 +178,6 @@ void PropertyTable::RemoveProperty(int index) {
   properties_.erase(properties_.begin() + index);
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED

@@ -12,16 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/compression/point_cloud/algorithms/float_points_tree_decoder.h"
+#include "draco_illixr/compression/point_cloud/algorithms/float_points_tree_decoder.h"
 
 #include <algorithm>
 
-#include "draco/compression/point_cloud/algorithms/dynamic_integer_points_kd_tree_decoder.h"
-#include "draco/compression/point_cloud/algorithms/quantize_points_3.h"
-#include "draco/core/math_utils.h"
-#include "draco/core/quantization_utils.h"
+#include "draco_illixr/compression/point_cloud/algorithms/dynamic_integer_points_kd_tree_decoder.h"
+#include "draco_illixr/compression/point_cloud/algorithms/quantize_points_3.h"
+#include "draco_illixr/core/math_utils.h"
+#include "draco_illixr/core/quantization_utils.h"
 
-namespace draco {
+namespace draco_illixr {
 
 struct Converter {
   typedef std::vector<uint32_t> SourceType;
@@ -149,4 +149,4 @@ bool FloatPointsTreeDecoder::DecodePointCloudKdTreeInternal(
   return true;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

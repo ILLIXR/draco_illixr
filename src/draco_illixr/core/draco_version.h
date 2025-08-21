@@ -15,11 +15,11 @@
 #ifndef DRACO_CORE_DRACO_VERSION_H_
 #define DRACO_CORE_DRACO_VERSION_H_
 
-namespace draco {
+namespace draco_illixr {
 
 // Draco version is comprised of <major>.<minor>.<revision>.
 static const char kDracoVersion[] = "1.5.5";
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_CORE_DRACO_VERSION_H_

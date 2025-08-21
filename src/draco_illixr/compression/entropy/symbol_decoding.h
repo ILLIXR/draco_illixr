@@ -15,15 +15,15 @@
 #ifndef DRACO_COMPRESSION_ENTROPY_SYMBOL_DECODING_H_
 #define DRACO_COMPRESSION_ENTROPY_SYMBOL_DECODING_H_
 
-#include "draco/core/decoder_buffer.h"
+#include "draco_illixr/core/decoder_buffer.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Decodes an array of symbols that was previously encoded with an entropy code.
 // Returns false on error.
 bool DecodeSymbols(uint32_t num_values, int num_components,
                    DecoderBuffer *src_buffer, uint32_t *out_values);
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ENTROPY_SYMBOL_DECODING_H_

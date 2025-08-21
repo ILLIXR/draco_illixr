@@ -15,9 +15,9 @@
 #ifndef DRACO_COMPRESSION_POINT_CLOUD_POINT_CLOUD_KD_TREE_ENCODER_H_
 #define DRACO_COMPRESSION_POINT_CLOUD_POINT_CLOUD_KD_TREE_ENCODER_H_
 
-#include "draco/compression/point_cloud/point_cloud_encoder.h"
+#include "draco_illixr/compression/point_cloud/point_cloud_encoder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Encodes a PointCloud using one of the available Kd-tree compression methods.
 // See FloatPointsKdTreeEncoder and DynamicIntegerPointsKdTreeEncoder for more
@@ -40,6 +40,6 @@ class PointCloudKdTreeEncoder : public PointCloudEncoder {
   void ComputeNumberOfEncodedPoints() override;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_POINT_CLOUD_POINT_CLOUD_KD_TREE_ENCODER_H_

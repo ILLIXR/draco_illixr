@@ -17,13 +17,13 @@
 
 #include <unordered_map>
 
-#include "draco/core/encoder_buffer.h"
-#include "draco/mesh/corner_table.h"
-#include "draco/mesh/mesh.h"
+#include "draco_illixr/core/encoder_buffer.h"
+#include "draco_illixr/mesh/corner_table.h"
+#include "draco_illixr/mesh/mesh.h"
 
-namespace draco {
+namespace draco_illixr {
 
-// Class for encoding input draco::Mesh or draco::PointCloud into the Wavefront
+// Class for encoding input draco_illixr::Mesh or draco_illixr::PointCloud into the Wavefront
 // OBJ format.
 class ObjEncoder {
  public:
@@ -100,6 +100,6 @@ class ObjEncoder {
   std::string file_name_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_IO_OBJ_ENCODER_H_

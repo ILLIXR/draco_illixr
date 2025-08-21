@@ -15,10 +15,10 @@
 #ifndef DRACO_CORE_STATUS_OR_H_
 #define DRACO_CORE_STATUS_OR_H_
 
-#include "draco/core/macros.h"
-#include "draco/core/status.h"
+#include "draco_illixr/core/macros.h"
+#include "draco_illixr/core/status.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Class StatusOr is used to wrap a Status along with a value of a specified
 // type |T|. StatusOr is intended to be returned from functions in situations
@@ -76,6 +76,6 @@ class StatusOr {
   }                                                                         \
   lhs = std::move(statusor).value();
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_CORE_STATUS_OR_H_

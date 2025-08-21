@@ -15,13 +15,13 @@
 #ifndef DRACO_TEXTURE_TEXTURE_TRANSFORM_H_
 #define DRACO_TEXTURE_TEXTURE_TRANSFORM_H_
 
-#include "draco/draco_features.h"
+#include "draco_illixr/draco_features.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 #include <array>
 #include <memory>
 
-namespace draco {
+namespace draco_illixr {
 
 // Class to hold texture transformations. Parameters are based on the glTF 2.0
 // extension KHR_texture_transform:
@@ -69,7 +69,7 @@ class TextureTransform {
   int tex_coord_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED
 #endif  // DRACO_TEXTURE_TEXTURE_TRANSFORM_H_

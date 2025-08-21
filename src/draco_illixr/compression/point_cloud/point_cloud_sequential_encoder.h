@@ -15,9 +15,9 @@
 #ifndef DRACO_COMPRESSION_POINT_CLOUD_POINT_CLOUD_SEQUENTIAL_ENCODER_H_
 #define DRACO_COMPRESSION_POINT_CLOUD_POINT_CLOUD_SEQUENTIAL_ENCODER_H_
 
-#include "draco/compression/point_cloud/point_cloud_encoder.h"
+#include "draco_illixr/compression/point_cloud/point_cloud_encoder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // A basic point cloud encoder that iterates over all points and encodes all
 // attribute values for every visited point. The attribute values encoding
@@ -38,6 +38,6 @@ class PointCloudSequentialEncoder : public PointCloudEncoder {
   void ComputeNumberOfEncodedPoints() override;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_POINT_CLOUD_POINT_CLOUD_SEQUENTIAL_ENCODER_H_

@@ -15,12 +15,12 @@
 #ifndef DRACO_COMPRESSION_MESH_MESH_ENCODER_H_
 #define DRACO_COMPRESSION_MESH_MESH_ENCODER_H_
 
-#include "draco/compression/attributes/mesh_attribute_indices_encoding_data.h"
-#include "draco/compression/point_cloud/point_cloud_encoder.h"
-#include "draco/mesh/mesh.h"
-#include "draco/mesh/mesh_attribute_corner_table.h"
+#include "draco_illixr/compression/attributes/mesh_attribute_indices_encoding_data.h"
+#include "draco_illixr/compression/point_cloud/point_cloud_encoder.h"
+#include "draco_illixr/mesh/mesh.h"
+#include "draco_illixr/mesh/mesh_attribute_corner_table.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Abstract base class for all mesh encoders. It provides some basic
 // functionality that's shared between different encoders.
@@ -79,6 +79,6 @@ class MeshEncoder : public PointCloudEncoder {
   size_t num_encoded_faces_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_MESH_MESH_ENCODER_H_

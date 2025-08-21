@@ -15,7 +15,7 @@
 #ifndef DRACO_COMPRESSION_POINT_CLOUD_ALGORITHMS_POINT_CLOUD_COMPRESSION_METHOD_H_
 #define DRACO_COMPRESSION_POINT_CLOUD_ALGORITHMS_POINT_CLOUD_COMPRESSION_METHOD_H_
 
-namespace draco {
+namespace draco_illixr {
 
 // Enum indicating the used compression method, used by Encoder and Decoder.
 enum PointCloudCompressionMethod {
@@ -29,6 +29,6 @@ enum PointCloudCompressionMethod {
   RESERVED_POINT_CLOUD_METHOD_3 = 0,  // Reserved for internal use.
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_POINT_CLOUD_ALGORITHMS_POINT_CLOUD_COMPRESSION_METHOD_H_

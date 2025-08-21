@@ -15,13 +15,13 @@
 #ifndef DRACO_COMPRESSION_ENTROPY_RANS_SYMBOL_DECODER_H_
 #define DRACO_COMPRESSION_ENTROPY_RANS_SYMBOL_DECODER_H_
 
-#include "draco/compression/config/compression_shared.h"
-#include "draco/compression/entropy/rans_symbol_coding.h"
-#include "draco/core/decoder_buffer.h"
-#include "draco/core/varint_decoding.h"
-#include "draco/draco_features.h"
+#include "draco_illixr/compression/config/compression_shared.h"
+#include "draco_illixr/compression/entropy/rans_symbol_coding.h"
+#include "draco_illixr/core/decoder_buffer.h"
+#include "draco_illixr/core/varint_decoding.h"
+#include "draco_illixr/draco_features.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // A helper class for decoding symbols using the rANS algorithm (see ans.h).
 // The class can be used to decode the probability table and the data encoded
@@ -166,6 +166,6 @@ void RAnsSymbolDecoder<unique_symbols_bit_length_t>::EndDecoding() {
   ans_.read_end();
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ENTROPY_RANS_SYMBOL_DECODER_H_

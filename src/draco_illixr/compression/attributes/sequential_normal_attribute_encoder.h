@@ -15,13 +15,13 @@
 #ifndef DRACO_COMPRESSION_ATTRIBUTES_SEQUENTIAL_NORMAL_ATTRIBUTE_ENCODER_H_
 #define DRACO_COMPRESSION_ATTRIBUTES_SEQUENTIAL_NORMAL_ATTRIBUTE_ENCODER_H_
 
-#include "draco/attributes/attribute_octahedron_transform.h"
-#include "draco/compression/attributes/prediction_schemes/prediction_scheme_encoder_factory.h"
-#include "draco/compression/attributes/prediction_schemes/prediction_scheme_normal_octahedron_canonicalized_encoding_transform.h"
-#include "draco/compression/attributes/sequential_integer_attribute_encoder.h"
-#include "draco/compression/config/compression_shared.h"
+#include "draco_illixr/attributes/attribute_octahedron_transform.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/prediction_scheme_encoder_factory.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/prediction_scheme_normal_octahedron_canonicalized_encoding_transform.h"
+#include "draco_illixr/compression/attributes/sequential_integer_attribute_encoder.h"
+#include "draco_illixr/compression/config/compression_shared.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Class for encoding normal vectors using an octahedral encoding, see Cigolle
 // et al.'14 “A Survey of Efficient Representations for Independent Unit
@@ -77,6 +77,6 @@ class SequentialNormalAttributeEncoder
   AttributeOctahedronTransform attribute_octahedron_transform_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_SEQUENTIAL_NORMAL_ATTRIBUTE_ENCODER_H_

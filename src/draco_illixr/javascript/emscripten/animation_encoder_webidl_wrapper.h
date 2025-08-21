@@ -17,11 +17,11 @@
 
 #include <vector>
 
-#include "draco/animation/keyframe_animation_encoder.h"
-#include "draco/attributes/point_attribute.h"
-#include "draco/compression/config/compression_shared.h"
-#include "draco/compression/config/encoder_options.h"
-#include "draco/compression/encode.h"
+#include "draco_illixr/animation/keyframe_animation_encoder.h"
+#include "draco_illixr/attributes/point_attribute.h"
+#include "draco_illixr/compression/config/compression_shared.h"
+#include "draco_illixr/compression/config/encoder_options.h"
+#include "draco_illixr/compression/encode.h"
 
 class DracoInt8Array {
  public:
@@ -39,10 +39,10 @@ class AnimationBuilder {
  public:
   AnimationBuilder();
 
-  bool SetTimestamps(draco::KeyframeAnimation *animation, long num_frames,
+  bool SetTimestamps(draco_illixr::KeyframeAnimation *animation, long num_frames,
                      const float *timestamps);
 
-  int AddKeyframes(draco::KeyframeAnimation *animation, long num_frames,
+  int AddKeyframes(draco_illixr::KeyframeAnimation *animation, long num_frames,
                    long num_components, const float *animation_data);
 };
 
@@ -53,14 +53,14 @@ class AnimationEncoder {
   void SetTimestampsQuantization(long quantization_bits);
   // TODO: Use expert encoder to set per attribute quantization.
   void SetKeyframesQuantization(long quantization_bits);
-  int EncodeAnimationToDracoBuffer(draco::KeyframeAnimation *animation,
+  int EncodeAnimationToDracoBuffer(draco_illixr::KeyframeAnimation *animation,
                                    DracoInt8Array *draco_buffer);
 
  private:
-  draco::KeyframeAnimationEncoder encoder_;
+  draco_illixr::KeyframeAnimationEncoder encoder_;
   long timestamps_quantization_bits_;
   long keyframes_quantization_bits_;
-  draco::EncoderOptions options_;
+  draco_illixr::EncoderOptions options_;
 };
 
 #endif  // DRACO_JAVASCRIPT_EMSCRIPTEN_ANIMATION_ENCODER_WEBIDL_WRAPPER_H_

@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/scene/scene_are_equivalent.h"
+#include "draco_illixr/scene/scene_are_equivalent.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
-#include "draco/mesh/mesh_are_equivalent.h"
+#include "draco_illixr/mesh/mesh_are_equivalent.h"
 
-namespace draco {
+namespace draco_illixr {
 
 bool SceneAreEquivalent::operator()(const Scene &scene0, const Scene &scene1) {
   // Check scene component sizes.
@@ -104,6 +104,6 @@ bool SceneAreEquivalent::AreEquivalent(const SceneNode &node0,
   return true;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED

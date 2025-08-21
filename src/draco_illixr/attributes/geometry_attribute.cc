@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/attributes/geometry_attribute.h"
+#include "draco_illixr/attributes/geometry_attribute.h"
 
-namespace draco {
+namespace draco_illixr {
 
 GeometryAttribute::GeometryAttribute()
     : buffer_(nullptr),
@@ -99,4 +99,4 @@ void GeometryAttribute::ResetBuffer(DataBuffer *buffer, int64_t byte_stride,
   byte_offset_ = byte_offset;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

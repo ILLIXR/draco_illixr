@@ -15,7 +15,7 @@
 #ifndef DRACO_IO_GLTF_DECODER_H_
 #define DRACO_IO_GLTF_DECODER_H_
 
-#include "draco/draco_features.h"
+#include "draco_illixr/draco_features.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 
@@ -25,21 +25,21 @@
 #include <unordered_set>
 #include <vector>
 
-#include "draco/core/decoder_buffer.h"
-#include "draco/core/status.h"
-#include "draco/core/status_or.h"
-#include "draco/io/file_utils.h"
-#include "draco/io/texture_io.h"
-#include "draco/mesh/mesh.h"
-#include "draco/mesh/triangle_soup_mesh_builder.h"
-#include "draco/point_cloud/point_cloud_builder.h"
-#include "draco/scene/scene.h"
+#include "draco_illixr/core/decoder_buffer.h"
+#include "draco_illixr/core/status.h"
+#include "draco_illixr/core/status_or.h"
+#include "draco_illixr/io/file_utils.h"
+#include "draco_illixr/io/texture_io.h"
+#include "draco_illixr/mesh/mesh.h"
+#include "draco_illixr/mesh/triangle_soup_mesh_builder.h"
+#include "draco_illixr/point_cloud/point_cloud_builder.h"
+#include "draco_illixr/scene/scene.h"
 #include "tiny_gltf.h"
 
-namespace draco {
+namespace draco_illixr {
 
-// Decodes a glTF file and returns a draco::Mesh. All of the |mesh|'s attributes
-// will be merged into one draco::Mesh
+// Decodes a glTF file and returns a draco_illixr::Mesh. All of the |mesh|'s attributes
+// will be merged into one draco_illixr::Mesh
 class GltfDecoder {
  public:
   GltfDecoder();
@@ -113,7 +113,7 @@ class GltfDecoder {
       const tinygltf::Primitive &primitive) const;
 
   // Decodes a glTF Primitive. All of the |primitive|'s attributes will be
-  // merged into the draco::Mesh output if they are of the same type that
+  // merged into the draco_illixr::Mesh output if they are of the same type that
   // already has been decoded.
   Status DecodePrimitive(const tinygltf::Primitive &primitive,
                          const Eigen::Matrix4d &transform_matrix);
@@ -473,7 +473,7 @@ class GltfDecoder {
   // Draco mesh.
   int material_att_id_;
 
-  // Data used when decoding the entire glTF asset into a single draco::Mesh.
+  // Data used when decoding the entire glTF asset into a single draco_illixr::Mesh.
   // The struct tracks the total number of elements across all matching
   // attributes and it ensures all matching attributes are compatible.
   struct MeshAttributeData {
@@ -520,7 +520,7 @@ class GltfDecoder {
       gltf_primitive_to_draco_mesh_index_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED
 #endif  // DRACO_IO_GLTF_DECODER_H_

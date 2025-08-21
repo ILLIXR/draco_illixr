@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/io/point_cloud_io.h"
+#include "draco_illixr/io/point_cloud_io.h"
 
-#include "draco/io/file_utils.h"
-#include "draco/io/obj_decoder.h"
-#include "draco/io/parser_utils.h"
-#include "draco/io/ply_decoder.h"
+#include "draco_illixr/io/file_utils.h"
+#include "draco_illixr/io/obj_decoder.h"
+#include "draco_illixr/io/parser_utils.h"
+#include "draco_illixr/io/ply_decoder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 StatusOr<std::unique_ptr<PointCloud>> ReadPointCloudFromFile(
     const std::string &file_name) {
@@ -55,4 +55,4 @@ StatusOr<std::unique_ptr<PointCloud>> ReadPointCloudFromFile(
   return std::move(status_or).value();
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

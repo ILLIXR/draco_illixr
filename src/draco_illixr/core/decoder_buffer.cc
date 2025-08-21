@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/core/decoder_buffer.h"
+#include "draco_illixr/core/decoder_buffer.h"
 
-#include "draco/core/macros.h"
-#include "draco/core/varint_decoding.h"
+#include "draco_illixr/core/macros.h"
+#include "draco_illixr/core/varint_decoding.h"
 
-namespace draco {
+namespace draco_illixr {
 
 DecoderBuffer::DecoderBuffer()
     : data_(nullptr),
@@ -69,4 +69,4 @@ DecoderBuffer::BitDecoder::BitDecoder()
 
 DecoderBuffer::BitDecoder::~BitDecoder() {}
 
-}  // namespace draco
+}  // namespace draco_illixr

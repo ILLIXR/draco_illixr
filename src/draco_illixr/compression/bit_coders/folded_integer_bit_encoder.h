@@ -18,9 +18,9 @@
 
 #include <vector>
 
-#include "draco/core/encoder_buffer.h"
+#include "draco_illixr/core/encoder_buffer.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // This coding scheme considers every bit of an (up to) 32bit integer as a
 // separate context. This can be a significant advantage when encoding numbers
@@ -77,6 +77,6 @@ class FoldedBit32Encoder {
   BitEncoderT bit_encoder_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_BIT_CODERS_FOLDED_INTEGER_BIT_ENCODER_H_

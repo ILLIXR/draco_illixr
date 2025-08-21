@@ -12,15 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/core/draco_test_utils.h"
+#include "draco_illixr/core/draco_test_utils.h"
 
 #include <fstream>
 
-#include "draco/core/macros.h"
-#include "draco/io/file_utils.h"
+#include "draco_illixr/core/macros.h"
+#include "draco_illixr/io/file_utils.h"
 #include "draco_test_base.h"
 
-namespace draco {
+namespace draco_illixr {
 
 namespace {
 static constexpr char kTestDataDir[] = DRACO_TEST_DATA_DIR;
@@ -97,4 +97,4 @@ std::unique_ptr<Scene> ReadGeometryFromTestFile<Scene>(
 
 #endif  // DRACO_TRANSCODER_SUPPORTED
 
-}  // namespace draco
+}  // namespace draco_illixr

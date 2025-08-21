@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/compression/point_cloud/algorithms/integer_points_kd_tree_encoder.h"
+#include "draco_illixr/compression/point_cloud/algorithms/integer_points_kd_tree_encoder.h"
 
-#include "draco/compression/point_cloud/algorithms/point_cloud_types.h"
+#include "draco_illixr/compression/point_cloud/algorithms/point_cloud_types.h"
 
-namespace draco {
+namespace draco_illixr {
 
 template class IntegerPointsKdTreeEncoder<Point3ui, 0>;
 template class IntegerPointsKdTreeEncoder<Point3ui, 1>;
@@ -42,4 +42,4 @@ template class IntegerPointsKdTreeEncoder<Point4ui, 8>;
 template class IntegerPointsKdTreeEncoder<Point4ui, 9>;
 template class IntegerPointsKdTreeEncoder<Point4ui, 10>;
 
-}  // namespace draco
+}  // namespace draco_illixr

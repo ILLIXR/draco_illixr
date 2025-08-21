@@ -15,9 +15,9 @@
 #ifndef DRACO_METADATA_GEOMETRY_METADATA_H_
 #define DRACO_METADATA_GEOMETRY_METADATA_H_
 
-#include "draco/metadata/metadata.h"
+#include "draco_illixr/metadata/metadata.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Class for representing specifically metadata of attributes. It must have an
 // attribute id which should be identical to it's counterpart attribute in
@@ -137,6 +137,6 @@ struct GeometryMetadataHasher {
   }
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // THIRD_PARTY_DRACO_METADATA_GEOMETRY_METADATA_H_

@@ -15,18 +15,18 @@
 #ifndef DRACO_IO_TINY_GLTF_UTILS_H_
 #define DRACO_IO_TINY_GLTF_UTILS_H_
 
-#include "draco/draco_features.h"
+#include "draco_illixr/draco_features.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 #include <Eigen/Geometry>
 
-#include "draco/animation/animation.h"
-#include "draco/core/status.h"
-#include "draco/core/status_or.h"
-#include "draco/material/material.h"
+#include "draco_illixr/animation/animation.h"
+#include "draco_illixr/core/status.h"
+#include "draco_illixr/core/status_or.h"
+#include "draco_illixr/material/material.h"
 #include "tiny_gltf.h"
 
-namespace draco {
+namespace draco_illixr {
 
 class TinyGltfUtils {
  public:
@@ -133,7 +133,7 @@ class TinyGltfUtils {
   }
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED
 #endif  // DRACO_IO_TINY_GLTF_UTILS_H_

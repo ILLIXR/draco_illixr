@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/compression/mesh/mesh_edgebreaker_decoder.h"
+#include "draco_illixr/compression/mesh/mesh_edgebreaker_decoder.h"
 
-#include "draco/compression/mesh/mesh_edgebreaker_decoder_impl.h"
-#include "draco/compression/mesh/mesh_edgebreaker_traversal_predictive_decoder.h"
-#include "draco/compression/mesh/mesh_edgebreaker_traversal_valence_decoder.h"
+#include "draco_illixr/compression/mesh/mesh_edgebreaker_decoder_impl.h"
+#include "draco_illixr/compression/mesh/mesh_edgebreaker_traversal_predictive_decoder.h"
+#include "draco_illixr/compression/mesh/mesh_edgebreaker_traversal_valence_decoder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 MeshEdgebreakerDecoder::MeshEdgebreakerDecoder() {}
 
@@ -67,4 +67,4 @@ bool MeshEdgebreakerDecoder::OnAttributesDecoded() {
   return impl_->OnAttributesDecoded();
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

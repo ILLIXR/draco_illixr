@@ -15,15 +15,15 @@
 #ifndef DRACO_ANIMATION_NODE_ANIMATION_DATA_H_
 #define DRACO_ANIMATION_NODE_ANIMATION_DATA_H_
 
-#include "draco/draco_features.h"
+#include "draco_illixr/draco_features.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 
-#include "draco/core/hash_utils.h"
-#include "draco/core/status.h"
-#include "draco/core/status_or.h"
+#include "draco_illixr/core/hash_utils.h"
+#include "draco_illixr/core/status.h"
+#include "draco_illixr/core/status_or.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // This class is used to store information and data for animations that only
 // affect the nodes.
@@ -144,7 +144,7 @@ class NodeAnimationDataHash {
   size_t hash_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED
 #endif  // DRACO_ANIMATION_NODE_ANIMATION_DATA_H_

@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/mesh/mesh_features.h"
+#include "draco_illixr/mesh/mesh_features.h"
 
 #include <memory>
 #include <vector>
 
-#include "draco/core/draco_test_base.h"
-#include "draco/core/draco_test_utils.h"
-#include "draco/texture/texture_map.h"
+#include "draco_illixr/core/draco_test_base.h"
+#include "draco_illixr/core/draco_test_utils.h"
+#include "draco_illixr/texture/texture_map.h"
 
 namespace {
 
@@ -27,7 +27,7 @@ namespace {
 
 TEST(MeshFeaturesTest, TestDefaults) {
   // Test construction of an empty feature ID set.
-  draco::MeshFeatures mesh_features;
+  draco_illixr::MeshFeatures mesh_features;
   ASSERT_TRUE(mesh_features.GetLabel().empty());
   ASSERT_EQ(mesh_features.GetFeatureCount(), 0);
   ASSERT_EQ(mesh_features.GetNullFeatureId(), -1);
@@ -35,12 +35,12 @@ TEST(MeshFeaturesTest, TestDefaults) {
   ASSERT_EQ(mesh_features.GetPropertyTableIndex(), -1);
   ASSERT_TRUE(mesh_features.GetTextureChannels().empty());
   ASSERT_EQ(mesh_features.GetTextureMap().texture(), nullptr);
-  ASSERT_EQ(mesh_features.GetTextureMap().type(), draco::TextureMap::GENERIC);
+  ASSERT_EQ(mesh_features.GetTextureMap().type(), draco_illixr::TextureMap::GENERIC);
 }
 
 TEST(MeshFeaturesTest, TestSettersAndGetters) {
   // Test setter and getter methods of the feature ID set.
-  draco::MeshFeatures mesh_features;
+  draco_illixr::MeshFeatures mesh_features;
   mesh_features.SetLabel("continent");
   mesh_features.SetFeatureCount(8);
   mesh_features.SetNullFeatureId(0);
@@ -48,9 +48,9 @@ TEST(MeshFeaturesTest, TestSettersAndGetters) {
   mesh_features.SetPropertyTableIndex(10);
   std::vector<int> channels = {2, 3};
   mesh_features.SetTextureChannels({2, 3});
-  draco::TextureMap texture_map;
-  texture_map.SetProperties(draco::TextureMap::GENERIC, 1);
-  std::unique_ptr<draco::Texture> texture(new draco::Texture());
+  draco_illixr::TextureMap texture_map;
+  texture_map.SetProperties(draco_illixr::TextureMap::GENERIC, 1);
+  std::unique_ptr<draco_illixr::Texture> texture(new draco_illixr::Texture());
   texture_map.SetTexture(texture.get());
   mesh_features.SetTextureMap(texture_map);
 
@@ -62,12 +62,12 @@ TEST(MeshFeaturesTest, TestSettersAndGetters) {
   ASSERT_EQ(mesh_features.GetPropertyTableIndex(), 10);
   ASSERT_EQ(mesh_features.GetTextureChannels(), channels);
   ASSERT_EQ(mesh_features.GetTextureMap().texture(), texture.get());
-  ASSERT_EQ(mesh_features.GetTextureMap().type(), draco::TextureMap::GENERIC);
+  ASSERT_EQ(mesh_features.GetTextureMap().type(), draco_illixr::TextureMap::GENERIC);
 }
 
 TEST(MeshFeaturesTest, TestCopy) {
   // Test that feature ID set can be copied.
-  draco::MeshFeatures mesh_features;
+  draco_illixr::MeshFeatures mesh_features;
   mesh_features.SetLabel("continent");
   mesh_features.SetFeatureCount(8);
   mesh_features.SetNullFeatureId(0);
@@ -75,11 +75,11 @@ TEST(MeshFeaturesTest, TestCopy) {
   mesh_features.SetPropertyTableIndex(10);
   std::vector<int> channels = {2, 3};
   mesh_features.SetTextureChannels({2, 3});
-  std::unique_ptr<draco::Texture> texture(new draco::Texture());
+  std::unique_ptr<draco_illixr::Texture> texture(new draco_illixr::Texture());
   mesh_features.SetTextureMap(texture.get(), 1);
 
   // Make a copy.
-  draco::MeshFeatures copy;
+  draco_illixr::MeshFeatures copy;
   copy.Copy(mesh_features);
 
   // Check the copy.
@@ -90,7 +90,7 @@ TEST(MeshFeaturesTest, TestCopy) {
   ASSERT_EQ(copy.GetPropertyTableIndex(), 10);
   ASSERT_EQ(copy.GetTextureChannels(), channels);
   ASSERT_EQ(copy.GetTextureMap().texture(), texture.get());
-  ASSERT_EQ(copy.GetTextureMap().type(), draco::TextureMap::GENERIC);
+  ASSERT_EQ(copy.GetTextureMap().type(), draco_illixr::TextureMap::GENERIC);
 }
 
 #endif  // DRACO_TRANSCODER_SUPPORTED

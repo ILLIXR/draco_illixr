@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/animation/keyframe_animation.h"
-#include "draco/animation/keyframe_animation_decoder.h"
-#include "draco/animation/keyframe_animation_encoder.h"
-#include "draco/core/draco_test_base.h"
-#include "draco/core/draco_test_utils.h"
+#include "draco_illixr/animation/keyframe_animation.h"
+#include "draco_illixr/animation/keyframe_animation_decoder.h"
+#include "draco_illixr/animation/keyframe_animation_encoder.h"
+#include "draco_illixr/core/draco_test_base.h"
+#include "draco_illixr/core/draco_test_utils.h"
 
-namespace draco {
+namespace draco_illixr {
 
 class KeyframeAnimationEncodingTest : public ::testing::Test {
  protected:
@@ -27,7 +27,7 @@ class KeyframeAnimationEncodingTest : public ::testing::Test {
   bool CreateAndAddTimestamps(int32_t num_frames) {
     timestamps_.resize(num_frames);
     for (int i = 0; i < timestamps_.size(); ++i) {
-      timestamps_[i] = static_cast<draco::KeyframeAnimation::TimestampType>(i);
+      timestamps_[i] = static_cast<draco_illixr::KeyframeAnimation::TimestampType>(i);
     }
     return keyframe_animation_.SetTimestamps(timestamps_);
   }
@@ -39,7 +39,7 @@ class KeyframeAnimationEncodingTest : public ::testing::Test {
     for (int i = 0; i < animation_data_.size(); ++i) {
       animation_data_[i] = static_cast<float>(i);
     }
-    return keyframe_animation_.AddKeyframes(draco::DT_FLOAT32, num_components,
+    return keyframe_animation_.AddKeyframes(draco_illixr::DT_FLOAT32, num_components,
                                             animation_data_);
   }
 
@@ -64,9 +64,9 @@ class KeyframeAnimationEncodingTest : public ::testing::Test {
       std::array<float, 1> att_value0;
       std::array<float, 1> att_value1;
       ASSERT_TRUE((timestamp_att0->GetValue<float, 1>(
-          draco::AttributeValueIndex(i), &att_value0)));
+          draco_illixr::AttributeValueIndex(i), &att_value0)));
       ASSERT_TRUE((timestamp_att1->GetValue<float, 1>(
-          draco::AttributeValueIndex(i), &att_value1)));
+          draco_illixr::AttributeValueIndex(i), &att_value1)));
       ASSERT_FLOAT_EQ(att_value0[0], att_value1[0]);
     }
 
@@ -81,9 +81,9 @@ class KeyframeAnimationEncodingTest : public ::testing::Test {
         std::array<float, num_components_t> att_value0;
         std::array<float, num_components_t> att_value1;
         ASSERT_TRUE((keyframe_att0->GetValue<float, num_components_t>(
-            draco::AttributeValueIndex(i), &att_value0)));
+            draco_illixr::AttributeValueIndex(i), &att_value0)));
         ASSERT_TRUE((keyframe_att1->GetValue<float, num_components_t>(
-            draco::AttributeValueIndex(i), &att_value1)));
+            draco_illixr::AttributeValueIndex(i), &att_value1)));
         for (int j = 0; j < att_value0.size(); ++j) {
           ASSERT_FLOAT_EQ(att_value0[j], att_value1[j]);
         }
@@ -99,8 +99,8 @@ class KeyframeAnimationEncodingTest : public ::testing::Test {
   template <int num_components_t>
   void TestKeyframeAnimationEncoding(bool quantized) {
     // Encode animation class.
-    draco::EncoderBuffer buffer;
-    draco::KeyframeAnimationEncoder encoder;
+    draco_illixr::EncoderBuffer buffer;
+    draco_illixr::KeyframeAnimationEncoder encoder;
     EncoderOptions options = EncoderOptions::CreateDefaultOptions();
     if (quantized) {
       // Set quantization for timestamps.
@@ -114,8 +114,8 @@ class KeyframeAnimationEncodingTest : public ::testing::Test {
     DRACO_ASSERT_OK(
         encoder.EncodeKeyframeAnimation(keyframe_animation_, options, &buffer));
 
-    draco::DecoderBuffer dec_decoder;
-    draco::KeyframeAnimationDecoder decoder;
+    draco_illixr::DecoderBuffer dec_decoder;
+    draco_illixr::KeyframeAnimationDecoder decoder;
     DecoderBuffer dec_buffer;
     dec_buffer.Init(buffer.data(), buffer.size());
 
@@ -131,8 +131,8 @@ class KeyframeAnimationEncodingTest : public ::testing::Test {
                                            *decoded_animation, quantized);
   }
 
-  draco::KeyframeAnimation keyframe_animation_;
-  std::vector<draco::KeyframeAnimation::TimestampType> timestamps_;
+  draco_illixr::KeyframeAnimation keyframe_animation_;
+  std::vector<draco_illixr::KeyframeAnimation::TimestampType> timestamps_;
   std::vector<float> animation_data_;
 };
 
@@ -166,4 +166,4 @@ TEST_F(KeyframeAnimationEncodingTest, MultipleAnimations) {
   TestKeyframeAnimationEncoding<3>();
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

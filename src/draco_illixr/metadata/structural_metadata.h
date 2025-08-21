@@ -15,7 +15,7 @@
 #ifndef DRACO_METADATA_STRUCTURAL_METADATA_H_
 #define DRACO_METADATA_STRUCTURAL_METADATA_H_
 
-#include "draco/draco_features.h"
+#include "draco_illixr/draco_features.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 
@@ -23,9 +23,9 @@
 #include <string>
 #include <vector>
 
-#include "draco/metadata/property_table.h"
+#include "draco_illixr/metadata/property_table.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Holds data associated with EXT_structural_metadata glTF extension.
 class StructuralMetadata {
@@ -58,7 +58,7 @@ class StructuralMetadata {
   std::vector<std::unique_ptr<PropertyTable>> property_tables_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED
 #endif  // DRACO_METADATA_STRUCTURAL_METADATA_H_

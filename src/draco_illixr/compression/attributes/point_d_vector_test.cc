@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/compression/attributes/point_d_vector.h"
+#include "draco_illixr/compression/attributes/point_d_vector.h"
 
-#include "draco/compression/point_cloud/algorithms/point_cloud_types.h"
-#include "draco/core/draco_test_base.h"
+#include "draco_illixr/compression/point_cloud/algorithms/point_cloud_types.h"
+#include "draco_illixr/core/draco_test_base.h"
 
-namespace draco {
+namespace draco_illixr {
 
 class PointDVectorTest : public ::testing::Test {
  protected:
@@ -28,7 +28,7 @@ class PointDVectorTest : public ::testing::Test {
     for (uint32_t n_items = 0; n_items <= 10; ++n_items) {
       for (uint32_t dimensionality = 1; dimensionality <= 10;
            ++dimensionality) {
-        draco::PointDVector<PT> var(n_items, dimensionality);
+        draco_illixr::PointDVector<PT> var(n_items, dimensionality);
         ASSERT_EQ(n_items, var.size());
         ASSERT_EQ(n_items * dimensionality, var.GetBufferSize());
       }
@@ -212,7 +212,7 @@ class PointDVectorTest : public ::testing::Test {
         PointDVector<PT> dest(n_items, dimensionality);
 
         std::vector<PT> att(n_items * att_dimensionality);
-        std::vector<draco::Point3ui> att3(n_items);
+        std::vector<draco_illixr::Point3ui> att3(n_items);
         for (PT val = 0; val < n_items; val += 1) {
           att3[val][0] = val;
           att3[val][1] = val;
@@ -261,10 +261,10 @@ class PointDVectorTest : public ::testing::Test {
   }
 
   void TestPseudoPointDSwap() {
-    draco::Point3ui val = {0, 1, 2};
-    draco::Point3ui dest = {10, 11, 12};
-    draco::PseudoPointD<uint32_t> val_src1(&val[0], 3);
-    draco::PseudoPointD<uint32_t> dest_src1(&dest[0], 3);
+    draco_illixr::Point3ui val = {0, 1, 2};
+    draco_illixr::Point3ui dest = {10, 11, 12};
+    draco_illixr::PseudoPointD<uint32_t> val_src1(&val[0], 3);
+    draco_illixr::PseudoPointD<uint32_t> dest_src1(&dest[0], 3);
 
     ASSERT_EQ(val_src1[0], 0);
     ASSERT_EQ(val_src1[1], 1);
@@ -287,12 +287,12 @@ class PointDVectorTest : public ::testing::Test {
     ASSERT_NE(val_src1, dest_src1);
   }
   void TestPseudoPointDEquality() {
-    draco::Point3ui val = {0, 1, 2};
-    draco::Point3ui dest = {0, 1, 2};
-    draco::PseudoPointD<uint32_t> val_src1(&val[0], 3);
-    draco::PseudoPointD<uint32_t> val_src2(&val[0], 3);
-    draco::PseudoPointD<uint32_t> dest_src1(&dest[0], 3);
-    draco::PseudoPointD<uint32_t> dest_src2(&dest[0], 3);
+    draco_illixr::Point3ui val = {0, 1, 2};
+    draco_illixr::Point3ui dest = {0, 1, 2};
+    draco_illixr::PseudoPointD<uint32_t> val_src1(&val[0], 3);
+    draco_illixr::PseudoPointD<uint32_t> val_src2(&val[0], 3);
+    draco_illixr::PseudoPointD<uint32_t> dest_src1(&dest[0], 3);
+    draco_illixr::PseudoPointD<uint32_t> dest_src2(&dest[0], 3);
 
     ASSERT_EQ(val_src1, val_src1);
     ASSERT_EQ(val_src1, val_src2);
@@ -315,12 +315,12 @@ class PointDVectorTest : public ::testing::Test {
     }
   }
   void TestPseudoPointDInequality() {
-    draco::Point3ui val = {0, 1, 2};
-    draco::Point3ui dest = {1, 2, 3};
-    draco::PseudoPointD<uint32_t> val_src1(&val[0], 3);
-    draco::PseudoPointD<uint32_t> val_src2(&val[0], 3);
-    draco::PseudoPointD<uint32_t> dest_src1(&dest[0], 3);
-    draco::PseudoPointD<uint32_t> dest_src2(&dest[0], 3);
+    draco_illixr::Point3ui val = {0, 1, 2};
+    draco_illixr::Point3ui dest = {1, 2, 3};
+    draco_illixr::PseudoPointD<uint32_t> val_src1(&val[0], 3);
+    draco_illixr::PseudoPointD<uint32_t> val_src2(&val[0], 3);
+    draco_illixr::PseudoPointD<uint32_t> dest_src1(&dest[0], 3);
+    draco_illixr::PseudoPointD<uint32_t> dest_src2(&dest[0], 3);
 
     ASSERT_EQ(val_src1, val_src1);
     ASSERT_EQ(val_src1, val_src2);
@@ -357,4 +357,4 @@ TEST_F(PointDVectorTest, PseudoPointDTest) {
   TestPseudoPointDEquality();
   TestPseudoPointDInequality();
 }
-}  // namespace draco
+}  // namespace draco_illixr

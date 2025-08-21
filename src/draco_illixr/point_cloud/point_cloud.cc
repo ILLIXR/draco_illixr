@@ -12,17 +12,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/point_cloud/point_cloud.h"
+#include "draco_illixr/point_cloud/point_cloud.h"
 
 #include <algorithm>
 #include <unordered_map>
 #include <utility>
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
-#include "draco/attributes/point_attribute.h"
+#include "draco_illixr/attributes/point_attribute.h"
 #endif
 
-namespace draco {
+namespace draco_illixr {
 
 PointCloud::PointCloud() : num_points_(0) {}
 
@@ -273,15 +273,15 @@ bool PointCloud::DeduplicateAttributeValues() {
   if (num_points() == 0) {
     return true;  // Nothing to deduplicate.
   }
-  
+
   for (int32_t att_id = 0; att_id < num_attributes(); ++att_id) {
     if (!attribute(att_id)->DeduplicateValues(*attribute(att_id))) {
       return false;
     }
   }
-  
 
-  
+
+
   return true;
 }
 #endif
@@ -310,4 +310,4 @@ BoundingBox PointCloud::ComputeBoundingBox() const {
   }
   return bounding_box;
 }
-}  // namespace draco
+}  // namespace draco_illixr

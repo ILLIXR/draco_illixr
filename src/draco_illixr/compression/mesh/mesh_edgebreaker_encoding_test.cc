@@ -14,18 +14,18 @@
 //
 #include <sstream>
 
-#include "draco/compression/encode.h"
-#include "draco/compression/mesh/mesh_edgebreaker_decoder.h"
-#include "draco/compression/mesh/mesh_edgebreaker_encoder.h"
-#include "draco/core/draco_test_base.h"
-#include "draco/core/draco_test_utils.h"
-#include "draco/io/mesh_io.h"
-#include "draco/io/obj_decoder.h"
-#include "draco/mesh/mesh_are_equivalent.h"
-#include "draco/mesh/mesh_cleanup.h"
-#include "draco/mesh/triangle_soup_mesh_builder.h"
+#include "draco_illixr/compression/encode.h"
+#include "draco_illixr/compression/mesh/mesh_edgebreaker_decoder.h"
+#include "draco_illixr/compression/mesh/mesh_edgebreaker_encoder.h"
+#include "draco_illixr/core/draco_test_base.h"
+#include "draco_illixr/core/draco_test_utils.h"
+#include "draco_illixr/io/mesh_io.h"
+#include "draco_illixr/io/obj_decoder.h"
+#include "draco_illixr/mesh/mesh_are_equivalent.h"
+#include "draco_illixr/mesh/mesh_cleanup.h"
+#include "draco_illixr/mesh/triangle_soup_mesh_builder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 class MeshEdgebreakerEncodingTest : public ::testing::Test {
  protected:
@@ -161,7 +161,7 @@ TEST_F(MeshEdgebreakerEncodingTest, TestSingleConnectivityEncoding) {
     options.SetGlobalBool("split_mesh_on_seams", i == 0 ? true : false);
 
     EncoderBuffer buffer;
-    draco::Encoder encoder;
+    draco_illixr::Encoder encoder;
     encoder.Reset(options);
     encoder.SetSpeedOptions(0, 0);
     encoder.SetAttributeQuantization(GeometryAttribute::POSITION, 8);
@@ -210,7 +210,7 @@ TEST_F(MeshEdgebreakerEncodingTest, TestWrongAttributeOrder) {
   ASSERT_EQ(mesh->attribute(1)->attribute_type(), GeometryAttribute::POSITION);
 
   EncoderBuffer buffer;
-  draco::Encoder encoder;
+  draco_illixr::Encoder encoder;
   encoder.SetSpeedOptions(3, 3);
   encoder.SetAttributeQuantization(GeometryAttribute::POSITION, 8);
   encoder.SetAttributeQuantization(GeometryAttribute::NORMAL, 8);
@@ -243,4 +243,4 @@ TEST_F(MeshEdgebreakerEncodingTest, TestDegenerateMesh) {
   ASSERT_FALSE(encoder.Encode(encoder_options, &buffer).ok());
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

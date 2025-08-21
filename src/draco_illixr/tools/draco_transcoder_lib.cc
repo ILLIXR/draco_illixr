@@ -12,16 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/tools/draco_transcoder_lib.h"
+#include "draco_illixr/tools/draco_transcoder_lib.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
-#include "draco/core/status_or.h"
-#include "draco/io/file_utils.h"
-#include "draco/io/scene_io.h"
-#include "draco/scene/scene_utils.h"
-#include "draco/texture/texture_utils.h"
+#include "draco_illixr/core/status_or.h"
+#include "draco_illixr/io/file_utils.h"
+#include "draco_illixr/io/scene_io.h"
+#include "draco_illixr/scene/scene_utils.h"
+#include "draco_illixr/texture/texture_utils.h"
 
-namespace draco {
+namespace draco_illixr {
 
 DracoTranscoder::DracoTranscoder() {}
 
@@ -82,5 +82,5 @@ Status DracoTranscoder::CompressScene() {
   return OkStatus();
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 #endif  // DRACO_TRANSCODER_SUPPORTED

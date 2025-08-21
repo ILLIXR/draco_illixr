@@ -18,14 +18,14 @@
 #include <string>
 #include <unordered_map>
 
-#include "draco/core/decoder_buffer.h"
-#include "draco/core/status.h"
-#include "draco/draco_features.h"
-#include "draco/mesh/mesh.h"
+#include "draco_illixr/core/decoder_buffer.h"
+#include "draco_illixr/core/status.h"
+#include "draco_illixr/draco_features.h"
+#include "draco_illixr/mesh/mesh.h"
 
-namespace draco {
+namespace draco_illixr {
 
-// Decodes a Wavefront OBJ file into draco::Mesh (or draco::PointCloud if the
+// Decodes a Wavefront OBJ file into draco_illixr::Mesh (or draco_illixr::PointCloud if the
 // connectivity data is not needed).. This decoder can handle decoding of
 // positions, texture coordinates, normals and triangular faces.
 // All other geometry properties are ignored.
@@ -139,6 +139,6 @@ class ObjDecoder {
   PointCloud *out_point_cloud_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_IO_OBJ_DECODER_H_

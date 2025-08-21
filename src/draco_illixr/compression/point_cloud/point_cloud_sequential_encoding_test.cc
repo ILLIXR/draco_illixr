@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/compression/point_cloud/point_cloud_sequential_decoder.h"
-#include "draco/compression/point_cloud/point_cloud_sequential_encoder.h"
-#include "draco/core/draco_test_base.h"
-#include "draco/core/draco_test_utils.h"
-#include "draco/io/obj_decoder.h"
+#include "draco_illixr/compression/point_cloud/point_cloud_sequential_decoder.h"
+#include "draco_illixr/compression/point_cloud/point_cloud_sequential_encoder.h"
+#include "draco_illixr/core/draco_test_base.h"
+#include "draco_illixr/core/draco_test_utils.h"
+#include "draco_illixr/io/obj_decoder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 class PointCloudSequentialEncodingTest : public ::testing::Test {
  protected:
@@ -89,4 +89,4 @@ TEST_F(PointCloudSequentialEncodingTest, EncodingPointCloudWithMetadata) {
 // TODO(ostava): Test the reusability of a single instance of the encoder and
 // decoder class.
 
-}  // namespace draco
+}  // namespace draco_illixr

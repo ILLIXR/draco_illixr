@@ -15,9 +15,9 @@
 #ifndef DRACO_COMPRESSION_MESH_TRAVERSER_TRAVERSER_BASE_H_
 #define DRACO_COMPRESSION_MESH_TRAVERSER_TRAVERSER_BASE_H_
 
-#include "draco/mesh/corner_table.h"
+#include "draco_illixr/mesh/corner_table.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Class providing the basic traversal functionality needed by traversers (such
 // as the DepthFirstTraverser, see depth_first_traverser.h). It keeps a pointer
@@ -82,6 +82,6 @@ class TraverserBase {
   std::vector<bool> is_vertex_visited_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_MESH_TRAVERSER_TRAVERSER_BASE_H_

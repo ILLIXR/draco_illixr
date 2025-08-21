@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/mesh/mesh_misc_functions.h"
+#include "draco_illixr/mesh/mesh_misc_functions.h"
 
-namespace draco {
+namespace draco_illixr {
 
 std::unique_ptr<CornerTable> CreateCornerTableFromPositionAttribute(
     const Mesh *mesh) {
@@ -60,4 +60,4 @@ std::unique_ptr<CornerTable> CreateCornerTableFromAllAttributes(
   // Build the corner table.
   return CornerTable::Create(faces);
 }
-}  // namespace draco
+}  // namespace draco_illixr

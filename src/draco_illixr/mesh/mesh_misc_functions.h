@@ -18,11 +18,11 @@
 #ifndef DRACO_MESH_MESH_MISC_FUNCTIONS_H_
 #define DRACO_MESH_MESH_MISC_FUNCTIONS_H_
 
-#include "draco/mesh/corner_table.h"
-#include "draco/mesh/mesh.h"
+#include "draco_illixr/mesh/corner_table.h"
+#include "draco_illixr/mesh/mesh.h"
 
 // The file contains functions that use both Mesh and CornerTable as inputs.
-namespace draco {
+namespace draco_illixr {
 
 // Creates a CornerTable from the position attribute of |mesh|. Returns nullptr
 // on error.
@@ -92,6 +92,6 @@ InterpolatedVectorT ComputeInterpolatedAttributeValueOnMeshFace(
   return res;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_MESH_MESH_MISC_FUNCTIONS_H_

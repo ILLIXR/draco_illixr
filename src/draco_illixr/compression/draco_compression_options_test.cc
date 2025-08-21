@@ -1,6 +1,6 @@
-#include "draco/compression/draco_compression_options.h"
+#include "draco_illixr/compression/draco_compression_options.h"
 
-#include "draco/core/draco_test_utils.h"
+#include "draco_illixr/core/draco_test_utils.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 
@@ -9,7 +9,7 @@ namespace {
 TEST(DracoCompressionOptionsTest, TestPositionQuantizationBits) {
   // Test verifies that we can define draco compression options using
   // quantization bits.
-  draco::SpatialQuantizationOptions options(10);
+  draco_illixr::SpatialQuantizationOptions options(10);
 
   // Quantization bits should be used by default.
   ASSERT_TRUE(options.AreQuantizationBitsDefined());
@@ -28,7 +28,7 @@ TEST(DracoCompressionOptionsTest, TestPositionQuantizationBits) {
 TEST(DracoCompressionOptionsTest, TestPositionQuantizationGrid) {
   // Test verifies that we can define draco compression options using
   // quantization grid.
-  draco::SpatialQuantizationOptions options(10);
+  draco_illixr::SpatialQuantizationOptions options(10);
 
   // Quantization bits should be used by default.
   ASSERT_TRUE(options.AreQuantizationBitsDefined());

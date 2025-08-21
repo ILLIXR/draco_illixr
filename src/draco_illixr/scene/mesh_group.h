@@ -15,16 +15,16 @@
 #ifndef DRACO_SCENE_MESH_GROUP_H_
 #define DRACO_SCENE_MESH_GROUP_H_
 
-#include "draco/draco_features.h"
+#include "draco_illixr/draco_features.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 #include <string>
 #include <vector>
 
-#include "draco/core/macros.h"
-#include "draco/scene/scene_indices.h"
+#include "draco_illixr/core/macros.h"
+#include "draco_illixr/scene/scene_indices.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // This class is used to hold ordered mesh instances that refer to one or more
 // base meshes, materials, and materials variants mappings.
@@ -132,7 +132,7 @@ class MeshGroup {
   std::vector<MeshInstance> mesh_instances_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED
 #endif  // DRACO_SCENE_MESH_GROUP_H_

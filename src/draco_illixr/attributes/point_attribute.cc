@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/attributes/point_attribute.h"
+#include "draco_illixr/attributes/point_attribute.h"
 
 #include <unordered_map>
 
@@ -22,7 +22,7 @@ using std::unordered_map;
 template <bool B, class T, class F>
 using conditional_t = typename std::conditional<B, T, F>::type;
 
-namespace draco {
+namespace draco_illixr {
 
 PointAttribute::PointAttribute()
     : num_unique_entries_(0), identity_mapping_(false) {}
@@ -265,4 +265,4 @@ void PointAttribute::RemoveUnusedValues() {
 }
 #endif
 
-}  // namespace draco
+}  // namespace draco_illixr

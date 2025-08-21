@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/compression/mesh/mesh_encoder.h"
+#include "draco_illixr/compression/mesh/mesh_encoder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 MeshEncoder::MeshEncoder() : mesh_(nullptr), num_encoded_faces_(0) {}
 
@@ -32,4 +32,4 @@ Status MeshEncoder::EncodeGeometryData() {
   return OkStatus();
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

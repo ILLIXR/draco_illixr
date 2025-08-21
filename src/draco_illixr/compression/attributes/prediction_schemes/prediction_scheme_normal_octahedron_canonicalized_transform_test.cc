@@ -12,15 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/compression/attributes/prediction_schemes/prediction_scheme_normal_octahedron_canonicalized_encoding_transform.h"
-#include "draco/core/draco_test_base.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/prediction_scheme_normal_octahedron_canonicalized_encoding_transform.h"
+#include "draco_illixr/core/draco_test_base.h"
 
 namespace {
 
 class PredictionSchemeNormalOctahedronCanonicalizedTransformTest
     : public ::testing::Test {
  protected:
-  typedef draco::PredictionSchemeNormalOctahedronCanonicalizedEncodingTransform<
+  typedef draco_illixr::PredictionSchemeNormalOctahedronCanonicalizedEncodingTransform<
       int32_t>
       Transform;
   typedef Transform::Point2 Point2;

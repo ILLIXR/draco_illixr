@@ -24,12 +24,12 @@
 #include <map>
 #include <vector>
 
-#include "draco/core/decoder_buffer.h"
-#include "draco/core/draco_types.h"
-#include "draco/core/status.h"
-#include "draco/core/status_or.h"
+#include "draco_illixr/core/decoder_buffer.h"
+#include "draco_illixr/core/draco_types.h"
+#include "draco_illixr/core/status.h"
+#include "draco_illixr/core/status_or.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // A single PLY property of a given PLY element. For "vertex" element this can
 // contain data such as "x", "y", or "z" coordinate of the vertex, while for
@@ -64,7 +64,7 @@ class PlyProperty {
   DataType list_data_type() const { return list_data_type_; }
   int list_data_type_num_bytes() const { return list_data_type_num_bytes_; }
   std::string name_;
-  //pyh move to public 
+  //pyh move to public
   std::vector<uint8_t> data_;
   // List data contain pairs of <offset, number_of_values>
   std::vector<int64_t> list_data_;
@@ -138,7 +138,7 @@ class PlyReader {
   const PlyElement &element(int element_index) const {
     return elements_[element_index];
   }
-  //pyh move to public 
+  //pyh move to public
   enum Format { kLittleEndian = 0, kAscii };
   std::vector<PlyElement> elements_;
   std::map<std::string, int> element_index_;
@@ -156,7 +156,7 @@ class PlyReader {
   // Splits |line| by whitespace characters.
   std::vector<std::string> SplitWords(const std::string &line);
   DataType GetDataTypeFromString(const std::string &name) const;
-  
+
   //enum Format { kLittleEndian = 0, kAscii };
   //std::vector<PlyElement> elements_;
   //std::map<std::string, int> element_index_;
@@ -164,6 +164,6 @@ class PlyReader {
 
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_IO_PLY_READER_H_

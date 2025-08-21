@@ -20,9 +20,9 @@
 #include <memory>
 #include <vector>
 
-#include "draco/core/macros.h"
+#include "draco_illixr/core/macros.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // The main class of this file is PointDVector providing an interface similar to
 // std::vector<PointD> for arbitrary number of dimensions (without a template
@@ -79,13 +79,13 @@ class PseudoPointD {
 
 // It seems problematic to bring this inside PointDVector due to templating.
 template <typename internal_t>
-void swap(draco::PseudoPointD<internal_t> &&a,
-          draco::PseudoPointD<internal_t> &&b) noexcept {
+void swap(draco_illixr::PseudoPointD<internal_t> &&a,
+          draco_illixr::PseudoPointD<internal_t> &&b) noexcept {
   a.swap(b);
 };
 template <typename internal_t>
-void swap(draco::PseudoPointD<internal_t> &a,
-          draco::PseudoPointD<internal_t> &b) noexcept {
+void swap(draco_illixr::PseudoPointD<internal_t> &a,
+          draco_illixr::PseudoPointD<internal_t> &b) noexcept {
   a.swap(b);
 };
 
@@ -274,6 +274,6 @@ class PointDVector {
   internal_t *const data0_;       // raw pointer to base data.
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_POINT_D_VECTOR_H_

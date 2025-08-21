@@ -12,16 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/io/gltf_utils.h"
+#include "draco_illixr/io/gltf_utils.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 #include <limits>
 #include <string>
 
-#include "draco/core/draco_test_base.h"
-#include "draco/core/draco_test_utils.h"
+#include "draco_illixr/core/draco_test_base.h"
+#include "draco_illixr/core/draco_test_utils.h"
 
-namespace draco {
+namespace draco_illixr {
 
 class GltfUtilsTest : public ::testing::Test {
  protected:
@@ -320,6 +320,6 @@ TEST_F(GltfUtilsTest, TestArraysCompact) {
   CompareGolden(&json_writer, "\"array1\":[\"array2\":[]]");
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED

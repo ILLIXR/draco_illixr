@@ -15,12 +15,12 @@
 #ifndef DRACO_IO_PLY_ENCODER_H_
 #define DRACO_IO_PLY_ENCODER_H_
 
-#include "draco/core/encoder_buffer.h"
-#include "draco/mesh/mesh.h"
+#include "draco_illixr/core/encoder_buffer.h"
+#include "draco_illixr/mesh/mesh.h"
 
-namespace draco {
+namespace draco_illixr {
 
-// Class for encoding draco::Mesh or draco::PointCloud into the PLY file format.
+// Class for encoding draco_illixr::Mesh or draco_illixr::PointCloud into the PLY file format.
 class PlyEncoder {
  public:
   PlyEncoder();
@@ -49,6 +49,6 @@ class PlyEncoder {
   const Mesh *in_mesh_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_IO_PLY_ENCODER_H_

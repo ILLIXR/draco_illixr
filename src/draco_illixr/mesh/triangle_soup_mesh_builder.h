@@ -18,14 +18,14 @@
 #include <utility>
 #include <vector>
 
-#include "draco/draco_features.h"
+#include "draco_illixr/draco_features.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
-#include "draco/core/status.h"
+#include "draco_illixr/core/status.h"
 #endif
-#include "draco/mesh/mesh.h"
+#include "draco_illixr/mesh/mesh.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Class for building meshes directly from attribute values that can be
 // specified for each face corner. All attributes are automatically
@@ -121,6 +121,6 @@ Status TriangleSoupMeshBuilder::ConvertAndSetAttributeValuesForFace(
 }
 #endif  // DRACO_TRANSCODER_SUPPORTED
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_MESH_TRIANGLE_SOUP_MESH_BUILDER_H_

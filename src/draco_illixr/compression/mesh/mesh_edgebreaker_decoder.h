@@ -15,11 +15,11 @@
 #ifndef DRACO_COMPRESSION_MESH_MESH_EDGEBREAKER_DECODER_H_
 #define DRACO_COMPRESSION_MESH_MESH_EDGEBREAKER_DECODER_H_
 
-#include "draco/compression/mesh/mesh_decoder.h"
-#include "draco/compression/mesh/mesh_edgebreaker_decoder_impl_interface.h"
-#include "draco/draco_features.h"
+#include "draco_illixr/compression/mesh/mesh_decoder.h"
+#include "draco_illixr/compression/mesh/mesh_edgebreaker_decoder_impl_interface.h"
+#include "draco_illixr/draco_features.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Class for decoding data encoded by MeshEdgebreakerEncoder.
 class MeshEdgebreakerDecoder : public MeshDecoder {
@@ -49,6 +49,6 @@ class MeshEdgebreakerDecoder : public MeshDecoder {
   std::unique_ptr<MeshEdgebreakerDecoderImplInterface> impl_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_MESH_MESH_EDGEBREAKER_DECODER_H_

@@ -1,6 +1,6 @@
 // Interface exposed to emscripten's WebIDL Binder.
 // http://kripken.github.io/emscripten-site/docs/porting/connecting_cpp_and_javascript/WebIDL-Binder.html
-[Prefix="draco::"]
+[Prefix="draco_illixr::"]
 interface DecoderBuffer {
   void DecoderBuffer();
   void Init([Const] byte[] data, unsigned long data_size);
@@ -15,7 +15,7 @@ enum draco_StatusCode {
   "draco_Status::UNKNOWN_VERSION",
 };
 
-[Prefix="draco::"]
+[Prefix="draco_illixr::"]
 interface Status {
   draco_StatusCode code();
   boolean ok();
@@ -30,7 +30,7 @@ interface DracoFloat32Array {
   long size();
 };
 
-[Prefix="draco::"]
+[Prefix="draco_illixr::"]
 interface KeyframeAnimation {
   void KeyframeAnimation();
   long num_frames();

@@ -17,10 +17,10 @@
 
 #include <type_traits>
 
-#include "draco/core/bit_utils.h"
-#include "draco/core/decoder_buffer.h"
+#include "draco_illixr/core/bit_utils.h"
+#include "draco_illixr/core/decoder_buffer.h"
 
-namespace draco {
+namespace draco_illixr {
 
 namespace {
 
@@ -76,6 +76,6 @@ bool DecodeVarint(IntTypeT *out_val, DecoderBuffer *buffer) {
   return true;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_CORE_VARINT_DECODING_H_

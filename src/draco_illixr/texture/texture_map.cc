@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/texture/texture_map.h"
+#include "draco_illixr/texture/texture_map.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 
-namespace draco {
+namespace draco_illixr {
 
 TextureMap::TextureMap()
     : type_(TextureMap::GENERIC),
@@ -81,6 +81,6 @@ void TextureMap::SetTransform(const TextureTransform &transform) {
   texture_transform_.Copy(transform);
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED

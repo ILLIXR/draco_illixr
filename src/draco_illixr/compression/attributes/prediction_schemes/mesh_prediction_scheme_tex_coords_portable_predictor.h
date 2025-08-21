@@ -15,17 +15,17 @@
 #ifndef DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_MESH_PREDICTION_SCHEME_TEX_COORDS_PORTABLE_PREDICTOR_H_
 #define DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_MESH_PREDICTION_SCHEME_TEX_COORDS_PORTABLE_PREDICTOR_H_
 
-#include <math.h>
+#include <cmath>
 
 #include <algorithm>
 #include <limits>
 
-#include "draco/attributes/point_attribute.h"
-#include "draco/core/math_utils.h"
-#include "draco/core/vector_d.h"
-#include "draco/mesh/corner_table.h"
+#include "draco_illixr/attributes/point_attribute.h"
+#include "draco_illixr/core/math_utils.h"
+#include "draco_illixr/core/vector_d.h"
+#include "draco_illixr/mesh/corner_table.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Predictor functionality used for portable UV prediction by both encoder and
 // decoder.
@@ -269,6 +269,6 @@ bool MeshPredictionSchemeTexCoordsPortablePredictor<
   return true;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_MESH_PREDICTION_SCHEME_TEX_COORDS_PORTABLE_PREDICTOR_H_

@@ -20,7 +20,7 @@
 #include <cstddef>
 #include <functional>
 
-namespace draco {
+namespace draco_illixr {
 
 template <typename T1, typename T2>
 size_t HashCombine(T1 a, T2 b) {
@@ -59,6 +59,6 @@ struct HashArray {
   }
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_CORE_HASH_UTILS_H_

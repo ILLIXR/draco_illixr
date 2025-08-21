@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/compression/attributes/sequential_normal_attribute_encoder.h"
+#include "draco_illixr/compression/attributes/sequential_normal_attribute_encoder.h"
 
-#include "draco/compression/attributes/normal_compression_utils.h"
+#include "draco_illixr/compression/attributes/normal_compression_utils.h"
 
-namespace draco {
+namespace draco_illixr {
 
 bool SequentialNormalAttributeEncoder::Init(PointCloudEncoder *encoder,
                                             int attribute_id) {
@@ -55,4 +55,4 @@ bool SequentialNormalAttributeEncoder::PrepareValues(
   return true;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

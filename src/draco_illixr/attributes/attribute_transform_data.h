@@ -17,10 +17,10 @@
 
 #include <memory>
 
-#include "draco/attributes/attribute_transform_type.h"
-#include "draco/core/data_buffer.h"
+#include "draco_illixr/attributes/attribute_transform_type.h"
+#include "draco_illixr/core/data_buffer.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Class for holding parameter values for an attribute transform of a
 // PointAttribute. This can be for example quantization data for an attribute
@@ -66,6 +66,6 @@ class AttributeTransformData {
   DataBuffer buffer_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_ATTRIBUTES_ATTRIBUTE_TRANSFORM_DATA_H_

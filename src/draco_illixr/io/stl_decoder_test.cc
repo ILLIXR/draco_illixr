@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/io/stl_decoder.h"
+#include "draco_illixr/io/stl_decoder.h"
 
 #include <string>
 
-#include "draco/core/draco_test_base.h"
-#include "draco/core/draco_test_utils.h"
+#include "draco_illixr/core/draco_test_base.h"
+#include "draco_illixr/core/draco_test_utils.h"
 
-namespace draco {
+namespace draco_illixr {
 
 class StlDecoderTest : public ::testing::Test {
  protected:
@@ -46,4 +46,4 @@ TEST_F(StlDecoderTest, TestStlDecoding) {
   test_decoding_should_fail("STL/test_sphere_ascii.stl");
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

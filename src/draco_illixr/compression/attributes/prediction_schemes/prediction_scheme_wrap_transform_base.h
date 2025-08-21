@@ -18,10 +18,10 @@
 #include <limits>
 #include <vector>
 
-#include "draco/compression/config/compression_shared.h"
-#include "draco/core/macros.h"
+#include "draco_illixr/compression/config/compression_shared.h"
+#include "draco_illixr/core/macros.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // PredictionSchemeWrapTransform uses the min and max bounds of the original
 // data to wrap stored correction values around these bounds centered at 0,
@@ -115,6 +115,6 @@ class PredictionSchemeWrapTransformBase {
   mutable std::vector<DataTypeT> clamped_value_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_PREDICTION_SCHEME_WRAP_TRANSFORM_BASE_H_

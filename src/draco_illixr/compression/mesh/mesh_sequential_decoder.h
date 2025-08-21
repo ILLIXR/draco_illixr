@@ -15,9 +15,9 @@
 #ifndef DRACO_COMPRESSION_MESH_MESH_SEQUENTIAL_DECODER_H_
 #define DRACO_COMPRESSION_MESH_MESH_SEQUENTIAL_DECODER_H_
 
-#include "draco/compression/mesh/mesh_decoder.h"
+#include "draco_illixr/compression/mesh/mesh_decoder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Class for decoding data encoded by MeshSequentialEncoder.
 class MeshSequentialDecoder : public MeshDecoder {
@@ -34,6 +34,6 @@ class MeshSequentialDecoder : public MeshDecoder {
   bool DecodeAndDecompressIndices(uint32_t num_faces);
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_MESH_MESH_SEQUENTIAL_DECODER_H_

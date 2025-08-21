@@ -15,12 +15,12 @@
 #ifndef DRACO_COMPRESSION_MESH_MESH_DECODER_H_
 #define DRACO_COMPRESSION_MESH_MESH_DECODER_H_
 
-#include "draco/compression/attributes/mesh_attribute_indices_encoding_data.h"
-#include "draco/compression/point_cloud/point_cloud_decoder.h"
-#include "draco/mesh/mesh.h"
-#include "draco/mesh/mesh_attribute_corner_table.h"
+#include "draco_illixr/compression/attributes/mesh_attribute_indices_encoding_data.h"
+#include "draco_illixr/compression/point_cloud/point_cloud_decoder.h"
+#include "draco_illixr/mesh/mesh.h"
+#include "draco_illixr/mesh/mesh_attribute_corner_table.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Class that reconstructs a 3D mesh from input data that was encoded by
 // MeshEncoder.
@@ -63,6 +63,6 @@ class MeshDecoder : public PointCloudDecoder {
   Mesh *mesh_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_MESH_MESH_DECODER_H_

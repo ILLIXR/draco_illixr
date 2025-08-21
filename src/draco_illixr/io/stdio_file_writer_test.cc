@@ -1,12 +1,12 @@
-#include "draco/io/stdio_file_writer.h"
+#include "draco_illixr/io/stdio_file_writer.h"
 
 #include <cstdio>
 #include <cstring>
 
-#include "draco/core/draco_test_base.h"
-#include "draco/core/draco_test_utils.h"
+#include "draco_illixr/core/draco_test_base.h"
+#include "draco_illixr/core/draco_test_utils.h"
 
-namespace draco {
+namespace draco_illixr {
 namespace {
 
 void CheckFileWriter(const std::string &data, const std::string &filename) {
@@ -35,4 +35,4 @@ TEST(StdioFileWriterTest, BasicWrite) {
 }
 
 }  // namespace
-}  // namespace draco
+}  // namespace draco_illixr

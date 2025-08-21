@@ -18,10 +18,10 @@
 
 #include <vector>
 
-#include "draco/compression/entropy/ans.h"
-#include "draco/core/decoder_buffer.h"
+#include "draco_illixr/compression/entropy/ans.h"
+#include "draco_illixr/core/decoder_buffer.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Class for decoding a sequence of bits that were encoded with
 // AdaptiveRAnsBitEncoder.
@@ -49,6 +49,6 @@ class AdaptiveRAnsBitDecoder {
   double p0_f_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_BIT_CODERS_ADAPTIVE_RANS_BIT_DECODER_H_

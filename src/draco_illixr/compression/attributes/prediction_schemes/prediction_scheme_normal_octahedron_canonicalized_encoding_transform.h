@@ -17,13 +17,13 @@
 
 #include <cmath>
 
-#include "draco/compression/attributes/normal_compression_utils.h"
-#include "draco/compression/attributes/prediction_schemes/prediction_scheme_normal_octahedron_canonicalized_transform_base.h"
-#include "draco/core/encoder_buffer.h"
-#include "draco/core/macros.h"
-#include "draco/core/vector_d.h"
+#include "draco_illixr/compression/attributes/normal_compression_utils.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/prediction_scheme_normal_octahedron_canonicalized_transform_base.h"
+#include "draco_illixr/core/encoder_buffer.h"
+#include "draco_illixr/core/macros.h"
+#include "draco_illixr/core/vector_d.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // The transform works on octahedral coordinates for normals. The square is
 // subdivided into four inner triangles (diamond) and four outer triangles. The
@@ -111,6 +111,6 @@ class PredictionSchemeNormalOctahedronCanonicalizedEncodingTransform
   }
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_PREDICTION_SCHEME_NORMAL_OCTAHEDRON_CANONICALIZED_ENCODING_TRANSFORM_H_

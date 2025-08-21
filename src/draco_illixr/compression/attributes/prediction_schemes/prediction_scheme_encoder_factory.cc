@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/compression/attributes/prediction_schemes/prediction_scheme_encoder_factory.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/prediction_scheme_encoder_factory.h"
 
-namespace draco {
+namespace draco_illixr {
 
 PredictionSchemeMethod SelectPredictionMethod(
     int att_id, const PointCloudEncoder *encoder) {
@@ -117,4 +117,4 @@ PredictionSchemeMethod GetPredictionMethodFromOptions(
   return static_cast<PredictionSchemeMethod>(pred_type);
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

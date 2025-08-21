@@ -16,16 +16,16 @@
 #ifndef DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_MESH_PREDICTION_SCHEME_TEX_COORDS_DECODER_H_
 #define DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_MESH_PREDICTION_SCHEME_TEX_COORDS_DECODER_H_
 
-#include <math.h>
+#include <cmath>
 
-#include "draco/compression/attributes/prediction_schemes/mesh_prediction_scheme_decoder.h"
-#include "draco/compression/bit_coders/rans_bit_decoder.h"
-#include "draco/core/varint_decoding.h"
-#include "draco/core/vector_d.h"
-#include "draco/draco_features.h"
-#include "draco/mesh/corner_table.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/mesh_prediction_scheme_decoder.h"
+#include "draco_illixr/compression/bit_coders/rans_bit_decoder.h"
+#include "draco_illixr/core/varint_decoding.h"
+#include "draco_illixr/core/vector_d.h"
+#include "draco_illixr/draco_features.h"
+#include "draco_illixr/mesh/corner_table.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Decoder for predictions of UV coordinates encoded by our specialized texture
 // coordinate predictor. See the corresponding encoder for more details. Note
@@ -361,7 +361,7 @@ bool MeshPredictionSchemeTexCoordsDecoder<DataTypeT, TransformT, MeshDataT>::
   return true;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_MESH_PREDICTION_SCHEME_TEX_COORDS_DECODER_H_
 #endif

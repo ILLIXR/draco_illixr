@@ -12,15 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/io/ply_encoder.h"
+#include "draco_illixr/io/ply_encoder.h"
 
 #include <memory>
 #include <sstream>
 #include <iostream>
-#include "draco/io/file_writer_factory.h"
-#include "draco/io/file_writer_interface.h"
+#include "draco_illixr/io/file_writer_factory.h"
+#include "draco_illixr/io/file_writer_interface.h"
 
-namespace draco {
+namespace draco_illixr {
 
 PlyEncoder::PlyEncoder()
     : out_buffer_(nullptr), in_point_cloud_(nullptr), in_mesh_(nullptr) {}
@@ -217,4 +217,4 @@ const char *PlyEncoder::GetAttributeDataType(int attribute) {
   return nullptr;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

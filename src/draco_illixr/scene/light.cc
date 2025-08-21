@@ -12,15 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/scene/light.h"
+#include "draco_illixr/scene/light.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 
 #include <limits>
 
-#include "draco/core/constants.h"
+#include "draco_illixr/core/constants.h"
 
-namespace draco {
+namespace draco_illixr {
 
 Light::Light()
     : color_(1.0f, 1.0f, 1.0f),
@@ -40,6 +40,6 @@ void Light::Copy(const Light &light) {
   outer_cone_angle_ = light.outer_cone_angle_;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED

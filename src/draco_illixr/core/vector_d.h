@@ -22,9 +22,9 @@
 #include <cmath>
 #include <limits>
 
-#include "draco/core/macros.h"
+#include "draco_illixr/core/macros.h"
 
-namespace draco {
+namespace draco_illixr {
 // D-dimensional vector class with basic operations.
 template <class ScalarT, int dimension_t>
 class VectorD {
@@ -328,7 +328,7 @@ VectorD<ScalarT, 3> CrossProduct(const VectorD<ScalarT, 3> &u,
 
 template <class ScalarT, int dimension_t>
 inline std::ostream &operator<<(
-    std::ostream &out, const draco::VectorD<ScalarT, dimension_t> &vec) {
+    std::ostream &out, const draco_illixr::VectorD<ScalarT, dimension_t> &vec) {
   for (int i = 0; i < dimension_t - 1; ++i) {
     out << vec[i] << " ";
   }
@@ -350,6 +350,6 @@ typedef VectorD<uint32_t, 5> Vector5ui;
 typedef VectorD<uint32_t, 6> Vector6ui;
 typedef VectorD<uint32_t, 7> Vector7ui;
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_CORE_VECTOR_D_H_

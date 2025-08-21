@@ -15,17 +15,17 @@
 #ifndef DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_MESH_PREDICTION_SCHEME_GEOMETRIC_NORMAL_PREDICTOR_BASE_H_
 #define DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_MESH_PREDICTION_SCHEME_GEOMETRIC_NORMAL_PREDICTOR_BASE_H_
 
-#include <math.h>
+#include <cmath>
 
-#include "draco/attributes/point_attribute.h"
-#include "draco/compression/attributes/normal_compression_utils.h"
-#include "draco/compression/config/compression_shared.h"
-#include "draco/core/math_utils.h"
-#include "draco/core/vector_d.h"
-#include "draco/mesh/corner_table.h"
-#include "draco/mesh/corner_table_iterators.h"
+#include "draco_illixr/attributes/point_attribute.h"
+#include "draco_illixr/compression/attributes/normal_compression_utils.h"
+#include "draco_illixr/compression/config/compression_shared.h"
+#include "draco_illixr/core/math_utils.h"
+#include "draco_illixr/core/vector_d.h"
+#include "draco_illixr/mesh/corner_table.h"
+#include "draco_illixr/mesh/corner_table_iterators.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Base class for geometric normal predictors using position attribute.
 template <typename DataTypeT, class TransformT, class MeshDataT>
@@ -91,6 +91,6 @@ class MeshPredictionSchemeGeometricNormalPredictorBase {
   NormalPredictionMode normal_prediction_mode_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_MESH_PREDICTION_SCHEME_GEOMETRIC_NORMAL_PREDICTOR_BASE_H_

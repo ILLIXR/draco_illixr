@@ -15,10 +15,10 @@
 #ifndef DRACO_ANIMATION_KEYFRAME_ANIMATION_DECODER_H_
 #define DRACO_ANIMATION_KEYFRAME_ANIMATION_DECODER_H_
 
-#include "draco/animation/keyframe_animation.h"
-#include "draco/compression/point_cloud/point_cloud_sequential_decoder.h"
+#include "draco_illixr/animation/keyframe_animation.h"
+#include "draco_illixr/compression/point_cloud/point_cloud_sequential_decoder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Class for decoding keyframe animation.
 class KeyframeAnimationDecoder : private PointCloudSequentialDecoder {
@@ -29,6 +29,6 @@ class KeyframeAnimationDecoder : private PointCloudSequentialDecoder {
                 KeyframeAnimation *animation);
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_ANIMATION_KEYFRAME_ANIMATION_DECODER_H_

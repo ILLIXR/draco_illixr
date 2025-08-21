@@ -12,15 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/io/scene_io.h"
+#include "draco_illixr/io/scene_io.h"
 
 #include <string>
 #include <utility>
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
-#include "draco/core/draco_test_utils.h"
-#include "draco/io/file_utils.h"
-#include "draco/io/mesh_io.h"
+#include "draco_illixr/core/draco_test_utils.h"
+#include "draco_illixr/io/file_utils.h"
+#include "draco_illixr/io/mesh_io.h"
 
 namespace {
 
@@ -28,23 +28,23 @@ TEST(SceneTest, TestSceneIO) {
   // A simple test that verifies that the scene is loaded and saved using the
   // scene_io.h API.
   const std::string file_name =
-      draco::GetTestFileFullPath("CesiumMilkTruck/glTF/CesiumMilkTruck.gltf");
-  draco::StatusOr<std::unique_ptr<draco::Scene>> maybe_scene =
-      draco::ReadSceneFromFile(file_name);
+      draco_illixr::GetTestFileFullPath("CesiumMilkTruck/glTF/CesiumMilkTruck.gltf");
+  draco_illixr::StatusOr<std::unique_ptr<draco_illixr::Scene>> maybe_scene =
+      draco_illixr::ReadSceneFromFile(file_name);
   ASSERT_TRUE(maybe_scene.status().ok());
-  std::unique_ptr<draco::Scene> scene = std::move(maybe_scene).value();
+  std::unique_ptr<draco_illixr::Scene> scene = std::move(maybe_scene).value();
   ASSERT_NE(scene, nullptr);
 
   const std::string out_file_name =
-      draco::GetTestTempFileFullPath("out_scene.gltf");
-  ASSERT_TRUE(draco::WriteSceneToFile(out_file_name, *scene).ok());
+      draco_illixr::GetTestTempFileFullPath("out_scene.gltf");
+  ASSERT_TRUE(draco_illixr::WriteSceneToFile(out_file_name, *scene).ok());
 
   // Ensure all files related to the scene are saved.
-  ASSERT_GT(draco::GetFileSize(out_file_name), 0);
+  ASSERT_GT(draco_illixr::GetFileSize(out_file_name), 0);
   ASSERT_GT(
-      draco::GetFileSize(draco::GetTestTempFileFullPath("CesiumMilkTruck.png")),
+      draco_illixr::GetFileSize(draco_illixr::GetTestTempFileFullPath("CesiumMilkTruck.png")),
       0);
-  ASSERT_GT(draco::GetFileSize(draco::GetTestTempFileFullPath("buffer0.bin")),
+  ASSERT_GT(draco_illixr::GetFileSize(draco_illixr::GetTestTempFileFullPath("buffer0.bin")),
             0);
 }
 
@@ -52,16 +52,16 @@ TEST(SceneTest, TestSaveToPly) {
   // A simple test that verifies that a loaded scene can be stored in a PLY file
   // format.
   const std::string file_name =
-      draco::GetTestFileFullPath("CesiumMilkTruck/glTF/CesiumMilkTruck.gltf");
-  DRACO_ASSIGN_OR_ASSERT(std::unique_ptr<draco::Scene> scene,
-                         draco::ReadSceneFromFile(file_name));
+      draco_illixr::GetTestFileFullPath("CesiumMilkTruck/glTF/CesiumMilkTruck.gltf");
+  DRACO_ASSIGN_OR_ASSERT(std::unique_ptr<draco_illixr::Scene> scene,
+                         draco_illixr::ReadSceneFromFile(file_name));
 
   const std::string out_file_name =
-      draco::GetTestTempFileFullPath("out_scene.ply");
-  DRACO_ASSERT_OK(draco::WriteSceneToFile(out_file_name, *scene));
+      draco_illixr::GetTestTempFileFullPath("out_scene.ply");
+  DRACO_ASSERT_OK(draco_illixr::WriteSceneToFile(out_file_name, *scene));
 
   // Verify that we can read the saved mesh.
-  DRACO_ASSIGN_OR_ASSERT(auto mesh, draco::ReadMeshFromFile(out_file_name));
+  DRACO_ASSIGN_OR_ASSERT(auto mesh, draco_illixr::ReadMeshFromFile(out_file_name));
   ASSERT_NE(mesh, nullptr);
 }
 
@@ -69,16 +69,16 @@ TEST(SceneTest, TestSaveToObj) {
   // A simple test that verifies that a loaded scene can be stored in an OBJ
   // file format.
   const std::string file_name =
-      draco::GetTestFileFullPath("CesiumMilkTruck/glTF/CesiumMilkTruck.gltf");
-  DRACO_ASSIGN_OR_ASSERT(std::unique_ptr<draco::Scene> scene,
-                         draco::ReadSceneFromFile(file_name));
+      draco_illixr::GetTestFileFullPath("CesiumMilkTruck/glTF/CesiumMilkTruck.gltf");
+  DRACO_ASSIGN_OR_ASSERT(std::unique_ptr<draco_illixr::Scene> scene,
+                         draco_illixr::ReadSceneFromFile(file_name));
 
   const std::string out_file_name =
-      draco::GetTestTempFileFullPath("out_scene.obj");
-  DRACO_ASSERT_OK(draco::WriteSceneToFile(out_file_name, *scene));
+      draco_illixr::GetTestTempFileFullPath("out_scene.obj");
+  DRACO_ASSERT_OK(draco_illixr::WriteSceneToFile(out_file_name, *scene));
 
   // Verify that we can read the saved mesh.
-  DRACO_ASSIGN_OR_ASSERT(auto mesh, draco::ReadMeshFromFile(out_file_name));
+  DRACO_ASSIGN_OR_ASSERT(auto mesh, draco_illixr::ReadMeshFromFile(out_file_name));
   ASSERT_NE(mesh, nullptr);
 }
 

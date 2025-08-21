@@ -15,16 +15,16 @@
 #ifndef DRACO_MESH_MESH_FEATURES_H_
 #define DRACO_MESH_MESH_FEATURES_H_
 
-#include "draco/draco_features.h"
+#include "draco_illixr/draco_features.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 #include <string>
 #include <vector>
 
-#include "draco/texture/texture_library.h"
-#include "draco/texture/texture_map.h"
+#include "draco_illixr/texture/texture_library.h"
+#include "draco_illixr/texture/texture_map.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Describes a mesh feature ID set according to the EXT_mesh_features glTF
 // extension. Feature IDs are either associated with geometry vertices or with
@@ -87,7 +87,7 @@ class MeshFeatures {
   int property_table_index_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED
 #endif  // DRACO_MESH_MESH_FEATURES_H_

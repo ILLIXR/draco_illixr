@@ -1,9 +1,9 @@
-#include "draco/io/file_reader_factory.h"
+#include "draco_illixr/io/file_reader_factory.h"
 
 #include <string>
 #include <vector>
 
-namespace draco {
+namespace draco_illixr {
 namespace {
 
 #define FILEREADER_LOG_ERROR(error_string)                             \
@@ -42,4 +42,4 @@ std::unique_ptr<FileReaderInterface> FileReaderFactory::OpenReader(
   return nullptr;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

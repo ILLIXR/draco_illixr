@@ -18,9 +18,9 @@
 
 #include <vector>
 
-#include "draco/core/decoder_buffer.h"
+#include "draco_illixr/core/decoder_buffer.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // See FoldedBit32Encoder for more details.
 template <class BitDecoderT>
@@ -72,6 +72,6 @@ class FoldedBit32Decoder {
   BitDecoderT bit_decoder_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_BIT_CODERS_FOLDED_INTEGER_BIT_DECODER_H_

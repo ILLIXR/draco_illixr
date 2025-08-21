@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/compression/point_cloud/point_cloud_sequential_encoder.h"
+#include "draco_illixr/compression/point_cloud/point_cloud_sequential_encoder.h"
 
-#include "draco/compression/attributes/linear_sequencer.h"
-#include "draco/compression/attributes/sequential_attribute_encoders_controller.h"
+#include "draco_illixr/compression/attributes/linear_sequencer.h"
+#include "draco_illixr/compression/attributes/sequential_attribute_encoders_controller.h"
 
-namespace draco {
+namespace draco_illixr {
 
 Status PointCloudSequentialEncoder::EncodeGeometryData() {
   const int32_t num_points = point_cloud()->num_points();
@@ -47,4 +47,4 @@ void PointCloudSequentialEncoder::ComputeNumberOfEncodedPoints() {
   set_num_encoded_points(point_cloud()->num_points());
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

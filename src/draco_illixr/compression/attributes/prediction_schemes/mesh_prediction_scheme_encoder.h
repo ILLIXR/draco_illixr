@@ -15,10 +15,10 @@
 #ifndef DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_MESH_PREDICTION_SCHEME_ENCODER_H_
 #define DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_MESH_PREDICTION_SCHEME_ENCODER_H_
 
-#include "draco/compression/attributes/prediction_schemes/mesh_prediction_scheme_data.h"
-#include "draco/compression/attributes/prediction_schemes/prediction_scheme_encoder.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/mesh_prediction_scheme_data.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/prediction_scheme_encoder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Base class for all mesh prediction scheme encoders that use the mesh
 // connectivity data. |MeshDataT| can be any class that provides the same
@@ -41,6 +41,6 @@ class MeshPredictionSchemeEncoder
   MeshData mesh_data_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_MESH_PREDICTION_SCHEME_ENCODER_H_

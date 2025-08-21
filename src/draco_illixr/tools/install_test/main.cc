@@ -21,20 +21,20 @@
 #include <cstdio>
 #include <vector>
 
-#include "draco/core/decoder_buffer.h"
+#include "draco_illixr/core/decoder_buffer.h"
 
 #if defined DRACO_TRANSCODER_SUPPORTED
-#include "draco/scene/scene.h"
-#include "draco/scene/scene_utils.h"
+#include "draco_illixr/scene/scene.h"
+#include "draco_illixr/scene/scene_utils.h"
 #endif
 
 int main(int /*argc*/, char** /*argv*/) {
   std::vector<char> empty_buffer;
-  draco::DecoderBuffer buffer;
+  draco_illixr::DecoderBuffer buffer;
   buffer.Init(empty_buffer.data(), empty_buffer.size());
 
 #if defined DRACO_TRANSCODER_SUPPORTED
-  draco::Scene empty_scene;
+  draco_illixr::Scene empty_scene;
   const int num_meshes = empty_scene.NumMeshes();
   (void)num_meshes;
 #endif

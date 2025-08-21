@@ -15,10 +15,10 @@
 #ifndef DRACO_COMPRESSION_ATTRIBUTES_KD_TREE_ATTRIBUTES_DECODER_H_
 #define DRACO_COMPRESSION_ATTRIBUTES_KD_TREE_ATTRIBUTES_DECODER_H_
 
-#include "draco/attributes/attribute_quantization_transform.h"
-#include "draco/compression/attributes/attributes_decoder.h"
+#include "draco_illixr/attributes/attribute_quantization_transform.h"
+#include "draco_illixr/compression/attributes/attributes_decoder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Decodes attributes encoded with the KdTreeAttributesEncoder.
 class KdTreeAttributesDecoder : public AttributesDecoder {
@@ -45,6 +45,6 @@ class KdTreeAttributesDecoder : public AttributesDecoder {
   std::vector<std::unique_ptr<PointAttribute>> quantized_portable_attributes_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_KD_TREE_ATTRIBUTES_DECODER_H_

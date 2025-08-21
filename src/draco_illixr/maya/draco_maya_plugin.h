@@ -15,8 +15,8 @@
 
 #include <fstream>
 
-#include "draco/compression/decode.h"
-#include "draco/compression/encode.h"
+#include "draco_illixr/compression/decode.h"
+#include "draco_illixr/compression/encode.h"
 
 #ifdef DRACO_MAYA_PLUGIN
 
@@ -28,7 +28,7 @@
 #define EXPORT_API
 #endif  // defined(_MSC_VER)
 
-namespace draco {
+namespace draco_illixr {
 namespace maya {
 
 enum class EncodeResult {
@@ -74,7 +74,7 @@ EXPORT_API EncodeResult drc2py_encode(Drc2PyMesh *in_mesh, char *file_path);
 }  // extern "C"
 
 }  // namespace maya
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_MAYA_PLUGIN
 

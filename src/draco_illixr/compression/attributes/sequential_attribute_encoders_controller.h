@@ -15,11 +15,11 @@
 #ifndef DRACO_COMPRESSION_ATTRIBUTES_SEQUENTIAL_ATTRIBUTE_ENCODERS_CONTROLLER_H_
 #define DRACO_COMPRESSION_ATTRIBUTES_SEQUENTIAL_ATTRIBUTE_ENCODERS_CONTROLLER_H_
 
-#include "draco/compression/attributes/attributes_encoder.h"
-#include "draco/compression/attributes/points_sequencer.h"
-#include "draco/compression/attributes/sequential_attribute_encoder.h"
+#include "draco_illixr/compression/attributes/attributes_encoder.h"
+#include "draco_illixr/compression/attributes/points_sequencer.h"
+#include "draco_illixr/compression/attributes/sequential_attribute_encoder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // A basic implementation of an attribute encoder that can be used to encode
 // an arbitrary set of attributes. The encoder creates a sequential attribute
@@ -110,6 +110,6 @@ class SequentialAttributeEncodersController : public AttributesEncoder {
   std::unique_ptr<PointsSequencer> sequencer_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_SEQUENTIAL_ATTRIBUTE_ENCODERS_CONTROLLER_H_

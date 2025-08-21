@@ -1,10 +1,10 @@
-#include "draco/io/stdio_file_reader.h"
+#include "draco_illixr/io/stdio_file_reader.h"
 
-#include "draco/core/draco_test_base.h"
-#include "draco/core/draco_test_utils.h"
-#include "draco/io/file_reader_test_common.h"
+#include "draco_illixr/core/draco_test_base.h"
+#include "draco_illixr/core/draco_test_utils.h"
+#include "draco_illixr/io/file_reader_test_common.h"
 
-namespace draco {
+namespace draco_illixr {
 namespace {
 
 TEST(StdioFileReaderTest, FailOpen) {
@@ -46,4 +46,4 @@ TEST(StdioFileReaderTest, GetFileSize) {
 }
 
 }  // namespace
-}  // namespace draco
+}  // namespace draco_illixr

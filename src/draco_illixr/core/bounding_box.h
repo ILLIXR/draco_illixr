@@ -15,9 +15,9 @@
 #ifndef DRACO_CORE_BOUNDING_BOX_H_
 #define DRACO_CORE_BOUNDING_BOX_H_
 
-#include "draco/core/vector_d.h"
+#include "draco_illixr/core/vector_d.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Class for computing the bounding box of points in 3D space.
 class BoundingBox {
@@ -72,6 +72,6 @@ class BoundingBox {
   Vector3f min_point_;
   Vector3f max_point_;
 };
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  //  DRACO_CORE_BOUNDING_BOX_H_

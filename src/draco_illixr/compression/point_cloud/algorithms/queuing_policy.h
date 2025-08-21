@@ -21,7 +21,7 @@
 #include <stack>
 #include <utility>
 
-namespace draco {
+namespace draco_illixr {
 
 template <class T>
 class Queue {
@@ -70,6 +70,6 @@ class PriorityQueue {
   QType s_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_POINT_CLOUD_ALGORITHMS_QUEUING_POLICY_H_

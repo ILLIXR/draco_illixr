@@ -15,9 +15,9 @@
 #ifndef DRACO_MESH_CORNER_TABLE_ITERATORS_H_
 #define DRACO_MESH_CORNER_TABLE_ITERATORS_H_
 
-#include "draco/mesh/corner_table.h"
+#include "draco_illixr/mesh/corner_table.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Class for iterating over vertices in a 1-ring around the specified vertex.
 template <class CornerTableT>
@@ -284,6 +284,6 @@ class VertexCornersIterator
   bool left_traversal_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_MESH_CORNER_TABLE_ITERATORS_H_

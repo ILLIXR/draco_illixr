@@ -20,10 +20,10 @@
 #include <cstring>
 #include <memory>
 
-#include "draco/core/macros.h"
-#include "draco/draco_features.h"
+#include "draco_illixr/core/macros.h"
+#include "draco_illixr/draco_features.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Class is a wrapper around input data used by MeshDecoder. It provides a
 // basic interface for decoding either typed or variable-bit sized data.
@@ -212,6 +212,6 @@ class DecoderBuffer {
   uint16_t bitstream_version_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_CORE_DECODER_BUFFER_H_

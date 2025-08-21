@@ -14,13 +14,13 @@
 //
 #include <cinttypes>
 
-#include "draco/compression/decode.h"
-#include "draco/core/cycle_timer.h"
-#include "draco/io/file_utils.h"
-#include "draco/io/obj_encoder.h"
-#include "draco/io/parser_utils.h"
-#include "draco/io/ply_encoder.h"
-#include "draco/io/stl_encoder.h"
+#include "draco_illixr/compression/decode.h"
+#include "draco_illixr/core/cycle_timer.h"
+#include "draco_illixr/io/file_utils.h"
+#include "draco_illixr/io/obj_encoder.h"
+#include "draco_illixr/io/parser_utils.h"
+#include "draco_illixr/io/ply_encoder.h"
+#include "draco_illixr/io/stl_encoder.h"
 
 namespace {
 
@@ -41,7 +41,7 @@ void Usage() {
   printf("  -o <output>           output file name.\n");
 }
 
-int ReturnError(const draco::Status &status) {
+int ReturnError(const draco_illixr::Status &status) {
   printf("Failed to decode the input file %s\n", status.error_msg());
   return -1;
 }
@@ -68,9 +68,9 @@ int main(int argc, char **argv) {
   }
 
   std::vector<char> data;
-  draco::CycleTimer total_timer;
+  draco_illixr::CycleTimer total_timer;
   total_timer.Start();
-  if (!draco::ReadFileToBuffer(options.input, &data)) {
+  if (!draco_illixr::ReadFileToBuffer(options.input, &data)) {
     printf("Failed opening the input file.\n");
     return -1;
   }
@@ -81,38 +81,38 @@ int main(int argc, char **argv) {
   }
 
   // Create a draco decoding buffer. Note that no data is copied in this step.
-  draco::DecoderBuffer buffer;
-  
+  draco_illixr::DecoderBuffer buffer;
+
   buffer.Init(data.data(), data.size());
 
-  draco::CycleTimer timer;
+  draco_illixr::CycleTimer timer;
   //pyh add additional timers
-  draco::CycleTimer store_mesh_timer;
+  draco_illixr::CycleTimer store_mesh_timer;
   // Decode the input data into a geometry.
-  std::unique_ptr<draco::PointCloud> pc;
-  draco::Mesh *mesh = nullptr;
-  auto type_statusor = draco::Decoder::GetEncodedGeometryType(&buffer);
+  std::unique_ptr<draco_illixr::PointCloud> pc;
+  draco_illixr::Mesh *mesh = nullptr;
+  auto type_statusor = draco_illixr::Decoder::GetEncodedGeometryType(&buffer);
   if (!type_statusor.ok()) {
     return ReturnError(type_statusor.status());
   }
-  const draco::EncodedGeometryType geom_type = type_statusor.value();
-  if (geom_type == draco::TRIANGULAR_MESH) {
+  const draco_illixr::EncodedGeometryType geom_type = type_statusor.value();
+  if (geom_type == draco_illixr::TRIANGULAR_MESH) {
     timer.Start();
-    draco::Decoder decoder;
+    draco_illixr::Decoder decoder;
     auto statusor = decoder.DecodeMeshFromBuffer(&buffer);
     if (!statusor.ok()) {
       return ReturnError(statusor.status());
     }
-    std::unique_ptr<draco::Mesh> in_mesh = std::move(statusor).value();
+    std::unique_ptr<draco_illixr::Mesh> in_mesh = std::move(statusor).value();
     timer.Stop();
     if (in_mesh) {
       mesh = in_mesh.get();
       pc = std::move(in_mesh);
     }
-  } else if (geom_type == draco::POINT_CLOUD) {
+  } else if (geom_type == draco_illixr::POINT_CLOUD) {
     // Failed to decode it as mesh, so let's try to decode it as a point cloud.
     timer.Start();
-    draco::Decoder decoder;
+    draco_illixr::Decoder decoder;
     auto statusor = decoder.DecodePointCloudFromBuffer(&buffer);
     if (!statusor.ok()) {
       return ReturnError(statusor.status());
@@ -132,14 +132,14 @@ int main(int argc, char **argv) {
   }
 
   // Save the decoded geometry into a file.
-  const std::string extension = draco::parser::ToLower(
+  const std::string extension = draco_illixr::parser::ToLower(
       options.output.size() >= 4
           ? options.output.substr(options.output.size() - 4)
           : options.output);
 
   store_mesh_timer.Start();
   if (extension == ".obj") {
-    draco::ObjEncoder obj_encoder;
+    draco_illixr::ObjEncoder obj_encoder;
     if (mesh) {
       if (!obj_encoder.EncodeToFile(*mesh, options.output)) {
         printf("Failed to store the decoded mesh as OBJ.\n");
@@ -152,7 +152,7 @@ int main(int argc, char **argv) {
       }
     }
   } else if (extension == ".ply") {
-    draco::PlyEncoder ply_encoder;
+    draco_illixr::PlyEncoder ply_encoder;
     if (mesh) {
       if (!ply_encoder.EncodeToFile(*mesh, options.output)) {
         printf("Failed to store the decoded mesh as PLY.\n");
@@ -165,10 +165,10 @@ int main(int argc, char **argv) {
       }
     }
   } else if (extension == ".stl") {
-    draco::StlEncoder stl_encoder;
+    draco_illixr::StlEncoder stl_encoder;
     if (mesh) {
-      draco::Status s = stl_encoder.EncodeToFile(*mesh, options.output);
-      if (s.code() != draco::Status::OK) {
+      draco_illixr::Status s = stl_encoder.EncodeToFile(*mesh, options.output);
+      if (s.code() != draco_illixr::Status::OK) {
         printf("Failed to store the decoded mesh as STL.\n");
         return -1;
       }

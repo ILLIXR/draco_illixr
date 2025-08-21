@@ -17,9 +17,9 @@
 
 #include <vector>
 
-#include "draco/point_cloud/point_cloud.h"
+#include "draco_illixr/point_cloud/point_cloud.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Class for holding keyframe animation data. It will have two or more
 // attributes as a point cloud. The first attribute is always the timestamp
@@ -102,6 +102,6 @@ int32_t KeyframeAnimation::AddKeyframes(DataType data_type,
   return this->AddAttribute(std::move(keyframe_att));
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_ANIMATION_KEYFRAME_ANIMATION_H_

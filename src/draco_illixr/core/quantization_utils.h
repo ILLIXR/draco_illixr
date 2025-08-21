@@ -25,9 +25,9 @@
 
 #include <cmath>
 
-#include "draco/core/macros.h"
+#include "draco_illixr/core/macros.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Class for quantizing single precision floating point values. The values
 // should be centered around zero and be within interval (-range, +range), where
@@ -77,6 +77,6 @@ class Dequantizer {
   float delta_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_CORE_QUANTIZATION_UTILS_H_

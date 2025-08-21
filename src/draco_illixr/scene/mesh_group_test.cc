@@ -12,18 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/scene/mesh_group.h"
+#include "draco_illixr/scene/mesh_group.h"
 
-#include "draco/core/draco_test_base.h"
-#include "draco/core/draco_test_utils.h"
-#include "draco/scene/scene_indices.h"
+#include "draco_illixr/core/draco_test_base.h"
+#include "draco_illixr/core/draco_test_utils.h"
+#include "draco_illixr/scene/scene_indices.h"
 
 namespace {
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 
-using draco::MeshGroup;
-using draco::MeshIndex;
+using draco_illixr::MeshGroup;
+using draco_illixr::MeshIndex;
 
 // Test helper method generates materials variants mappings based on a |seed|.
 std::vector<MeshGroup::MaterialsVariantsMapping> MakeMappings(int seed) {

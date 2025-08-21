@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/compression/attributes/sequential_quantization_attribute_decoder.h"
+#include "draco_illixr/compression/attributes/sequential_quantization_attribute_decoder.h"
 
-#include "draco/core/quantization_utils.h"
+#include "draco_illixr/core/quantization_utils.h"
 
-namespace draco {
+namespace draco_illixr {
 
 SequentialQuantizationAttributeDecoder::
     SequentialQuantizationAttributeDecoder() {}
@@ -85,4 +85,4 @@ bool SequentialQuantizationAttributeDecoder::DequantizeValues(
       *GetPortableAttribute(), attribute());
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

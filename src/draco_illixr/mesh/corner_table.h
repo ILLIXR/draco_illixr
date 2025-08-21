@@ -18,12 +18,12 @@
 #include <array>
 #include <memory>
 
-#include "draco/attributes/geometry_indices.h"
-#include "draco/core/draco_index_type_vector.h"
-#include "draco/core/macros.h"
-#include "draco/mesh/valence_cache.h"
+#include "draco_illixr/attributes/geometry_indices.h"
+#include "draco_illixr/core/draco_index_type_vector.h"
+#include "draco_illixr/core/macros.h"
+#include "draco_illixr/mesh/valence_cache.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // CornerTable is used to represent connectivity of triangular meshes.
 // For every corner of all faces, the corner table stores the index of the
@@ -355,7 +355,7 @@ class CornerTable {
   // qualities.  If the mesh or table is modified the cache should be discarded
   // and not relied on as it does not automatically update or invalidate for
   // performance reasons.
-  const draco::ValenceCache<CornerTable> &GetValenceCache() const {
+  const draco_illixr::ValenceCache<CornerTable> &GetValenceCache() const {
     return valence_cache_;
   }
 
@@ -384,13 +384,13 @@ class CornerTable {
   int num_isolated_vertices_;
   IndexTypeVector<VertexIndex, VertexIndex> non_manifold_vertex_parents_;
 
-  draco::ValenceCache<CornerTable> valence_cache_;
+  draco_illixr::ValenceCache<CornerTable> valence_cache_;
 };
 
 // A special case to denote an invalid corner table triangle.
 static constexpr CornerTable::FaceType kInvalidFace(
     {{kInvalidVertexIndex, kInvalidVertexIndex, kInvalidVertexIndex}});
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_MESH_CORNER_TABLE_H_

@@ -20,9 +20,9 @@
 
 #include <limits>
 
-#include "draco/core/draco_index_type.h"
+#include "draco_illixr/core/draco_index_type.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Index of a mesh feature ID set.
 DEFINE_NEW_DRACO_INDEX_TYPE(uint32_t, MeshFeaturesIndex)
@@ -31,7 +31,7 @@ DEFINE_NEW_DRACO_INDEX_TYPE(uint32_t, MeshFeaturesIndex)
 static constexpr MeshFeaturesIndex kInvalidMeshFeaturesIndex(
     std::numeric_limits<uint32_t>::max());
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_MESH_MESH_INDICES_H_
 #endif  // DRACO_TRANSCODER_SUPPORTED

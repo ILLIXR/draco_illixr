@@ -15,17 +15,17 @@
 #ifndef DRACO_TOOLS_DRACO_TRANSCODER_LIB_H_
 #define DRACO_TOOLS_DRACO_TRANSCODER_LIB_H_
 
-#include "draco/draco_features.h"
+#include "draco_illixr/draco_features.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 #include <string>
 
-#include "draco/compression/draco_compression_options.h"
-#include "draco/core/options.h"
-#include "draco/io/gltf_encoder.h"
-#include "draco/io/image_compression_options.h"
+#include "draco_illixr/compression/draco_compression_options.h"
+#include "draco_illixr/core/options.h"
+#include "draco_illixr/io/gltf_encoder.h"
+#include "draco_illixr/io/image_compression_options.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Struct to hold Draco transcoding options.
 struct DracoTranscodingOptions {
@@ -97,7 +97,7 @@ class DracoTranscoder {
   DracoTranscodingOptions transcoding_options_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED
 #endif  // DRACO_TOOLS_DRACO_TRANSCODER_LIB_H_

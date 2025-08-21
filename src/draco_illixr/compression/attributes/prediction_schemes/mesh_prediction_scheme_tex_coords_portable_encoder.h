@@ -15,11 +15,11 @@
 #ifndef DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_MESH_PREDICTION_SCHEME_TEX_COORDS_PORTABLE_ENCODER_H_
 #define DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_MESH_PREDICTION_SCHEME_TEX_COORDS_PORTABLE_ENCODER_H_
 
-#include "draco/compression/attributes/prediction_schemes/mesh_prediction_scheme_encoder.h"
-#include "draco/compression/attributes/prediction_schemes/mesh_prediction_scheme_tex_coords_portable_predictor.h"
-#include "draco/compression/bit_coders/rans_bit_encoder.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/mesh_prediction_scheme_encoder.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/mesh_prediction_scheme_tex_coords_portable_predictor.h"
+#include "draco_illixr/compression/bit_coders/rans_bit_encoder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Prediction scheme designed for predicting texture coordinates from known
 // spatial position of vertices. For isometric parametrizations, the ratios
@@ -131,6 +131,6 @@ bool MeshPredictionSchemeTexCoordsPortableEncoder<
                                      MeshDataT>::EncodePredictionData(buffer);
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_MESH_PREDICTION_SCHEME_TEX_COORDS_PORTABLE_ENCODER_H_

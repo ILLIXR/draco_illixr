@@ -1,13 +1,13 @@
-#include "draco/io/file_writer_factory.h"
+#include "draco_illixr/io/file_writer_factory.h"
 
 #include <cstdint>
 #include <memory>
 #include <string>
 
-#include "draco/core/draco_test_base.h"
-#include "draco/io/file_writer_interface.h"
+#include "draco_illixr/core/draco_test_base.h"
+#include "draco_illixr/io/file_writer_interface.h"
 
-namespace draco {
+namespace draco_illixr {
 namespace {
 
 class AlwaysFailFileWriter : public FileWriterInterface {
@@ -67,4 +67,4 @@ TEST(FileWriterFactoryTest, OpenWriter) {
 }
 
 }  // namespace
-}  // namespace draco
+}  // namespace draco_illixr

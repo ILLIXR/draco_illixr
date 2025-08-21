@@ -13,7 +13,7 @@
 # the License.
 
 cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
-project(draco C CXX)
+project(draco_illixr C CXX)
 set (CMAKE_CXX_STANDARD 17)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 find_package(OpenMP)
@@ -26,7 +26,7 @@ if(POLICY CMP0148)
   cmake_policy(SET CMP0148 OLD)
 endif()
 set(draco_root "${CMAKE_CURRENT_SOURCE_DIR}")
-set(draco_src_root "${draco_root}/src/draco")
+set(draco_src_root "${draco_root}/src/draco_illixr")
 set(draco_build "${CMAKE_BINARY_DIR}")
 
 if("${draco_root}" STREQUAL "${draco_build}")
@@ -1030,18 +1030,18 @@ else()
     endif()
     draco_add_library(
       NAME draco
-      OUTPUT_NAME draco
+      OUTPUT_NAME draco_illixr
       TYPE ${draco_lib_type}
       DEFINES ${draco_defines}
       INCLUDES ${draco_include_paths}
       OBJLIB_DEPS ${draco_object_library_deps})
-    add_library(draco::draco ALIAS draco)
+    add_library(draco_illixr::draco ALIAS draco)
 
   else()
     #pyh this dumps the libdraco.a
     draco_add_library(
       NAME draco_static
-      OUTPUT_NAME draco
+      OUTPUT_NAME draco_illixr
       TYPE STATIC
       DEFINES ${draco_defines}
       INCLUDES ${draco_include_paths}
@@ -1051,15 +1051,15 @@ else()
       draco_add_library(
         NAME draco_shared
         SOURCES "${draco_src_root}/core/draco_version.h"
-        OUTPUT_NAME draco
+        OUTPUT_NAME draco_illixr
         TYPE SHARED
         DEFINES ${draco_defines}
         INCLUDES ${draco_include_paths}
         LIB_DEPS draco_static)
-      add_library(draco::draco ALIAS draco_shared)
+      add_library(draco_illixr::draco ALIAS draco_shared)
       set_target_properties(draco_shared PROPERTIES EXPORT_NAME draco)
     else()
-      add_library(draco::draco ALIAS draco_static)
+      add_library(draco_illixr::draco ALIAS draco_static)
       set_target_properties(draco_static PROPERTIES EXPORT_NAME draco)
     endif()
   endif()

@@ -12,56 +12,56 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/scene/scene.h"
+#include "draco_illixr/scene/scene.h"
 
 #include <memory>
 #include <utility>
 #include <vector>
 
-#include "draco/core/draco_test_base.h"
-#include "draco/core/draco_test_utils.h"
-#include "draco/core/status.h"
-#include "draco/mesh/mesh_are_equivalent.h"
-#include "draco/scene/scene_are_equivalent.h"
-#include "draco/scene/scene_indices.h"
+#include "draco_illixr/core/draco_test_base.h"
+#include "draco_illixr/core/draco_test_utils.h"
+#include "draco_illixr/core/status.h"
+#include "draco_illixr/mesh/mesh_are_equivalent.h"
+#include "draco_illixr/scene/scene_are_equivalent.h"
+#include "draco_illixr/scene/scene_indices.h"
 
 namespace {
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 
 // Helper method for adding mesh group GPU instancing to the milk truck scene.
-draco::Status AddGpuInstancingToMilkTruck(draco::Scene *scene) {
+draco_illixr::Status AddGpuInstancingToMilkTruck(draco_illixr::Scene *scene) {
   // Create an instance and set its transformation TRS vectors.
-  draco::InstanceArray::Instance instance_0;
+  draco_illixr::InstanceArray::Instance instance_0;
   instance_0.trs.SetTranslation(Eigen::Vector3d(1.0, 2.0, 3.0));
   instance_0.trs.SetRotation(Eigen::Quaterniond(4.0, 5.0, 6.0, 7.0));
   instance_0.trs.SetScale(Eigen::Vector3d(8.0, 9.0, 10.0));
 
   // Create another instance.
-  draco::InstanceArray::Instance instance_1;
+  draco_illixr::InstanceArray::Instance instance_1;
   instance_1.trs.SetTranslation(Eigen::Vector3d(1.1, 2.1, 3.1));
   instance_1.trs.SetRotation(Eigen::Quaterniond(4.1, 5.1, 6.1, 7.1));
   instance_1.trs.SetScale(Eigen::Vector3d(8.1, 9.1, 10.1));
 
   // Add an empty GPU instancing object to the scene.
-  const draco::InstanceArrayIndex index = scene->AddInstanceArray();
-  draco::InstanceArray *gpu_instancing = scene->GetInstanceArray(index);
+  const draco_illixr::InstanceArrayIndex index = scene->AddInstanceArray();
+  draco_illixr::InstanceArray *gpu_instancing = scene->GetInstanceArray(index);
 
   // Add two instances to the GPU instancing object stored in the scene.
   DRACO_RETURN_IF_ERROR(gpu_instancing->AddInstance(instance_0));
   DRACO_RETURN_IF_ERROR(gpu_instancing->AddInstance(instance_1));
 
   // Assign the GPU instancing object to two mesh groups in two scene nodes.
-  scene->GetNode(draco::SceneNodeIndex(2))->SetInstanceArrayIndex(index);
-  scene->GetNode(draco::SceneNodeIndex(4))->SetInstanceArrayIndex(index);
+  scene->GetNode(draco_illixr::SceneNodeIndex(2))->SetInstanceArrayIndex(index);
+  scene->GetNode(draco_illixr::SceneNodeIndex(4))->SetInstanceArrayIndex(index);
 
-  return draco::OkStatus();
+  return draco_illixr::OkStatus();
 }
 
 TEST(SceneTest, TestCopy) {
   // Test copying of scene data.
   auto src_scene =
-      draco::ReadSceneFromTestFile("CesiumMilkTruck/glTF/CesiumMilkTruck.gltf");
+      draco_illixr::ReadSceneFromTestFile("CesiumMilkTruck/glTF/CesiumMilkTruck.gltf");
   ASSERT_NE(src_scene, nullptr);
 
   // Add GPU instancing to the scene for testing.
@@ -69,23 +69,23 @@ TEST(SceneTest, TestCopy) {
   ASSERT_EQ(src_scene->NumInstanceArrays(), 1);
   ASSERT_EQ(src_scene->NumNodes(), 5);
   ASSERT_EQ(
-      src_scene->GetNode(draco::SceneNodeIndex(0))->GetInstanceArrayIndex(),
-      draco::kInvalidInstanceArrayIndex);
+      src_scene->GetNode(draco_illixr::SceneNodeIndex(0))->GetInstanceArrayIndex(),
+      draco_illixr::kInvalidInstanceArrayIndex);
   ASSERT_EQ(
-      src_scene->GetNode(draco::SceneNodeIndex(1))->GetInstanceArrayIndex(),
-      draco::kInvalidInstanceArrayIndex);
+      src_scene->GetNode(draco_illixr::SceneNodeIndex(1))->GetInstanceArrayIndex(),
+      draco_illixr::kInvalidInstanceArrayIndex);
   ASSERT_EQ(
-      src_scene->GetNode(draco::SceneNodeIndex(2))->GetInstanceArrayIndex(),
-      draco::InstanceArrayIndex(0));
+      src_scene->GetNode(draco_illixr::SceneNodeIndex(2))->GetInstanceArrayIndex(),
+      draco_illixr::InstanceArrayIndex(0));
   ASSERT_EQ(
-      src_scene->GetNode(draco::SceneNodeIndex(3))->GetInstanceArrayIndex(),
-      draco::kInvalidInstanceArrayIndex);
+      src_scene->GetNode(draco_illixr::SceneNodeIndex(3))->GetInstanceArrayIndex(),
+      draco_illixr::kInvalidInstanceArrayIndex);
   ASSERT_EQ(
-      src_scene->GetNode(draco::SceneNodeIndex(4))->GetInstanceArrayIndex(),
-      draco::InstanceArrayIndex(0));
+      src_scene->GetNode(draco_illixr::SceneNodeIndex(4))->GetInstanceArrayIndex(),
+      draco_illixr::InstanceArrayIndex(0));
 
   // Make a copy of the scene.
-  draco::Scene dst_scene;
+  draco_illixr::Scene dst_scene;
   dst_scene.Copy(*src_scene);
 
   ASSERT_EQ(src_scene->NumMeshes(), dst_scene.NumMeshes());
@@ -96,11 +96,11 @@ TEST(SceneTest, TestCopy) {
   ASSERT_EQ(src_scene->NumLights(), dst_scene.NumLights());
   ASSERT_EQ(src_scene->NumInstanceArrays(), dst_scene.NumInstanceArrays());
 
-  for (draco::MeshIndex i(0); i < src_scene->NumMeshes(); ++i) {
-    draco::MeshAreEquivalent eq;
+  for (draco_illixr::MeshIndex i(0); i < src_scene->NumMeshes(); ++i) {
+    draco_illixr::MeshAreEquivalent eq;
     ASSERT_TRUE(eq(src_scene->GetMesh(i), dst_scene.GetMesh(i)));
   }
-  for (draco::MeshGroupIndex i(0); i < src_scene->NumMeshGroups(); ++i) {
+  for (draco_illixr::MeshGroupIndex i(0); i < src_scene->NumMeshGroups(); ++i) {
     ASSERT_EQ(src_scene->GetMeshGroup(i)->NumMeshInstances(),
               dst_scene.GetMeshGroup(i)->NumMeshInstances());
     for (int j = 0; j < src_scene->GetMeshGroup(i)->NumMeshInstances(); ++j) {
@@ -116,7 +116,7 @@ TEST(SceneTest, TestCopy) {
                     .materials_variants_mappings.size());
     }
   }
-  for (draco::SceneNodeIndex i(0); i < src_scene->NumNodes(); ++i) {
+  for (draco_illixr::SceneNodeIndex i(0); i < src_scene->NumNodes(); ++i) {
     ASSERT_EQ(src_scene->GetNode(i)->NumParents(),
               dst_scene.GetNode(i)->NumParents());
     for (int j = 0; j < src_scene->GetNode(i)->NumParents(); ++j) {
@@ -143,89 +143,89 @@ TEST(SceneTest, TestCopy) {
 TEST(SceneTest, TestRemoveMesh) {
   // Test that a base mesh can be removed from scene.
   auto src_scene_ptr =
-      draco::ReadSceneFromTestFile("CesiumMilkTruck/glTF/CesiumMilkTruck.gltf");
+      draco_illixr::ReadSceneFromTestFile("CesiumMilkTruck/glTF/CesiumMilkTruck.gltf");
   ASSERT_NE(src_scene_ptr, nullptr);
-  const draco::Scene &src_scene = *src_scene_ptr;
+  const draco_illixr::Scene &src_scene = *src_scene_ptr;
 
   // Copy scene.
-  draco::Scene dst_scene;
+  draco_illixr::Scene dst_scene;
   dst_scene.Copy(src_scene);
   ASSERT_EQ(dst_scene.NumMeshes(), 4);
-  draco::MeshAreEquivalent eq;
-  ASSERT_TRUE(eq(dst_scene.GetMesh(draco::MeshIndex(0)),
-                 src_scene.GetMesh(draco::MeshIndex(0))));
-  ASSERT_TRUE(eq(dst_scene.GetMesh(draco::MeshIndex(1)),
-                 src_scene.GetMesh(draco::MeshIndex(1))));
-  ASSERT_TRUE(eq(dst_scene.GetMesh(draco::MeshIndex(2)),
-                 src_scene.GetMesh(draco::MeshIndex(2))));
-  ASSERT_TRUE(eq(dst_scene.GetMesh(draco::MeshIndex(3)),
-                 src_scene.GetMesh(draco::MeshIndex(3))));
+  draco_illixr::MeshAreEquivalent eq;
+  ASSERT_TRUE(eq(dst_scene.GetMesh(draco_illixr::MeshIndex(0)),
+                 src_scene.GetMesh(draco_illixr::MeshIndex(0))));
+  ASSERT_TRUE(eq(dst_scene.GetMesh(draco_illixr::MeshIndex(1)),
+                 src_scene.GetMesh(draco_illixr::MeshIndex(1))));
+  ASSERT_TRUE(eq(dst_scene.GetMesh(draco_illixr::MeshIndex(2)),
+                 src_scene.GetMesh(draco_illixr::MeshIndex(2))));
+  ASSERT_TRUE(eq(dst_scene.GetMesh(draco_illixr::MeshIndex(3)),
+                 src_scene.GetMesh(draco_illixr::MeshIndex(3))));
 
   // Remove base mesh from scene.
-  dst_scene.RemoveMesh(draco::MeshIndex(2));
+  dst_scene.RemoveMesh(draco_illixr::MeshIndex(2));
   ASSERT_EQ(dst_scene.NumMeshes(), 3);
-  ASSERT_TRUE(eq(dst_scene.GetMesh(draco::MeshIndex(0)),
-                 src_scene.GetMesh(draco::MeshIndex(0))));
-  ASSERT_TRUE(eq(dst_scene.GetMesh(draco::MeshIndex(1)),
-                 src_scene.GetMesh(draco::MeshIndex(1))));
-  ASSERT_TRUE(eq(dst_scene.GetMesh(draco::MeshIndex(2)),
-                 src_scene.GetMesh(draco::MeshIndex(3))));
+  ASSERT_TRUE(eq(dst_scene.GetMesh(draco_illixr::MeshIndex(0)),
+                 src_scene.GetMesh(draco_illixr::MeshIndex(0))));
+  ASSERT_TRUE(eq(dst_scene.GetMesh(draco_illixr::MeshIndex(1)),
+                 src_scene.GetMesh(draco_illixr::MeshIndex(1))));
+  ASSERT_TRUE(eq(dst_scene.GetMesh(draco_illixr::MeshIndex(2)),
+                 src_scene.GetMesh(draco_illixr::MeshIndex(3))));
 
   // Remove another base mesh from scene.
-  dst_scene.RemoveMesh(draco::MeshIndex(1));
+  dst_scene.RemoveMesh(draco_illixr::MeshIndex(1));
   ASSERT_EQ(dst_scene.NumMeshes(), 2);
-  ASSERT_TRUE(eq(dst_scene.GetMesh(draco::MeshIndex(0)),
-                 src_scene.GetMesh(draco::MeshIndex(0))));
-  ASSERT_TRUE(eq(dst_scene.GetMesh(draco::MeshIndex(1)),
-                 src_scene.GetMesh(draco::MeshIndex(3))));
+  ASSERT_TRUE(eq(dst_scene.GetMesh(draco_illixr::MeshIndex(0)),
+                 src_scene.GetMesh(draco_illixr::MeshIndex(0))));
+  ASSERT_TRUE(eq(dst_scene.GetMesh(draco_illixr::MeshIndex(1)),
+                 src_scene.GetMesh(draco_illixr::MeshIndex(3))));
 }
 
 TEST(SceneTest, TestRemoveMeshGroup) {
   // Test that a mesh group can be removed from scene.
   auto src_scene_ptr =
-      draco::ReadSceneFromTestFile("CesiumMilkTruck/glTF/CesiumMilkTruck.gltf");
+      draco_illixr::ReadSceneFromTestFile("CesiumMilkTruck/glTF/CesiumMilkTruck.gltf");
   ASSERT_NE(src_scene_ptr, nullptr);
-  const draco::Scene &src_scene = *src_scene_ptr;
+  const draco_illixr::Scene &src_scene = *src_scene_ptr;
 
   // Copy scene.
-  draco::Scene dst_scene;
+  draco_illixr::Scene dst_scene;
   dst_scene.Copy(src_scene);
   ASSERT_EQ(dst_scene.NumMeshGroups(), 2);
   ASSERT_EQ(dst_scene.NumNodes(), 5);
-  ASSERT_EQ(dst_scene.GetNode(draco::SceneNodeIndex(0))->GetMeshGroupIndex(),
-            draco::MeshGroupIndex(0));
-  ASSERT_EQ(dst_scene.GetNode(draco::SceneNodeIndex(2))->GetMeshGroupIndex(),
-            draco::MeshGroupIndex(1));
-  ASSERT_EQ(dst_scene.GetNode(draco::SceneNodeIndex(4))->GetMeshGroupIndex(),
-            draco::MeshGroupIndex(1));
+  ASSERT_EQ(dst_scene.GetNode(draco_illixr::SceneNodeIndex(0))->GetMeshGroupIndex(),
+            draco_illixr::MeshGroupIndex(0));
+  ASSERT_EQ(dst_scene.GetNode(draco_illixr::SceneNodeIndex(2))->GetMeshGroupIndex(),
+            draco_illixr::MeshGroupIndex(1));
+  ASSERT_EQ(dst_scene.GetNode(draco_illixr::SceneNodeIndex(4))->GetMeshGroupIndex(),
+            draco_illixr::MeshGroupIndex(1));
 
   // Remove mesh group from scene.
-  dst_scene.RemoveMeshGroup(draco::MeshGroupIndex(0));
+  dst_scene.RemoveMeshGroup(draco_illixr::MeshGroupIndex(0));
   ASSERT_EQ(dst_scene.NumMeshGroups(), 1);
   ASSERT_EQ(dst_scene.NumNodes(), 5);
-  ASSERT_EQ(dst_scene.GetNode(draco::SceneNodeIndex(0))->GetMeshGroupIndex(),
-            draco::kInvalidMeshGroupIndex);
-  ASSERT_EQ(dst_scene.GetNode(draco::SceneNodeIndex(2))->GetMeshGroupIndex(),
-            draco::MeshGroupIndex(0));
-  ASSERT_EQ(dst_scene.GetNode(draco::SceneNodeIndex(4))->GetMeshGroupIndex(),
-            draco::MeshGroupIndex(0));
+  ASSERT_EQ(dst_scene.GetNode(draco_illixr::SceneNodeIndex(0))->GetMeshGroupIndex(),
+            draco_illixr::kInvalidMeshGroupIndex);
+  ASSERT_EQ(dst_scene.GetNode(draco_illixr::SceneNodeIndex(2))->GetMeshGroupIndex(),
+            draco_illixr::MeshGroupIndex(0));
+  ASSERT_EQ(dst_scene.GetNode(draco_illixr::SceneNodeIndex(4))->GetMeshGroupIndex(),
+            draco_illixr::MeshGroupIndex(0));
 
   // Remove another mesh group from scene.
-  dst_scene.RemoveMeshGroup(draco::MeshGroupIndex(0));
+  dst_scene.RemoveMeshGroup(draco_illixr::MeshGroupIndex(0));
   ASSERT_EQ(dst_scene.NumMeshGroups(), 0);
-  ASSERT_EQ(dst_scene.GetNode(draco::SceneNodeIndex(0))->GetMeshGroupIndex(),
-            draco::kInvalidMeshGroupIndex);
-  ASSERT_EQ(dst_scene.GetNode(draco::SceneNodeIndex(2))->GetMeshGroupIndex(),
-            draco::kInvalidMeshGroupIndex);
-  ASSERT_EQ(dst_scene.GetNode(draco::SceneNodeIndex(4))->GetMeshGroupIndex(),
-            draco::kInvalidMeshGroupIndex);
+  ASSERT_EQ(dst_scene.GetNode(draco_illixr::SceneNodeIndex(0))->GetMeshGroupIndex(),
+            draco_illixr::kInvalidMeshGroupIndex);
+  ASSERT_EQ(dst_scene.GetNode(draco_illixr::SceneNodeIndex(2))->GetMeshGroupIndex(),
+            draco_illixr::kInvalidMeshGroupIndex);
+  ASSERT_EQ(dst_scene.GetNode(draco_illixr::SceneNodeIndex(4))->GetMeshGroupIndex(),
+            draco_illixr::kInvalidMeshGroupIndex);
 }
 
-void CheckMeshMaterials(const draco::Scene &scene,
+void CheckMeshMaterials(const draco_illixr::Scene &scene,
                         const std::vector<int> &expected_material_indices) {
   ASSERT_EQ(scene.NumMeshes(), expected_material_indices.size());
   std::vector<int> scene_material_indices;
-  for (draco::MeshGroupIndex i(0); i < scene.NumMeshGroups(); i++) {
+  for (draco_illixr::MeshGroupIndex i(0); i < scene.NumMeshGroups(); i++) {
     const auto mg = scene.GetMeshGroup(i);
     for (int mi = 0; mi < mg->NumMeshInstances(); ++mi) {
       scene_material_indices.push_back(mg->GetMeshInstance(mi).material_index);
@@ -237,14 +237,14 @@ void CheckMeshMaterials(const draco::Scene &scene,
 TEST(SceneTest, TestRemoveMaterial) {
   // Test that materials can be removed from a scene.
   auto src_scene_ptr =
-      draco::ReadSceneFromTestFile("CesiumMilkTruck/glTF/CesiumMilkTruck.gltf");
+      draco_illixr::ReadSceneFromTestFile("CesiumMilkTruck/glTF/CesiumMilkTruck.gltf");
   ASSERT_NE(src_scene_ptr, nullptr);
-  const draco::Scene &src_scene = *src_scene_ptr;
+  const draco_illixr::Scene &src_scene = *src_scene_ptr;
   ASSERT_EQ(src_scene.GetMaterialLibrary().NumMaterials(), 4);
   CheckMeshMaterials(src_scene, {0, 1, 2, 3});
 
   // Copy scene.
-  draco::Scene dst_scene;
+  draco_illixr::Scene dst_scene;
   dst_scene.Copy(src_scene);
 
   // Check that referenced material cannot be removed from the scene.
@@ -254,7 +254,7 @@ TEST(SceneTest, TestRemoveMaterial) {
   dst_scene.Copy(src_scene);
 
   // Remove base mesh from scene. Material at index 2 becomes unreferenced.
-  DRACO_ASSERT_OK(dst_scene.RemoveMesh(draco::MeshIndex(2)));
+  DRACO_ASSERT_OK(dst_scene.RemoveMesh(draco_illixr::MeshIndex(2)));
   ASSERT_EQ(dst_scene.GetMaterialLibrary().NumMaterials(), 4);
   CheckMeshMaterials(dst_scene, {0, 1, 3});
 
@@ -271,17 +271,17 @@ TEST(SceneTest, TestRemoveMaterial) {
 TEST(SceneTest, TestCopyWithStructuralMetadata) {
   // Tests copying of a scene with structural metadata.
   auto scene_ptr =
-      draco::ReadSceneFromTestFile("CesiumMilkTruck/glTF/CesiumMilkTruck.gltf");
+      draco_illixr::ReadSceneFromTestFile("CesiumMilkTruck/glTF/CesiumMilkTruck.gltf");
   ASSERT_NE(scene_ptr, nullptr);
-  draco::Scene &scene = *scene_ptr;
+  draco_illixr::Scene &scene = *scene_ptr;
 
   // Add structural metadata to the scene.
-  draco::PropertyTable::Schema schema;
+  draco_illixr::PropertyTable::Schema schema;
   schema.json.SetString("Data");
   scene.GetStructuralMetadata().SetPropertyTableSchema(schema);
 
   // Copy the scene.
-  draco::Scene copy;
+  draco_illixr::Scene copy;
   copy.Copy(scene);
 
   // Check that the structural metadata has been copied.

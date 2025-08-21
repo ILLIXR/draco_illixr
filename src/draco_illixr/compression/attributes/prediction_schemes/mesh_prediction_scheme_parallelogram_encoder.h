@@ -15,10 +15,10 @@
 #ifndef DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_MESH_PREDICTION_SCHEME_PARALLELOGRAM_ENCODER_H_
 #define DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_MESH_PREDICTION_SCHEME_PARALLELOGRAM_ENCODER_H_
 
-#include "draco/compression/attributes/prediction_schemes/mesh_prediction_scheme_encoder.h"
-#include "draco/compression/attributes/prediction_schemes/mesh_prediction_scheme_parallelogram_shared.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/mesh_prediction_scheme_encoder.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/mesh_prediction_scheme_parallelogram_shared.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Parallelogram prediction predicts an attribute value V from three vertices
 // on the opposite face to the predicted vertex. The values on the three
@@ -106,6 +106,6 @@ bool MeshPredictionSchemeParallelogramEncoder<DataTypeT, TransformT,
   return true;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_MESH_PREDICTION_SCHEME_PARALLELOGRAM_ENCODER_H_

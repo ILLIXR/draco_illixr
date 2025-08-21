@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/compression/bit_coders/rans_bit_decoder.h"
+#include "draco_illixr/compression/bit_coders/rans_bit_decoder.h"
 
-#include "draco/compression/config/compression_shared.h"
-#include "draco/core/bit_utils.h"
-#include "draco/core/varint_decoding.h"
+#include "draco_illixr/compression/config/compression_shared.h"
+#include "draco_illixr/core/bit_utils.h"
+#include "draco_illixr/core/varint_decoding.h"
 
-namespace draco {
+namespace draco_illixr {
 
 RAnsBitDecoder::RAnsBitDecoder() : prob_zero_(0) {}
 
@@ -79,4 +79,4 @@ void RAnsBitDecoder::DecodeLeastSignificantBits32(int nbits, uint32_t *value) {
 
 void RAnsBitDecoder::Clear() { ans_read_end(&ans_decoder_); }
 
-}  // namespace draco
+}  // namespace draco_illixr

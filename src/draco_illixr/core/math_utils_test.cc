@@ -1,11 +1,11 @@
-#include "draco/core/math_utils.h"
+#include "draco_illixr/core/math_utils.h"
 
 #include <cmath>
 #include <random>
 
-#include "draco/core/draco_test_base.h"
+#include "draco_illixr/core/draco_test_base.h"
 
-namespace draco {
+namespace draco_illixr {
 
 TEST(MathUtils, Mod) { EXPECT_EQ(DRACO_INCREMENT_MOD(1, 1 << 1), 0); }
 
@@ -21,4 +21,4 @@ TEST(MathUtils, IntSqrt) {
   }
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

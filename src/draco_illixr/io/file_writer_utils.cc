@@ -1,17 +1,17 @@
-#include "draco/io/file_writer_utils.h"
+#include "draco_illixr/io/file_writer_utils.h"
 
 #include <sys/stat.h>
 #include <sys/types.h>
 
 #include <string>
 
-#include "draco/draco_features.h"
+#include "draco_illixr/draco_features.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 #include "ghc/filesystem.hpp"
 #endif  // DRACO_TRANSCODER_SUPPORTED
 
-namespace draco {
+namespace draco_illixr {
 
 void SplitPathPrivate(const std::string &full_path,
                       std::string *out_folder_path,
@@ -73,4 +73,4 @@ bool CheckAndCreatePathForFile(const std::string &filename) {
   return directory_exists;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

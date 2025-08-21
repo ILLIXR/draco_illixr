@@ -15,10 +15,10 @@
 #ifndef DRACO_ANIMATION_KEYFRAME_ANIMATION_ENCODER_H_
 #define DRACO_ANIMATION_KEYFRAME_ANIMATION_ENCODER_H_
 
-#include "draco/animation/keyframe_animation.h"
-#include "draco/compression/point_cloud/point_cloud_sequential_encoder.h"
+#include "draco_illixr/animation/keyframe_animation.h"
+#include "draco_illixr/compression/point_cloud/point_cloud_sequential_encoder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Class for encoding keyframe animation. It takes KeyframeAnimation as a
 // PointCloud and compress it. It's mostly a wrapper around PointCloudEncoder so
@@ -34,6 +34,6 @@ class KeyframeAnimationEncoder : private PointCloudSequentialEncoder {
                                  EncoderBuffer *out_buffer);
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_ANIMATION_KEYFRAME_ANIMATION_ENCODER_H_

@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/javascript/emscripten/encoder_webidl_wrapper.h"
+#include "draco_illixr/javascript/emscripten/encoder_webidl_wrapper.h"
 
-#include "draco/compression/encode.h"
-#include "draco/mesh/mesh.h"
+#include "draco_illixr/compression/encode.h"
+#include "draco_illixr/mesh/mesh.h"
 
 DracoInt8Array::DracoInt8Array() {}
 
@@ -26,9 +26,9 @@ bool DracoInt8Array::SetValues(const char *values, int count) {
   return true;
 }
 
-using draco::Mesh;
-using draco::Metadata;
-using draco::PointCloud;
+using draco_illixr::Mesh;
+using draco_illixr::Metadata;
+using draco_illixr::PointCloud;
 
 MetadataBuilder::MetadataBuilder() {}
 
@@ -53,7 +53,7 @@ bool MetadataBuilder::AddIntEntry(Metadata *metadata, const char *entry_name,
   return true;
 }
 
-bool MetadataBuilder::AddIntEntryArray(draco::Metadata *metadata,
+bool MetadataBuilder::AddIntEntryArray(draco_illixr::Metadata *metadata,
                                        const char *entry_name,
                                        const int32_t *entry_values,
                                        int32_t num_values) {
@@ -80,7 +80,7 @@ int PointCloudBuilder::AddFloatAttribute(PointCloud *pc,
                                          long num_vertices, long num_components,
                                          const float *att_values) {
   return AddAttribute(pc, type, num_vertices, num_components, att_values,
-                      draco::DT_FLOAT32);
+                      draco_illixr::DT_FLOAT32);
 }
 
 int PointCloudBuilder::AddInt8Attribute(PointCloud *pc,
@@ -88,7 +88,7 @@ int PointCloudBuilder::AddInt8Attribute(PointCloud *pc,
                                         long num_vertices, long num_components,
                                         const char *att_values) {
   return AddAttribute(pc, type, num_vertices, num_components, att_values,
-                      draco::DT_INT8);
+                      draco_illixr::DT_INT8);
 }
 
 int PointCloudBuilder::AddUInt8Attribute(PointCloud *pc,
@@ -96,7 +96,7 @@ int PointCloudBuilder::AddUInt8Attribute(PointCloud *pc,
                                          long num_vertices, long num_components,
                                          const uint8_t *att_values) {
   return AddAttribute(pc, type, num_vertices, num_components, att_values,
-                      draco::DT_UINT8);
+                      draco_illixr::DT_UINT8);
 }
 
 int PointCloudBuilder::AddInt16Attribute(PointCloud *pc,
@@ -104,7 +104,7 @@ int PointCloudBuilder::AddInt16Attribute(PointCloud *pc,
                                          long num_vertices, long num_components,
                                          const int16_t *att_values) {
   return AddAttribute(pc, type, num_vertices, num_components, att_values,
-                      draco::DT_INT16);
+                      draco_illixr::DT_INT16);
 }
 
 int PointCloudBuilder::AddUInt16Attribute(PointCloud *pc,
@@ -113,7 +113,7 @@ int PointCloudBuilder::AddUInt16Attribute(PointCloud *pc,
                                           long num_components,
                                           const uint16_t *att_values) {
   return AddAttribute(pc, type, num_vertices, num_components, att_values,
-                      draco::DT_UINT16);
+                      draco_illixr::DT_UINT16);
 }
 
 int PointCloudBuilder::AddInt32Attribute(PointCloud *pc,
@@ -121,7 +121,7 @@ int PointCloudBuilder::AddInt32Attribute(PointCloud *pc,
                                          long num_vertices, long num_components,
                                          const int32_t *att_values) {
   return AddAttribute(pc, type, num_vertices, num_components, att_values,
-                      draco::DT_INT32);
+                      draco_illixr::DT_INT32);
 }
 
 int PointCloudBuilder::AddUInt32Attribute(PointCloud *pc,
@@ -130,7 +130,7 @@ int PointCloudBuilder::AddUInt32Attribute(PointCloud *pc,
                                           long num_components,
                                           const uint32_t *att_values) {
   return AddAttribute(pc, type, num_vertices, num_components, att_values,
-                      draco::DT_UINT32);
+                      draco_illixr::DT_UINT32);
 }
 
 bool PointCloudBuilder::AddMetadata(PointCloud *pc, const Metadata *metadata) {
@@ -141,9 +141,9 @@ bool PointCloudBuilder::AddMetadata(PointCloud *pc, const Metadata *metadata) {
   if (pc->metadata()) {
     return false;
   }
-  std::unique_ptr<draco::GeometryMetadata> new_metadata =
-      std::unique_ptr<draco::GeometryMetadata>(
-          new draco::GeometryMetadata(*metadata));
+  std::unique_ptr<draco_illixr::GeometryMetadata> new_metadata =
+      std::unique_ptr<draco_illixr::GeometryMetadata>(
+          new draco_illixr::GeometryMetadata(*metadata));
   pc->AddMetadata(std::move(new_metadata));
   return true;
 }
@@ -163,17 +163,17 @@ bool PointCloudBuilder::SetMetadataForAttribute(PointCloud *pc,
   }
 
   if (!pc->metadata()) {
-    std::unique_ptr<draco::GeometryMetadata> geometry_metadata =
-        std::unique_ptr<draco::GeometryMetadata>(new draco::GeometryMetadata());
+    std::unique_ptr<draco_illixr::GeometryMetadata> geometry_metadata =
+        std::unique_ptr<draco_illixr::GeometryMetadata>(new draco_illixr::GeometryMetadata());
     pc->AddMetadata(std::move(geometry_metadata));
   }
 
   // Get unique attribute id for the attribute.
   const long unique_id = pc->attribute(attribute_id)->unique_id();
 
-  std::unique_ptr<draco::AttributeMetadata> att_metadata =
-      std::unique_ptr<draco::AttributeMetadata>(
-          new draco::AttributeMetadata(*metadata));
+  std::unique_ptr<draco_illixr::AttributeMetadata> att_metadata =
+      std::unique_ptr<draco_illixr::AttributeMetadata>(
+          new draco_illixr::AttributeMetadata(*metadata));
   att_metadata->set_att_unique_id(unique_id);
   pc->metadata()->AddAttributeMetadata(std::move(att_metadata));
   return true;
@@ -186,8 +186,8 @@ bool MeshBuilder::AddFacesToMesh(Mesh *mesh, long num_faces, const int *faces) {
     return false;
   }
   mesh->SetNumFaces(num_faces);
-  for (draco::FaceIndex i(0); i < num_faces; ++i) {
-    draco::Mesh::Face face;
+  for (draco_illixr::FaceIndex i(0); i < num_faces; ++i) {
+    draco_illixr::Mesh::Face face;
     face[0] = faces[i.value() * 3];
     face[1] = faces[i.value() * 3 + 1];
     face[2] = faces[i.value() * 3 + 2];
@@ -204,7 +204,7 @@ int MeshBuilder::AddFloatAttributeToMesh(Mesh *mesh,
                            att_values);
 }
 
-int MeshBuilder::AddInt32AttributeToMesh(draco::Mesh *mesh,
+int MeshBuilder::AddInt32AttributeToMesh(draco_illixr::Mesh *mesh,
                                          draco_GeometryAttribute_Type type,
                                          long num_vertices, long num_components,
                                          const int32_t *att_values) {
@@ -246,8 +246,8 @@ int Encoder::EncodeMeshToDracoBuffer(Mesh *mesh, DracoInt8Array *draco_buffer) {
   if (!mesh) {
     return 0;
   }
-  draco::EncoderBuffer buffer;
-  if (mesh->GetNamedAttributeId(draco::GeometryAttribute::POSITION) == -1) {
+  draco_illixr::EncoderBuffer buffer;
+  if (mesh->GetNamedAttributeId(draco_illixr::GeometryAttribute::POSITION) == -1) {
     return 0;
   }
   if (!mesh->DeduplicateAttributeValues()) {
@@ -261,15 +261,15 @@ int Encoder::EncodeMeshToDracoBuffer(Mesh *mesh, DracoInt8Array *draco_buffer) {
   return buffer.size();
 }
 
-int Encoder::EncodePointCloudToDracoBuffer(draco::PointCloud *pc,
+int Encoder::EncodePointCloudToDracoBuffer(draco_illixr::PointCloud *pc,
                                            bool deduplicate_values,
                                            DracoInt8Array *draco_buffer) {
   // TODO(ostava): Refactor common functionality with EncodeMeshToDracoBuffer().
   if (!pc) {
     return 0;
   }
-  draco::EncoderBuffer buffer;
-  if (pc->GetNamedAttributeId(draco::GeometryAttribute::POSITION) == -1) {
+  draco_illixr::EncoderBuffer buffer;
+  if (pc->GetNamedAttributeId(draco_illixr::GeometryAttribute::POSITION) == -1) {
     return 0;
   }
   if (deduplicate_values) {
@@ -297,10 +297,10 @@ ExpertEncoder::ExpertEncoder(PointCloud *pc) : pc_(pc) {
   Mesh *mesh = dynamic_cast<Mesh *>(pc);
   if (mesh) {
     encoder_ =
-        std::unique_ptr<draco::ExpertEncoder>(new draco::ExpertEncoder(*mesh));
+        std::unique_ptr<draco_illixr::ExpertEncoder>(new draco_illixr::ExpertEncoder(*mesh));
   } else {
     encoder_ =
-        std::unique_ptr<draco::ExpertEncoder>(new draco::ExpertEncoder(*pc));
+        std::unique_ptr<draco_illixr::ExpertEncoder>(new draco_illixr::ExpertEncoder(*pc));
   }
 }
 
@@ -342,7 +342,7 @@ int ExpertEncoder::EncodeToDracoBuffer(bool deduplicate_values,
     pc_->DeduplicatePointIds();
   }
 
-  draco::EncoderBuffer buffer;
+  draco_illixr::EncoderBuffer buffer;
   if (!encoder_->EncodeToBuffer(&buffer).ok()) {
     return 0;
   }

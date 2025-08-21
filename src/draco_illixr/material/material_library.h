@@ -15,17 +15,17 @@
 #ifndef DRACO_MATERIAL_MATERIAL_LIBRARY_H_
 #define DRACO_MATERIAL_MATERIAL_LIBRARY_H_
 
-#include "draco/draco_features.h"
+#include "draco_illixr/draco_features.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 #include <map>
 #include <memory>
 #include <string>
 
-#include "draco/material/material.h"
-#include "draco/texture/texture_library.h"
+#include "draco_illixr/material/material.h"
+#include "draco_illixr/texture/texture_library.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // MaterialLibrary holds an array of materials that are applied to a single
 // model.
@@ -98,7 +98,7 @@ class MaterialLibrary {
   TextureLibrary texture_library_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_MATERIAL_MATERIAL_LIBRARY_H_
 #endif  // DRACO_TRANSCODER_SUPPORTED

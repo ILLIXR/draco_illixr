@@ -19,12 +19,12 @@
 #include <cmath>
 #include <cstring>
 
-#include "draco/compression/entropy/ans.h"
-#include "draco/compression/entropy/rans_symbol_coding.h"
-#include "draco/core/encoder_buffer.h"
-#include "draco/core/varint_encoding.h"
+#include "draco_illixr/compression/entropy/ans.h"
+#include "draco_illixr/compression/entropy/rans_symbol_coding.h"
+#include "draco_illixr/core/encoder_buffer.h"
+#include "draco_illixr/core/varint_encoding.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // A helper class for encoding symbols using the rANS algorithm (see ans.h).
 // The class can be used to initialize and encode probability table needed by
@@ -285,6 +285,6 @@ void RAnsSymbolEncoder<unique_symbols_bit_length_t>::EndEncoding(
   buffer->Resize(buffer_offset_ + bytes_written + size_len);
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ENTROPY_RANS_SYMBOL_ENCODER_H_

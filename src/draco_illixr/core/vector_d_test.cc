@@ -12,25 +12,25 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/core/vector_d.h"
+#include "draco_illixr/core/vector_d.h"
 
 #include <sstream>
 
-#include "draco/core/draco_test_base.h"
+#include "draco_illixr/core/draco_test_base.h"
 
 namespace {
 
-typedef draco::Vector2f Vector2f;
-typedef draco::Vector3f Vector3f;
-typedef draco::Vector4f Vector4f;
-typedef draco::Vector5f Vector5f;
-typedef draco::Vector2ui Vector2ui;
-typedef draco::Vector3ui Vector3ui;
-typedef draco::Vector4ui Vector4ui;
-typedef draco::Vector5ui Vector5ui;
+typedef draco_illixr::Vector2f Vector2f;
+typedef draco_illixr::Vector3f Vector3f;
+typedef draco_illixr::Vector4f Vector4f;
+typedef draco_illixr::Vector5f Vector5f;
+typedef draco_illixr::Vector2ui Vector2ui;
+typedef draco_illixr::Vector3ui Vector3ui;
+typedef draco_illixr::Vector4ui Vector4ui;
+typedef draco_illixr::Vector5ui Vector5ui;
 
-typedef draco::VectorD<int32_t, 3> Vector3i;
-typedef draco::VectorD<int32_t, 4> Vector4i;
+typedef draco_illixr::VectorD<int32_t, 3> Vector3i;
+typedef draco_illixr::VectorD<int32_t, 4> Vector4i;
 
 TEST(VectorDTest, TestOperators) {
   {
@@ -165,20 +165,20 @@ TEST(VectorDTest, TestCrossProduct3D) {
   const Vector3i e2(0, 1, 0);
   const Vector3i e3(0, 0, 1);
   const Vector3i o(0, 0, 0);
-  ASSERT_EQ(e3, draco::CrossProduct(e1, e2));
-  ASSERT_EQ(e1, draco::CrossProduct(e2, e3));
-  ASSERT_EQ(e2, draco::CrossProduct(e3, e1));
-  ASSERT_EQ(-e3, draco::CrossProduct(e2, e1));
-  ASSERT_EQ(-e1, draco::CrossProduct(e3, e2));
-  ASSERT_EQ(-e2, draco::CrossProduct(e1, e3));
-  ASSERT_EQ(o, draco::CrossProduct(e1, e1));
-  ASSERT_EQ(o, draco::CrossProduct(e2, e2));
-  ASSERT_EQ(o, draco::CrossProduct(e3, e3));
+  ASSERT_EQ(e3, draco_illixr::CrossProduct(e1, e2));
+  ASSERT_EQ(e1, draco_illixr::CrossProduct(e2, e3));
+  ASSERT_EQ(e2, draco_illixr::CrossProduct(e3, e1));
+  ASSERT_EQ(-e3, draco_illixr::CrossProduct(e2, e1));
+  ASSERT_EQ(-e1, draco_illixr::CrossProduct(e3, e2));
+  ASSERT_EQ(-e2, draco_illixr::CrossProduct(e1, e3));
+  ASSERT_EQ(o, draco_illixr::CrossProduct(e1, e1));
+  ASSERT_EQ(o, draco_illixr::CrossProduct(e2, e2));
+  ASSERT_EQ(o, draco_illixr::CrossProduct(e3, e3));
 
   // Orthogonality of result for some general vectors.
   const Vector3i v1(123, -62, 223);
   const Vector3i v2(734, 244, -13);
-  const Vector3i orth = draco::CrossProduct(v1, v2);
+  const Vector3i orth = draco_illixr::CrossProduct(v1, v2);
   ASSERT_EQ(0, v1.Dot(orth));
   ASSERT_EQ(0, v2.Dot(orth));
 }
@@ -209,7 +209,7 @@ TEST(VectorDTest, TestMinMaxCoeff) {
 
 TEST(VectorDTest, TestOstream) {
   // Tests that the vector can be stored in a provided std::ostream.
-  const draco::VectorD<int64_t, 3> vector(1, 2, 3);
+  const draco_illixr::VectorD<int64_t, 3> vector(1, 2, 3);
   std::stringstream str;
   str << vector << " ";
   ASSERT_EQ(str.str(), "1 2 3 ");
@@ -218,29 +218,29 @@ TEST(VectorDTest, TestOstream) {
 TEST(VectorDTest, TestConvertConstructor) {
   // Tests that a vector can be constructed from another vector with a different
   // type.
-  const draco::VectorD<int64_t, 3> vector(1, 2, 3);
+  const draco_illixr::VectorD<int64_t, 3> vector(1, 2, 3);
 
-  const draco::VectorD<float, 3> vector3f(vector);
-  ASSERT_EQ(vector3f, draco::Vector3f(1.f, 2.f, 3.f));
+  const draco_illixr::VectorD<float, 3> vector3f(vector);
+  ASSERT_EQ(vector3f, draco_illixr::Vector3f(1.f, 2.f, 3.f));
 
-  const draco::VectorD<float, 2> vector2f(vector);
-  ASSERT_EQ(vector2f, draco::Vector2f(1.f, 2.f));
+  const draco_illixr::VectorD<float, 2> vector2f(vector);
+  ASSERT_EQ(vector2f, draco_illixr::Vector2f(1.f, 2.f));
 
-  const draco::VectorD<float, 4> vector4f(vector3f);
-  ASSERT_EQ(vector4f, draco::Vector4f(1.f, 2.f, 3.f, 0.f));
+  const draco_illixr::VectorD<float, 4> vector4f(vector3f);
+  ASSERT_EQ(vector4f, draco_illixr::Vector4f(1.f, 2.f, 3.f, 0.f));
 
-  const draco::VectorD<double, 1> vector1d(vector3f);
+  const draco_illixr::VectorD<double, 1> vector1d(vector3f);
   ASSERT_EQ(vector1d[0], 1.0);
 }
 
 TEST(VectorDTest, TestBinaryOps) {
   // Tests the binary multiplication operator of the VectorD class.
-  const draco::Vector4f vector_0(1.f, 2.3f, 4.2f, -10.f);
-  ASSERT_EQ(vector_0 * draco::Vector4f(1.f, 1.f, 1.f, 1.f), vector_0);
-  ASSERT_EQ(vector_0 * draco::Vector4f(0.f, 0.f, 0.f, 0.f),
-            draco::Vector4f(0.f, 0.f, 0.f, 0.f));
-  ASSERT_EQ(vector_0 * draco::Vector4f(0.1f, 0.2f, 0.3f, 0.4f),
-            draco::Vector4f(0.1f, 0.46f, 1.26f, -4.f));
+  const draco_illixr::Vector4f vector_0(1.f, 2.3f, 4.2f, -10.f);
+  ASSERT_EQ(vector_0 * draco_illixr::Vector4f(1.f, 1.f, 1.f, 1.f), vector_0);
+  ASSERT_EQ(vector_0 * draco_illixr::Vector4f(0.f, 0.f, 0.f, 0.f),
+            draco_illixr::Vector4f(0.f, 0.f, 0.f, 0.f));
+  ASSERT_EQ(vector_0 * draco_illixr::Vector4f(0.1f, 0.2f, 0.3f, 0.4f),
+            draco_illixr::Vector4f(0.1f, 0.46f, 1.26f, -4.f));
 }
 
 }  // namespace

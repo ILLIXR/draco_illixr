@@ -1,8 +1,8 @@
-#include "draco/compression/bit_coders/symbol_bit_encoder.h"
+#include "draco_illixr/compression/bit_coders/symbol_bit_encoder.h"
 
-#include "draco/compression/entropy/symbol_encoding.h"
+#include "draco_illixr/compression/entropy/symbol_encoding.h"
 
-namespace draco {
+namespace draco_illixr {
 
 void SymbolBitEncoder::EncodeLeastSignificantBits32(int nbits, uint32_t value) {
   DRACO_DCHECK_LE(1, nbits);
@@ -27,4 +27,4 @@ void SymbolBitEncoder::Clear() {
   symbols_.shrink_to_fit();
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

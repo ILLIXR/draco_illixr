@@ -15,10 +15,10 @@
 #ifndef DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_MESH_PREDICTION_SCHEME_PARALLELOGRAM_DECODER_H_
 #define DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_MESH_PREDICTION_SCHEME_PARALLELOGRAM_DECODER_H_
 
-#include "draco/compression/attributes/prediction_schemes/mesh_prediction_scheme_decoder.h"
-#include "draco/compression/attributes/prediction_schemes/mesh_prediction_scheme_parallelogram_shared.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/mesh_prediction_scheme_decoder.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/mesh_prediction_scheme_parallelogram_shared.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Decoder for attribute values encoded with the standard parallelogram
 // prediction. See the description of the corresponding encoder for more
@@ -93,6 +93,6 @@ bool MeshPredictionSchemeParallelogramDecoder<DataTypeT, TransformT,
   return true;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_MESH_PREDICTION_SCHEME_PARALLELOGRAM_DECODER_H_

@@ -15,10 +15,10 @@
 #ifndef DRACO_COMPRESSION_ATTRIBUTES_SEQUENTIAL_INTEGER_ATTRIBUTE_ENCODER_H_
 #define DRACO_COMPRESSION_ATTRIBUTES_SEQUENTIAL_INTEGER_ATTRIBUTE_ENCODER_H_
 
-#include "draco/compression/attributes/prediction_schemes/prediction_scheme_encoder.h"
-#include "draco/compression/attributes/sequential_attribute_encoder.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/prediction_scheme_encoder.h"
+#include "draco_illixr/compression/attributes/sequential_attribute_encoder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Attribute encoder designed for lossless encoding of integer attributes. The
 // attribute values can be pre-processed by a prediction scheme and compressed
@@ -62,6 +62,6 @@ class SequentialIntegerAttributeEncoder : public SequentialAttributeEncoder {
       prediction_scheme_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_SEQUENTIAL_INTEGER_ATTRIBUTE_ENCODER_H_

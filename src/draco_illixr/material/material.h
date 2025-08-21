@@ -15,18 +15,18 @@
 #ifndef DRACO_MATERIAL_MATERIAL_H_
 #define DRACO_MATERIAL_MATERIAL_H_
 
-#include "draco/draco_features.h"
+#include "draco_illixr/draco_features.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 #include <memory>
 #include <unordered_map>
 
-#include "draco/core/status.h"
-#include "draco/core/vector_d.h"
-#include "draco/texture/texture_library.h"
-#include "draco/texture/texture_map.h"
+#include "draco_illixr/core/status.h"
+#include "draco_illixr/core/vector_d.h"
+#include "draco_illixr/texture/texture_library.h"
+#include "draco_illixr/texture/texture_map.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Material specification for Draco geometry. Parameters are based on the
 // metallic-roughness PBR model adopted by GLTF 2.0 standard:
@@ -270,7 +270,7 @@ class Material {
   TextureLibrary *texture_library_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED
 #endif  // DRACO_MATERIAL_MATERIAL_H_

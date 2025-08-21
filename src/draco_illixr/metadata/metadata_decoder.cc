@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/metadata/metadata_decoder.h"
+#include "draco_illixr/metadata/metadata_decoder.h"
 
 #include <string>
 
-#include "draco/core/varint_decoding.h"
+#include "draco_illixr/core/varint_decoding.h"
 
-namespace draco {
+namespace draco_illixr {
 
 MetadataDecoder::MetadataDecoder() : buffer_(nullptr) {}
 
@@ -156,4 +156,4 @@ bool MetadataDecoder::DecodeName(std::string *name) {
   }
   return true;
 }
-}  // namespace draco
+}  // namespace draco_illixr

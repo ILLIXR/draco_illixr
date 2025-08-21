@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/core/status.h"
+#include "draco_illixr/core/status.h"
 
 #include <sstream>
 
-#include "draco/core/draco_test_base.h"
+#include "draco_illixr/core/draco_test_base.h"
 
 namespace {
 
@@ -27,16 +27,16 @@ class StatusTest : public ::testing::Test {
 
 TEST_F(StatusTest, TestStatusOutput) {
   // Tests that the Status can be stored in a provided std::ostream.
-  const draco::Status status(draco::Status::DRACO_ERROR, "Error msg.");
-  ASSERT_EQ(status.code(), draco::Status::DRACO_ERROR);
+  const draco_illixr::Status status(draco_illixr::Status::DRACO_ERROR, "Error msg.");
+  ASSERT_EQ(status.code(), draco_illixr::Status::DRACO_ERROR);
   ASSERT_EQ(status.code_string(), "DRACO_ERROR");
 
   std::stringstream str;
   str << status;
   ASSERT_EQ(str.str(), "Error msg.");
 
-  const draco::Status status2 = draco::ErrorStatus("Error msg2.");
-  ASSERT_EQ(status2.code(), draco::Status::DRACO_ERROR);
+  const draco_illixr::Status status2 = draco_illixr::ErrorStatus("Error msg2.");
+  ASSERT_EQ(status2.code(), draco_illixr::Status::DRACO_ERROR);
   ASSERT_EQ(status2.error_msg_string(), "Error msg2.");
   ASSERT_EQ(status2.code_string(), "DRACO_ERROR");
   ASSERT_EQ(status2.code_and_error_string(), "DRACO_ERROR: Error msg2.");

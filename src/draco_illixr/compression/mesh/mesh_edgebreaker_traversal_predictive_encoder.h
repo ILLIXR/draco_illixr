@@ -15,9 +15,9 @@
 #ifndef DRACO_COMPRESSION_MESH_MESH_EDGEBREAKER_TRAVERSAL_PREDICTIVE_ENCODER_H_
 #define DRACO_COMPRESSION_MESH_MESH_EDGEBREAKER_TRAVERSAL_PREDICTIVE_ENCODER_H_
 
-#include "draco/compression/mesh/mesh_edgebreaker_traversal_encoder.h"
+#include "draco_illixr/compression/mesh/mesh_edgebreaker_traversal_encoder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Encoder that tries to predict the edgebreaker traversal symbols based on the
 // vertex valences of the unencoded portion of the mesh. The current prediction
@@ -167,6 +167,6 @@ class MeshEdgebreakerTraversalPredictiveEncoder
   int num_symbols_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_MESH_MESH_EDGEBREAKER_TRAVERSAL_PREDICTIVE_ENCODER_H_

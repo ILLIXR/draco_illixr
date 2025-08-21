@@ -17,7 +17,7 @@ if(DRACO_CMAKE_DRACO_OPTIONS_CMAKE_)
 endif() # DRACO_CMAKE_DRACO_OPTIONS_CMAKE_
 set(DRACO_CMAKE_DRACO_OPTIONS_CMAKE_)
 
-set(draco_features_file_name "${draco_build}/draco/draco_features.h")
+set(draco_features_file_name "${draco_build}/draco_illixr/draco_features.h")
 set(draco_features_list)
 
 # Simple wrapper for CMake's builtin option command that tracks draco's build

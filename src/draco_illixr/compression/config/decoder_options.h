@@ -18,10 +18,10 @@
 #include <map>
 #include <memory>
 
-#include "draco/attributes/geometry_attribute.h"
-#include "draco/compression/config/draco_options.h"
+#include "draco_illixr/attributes/geometry_attribute.h"
+#include "draco_illixr/compression/config/draco_options.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Class containing options that can be passed to PointCloudDecoder to control
 // decoding of the input geometry. The options can be specified either for the
@@ -29,6 +29,6 @@ namespace draco {
 // by a unique name stored as an std::string.
 typedef DracoOptions<GeometryAttribute::Type> DecoderOptions;
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_CONFIG_DECODER_OPTIONS_H_

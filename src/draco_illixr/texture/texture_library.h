@@ -15,18 +15,18 @@
 #ifndef DRACO_TEXTURE_TEXTURE_LIBRARY_H_
 #define DRACO_TEXTURE_TEXTURE_LIBRARY_H_
 
-#include "draco/draco_features.h"
+#include "draco_illixr/draco_features.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 #include <memory>
 #include <unordered_map>
 #include <vector>
 
-#include "draco/texture/texture.h"
+#include "draco_illixr/texture/texture.h"
 
-namespace draco {
+namespace draco_illixr {
 
-// Container class for storing draco::Texture objects in an indexed list.
+// Container class for storing draco_illixr::Texture objects in an indexed list.
 class TextureLibrary {
  public:
   // Copies textures from the source library to this library. Order of the
@@ -61,7 +61,7 @@ class TextureLibrary {
   std::vector<std::unique_ptr<Texture>> textures_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED
 #endif  // DRACO_TEXTURE_TEXTURE_LIBRARY_H_

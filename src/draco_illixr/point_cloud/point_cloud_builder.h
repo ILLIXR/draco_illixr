@@ -17,9 +17,9 @@
 
 #include <utility>
 
-#include "draco/point_cloud/point_cloud.h"
+#include "draco_illixr/point_cloud/point_cloud.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // A helper class for constructing PointCloud instances from other data sources.
 // Usage:
@@ -86,6 +86,6 @@ class PointCloudBuilder {
   std::unique_ptr<PointCloud> point_cloud_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_POINT_CLOUD_POINT_CLOUD_BUILDER_H_

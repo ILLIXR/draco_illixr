@@ -12,17 +12,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/javascript/emscripten/animation_decoder_webidl_wrapper.h"
+#include "draco_illixr/javascript/emscripten/animation_decoder_webidl_wrapper.h"
 
 #include <vector>
 
-#include "draco/compression/decode.h"
-#include "draco/mesh/mesh.h"
-#include "draco/mesh/mesh_stripifier.h"
+#include "draco_illixr/compression/decode.h"
+#include "draco_illixr/mesh/mesh.h"
+#include "draco_illixr/mesh/mesh_stripifier.h"
 
-using draco::DecoderBuffer;
-using draco::PointAttribute;
-using draco::Status;
+using draco_illixr::DecoderBuffer;
+using draco_illixr::PointAttribute;
+using draco_illixr::Status;
 
 DracoFloat32Array::DracoFloat32Array() {}
 
@@ -40,27 +40,27 @@ bool DracoFloat32Array::SetValues(const float *values, int count) {
 AnimationDecoder::AnimationDecoder() {}
 
 // Decodes animation data from the provided buffer.
-const draco::Status *AnimationDecoder::DecodeBufferToKeyframeAnimation(
-    draco::DecoderBuffer *in_buffer, draco::KeyframeAnimation *animation) {
-  draco::DecoderOptions dec_options;
+const draco_illixr::Status *AnimationDecoder::DecodeBufferToKeyframeAnimation(
+    draco_illixr::DecoderBuffer *in_buffer, draco_illixr::KeyframeAnimation *animation) {
+  draco_illixr::DecoderOptions dec_options;
   last_status_ = decoder_.Decode(dec_options, in_buffer, animation);
   return &last_status_;
 }
 
-bool AnimationDecoder::GetTimestamps(const draco::KeyframeAnimation &animation,
+bool AnimationDecoder::GetTimestamps(const draco_illixr::KeyframeAnimation &animation,
                                      DracoFloat32Array *timestamp) {
   if (!timestamp) {
     return false;
   }
   const int num_frames = animation.num_frames();
-  const draco::PointAttribute *timestamp_att = animation.timestamps();
+  const draco_illixr::PointAttribute *timestamp_att = animation.timestamps();
   // Timestamp attribute has only 1 component, so the number of components is
   // equal to the number of frames.
   timestamp->SetValues(nullptr, num_frames);
   int entry_id = 0;
   float timestamp_value = -1.0;
-  for (draco::PointIndex i(0); i < num_frames; ++i) {
-    const draco::AttributeValueIndex val_index = timestamp_att->mapped_index(i);
+  for (draco_illixr::PointIndex i(0); i < num_frames; ++i) {
+    const draco_illixr::AttributeValueIndex val_index = timestamp_att->mapped_index(i);
     if (!timestamp_att->ConvertValue<float>(val_index, &timestamp_value)) {
       return false;
     }
@@ -69,12 +69,12 @@ bool AnimationDecoder::GetTimestamps(const draco::KeyframeAnimation &animation,
   return true;
 }
 
-bool AnimationDecoder::GetKeyframes(const draco::KeyframeAnimation &animation,
+bool AnimationDecoder::GetKeyframes(const draco_illixr::KeyframeAnimation &animation,
                                     int keyframes_id,
                                     DracoFloat32Array *animation_data) {
   const int num_frames = animation.num_frames();
   // Get animation data.
-  const draco::PointAttribute *animation_data_att =
+  const draco_illixr::PointAttribute *animation_data_att =
       animation.keyframes(keyframes_id);
   if (!animation_data_att) {
     return false;
@@ -87,8 +87,8 @@ bool AnimationDecoder::GetKeyframes(const draco::KeyframeAnimation &animation,
   std::vector<float> values(components, -1.0);
   int entry_id = 0;
   animation_data->SetValues(nullptr, num_entries);
-  for (draco::PointIndex i(0); i < num_frames; ++i) {
-    const draco::AttributeValueIndex val_index =
+  for (draco_illixr::PointIndex i(0); i < num_frames; ++i) {
+    const draco_illixr::AttributeValueIndex val_index =
         animation_data_att->mapped_index(i);
     if (!animation_data_att->ConvertValue<float>(val_index, &values[0])) {
       return false;

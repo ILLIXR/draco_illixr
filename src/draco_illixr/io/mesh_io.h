@@ -15,12 +15,12 @@
 #ifndef DRACO_IO_MESH_IO_H_
 #define DRACO_IO_MESH_IO_H_
 
-#include "draco/compression/config/compression_shared.h"
-#include "draco/compression/decode.h"
-#include "draco/compression/expert_encode.h"
-#include "draco/core/options.h"
+#include "draco_illixr/compression/config/compression_shared.h"
+#include "draco_illixr/compression/decode.h"
+#include "draco_illixr/compression/expert_encode.h"
+#include "draco_illixr/core/options.h"
 
-namespace draco {
+namespace draco_illixr {
 
 template <typename OutStreamT>
 OutStreamT WriteMeshIntoStream(const Mesh *mesh, OutStreamT &&os,
@@ -79,7 +79,7 @@ InStreamT &ReadMeshFromStream(std::unique_ptr<Mesh> *mesh, InStreamT &&is) {
 // Reads a mesh from a file. The function automatically chooses the correct
 // decoder based on the extension of the files. Currently, .obj and .ply files
 // are supported. Other file extensions are processed by the default
-// draco::MeshDecoder.
+// draco_illixr::MeshDecoder.
 // Returns nullptr with an error status if the decoding failed.
 StatusOr<std::unique_ptr<Mesh>> ReadMeshFromFile(const std::string &file_name);
 
@@ -102,6 +102,6 @@ StatusOr<std::unique_ptr<Mesh>> ReadMeshFromFile(
     const std::string &file_name, const Options &options,
     std::vector<std::string> *mesh_files);
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_IO_MESH_IO_H_

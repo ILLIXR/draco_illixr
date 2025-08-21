@@ -1,11 +1,11 @@
-#include "draco/compression/entropy/shannon_entropy.h"
+#include "draco_illixr/compression/entropy/shannon_entropy.h"
 
 #include <cmath>
 #include <vector>
 
-#include "draco/compression/entropy/rans_symbol_coding.h"
+#include "draco_illixr/compression/entropy/rans_symbol_coding.h"
 
-namespace draco {
+namespace draco_illixr {
 
 int64_t ComputeShannonEntropy(const uint32_t *symbols, int num_symbols,
                               int max_value, int *out_num_unique_symbols) {
@@ -144,4 +144,4 @@ int64_t ShannonEntropyTracker::GetNumberOfRAnsTableBits(
                                            entropy_data.num_unique_symbols);
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

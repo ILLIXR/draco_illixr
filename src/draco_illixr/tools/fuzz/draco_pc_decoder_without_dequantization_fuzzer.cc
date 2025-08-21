@@ -14,16 +14,16 @@
 
 #include <fuzzer/FuzzedDataProvider.h>
 
-#include "draco/src/draco/compression/decode.h"
-#include "draco/src/draco/core/decoder_buffer.h"
-#include "draco/src/draco/point_cloud/point_cloud.h"
+#include "draco_illixr/compression/decode.h"
+#include "draco_illixr/core/decoder_buffer.h"
+#include "draco_illixr/point_cloud/point_cloud.h"
 
 extern "C" int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size) {
-  draco::DecoderBuffer buffer;
+  draco_illixr::DecoderBuffer buffer;
   buffer.Init(reinterpret_cast<const char *>(data), size);
 
-  draco::Decoder decoder;
-  decoder.SetSkipAttributeTransform(draco::GeometryAttribute::POSITION);
+  draco_illixr::Decoder decoder;
+  decoder.SetSkipAttributeTransform(draco_illixr::GeometryAttribute::POSITION);
   decoder.DecodePointCloudFromBuffer(&buffer);
 
   return 0;

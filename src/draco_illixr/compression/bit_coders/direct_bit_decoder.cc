@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/compression/bit_coders/direct_bit_decoder.h"
+#include "draco_illixr/compression/bit_coders/direct_bit_decoder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 DirectBitDecoder::DirectBitDecoder() : pos_(bits_.end()), num_used_bits_(0) {}
 
@@ -51,4 +51,4 @@ void DirectBitDecoder::Clear() {
   pos_ = bits_.end();
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/material/material_library.h"
+#include "draco_illixr/material/material_library.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
-namespace draco {
+namespace draco_illixr {
 
 void MaterialLibrary::Copy(const MaterialLibrary &src) {
   Clear();
@@ -120,6 +120,6 @@ Material *MaterialLibrary::MutableMaterial(int index) {
   return materials_[index].get();
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED

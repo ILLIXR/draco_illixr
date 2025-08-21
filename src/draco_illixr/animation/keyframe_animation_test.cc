@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/animation/keyframe_animation.h"
+#include "draco_illixr/animation/keyframe_animation.h"
 
-#include "draco/core/draco_test_base.h"
+#include "draco_illixr/core/draco_test_base.h"
 
 namespace {
 
@@ -25,7 +25,7 @@ class KeyframeAnimationTest : public ::testing::Test {
   bool CreateAndAddTimestamps(int32_t num_frames) {
     timestamps_.resize(num_frames);
     for (int i = 0; i < timestamps_.size(); ++i) {
-      timestamps_[i] = static_cast<draco::KeyframeAnimation::TimestampType>(i);
+      timestamps_[i] = static_cast<draco_illixr::KeyframeAnimation::TimestampType>(i);
     }
     return keyframe_animation_.SetTimestamps(timestamps_);
   }
@@ -37,7 +37,7 @@ class KeyframeAnimationTest : public ::testing::Test {
     for (int i = 0; i < animation_data_.size(); ++i) {
       animation_data_[i] = static_cast<float>(i);
     }
-    return keyframe_animation_.AddKeyframes(draco::DT_FLOAT32, num_components,
+    return keyframe_animation_.AddKeyframes(draco_illixr::DT_FLOAT32, num_components,
                                             animation_data_);
   }
 
@@ -48,7 +48,7 @@ class KeyframeAnimationTest : public ::testing::Test {
     for (int i = 0; i < timestamps_.size(); ++i) {
       std::array<float, 1> att_value;
       ASSERT_TRUE((timestamp_att->GetValue<float, 1>(
-          draco::AttributeValueIndex(i), &att_value)));
+          draco_illixr::AttributeValueIndex(i), &att_value)));
       ASSERT_FLOAT_EQ(att_value[0], i);
     }
 
@@ -57,7 +57,7 @@ class KeyframeAnimationTest : public ::testing::Test {
     for (int i = 0; i < animation_data_.size() / num_components_t; ++i) {
       std::array<float, num_components_t> att_value;
       ASSERT_TRUE((keyframe_att->GetValue<float, num_components_t>(
-          draco::AttributeValueIndex(i), &att_value)));
+          draco_illixr::AttributeValueIndex(i), &att_value)));
       for (int j = 0; j < num_components_t; ++j) {
         ASSERT_FLOAT_EQ(att_value[j], i * num_components_t + j);
       }
@@ -71,8 +71,8 @@ class KeyframeAnimationTest : public ::testing::Test {
     CompareAnimationData<num_components_t>();
   }
 
-  draco::KeyframeAnimation keyframe_animation_;
-  std::vector<draco::KeyframeAnimation::TimestampType> timestamps_;
+  draco_illixr::KeyframeAnimation keyframe_animation_;
+  std::vector<draco_illixr::KeyframeAnimation::TimestampType> timestamps_;
   std::vector<float> animation_data_;
 };
 

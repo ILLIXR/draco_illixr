@@ -17,9 +17,9 @@
 
 #include <vector>
 
-#include "draco/attributes/point_attribute.h"
+#include "draco_illixr/attributes/point_attribute.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Class for generating a sequence of point ids that can be used to encode
 // or decode attribute values in a specific order.
@@ -58,6 +58,6 @@ class PointsSequencer {
   std::vector<PointIndex> *out_point_ids_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_POINTS_SEQUENCER_H_

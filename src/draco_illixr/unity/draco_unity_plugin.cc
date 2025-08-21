@@ -12,17 +12,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/unity/draco_unity_plugin.h"
+#include "draco_illixr/unity/draco_unity_plugin.h"
 
 #ifdef DRACO_UNITY_PLUGIN
 
 namespace {
 // Returns a DracoAttribute from a PointAttribute.
-draco::DracoAttribute *CreateDracoAttribute(const draco::PointAttribute *attr) {
-  draco::DracoAttribute *const attribute = new draco::DracoAttribute();
+draco_illixr::DracoAttribute *CreateDracoAttribute(const draco_illixr::PointAttribute *attr) {
+  draco_illixr::DracoAttribute *const attribute = new draco_illixr::DracoAttribute();
   attribute->attribute_type =
-      static_cast<draco::GeometryAttribute::Type>(attr->attribute_type());
-  attribute->data_type = static_cast<draco::DataType>(attr->data_type());
+      static_cast<draco_illixr::GeometryAttribute::Type>(attr->attribute_type());
+  attribute->data_type = static_cast<draco_illixr::DataType>(attr->data_type());
   attribute->num_components = attr->num_components();
   attribute->unique_id = attr->unique_id();
   attribute->private_attribute = static_cast<const void *>(attr);
@@ -31,12 +31,12 @@ draco::DracoAttribute *CreateDracoAttribute(const draco::PointAttribute *attr) {
 
 // Returns the attribute data in |attr| as an array of type T.
 template <typename T>
-T *CopyAttributeData(int num_points, const draco::PointAttribute *attr) {
+T *CopyAttributeData(int num_points, const draco_illixr::PointAttribute *attr) {
   const int num_components = attr->num_components();
   T *const data = new T[num_points * num_components];
 
-  for (draco::PointIndex i(0); i < num_points; ++i) {
-    const draco::AttributeValueIndex val_index = attr->mapped_index(i);
+  for (draco_illixr::PointIndex i(0); i < num_points; ++i) {
+    const draco_illixr::AttributeValueIndex val_index = attr->mapped_index(i);
     bool got_data = false;
     switch (num_components) {
       case 1:
@@ -68,21 +68,21 @@ T *CopyAttributeData(int num_points, const draco::PointAttribute *attr) {
 }
 
 // Returns the attribute data in |attr| as an array of void*.
-void *ConvertAttributeData(int num_points, const draco::PointAttribute *attr) {
+void *ConvertAttributeData(int num_points, const draco_illixr::PointAttribute *attr) {
   switch (attr->data_type()) {
-    case draco::DataType::DT_INT8:
+    case draco_illixr::DataType::DT_INT8:
       return static_cast<void *>(CopyAttributeData<int8_t>(num_points, attr));
-    case draco::DataType::DT_UINT8:
+    case draco_illixr::DataType::DT_UINT8:
       return static_cast<void *>(CopyAttributeData<uint8_t>(num_points, attr));
-    case draco::DataType::DT_INT16:
+    case draco_illixr::DataType::DT_INT16:
       return static_cast<void *>(CopyAttributeData<int16_t>(num_points, attr));
-    case draco::DataType::DT_UINT16:
+    case draco_illixr::DataType::DT_UINT16:
       return static_cast<void *>(CopyAttributeData<uint16_t>(num_points, attr));
-    case draco::DataType::DT_INT32:
+    case draco_illixr::DataType::DT_INT32:
       return static_cast<void *>(CopyAttributeData<int32_t>(num_points, attr));
-    case draco::DataType::DT_UINT32:
+    case draco_illixr::DataType::DT_UINT32:
       return static_cast<void *>(CopyAttributeData<uint32_t>(num_points, attr));
-    case draco::DataType::DT_FLOAT32:
+    case draco_illixr::DataType::DT_FLOAT32:
       return static_cast<void *>(CopyAttributeData<float>(num_points, attr));
     default:
       return nullptr;
@@ -90,7 +90,7 @@ void *ConvertAttributeData(int num_points, const draco::PointAttribute *attr) {
 }
 }  // namespace
 
-namespace draco {
+namespace draco_illixr {
 
 void EXPORT_API ReleaseDracoMesh(DracoMesh **mesh_ptr) {
   if (!mesh_ptr) {
@@ -124,25 +124,25 @@ void EXPORT_API ReleaseDracoData(DracoData **data_ptr) {
   }
   const DracoData *const data = *data_ptr;
   switch (data->data_type) {
-    case draco::DataType::DT_INT8:
+    case draco_illixr::DataType::DT_INT8:
       delete[] static_cast<int8_t *>(data->data);
       break;
-    case draco::DataType::DT_UINT8:
+    case draco_illixr::DataType::DT_UINT8:
       delete[] static_cast<uint8_t *>(data->data);
       break;
-    case draco::DataType::DT_INT16:
+    case draco_illixr::DataType::DT_INT16:
       delete[] static_cast<int16_t *>(data->data);
       break;
-    case draco::DataType::DT_UINT16:
+    case draco_illixr::DataType::DT_UINT16:
       delete[] static_cast<uint16_t *>(data->data);
       break;
-    case draco::DataType::DT_INT32:
+    case draco_illixr::DataType::DT_INT32:
       delete[] static_cast<int32_t *>(data->data);
       break;
-    case draco::DataType::DT_UINT32:
+    case draco_illixr::DataType::DT_UINT32:
       delete[] static_cast<uint32_t *>(data->data);
       break;
-    case draco::DataType::DT_FLOAT32:
+    case draco_illixr::DataType::DT_FLOAT32:
       delete[] static_cast<float *>(data->data);
       break;
     default:
@@ -157,24 +157,24 @@ int EXPORT_API DecodeDracoMesh(char *data, unsigned int length,
   if (mesh == nullptr || *mesh != nullptr) {
     return -1;
   }
-  draco::DecoderBuffer buffer;
+  draco_illixr::DecoderBuffer buffer;
   buffer.Init(data, length);
-  auto type_statusor = draco::Decoder::GetEncodedGeometryType(&buffer);
+  auto type_statusor = draco_illixr::Decoder::GetEncodedGeometryType(&buffer);
   if (!type_statusor.ok()) {
     // TODO(draco-eng): Use enum instead.
     return -2;
   }
-  const draco::EncodedGeometryType geom_type = type_statusor.value();
-  if (geom_type != draco::TRIANGULAR_MESH) {
+  const draco_illixr::EncodedGeometryType geom_type = type_statusor.value();
+  if (geom_type != draco_illixr::TRIANGULAR_MESH) {
     return -3;
   }
 
-  draco::Decoder decoder;
+  draco_illixr::Decoder decoder;
   auto statusor = decoder.DecodeMeshFromBuffer(&buffer);
   if (!statusor.ok()) {
     return -4;
   }
-  std::unique_ptr<draco::Mesh> in_mesh = std::move(statusor).value();
+  std::unique_ptr<draco_illixr::Mesh> in_mesh = std::move(statusor).value();
 
   *mesh = new DracoMesh();
   DracoMesh *const unity_mesh = *mesh;
@@ -237,8 +237,8 @@ bool EXPORT_API GetMeshIndices(const DracoMesh *mesh, DracoData **indices) {
   }
   const Mesh *const m = static_cast<const Mesh *>(mesh->private_mesh);
   int *const temp_indices = new int[m->num_faces() * 3];
-  for (draco::FaceIndex face_id(0); face_id < m->num_faces(); ++face_id) {
-    const Mesh::Face &face = m->face(draco::FaceIndex(face_id));
+  for (draco_illixr::FaceIndex face_id(0); face_id < m->num_faces(); ++face_id) {
+    const Mesh::Face &face = m->face(draco_illixr::FaceIndex(face_id));
     memcpy(temp_indices + face_id.value() * 3,
            reinterpret_cast<const int *>(face.data()), sizeof(int) * 3);
   }
@@ -304,24 +304,24 @@ void ReleaseUnityMesh(DracoToUnityMesh **mesh_ptr) {
 
 int DecodeMeshForUnity(char *data, unsigned int length,
                        DracoToUnityMesh **tmp_mesh) {
-  draco::DecoderBuffer buffer;
+  draco_illixr::DecoderBuffer buffer;
   buffer.Init(data, length);
-  auto type_statusor = draco::Decoder::GetEncodedGeometryType(&buffer);
+  auto type_statusor = draco_illixr::Decoder::GetEncodedGeometryType(&buffer);
   if (!type_statusor.ok()) {
     // TODO(draco-eng): Use enum instead.
     return -1;
   }
-  const draco::EncodedGeometryType geom_type = type_statusor.value();
-  if (geom_type != draco::TRIANGULAR_MESH) {
+  const draco_illixr::EncodedGeometryType geom_type = type_statusor.value();
+  if (geom_type != draco_illixr::TRIANGULAR_MESH) {
     return -2;
   }
 
-  draco::Decoder decoder;
+  draco_illixr::Decoder decoder;
   auto statusor = decoder.DecodeMeshFromBuffer(&buffer);
   if (!statusor.ok()) {
     return -3;
   }
-  std::unique_ptr<draco::Mesh> in_mesh = std::move(statusor).value();
+  std::unique_ptr<draco_illixr::Mesh> in_mesh = std::move(statusor).value();
 
   *tmp_mesh = new DracoToUnityMesh();
   DracoToUnityMesh *unity_mesh = *tmp_mesh;
@@ -329,8 +329,8 @@ int DecodeMeshForUnity(char *data, unsigned int length,
   unity_mesh->num_vertices = in_mesh->num_points();
 
   unity_mesh->indices = new int[in_mesh->num_faces() * 3];
-  for (draco::FaceIndex face_id(0); face_id < in_mesh->num_faces(); ++face_id) {
-    const Mesh::Face &face = in_mesh->face(draco::FaceIndex(face_id));
+  for (draco_illixr::FaceIndex face_id(0); face_id < in_mesh->num_faces(); ++face_id) {
+    const Mesh::Face &face = in_mesh->face(draco_illixr::FaceIndex(face_id));
     memcpy(unity_mesh->indices + face_id.value() * 3,
            reinterpret_cast<const int *>(face.data()), sizeof(int) * 3);
   }
@@ -338,9 +338,9 @@ int DecodeMeshForUnity(char *data, unsigned int length,
   // TODO(draco-eng): Add other attributes.
   unity_mesh->position = new float[in_mesh->num_points() * 3];
   const auto pos_att =
-      in_mesh->GetNamedAttribute(draco::GeometryAttribute::POSITION);
-  for (draco::PointIndex i(0); i < in_mesh->num_points(); ++i) {
-    const draco::AttributeValueIndex val_index = pos_att->mapped_index(i);
+      in_mesh->GetNamedAttribute(draco_illixr::GeometryAttribute::POSITION);
+  for (draco_illixr::PointIndex i(0); i < in_mesh->num_points(); ++i) {
+    const draco_illixr::AttributeValueIndex val_index = pos_att->mapped_index(i);
     if (!pos_att->ConvertValue<float, 3>(
             val_index, unity_mesh->position + i.value() * 3)) {
       ReleaseUnityMesh(&unity_mesh);
@@ -349,12 +349,12 @@ int DecodeMeshForUnity(char *data, unsigned int length,
   }
   // Get normal attributes.
   const auto normal_att =
-      in_mesh->GetNamedAttribute(draco::GeometryAttribute::NORMAL);
+      in_mesh->GetNamedAttribute(draco_illixr::GeometryAttribute::NORMAL);
   if (normal_att != nullptr) {
     unity_mesh->normal = new float[in_mesh->num_points() * 3];
     unity_mesh->has_normal = true;
-    for (draco::PointIndex i(0); i < in_mesh->num_points(); ++i) {
-      const draco::AttributeValueIndex val_index = normal_att->mapped_index(i);
+    for (draco_illixr::PointIndex i(0); i < in_mesh->num_points(); ++i) {
+      const draco_illixr::AttributeValueIndex val_index = normal_att->mapped_index(i);
       if (!normal_att->ConvertValue<float, 3>(
               val_index, unity_mesh->normal + i.value() * 3)) {
         ReleaseUnityMesh(&unity_mesh);
@@ -364,12 +364,12 @@ int DecodeMeshForUnity(char *data, unsigned int length,
   }
   // Get color attributes.
   const auto color_att =
-      in_mesh->GetNamedAttribute(draco::GeometryAttribute::COLOR);
+      in_mesh->GetNamedAttribute(draco_illixr::GeometryAttribute::COLOR);
   if (color_att != nullptr) {
     unity_mesh->color = new float[in_mesh->num_points() * 4];
     unity_mesh->has_color = true;
-    for (draco::PointIndex i(0); i < in_mesh->num_points(); ++i) {
-      const draco::AttributeValueIndex val_index = color_att->mapped_index(i);
+    for (draco_illixr::PointIndex i(0); i < in_mesh->num_points(); ++i) {
+      const draco_illixr::AttributeValueIndex val_index = color_att->mapped_index(i);
       if (!color_att->ConvertValue<float, 4>(
               val_index, unity_mesh->color + i.value() * 4)) {
         ReleaseUnityMesh(&unity_mesh);
@@ -384,12 +384,12 @@ int DecodeMeshForUnity(char *data, unsigned int length,
   }
   // Get texture coordinates attributes.
   const auto texcoord_att =
-      in_mesh->GetNamedAttribute(draco::GeometryAttribute::TEX_COORD);
+      in_mesh->GetNamedAttribute(draco_illixr::GeometryAttribute::TEX_COORD);
   if (texcoord_att != nullptr) {
     unity_mesh->texcoord = new float[in_mesh->num_points() * 2];
     unity_mesh->has_texcoord = true;
-    for (draco::PointIndex i(0); i < in_mesh->num_points(); ++i) {
-      const draco::AttributeValueIndex val_index =
+    for (draco_illixr::PointIndex i(0); i < in_mesh->num_points(); ++i) {
+      const draco_illixr::AttributeValueIndex val_index =
           texcoord_att->mapped_index(i);
       if (!texcoord_att->ConvertValue<float, 2>(
               val_index, unity_mesh->texcoord + i.value() * 2)) {
@@ -402,6 +402,6 @@ int DecodeMeshForUnity(char *data, unsigned int length,
   return in_mesh->num_faces();
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_UNITY_PLUGIN

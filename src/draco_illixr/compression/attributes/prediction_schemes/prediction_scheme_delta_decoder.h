@@ -15,9 +15,9 @@
 #ifndef DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_PREDICTION_SCHEME_DELTA_DECODER_H_
 #define DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_PREDICTION_SCHEME_DELTA_DECODER_H_
 
-#include "draco/compression/attributes/prediction_schemes/prediction_scheme_decoder.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/prediction_scheme_decoder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Decoder for values encoded with delta coding. See the corresponding encoder
 // for more details.
@@ -60,6 +60,6 @@ bool PredictionSchemeDeltaDecoder<DataTypeT, TransformT>::ComputeOriginalValues(
   return true;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_PREDICTION_SCHEME_DELTA_DECODER_H_

@@ -16,12 +16,12 @@
 #ifndef DRACO_SCENE_SCENE_ARE_EQUIVALENT_H_
 #define DRACO_SCENE_SCENE_ARE_EQUIVALENT_H_
 
-#include "draco/draco_features.h"
+#include "draco_illixr/draco_features.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
-#include "draco/scene/scene.h"
+#include "draco_illixr/scene/scene.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // A functor to compare two scenes for equivalency up to permutation of mesh
 // vertices.
@@ -36,7 +36,7 @@ class SceneAreEquivalent {
   static bool AreEquivalent(const SceneNode &node0, const SceneNode &node1);
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED
 #endif  // DRACO_SCENE_SCENE_ARE_EQUIVALENT_H_

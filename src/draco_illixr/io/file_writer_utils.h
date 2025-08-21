@@ -17,7 +17,7 @@
 
 #include <string>
 
-namespace draco {
+namespace draco_illixr {
 
 // Splits full path to a file into a folder path + file name.
 // |out_folder_path| will contain the path to the folder containing the file
@@ -33,6 +33,6 @@ bool DirectoryExists(const std::string &path);
 // create the path. Returns false on error.
 bool CheckAndCreatePathForFile(const std::string &filename);
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_IO_FILE_WRITER_UTILS_H_

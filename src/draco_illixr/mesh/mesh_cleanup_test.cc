@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/mesh/mesh_cleanup.h"
+#include "draco_illixr/mesh/mesh_cleanup.h"
 
-#include "draco/core/draco_test_base.h"
-#include "draco/core/draco_test_utils.h"
-#include "draco/core/vector_d.h"
-#include "draco/mesh/triangle_soup_mesh_builder.h"
+#include "draco_illixr/core/draco_test_base.h"
+#include "draco_illixr/core/draco_test_utils.h"
+#include "draco_illixr/core/vector_d.h"
+#include "draco_illixr/mesh/triangle_soup_mesh_builder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 class MeshCleanupTest : public ::testing::Test {};
 
@@ -183,4 +183,4 @@ TEST_F(MeshCleanupTest, TestDuplicateFaces) {
   ASSERT_EQ(mesh->num_faces(), 2);
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

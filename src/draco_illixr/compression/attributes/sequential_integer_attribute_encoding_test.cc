@@ -14,12 +14,12 @@
 //
 #include <numeric>
 
-#include "draco/compression/attributes/sequential_integer_attribute_decoder.h"
-#include "draco/compression/attributes/sequential_integer_attribute_encoder.h"
-#include "draco/compression/config/compression_shared.h"
-#include "draco/core/draco_test_base.h"
+#include "draco_illixr/compression/attributes/sequential_integer_attribute_decoder.h"
+#include "draco_illixr/compression/attributes/sequential_integer_attribute_encoder.h"
+#include "draco_illixr/compression/config/compression_shared.h"
+#include "draco_illixr/core/draco_test_base.h"
 
-namespace draco {
+namespace draco_illixr {
 
 class SequentialIntegerAttributeEncodingTest : public ::testing::Test {
  protected:
@@ -61,4 +61,4 @@ TEST_F(SequentialIntegerAttributeEncodingTest, DoesCompress) {
   }
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

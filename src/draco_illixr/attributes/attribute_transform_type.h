@@ -15,7 +15,7 @@
 #ifndef DRACO_ATTRIBUTES_ATTRIBUTE_TRANSFORM_TYPE_H_
 #define DRACO_ATTRIBUTES_ATTRIBUTE_TRANSFORM_TYPE_H_
 
-namespace draco {
+namespace draco_illixr {
 
 // List of all currently supported attribute transforms.
 enum AttributeTransformType {
@@ -25,6 +25,6 @@ enum AttributeTransformType {
   ATTRIBUTE_OCTAHEDRON_TRANSFORM = 2,
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_ATTRIBUTES_ATTRIBUTE_TRANSFORM_TYPE_H_

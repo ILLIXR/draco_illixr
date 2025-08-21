@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/texture/texture_library.h"
+#include "draco_illixr/texture/texture_library.h"
 
 #include <unordered_map>
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 
-namespace draco {
+namespace draco_illixr {
 
 void TextureLibrary::Copy(const TextureLibrary &src) {
   Clear();
@@ -56,6 +56,6 @@ std::unique_ptr<Texture> TextureLibrary::RemoveTexture(int index) {
   return ret;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED

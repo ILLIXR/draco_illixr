@@ -12,18 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/io/file_utils.h"
+#include "draco_illixr/io/file_utils.h"
 
 #include <string>
 
-#include "draco/io/file_reader_factory.h"
-#include "draco/io/file_reader_interface.h"
-#include "draco/io/file_writer_factory.h"
-#include "draco/io/file_writer_interface.h"
-#include "draco/io/file_writer_utils.h"
-#include "draco/io/parser_utils.h"
+#include "draco_illixr/io/file_reader_factory.h"
+#include "draco_illixr/io/file_reader_interface.h"
+#include "draco_illixr/io/file_writer_factory.h"
+#include "draco_illixr/io/file_writer_interface.h"
+#include "draco_illixr/io/file_writer_utils.h"
+#include "draco_illixr/io/parser_utils.h"
 
-namespace draco {
+namespace draco_illixr {
 
 void SplitPath(const std::string &full_path, std::string *out_folder_path,
                std::string *out_file_name) {
@@ -125,4 +125,4 @@ size_t GetFileSize(const std::string &file_name) {
   return file_reader->GetFileSize();
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

@@ -12,19 +12,19 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/scene/scene_are_equivalent.h"
+#include "draco_illixr/scene/scene_are_equivalent.h"
 
 #include <memory>
 #include <sstream>
 #include <string>
 #include <utility>
 
-#include "draco/core/draco_test_base.h"
-#include "draco/core/draco_test_utils.h"
-#include "draco/io/scene_io.h"
-#include "draco/scene/scene.h"
+#include "draco_illixr/core/draco_test_base.h"
+#include "draco_illixr/core/draco_test_utils.h"
+#include "draco_illixr/io/scene_io.h"
+#include "draco_illixr/scene/scene.h"
 
-namespace draco {
+namespace draco_illixr {
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 class SceneAreEquivalentTest : public ::testing::Test {};
@@ -83,4 +83,4 @@ TEST_F(SceneAreEquivalentTest, TestMeshFeatures) {
 
 #endif  // DRACO_TRANSCODER_SUPPORTED
 
-}  // namespace draco
+}  // namespace draco_illixr

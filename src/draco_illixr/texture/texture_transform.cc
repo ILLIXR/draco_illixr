@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/texture/texture_transform.h"
+#include "draco_illixr/texture/texture_transform.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 
-namespace draco {
+namespace draco_illixr {
 
 TextureTransform::TextureTransform() { Clear(); }
 
@@ -74,6 +74,6 @@ bool TextureTransform::operator==(const TextureTransform &tt) const {
   return true;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED

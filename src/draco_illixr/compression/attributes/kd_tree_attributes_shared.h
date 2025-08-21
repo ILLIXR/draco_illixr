@@ -15,7 +15,7 @@
 #ifndef DRACO_COMPRESSION_ATTRIBUTES_KD_TREE_ATTRIBUTES_SHARED_H_
 #define DRACO_COMPRESSION_ATTRIBUTES_KD_TREE_ATTRIBUTES_SHARED_H_
 
-namespace draco {
+namespace draco_illixr {
 
 // Defines types of kD-tree compression
 enum KdTreeAttributesEncodingMethod {
@@ -23,6 +23,6 @@ enum KdTreeAttributesEncodingMethod {
   kKdTreeIntegerEncoding
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_KD_TREE_ATTRIBUTES_SHARED_H_

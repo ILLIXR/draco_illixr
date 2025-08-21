@@ -15,13 +15,13 @@
 #include <cinttypes>
 #include <cstdlib>
 
-#include "draco/compression/config/compression_shared.h"
-#include "draco/compression/encode.h"
-#include "draco/compression/expert_encode.h"
-#include "draco/core/cycle_timer.h"
-#include "draco/io/file_utils.h"
-#include "draco/io/mesh_io.h"
-#include "draco/io/point_cloud_io.h"
+#include "draco_illixr/compression/config/compression_shared.h"
+#include "draco_illixr/compression/encode.h"
+#include "draco_illixr/compression/expert_encode.h"
+#include "draco_illixr/core/cycle_timer.h"
+#include "draco_illixr/io/file_utils.h"
+#include "draco_illixr/io/mesh_io.h"
+#include "draco_illixr/io/point_cloud_io.h"
 
 namespace {
 
@@ -101,7 +101,7 @@ int StringToInt(const std::string &s) {
   return strtol(s.c_str(), &end, 10);  // NOLINT
 }
 
-void PrintOptions(const draco::PointCloud &pc, const Options &options) {
+void PrintOptions(const draco_illixr::PointCloud &pc, const Options &options) {
   printf("Encoder options:\n");
   printf("  Compression level = %d\n", options.compression_level);
   if (options.pos_quantization_bits == 0) {
@@ -111,7 +111,7 @@ void PrintOptions(const draco::PointCloud &pc, const Options &options) {
            options.pos_quantization_bits);
   }
 
-  if (pc.GetNamedAttributeId(draco::GeometryAttribute::TEX_COORD) >= 0) {
+  if (pc.GetNamedAttributeId(draco_illixr::GeometryAttribute::TEX_COORD) >= 0) {
     if (options.tex_coords_quantization_bits == 0) {
       printf("  Texture coordinates: No quantization\n");
     } else {
@@ -122,7 +122,7 @@ void PrintOptions(const draco::PointCloud &pc, const Options &options) {
     printf("  Texture coordinates: Skipped\n");
   }
 
-  if (pc.GetNamedAttributeId(draco::GeometryAttribute::NORMAL) >= 0) {
+  if (pc.GetNamedAttributeId(draco_illixr::GeometryAttribute::NORMAL) >= 0) {
     if (options.normals_quantization_bits == 0) {
       printf("  Normals: No quantization\n");
     } else {
@@ -133,7 +133,7 @@ void PrintOptions(const draco::PointCloud &pc, const Options &options) {
     printf("  Normals: Skipped\n");
   }
 
-  if (pc.GetNamedAttributeId(draco::GeometryAttribute::GENERIC) >= 0) {
+  if (pc.GetNamedAttributeId(draco_illixr::GeometryAttribute::GENERIC) >= 0) {
     if (options.generic_quantization_bits == 0) {
       printf("  Generic: No quantization\n");
     } else {
@@ -146,13 +146,13 @@ void PrintOptions(const draco::PointCloud &pc, const Options &options) {
   printf("\n");
 }
 
-int EncodePointCloudToFile(const draco::PointCloud &pc, const std::string &file,
-                           draco::ExpertEncoder *encoder) {
-  draco::CycleTimer timer;
+int EncodePointCloudToFile(const draco_illixr::PointCloud &pc, const std::string &file,
+                           draco_illixr::ExpertEncoder *encoder) {
+  draco_illixr::CycleTimer timer;
   // Encode the geometry.
-  draco::EncoderBuffer buffer;
+  draco_illixr::EncoderBuffer buffer;
   timer.Start();
-  const draco::Status status = encoder->EncodeToBuffer(&buffer);
+  const draco_illixr::Status status = encoder->EncodeToBuffer(&buffer);
   if (!status.ok()) {
     printf("Failed to encode the point cloud.\n");
     printf("%s\n", status.error_msg());
@@ -160,7 +160,7 @@ int EncodePointCloudToFile(const draco::PointCloud &pc, const std::string &file,
   }
   timer.Stop();
   // Save the encoded geometry into a file.
-  if (!draco::WriteBufferToFile(buffer.data(), buffer.size(), file)) {
+  if (!draco_illixr::WriteBufferToFile(buffer.data(), buffer.size(), file)) {
     printf("Failed to write the output file.\n");
     return -1;
   }
@@ -170,13 +170,13 @@ int EncodePointCloudToFile(const draco::PointCloud &pc, const std::string &file,
   return 0;
 }
 
-int EncodeMeshToFile(const draco::Mesh &mesh, const std::string &file,
-                     draco::ExpertEncoder *encoder) {
-  draco::CycleTimer timer;
+int EncodeMeshToFile(const draco_illixr::Mesh &mesh, const std::string &file,
+                     draco_illixr::ExpertEncoder *encoder) {
+  draco_illixr::CycleTimer timer;
   // Encode the geometry.
-  draco::EncoderBuffer buffer;
+  draco_illixr::EncoderBuffer buffer;
   timer.Start();
-  const draco::Status status = encoder->EncodeToBuffer(&buffer);
+  const draco_illixr::Status status = encoder->EncodeToBuffer(&buffer);
   if (!status.ok()) {
     printf("Failed to encode the mesh.\n");
     printf("%s\n", status.error_msg());
@@ -184,7 +184,7 @@ int EncodeMeshToFile(const draco::Mesh &mesh, const std::string &file,
   }
   timer.Stop();
   // Save the encoded geometry into a file.
-  if (!draco::WriteBufferToFile(buffer.data(), buffer.size(), file)) {
+  if (!draco_illixr::WriteBufferToFile(buffer.data(), buffer.size(), file)) {
     printf("Failed to create the output file.\n");
     return -1;
   }
@@ -207,8 +207,8 @@ int main(int argc, char **argv) {
     std::cout << "\n";
   Options options;
   //pyh profiling timer
-  draco::CycleTimer read_mesh_timer;
-  draco::CycleTimer total_timer;
+  draco_illixr::CycleTimer read_mesh_timer;
+  draco_illixr::CycleTimer total_timer;
 
   const int argc_check = argc - 1;
 
@@ -279,17 +279,17 @@ int main(int argc, char **argv) {
     return -1;
   }
 
-  std::unique_ptr<draco::PointCloud> pc;
-  draco::Mesh *mesh = nullptr;
+  std::unique_ptr<draco_illixr::PointCloud> pc;
+  draco_illixr::Mesh *mesh = nullptr;
   total_timer.Start();
-  
+
   if (!options.is_point_cloud) {
-    draco::Options load_options;
+    draco_illixr::Options load_options;
     load_options.SetBool("use_metadata", options.use_metadata);
     load_options.SetBool("preserve_polygons", options.preserve_polygons);
     //pyh test read mesh time
     read_mesh_timer.Start();
-    auto maybe_mesh = draco::ReadMeshFromFile(options.input, load_options);
+    auto maybe_mesh = draco_illixr::ReadMeshFromFile(options.input, load_options);
     read_mesh_timer.Stop();
     printf("pyh: read mesh takes %" PRId64 " ms.\n", read_mesh_timer.GetInMs());
 
@@ -301,7 +301,7 @@ int main(int argc, char **argv) {
     mesh = maybe_mesh.value().get();
     pc = std::move(maybe_mesh).value();
   } else {
-    auto maybe_pc = draco::ReadPointCloudFromFile(options.input);
+    auto maybe_pc = draco_illixr::ReadPointCloudFromFile(options.input);
     if (!maybe_pc.ok()) {
       printf("Failed loading the input point cloud: %s.\n",
              maybe_pc.status().error_msg());
@@ -319,32 +319,32 @@ int main(int argc, char **argv) {
   // quantization settings.
   if (options.tex_coords_quantization_bits < 0) {
     printf("triggered v1\n");
-    if (pc->NumNamedAttributes(draco::GeometryAttribute::TEX_COORD) > 0) {
+    if (pc->NumNamedAttributes(draco_illixr::GeometryAttribute::TEX_COORD) > 0) {
       options.tex_coords_deleted = true;
     }
-    while (pc->NumNamedAttributes(draco::GeometryAttribute::TEX_COORD) > 0) {
+    while (pc->NumNamedAttributes(draco_illixr::GeometryAttribute::TEX_COORD) > 0) {
       pc->DeleteAttribute(
-          pc->GetNamedAttributeId(draco::GeometryAttribute::TEX_COORD, 0));
+          pc->GetNamedAttributeId(draco_illixr::GeometryAttribute::TEX_COORD, 0));
     }
   }
   if (options.normals_quantization_bits < 0) {
     printf("triggered v2\n");
-    if (pc->NumNamedAttributes(draco::GeometryAttribute::NORMAL) > 0) {
+    if (pc->NumNamedAttributes(draco_illixr::GeometryAttribute::NORMAL) > 0) {
       options.normals_deleted = true;
     }
-    while (pc->NumNamedAttributes(draco::GeometryAttribute::NORMAL) > 0) {
+    while (pc->NumNamedAttributes(draco_illixr::GeometryAttribute::NORMAL) > 0) {
       pc->DeleteAttribute(
-          pc->GetNamedAttributeId(draco::GeometryAttribute::NORMAL, 0));
+          pc->GetNamedAttributeId(draco_illixr::GeometryAttribute::NORMAL, 0));
     }
   }
   if (options.generic_quantization_bits < 0) {
     printf("triggered v3\n");
-    if (pc->NumNamedAttributes(draco::GeometryAttribute::GENERIC) > 0) {
+    if (pc->NumNamedAttributes(draco_illixr::GeometryAttribute::GENERIC) > 0) {
       options.generic_deleted = true;
     }
-    while (pc->NumNamedAttributes(draco::GeometryAttribute::GENERIC) > 0) {
+    while (pc->NumNamedAttributes(draco_illixr::GeometryAttribute::GENERIC) > 0) {
       pc->DeleteAttribute(
-          pc->GetNamedAttributeId(draco::GeometryAttribute::GENERIC, 0));
+          pc->GetNamedAttributeId(draco_illixr::GeometryAttribute::GENERIC, 0));
     }
   }
 #ifdef DRACO_ATTRIBUTE_INDICES_DEDUPLICATION_SUPPORTED
@@ -360,23 +360,23 @@ int main(int argc, char **argv) {
   // Convert compression level to speed (that 0 = slowest, 10 = fastest).
   const int speed = 10 - options.compression_level;
 
-  draco::Encoder encoder;
+  draco_illixr::Encoder encoder;
 
   // Setup encoder options.
   if (options.pos_quantization_bits > 0) {
-    encoder.SetAttributeQuantization(draco::GeometryAttribute::POSITION,
+    encoder.SetAttributeQuantization(draco_illixr::GeometryAttribute::POSITION,
                                      options.pos_quantization_bits);
   }
   if (options.tex_coords_quantization_bits > 0) {
-    encoder.SetAttributeQuantization(draco::GeometryAttribute::TEX_COORD,
+    encoder.SetAttributeQuantization(draco_illixr::GeometryAttribute::TEX_COORD,
                                      options.tex_coords_quantization_bits);
   }
   if (options.normals_quantization_bits > 0) {
-    encoder.SetAttributeQuantization(draco::GeometryAttribute::NORMAL,
+    encoder.SetAttributeQuantization(draco_illixr::GeometryAttribute::NORMAL,
                                      options.normals_quantization_bits);
   }
   if (options.generic_quantization_bits > 0) {
-    encoder.SetAttributeQuantization(draco::GeometryAttribute::GENERIC,
+    encoder.SetAttributeQuantization(draco_illixr::GeometryAttribute::GENERIC,
                                      options.generic_quantization_bits);
   }
   encoder.SetSpeedOptions(speed, speed);
@@ -391,11 +391,11 @@ int main(int argc, char **argv) {
   const bool input_is_mesh = mesh && mesh->num_faces() > 0;
 
   // Convert to ExpertEncoder that allows us to set per-attribute options.
-  std::unique_ptr<draco::ExpertEncoder> expert_encoder;
+  std::unique_ptr<draco_illixr::ExpertEncoder> expert_encoder;
   if (input_is_mesh) {
-    expert_encoder.reset(new draco::ExpertEncoder(*mesh));
+    expert_encoder.reset(new draco_illixr::ExpertEncoder(*mesh));
   } else {
-    expert_encoder.reset(new draco::ExpertEncoder(*pc));
+    expert_encoder.reset(new draco_illixr::ExpertEncoder(*pc));
   }
   expert_encoder->Reset(encoder.CreateExpertEncoderOptions(*pc));
 
@@ -406,7 +406,7 @@ int main(int argc, char **argv) {
       pc->GetAttributeIdByMetadataEntry("name", "added_edges");
   if (poly_att_id != -1) {
     expert_encoder->SetAttributePredictionScheme(
-        poly_att_id, draco::PredictionSchemeMethod::PREDICTION_NONE);
+        poly_att_id, draco_illixr::PredictionSchemeMethod::PREDICTION_NONE);
   }
 
   int ret = -1;
@@ -417,7 +417,7 @@ int main(int argc, char **argv) {
     ret = EncodePointCloudToFile(*pc, options.output, expert_encoder.get());
   }
   total_timer.Stop();
-  printf("pyh: total encoding takes %" PRId64 " ms.\n", total_timer.GetInMs()); 
+  printf("pyh: total encoding takes %" PRId64 " ms.\n", total_timer.GetInMs());
   if (ret != -1 && options.compression_level < 10) {
     printf(
         "For better compression, increase the compression level up to '-cl 10' "

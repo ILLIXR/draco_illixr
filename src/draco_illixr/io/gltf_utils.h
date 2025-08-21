@@ -15,14 +15,15 @@
 #ifndef DRACO_IO_GLTF_UTILS_H_
 #define DRACO_IO_GLTF_UTILS_H_
 
-#include "draco/draco_features.h"
+#include "draco_illixr/draco_features.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
+#include <cstdint>
 #include <iomanip>
 #include <sstream>
 #include <string>
 
-namespace draco {
+namespace draco_illixr {
 
 // Class used to store integer or float values supported by glTF.
 class GltfValue {
@@ -165,7 +166,7 @@ class JsonWriter {
   Separator separator_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED
 #endif  // DRACO_IO_GLTF_UTILS_H_

@@ -15,11 +15,11 @@
 #ifndef DRACO_COMPRESSION_ATTRIBUTES_KD_TREE_ATTRIBUTES_ENCODER_H_
 #define DRACO_COMPRESSION_ATTRIBUTES_KD_TREE_ATTRIBUTES_ENCODER_H_
 
-#include "draco/attributes/attribute_quantization_transform.h"
-#include "draco/compression/attributes/attributes_encoder.h"
-#include "draco/compression/config/compression_shared.h"
+#include "draco_illixr/attributes/attribute_quantization_transform.h"
+#include "draco_illixr/compression/attributes/attributes_encoder.h"
+#include "draco_illixr/compression/config/compression_shared.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Encodes all attributes of a given PointCloud using one of the available
 // Kd-tree compression methods.
@@ -46,6 +46,6 @@ class KdTreeAttributesEncoder : public AttributesEncoder {
   int num_components_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_KD_TREE_ATTRIBUTES_ENCODER_H_

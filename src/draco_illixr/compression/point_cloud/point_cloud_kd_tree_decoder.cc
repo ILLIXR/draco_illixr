@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/compression/point_cloud/point_cloud_kd_tree_decoder.h"
+#include "draco_illixr/compression/point_cloud/point_cloud_kd_tree_decoder.h"
 
-#include "draco/compression/attributes/kd_tree_attributes_decoder.h"
+#include "draco_illixr/compression/attributes/kd_tree_attributes_decoder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 bool PointCloudKdTreeDecoder::DecodeGeometryData() {
   int32_t num_points;
@@ -37,4 +37,4 @@ bool PointCloudKdTreeDecoder::CreateAttributesDecoder(int32_t att_decoder_id) {
       std::unique_ptr<AttributesDecoder>(new KdTreeAttributesDecoder()));
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

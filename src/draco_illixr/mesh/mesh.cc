@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/mesh/mesh.h"
+#include "draco_illixr/mesh/mesh.h"
 
 #include <array>
 #include <memory>
@@ -20,7 +20,7 @@
 #include <utility>
 #include <vector>
 
-namespace draco {
+namespace draco_illixr {
 
 // Shortcut for typed conditionals.
 template <bool B, class T, class F>
@@ -467,4 +467,4 @@ void Mesh::ApplyPointIdDeduplication(
 }
 #endif
 
-}  // namespace draco
+}  // namespace draco_illixr

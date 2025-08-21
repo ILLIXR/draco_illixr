@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/metadata/metadata.h"
+#include "draco_illixr/metadata/metadata.h"
 
 #include <memory>
 #include <string>
 
-#include "draco/core/draco_test_base.h"
-#include "draco/metadata/geometry_metadata.h"
+#include "draco_illixr/core/draco_test_base.h"
+#include "draco_illixr/metadata/geometry_metadata.h"
 
 namespace {
 
@@ -26,8 +26,8 @@ class MetadataTest : public ::testing::Test {
  protected:
   MetadataTest() {}
 
-  draco::Metadata metadata;
-  draco::GeometryMetadata geometry_metadata;
+  draco_illixr::Metadata metadata;
+  draco_illixr::GeometryMetadata geometry_metadata;
 };
 
 TEST_F(MetadataTest, TestRemoveEntry) {
@@ -99,8 +99,8 @@ TEST_F(MetadataTest, TestBinaryEntry) {
 }
 
 TEST_F(MetadataTest, TestNestedMetadata) {
-  std::unique_ptr<draco::Metadata> sub_metadata =
-      std::unique_ptr<draco::Metadata>(new draco::Metadata());
+  std::unique_ptr<draco_illixr::Metadata> sub_metadata =
+      std::unique_ptr<draco_illixr::Metadata>(new draco_illixr::Metadata());
   sub_metadata->AddEntryInt("int", 100);
 
   metadata.AddSubMetadata("sub0", std::move(sub_metadata));
@@ -118,12 +118,12 @@ TEST_F(MetadataTest, TestNestedMetadata) {
 
 TEST_F(MetadataTest, TestHardCopyMetadata) {
   metadata.AddEntryInt("int", 100);
-  std::unique_ptr<draco::Metadata> sub_metadata =
-      std::unique_ptr<draco::Metadata>(new draco::Metadata());
+  std::unique_ptr<draco_illixr::Metadata> sub_metadata =
+      std::unique_ptr<draco_illixr::Metadata>(new draco_illixr::Metadata());
   sub_metadata->AddEntryInt("int", 200);
   metadata.AddSubMetadata("sub0", std::move(sub_metadata));
 
-  draco::Metadata copied_metadata(metadata);
+  draco_illixr::Metadata copied_metadata(metadata);
 
   int32_t int_value = 0;
   ASSERT_TRUE(copied_metadata.GetEntryInt("int", &int_value));
@@ -138,8 +138,8 @@ TEST_F(MetadataTest, TestHardCopyMetadata) {
 }
 
 TEST_F(MetadataTest, TestGeometryMetadata) {
-  std::unique_ptr<draco::AttributeMetadata> att_metadata =
-      std::unique_ptr<draco::AttributeMetadata>(new draco::AttributeMetadata());
+  std::unique_ptr<draco_illixr::AttributeMetadata> att_metadata =
+      std::unique_ptr<draco_illixr::AttributeMetadata>(new draco_illixr::AttributeMetadata());
   att_metadata->set_att_unique_id(10);
   att_metadata->AddEntryInt("int", 100);
   att_metadata->AddEntryString("name", "pos");
@@ -150,7 +150,7 @@ TEST_F(MetadataTest, TestGeometryMetadata) {
   ASSERT_NE(geometry_metadata.GetAttributeMetadataByUniqueId(10), nullptr);
   ASSERT_EQ(geometry_metadata.GetAttributeMetadataByUniqueId(1), nullptr);
 
-  const draco::AttributeMetadata *requested_att_metadata =
+  const draco_illixr::AttributeMetadata *requested_att_metadata =
       geometry_metadata.GetAttributeMetadataByStringEntry("name", "pos");
   ASSERT_NE(requested_att_metadata, nullptr);
   ASSERT_EQ(

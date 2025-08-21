@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/io/texture_io.h"
+#include "draco_illixr/io/texture_io.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 
-#include "draco/io/file_utils.h"
+#include "draco_illixr/io/file_utils.h"
 
-namespace draco {
+namespace draco_illixr {
 
 namespace {
 
@@ -89,6 +89,6 @@ Status WriteTextureToBuffer(const Texture &texture,
   return OkStatus();
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED

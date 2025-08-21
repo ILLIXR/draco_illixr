@@ -22,11 +22,11 @@
 
 #define DRACO_ANS_DIVIDE_BY_MULTIPLY 1
 #if DRACO_ANS_DIVIDE_BY_MULTIPLY
-#include "draco/core/divide.h"
+#include "draco_illixr/core/divide.h"
 #endif
-#include "draco/core/macros.h"
+#include "draco_illixr/core/macros.h"
 
-namespace draco {
+namespace draco_illixr {
 
 #if DRACO_ANS_DIVIDE_BY_MULTIPLY
 
@@ -521,6 +521,6 @@ class RAnsDecoder {
 #undef DRACO_ANS_L_BASE
 #undef DRACO_ANS_IO_BASE
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ENTROPY_ANS_H_

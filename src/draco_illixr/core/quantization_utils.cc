@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/core/quantization_utils.h"
+#include "draco_illixr/core/quantization_utils.h"
 
-namespace draco {
+namespace draco_illixr {
 
 Quantizer::Quantizer() : inverse_delta_(1.f) {}
 
@@ -39,4 +39,4 @@ bool Dequantizer::Init(float delta) {
   return true;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

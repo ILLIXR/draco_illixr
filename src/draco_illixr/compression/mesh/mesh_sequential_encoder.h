@@ -27,9 +27,9 @@
 #ifndef DRACO_COMPRESSION_MESH_MESH_SEQUENTIAL_ENCODER_H_
 #define DRACO_COMPRESSION_MESH_MESH_SEQUENTIAL_ENCODER_H_
 
-#include "draco/compression/mesh/mesh_encoder.h"
+#include "draco_illixr/compression/mesh/mesh_encoder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Class that encodes mesh data using a simple binary representation of mesh's
 // connectivity and geometry.
@@ -51,6 +51,6 @@ class MeshSequentialEncoder : public MeshEncoder {
   bool CompressAndEncodeIndices();
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_MESH_MESH_SEQUENTIAL_ENCODER_H_

@@ -19,9 +19,9 @@
 #include <utility>
 #include <vector>
 
-#include "draco/core/draco_index_type.h"
+#include "draco_illixr/core/draco_index_type.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // A wrapper around the standard std::vector that supports indexing of the
 // vector entries using the strongly typed indices as defined in
@@ -85,6 +85,6 @@ class IndexTypeVector {
   std::vector<ValueTypeT> vector_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_CORE_DRACO_INDEX_TYPE_VECTOR_H_

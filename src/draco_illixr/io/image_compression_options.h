@@ -15,17 +15,17 @@
 #ifndef DRACO_IO_IMAGE_COMPRESSION_OPTIONS_H_
 #define DRACO_IO_IMAGE_COMPRESSION_OPTIONS_H_
 
-#include "draco/draco_features.h"
+#include "draco_illixr/draco_features.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 #include <string>
 
-namespace draco {
+namespace draco_illixr {
 
 // Enum defining image compression formats.
 enum class ImageFormat { NONE, PNG, JPEG, BASIS, WEBP };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED
 #endif  // DRACO_IO_IMAGE_COMPRESSION_OPTIONS_H_

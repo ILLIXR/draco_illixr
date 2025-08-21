@@ -15,10 +15,10 @@
 #ifndef DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_PREDICTION_SCHEME_WRAP_ENCODING_TRANSFORM_H_
 #define DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_PREDICTION_SCHEME_WRAP_ENCODING_TRANSFORM_H_
 
-#include "draco/compression/attributes/prediction_schemes/prediction_scheme_wrap_transform_base.h"
-#include "draco/core/encoder_buffer.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/prediction_scheme_wrap_transform_base.h"
+#include "draco_illixr/core/encoder_buffer.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // PredictionSchemeWrapEncodingTransform wraps input values using the wrapping
 // scheme described in: prediction_scheme_wrap_transform_base.h .
@@ -76,6 +76,6 @@ class PredictionSchemeWrapEncodingTransform
   }
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_PREDICTION_SCHEME_WRAP_ENCODING_TRANSFORM_H_

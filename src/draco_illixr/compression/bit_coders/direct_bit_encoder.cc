@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/compression/bit_coders/direct_bit_encoder.h"
+#include "draco_illixr/compression/bit_coders/direct_bit_encoder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 DirectBitEncoder::DirectBitEncoder() : local_bits_(0), num_local_bits_(0) {}
 
@@ -36,4 +36,4 @@ void DirectBitEncoder::Clear() {
   num_local_bits_ = 0;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

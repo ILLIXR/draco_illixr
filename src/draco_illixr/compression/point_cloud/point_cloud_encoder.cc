@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/compression/point_cloud/point_cloud_encoder.h"
+#include "draco_illixr/compression/point_cloud/point_cloud_encoder.h"
 
-#include "draco/metadata/metadata_encoder.h"
+#include "draco_illixr/metadata/metadata_encoder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 PointCloudEncoder::PointCloudEncoder()
     : point_cloud_(nullptr), buffer_(nullptr), num_encoded_points_(0) {}
@@ -39,7 +39,7 @@ Status PointCloudEncoder::Encode(const EncoderOptions &options,
     //printf("invalid input geometry\n");
     return Status(Status::DRACO_ERROR, "Invalid input geometry.");
   }
-  
+
   DRACO_RETURN_IF_ERROR(EncodeHeader())
   //printf("finish encode header\n");
   DRACO_RETURN_IF_ERROR(EncodeMetadata())
@@ -331,4 +331,4 @@ bool PointCloudEncoder::RearrangeAttributesEncoders() {
   return true;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

@@ -16,10 +16,10 @@
 #ifndef DRACO_SCENE_SCENE_NODE_H_
 #define DRACO_SCENE_SCENE_NODE_H_
 
-#include "draco/scene/scene_indices.h"
-#include "draco/scene/trs_matrix.h"
+#include "draco_illixr/scene/scene_indices.h"
+#include "draco_illixr/scene/trs_matrix.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // This class is used to create a scene hierarchy from meshes in their local
 // space transformed into scene space.
@@ -91,15 +91,15 @@ class SceneNode {
  private:
   std::string name_;
   TrsMatrix trs_matrix_;
-  draco::MeshGroupIndex mesh_group_index_;
-  draco::SkinIndex skin_index_;
+  draco_illixr::MeshGroupIndex mesh_group_index_;
+  draco_illixr::SkinIndex skin_index_;
   std::vector<SceneNodeIndex> parents_;
   std::vector<SceneNodeIndex> children_;
   LightIndex light_index_;
   InstanceArrayIndex instance_array_index_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_SCENE_SCENE_NODE_H_
 #endif  // DRACO_TRANSCODER_SUPPORTED

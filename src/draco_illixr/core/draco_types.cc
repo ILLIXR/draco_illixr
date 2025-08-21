@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/core/draco_types.h"
+#include "draco_illixr/core/draco_types.h"
 
-namespace draco {
+namespace draco_illixr {
 
 int32_t DataTypeLength(DataType dt) {
   switch (dt) {
@@ -58,4 +58,4 @@ bool IsDataTypeIntegral(DataType dt) {
   }
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

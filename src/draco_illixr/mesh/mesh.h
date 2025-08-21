@@ -18,21 +18,21 @@
 #include <memory>
 #include <unordered_map>
 
-#include "draco/attributes/geometry_indices.h"
-#include "draco/core/hash_utils.h"
-#include "draco/core/macros.h"
-#include "draco/core/status.h"
-#include "draco/draco_features.h"
+#include "draco_illixr/attributes/geometry_indices.h"
+#include "draco_illixr/core/hash_utils.h"
+#include "draco_illixr/core/macros.h"
+#include "draco_illixr/core/status.h"
+#include "draco_illixr/draco_features.h"
 #ifdef DRACO_TRANSCODER_SUPPORTED
-#include "draco/compression/draco_compression_options.h"
-#include "draco/material/material_library.h"
-#include "draco/mesh/mesh_features.h"
-#include "draco/mesh/mesh_indices.h"
-#include "draco/metadata/structural_metadata.h"
+#include "draco_illixr/compression/draco_compression_options.h"
+#include "draco_illixr/material/material_library.h"
+#include "draco_illixr/mesh/mesh_features.h"
+#include "draco_illixr/mesh/mesh_indices.h"
+#include "draco_illixr/metadata/structural_metadata.h"
 #endif
-#include "draco/point_cloud/point_cloud.h"
+#include "draco_illixr/point_cloud/point_cloud.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // List of different variants of mesh attributes.
 enum MeshAttributeElementType {
@@ -55,11 +55,11 @@ class Mesh : public PointCloud {
   //pyh add array that contain vb_info
   typedef std::array<int,3>  VoxelBlock;
 
-  //pyh moved here for access face size 
+  //pyh moved here for access face size
   //Vertex indices valid for all attributes. Each attribute has its own map
   //that converts vertex indices into attribute indices.
   IndexTypeVector<FaceIndex, Face> faces_;
-  
+
   //pyh we add vbs information as a separate vector with 1:1 mapping with faces
   IndexTypeVector<FaceIndex, VoxelBlock> voxelblocks_;
   Mesh();
@@ -79,20 +79,20 @@ class Mesh : public PointCloud {
     }
     faces_[face_id] = face;
   }
-  //pyh 
+  //pyh
   void SetVoxelBlock(FaceIndex face_id, const VoxelBlock &VB) {
     if (face_id >= static_cast<uint32_t>(voxelblocks_.size())) {
       voxelblocks_.resize(face_id.value() + 1, VoxelBlock());
     }
     voxelblocks_[face_id] = VB;
   }
-  
+
   // Sets the total number of faces. Creates new empty faces or deletes
   // existing ones if necessary.
-  void SetNumFaces(size_t num_faces) { 
+  void SetNumFaces(size_t num_faces) {
 	faces_.resize(num_faces, Face());
 	//4/6 pyh resize VBs as well since it is a 1:1 mapping
-	voxelblocks_.resize(num_faces, VoxelBlock()); 
+	voxelblocks_.resize(num_faces, VoxelBlock());
   }
 
   FaceIndex::ValueType num_faces() const {
@@ -354,6 +354,6 @@ struct MeshHasher {
   }
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_MESH_MESH_H_

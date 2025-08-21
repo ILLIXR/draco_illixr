@@ -20,15 +20,15 @@
 #include <cmath>
 #include <limits>
 
-#include "draco/attributes/geometry_indices.h"
-#include "draco/core/data_buffer.h"
-#include "draco/core/hash_utils.h"
-#include "draco/draco_features.h"
+#include "draco_illixr/attributes/geometry_indices.h"
+#include "draco_illixr/core/data_buffer.h"
+#include "draco_illixr/core/hash_utils.h"
+#include "draco_illixr/draco_features.h"
 #ifdef DRACO_TRANSCODER_SUPPORTED
-#include "draco/core/status.h"
+#include "draco_illixr/core/status.h"
 #endif
 
-namespace draco {
+namespace draco_illixr {
 
 // The class provides access to a specific attribute which is stored in a
 // DataBuffer, such as normals or coordinates. However, the GeometryAttribute
@@ -518,6 +518,6 @@ struct GeometryAttributeTypeHasher {
   }
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_ATTRIBUTES_GEOMETRY_ATTRIBUTE_H_

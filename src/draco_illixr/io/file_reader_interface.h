@@ -5,7 +5,7 @@
 #include <cstdint>
 #include <vector>
 
-namespace draco {
+namespace draco_illixr {
 
 class FileReaderInterface {
  public:
@@ -27,6 +27,6 @@ class FileReaderInterface {
   virtual size_t GetFileSize() = 0;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_IO_FILE_READER_INTERFACE_H_

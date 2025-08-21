@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/mesh/mesh_connected_components.h"
+#include "draco_illixr/mesh/mesh_connected_components.h"
 
-namespace draco {
+namespace draco_illixr {
 
 MeshConnectedComponents::MeshConnectedComponents() {}
 
-}  // namespace draco
+}  // namespace draco_illixr

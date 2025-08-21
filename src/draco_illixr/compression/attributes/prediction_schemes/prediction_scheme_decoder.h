@@ -17,15 +17,15 @@
 
 #include <type_traits>
 
-#include "draco/compression/attributes/prediction_schemes/prediction_scheme_decoder_interface.h"
-#include "draco/compression/attributes/prediction_schemes/prediction_scheme_decoding_transform.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/prediction_scheme_decoder_interface.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/prediction_scheme_decoding_transform.h"
 
 // Prediction schemes can be used during encoding and decoding of vertex
 // attributes to predict attribute values based on the previously
 // encoded/decoded data. The differences between the original and predicted
 // attribute values are used to compute correction values that can be usually
 // encoded with fewer bits compared to the original data.
-namespace draco {
+namespace draco_illixr {
 
 // Abstract base class for typed prediction schemes. It provides basic access
 // to the encoded attribute and to the supplied prediction transform.
@@ -85,6 +85,6 @@ class PredictionSchemeDecoder : public PredictionSchemeTypedDecoderInterface<
   Transform transform_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_PREDICTION_SCHEME_DECODER_H_

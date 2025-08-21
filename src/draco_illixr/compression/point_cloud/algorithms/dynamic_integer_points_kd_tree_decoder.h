@@ -22,16 +22,16 @@
 #include <stack>
 #include <vector>
 
-#include "draco/compression/bit_coders/adaptive_rans_bit_decoder.h"
-#include "draco/compression/bit_coders/direct_bit_decoder.h"
-#include "draco/compression/bit_coders/folded_integer_bit_decoder.h"
-#include "draco/compression/bit_coders/rans_bit_decoder.h"
-#include "draco/compression/point_cloud/algorithms/point_cloud_types.h"
-#include "draco/core/bit_utils.h"
-#include "draco/core/decoder_buffer.h"
-#include "draco/core/math_utils.h"
+#include "draco_illixr/compression/bit_coders/adaptive_rans_bit_decoder.h"
+#include "draco_illixr/compression/bit_coders/direct_bit_decoder.h"
+#include "draco_illixr/compression/bit_coders/folded_integer_bit_decoder.h"
+#include "draco_illixr/compression/bit_coders/rans_bit_decoder.h"
+#include "draco_illixr/compression/point_cloud/algorithms/point_cloud_types.h"
+#include "draco_illixr/core/bit_utils.h"
+#include "draco_illixr/core/decoder_buffer.h"
+#include "draco_illixr/core/math_utils.h"
 
-namespace draco {
+namespace draco_illixr {
 
 template <int compression_level_t>
 struct DynamicIntegerPointsKdTreeDecoderCompressionPolicy
@@ -337,6 +337,6 @@ extern template class DynamicIntegerPointsKdTreeDecoder<2>;
 extern template class DynamicIntegerPointsKdTreeDecoder<4>;
 extern template class DynamicIntegerPointsKdTreeDecoder<6>;
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_POINT_CLOUD_ALGORITHMS_DYNAMIC_INTEGER_POINTS_KD_TREE_DECODER_H_

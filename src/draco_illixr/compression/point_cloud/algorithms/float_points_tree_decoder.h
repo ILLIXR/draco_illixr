@@ -17,13 +17,13 @@
 
 #include <memory>
 
-#include "draco/compression/config/compression_shared.h"
-#include "draco/compression/point_cloud/algorithms/point_cloud_compression_method.h"
-#include "draco/compression/point_cloud/algorithms/point_cloud_types.h"
-#include "draco/compression/point_cloud/algorithms/quantize_points_3.h"
-#include "draco/core/decoder_buffer.h"
+#include "draco_illixr/compression/config/compression_shared.h"
+#include "draco_illixr/compression/point_cloud/algorithms/point_cloud_compression_method.h"
+#include "draco_illixr/compression/point_cloud/algorithms/point_cloud_types.h"
+#include "draco_illixr/compression/point_cloud/algorithms/quantize_points_3.h"
+#include "draco_illixr/core/decoder_buffer.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Decodes a point cloud encoded by PointCloudTreeEncoder.
 class FloatPointsTreeDecoder {
@@ -136,6 +136,6 @@ bool FloatPointsTreeDecoder::DecodePointCloud(DecoderBuffer *buffer,
   return true;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_POINT_CLOUD_ALGORITHMS_FLOAT_POINTS_TREE_DECODER_H_

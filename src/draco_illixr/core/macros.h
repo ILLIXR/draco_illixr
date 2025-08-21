@@ -16,7 +16,7 @@
 #define DRACO_CORE_MACROS_H_
 
 #include "assert.h"
-#include "draco/draco_features.h"
+#include "draco_illixr/draco_features.h"
 
 #ifdef ANDROID_LOGGING
 #include <android/log.h>
@@ -31,7 +31,7 @@
 #endif
 
 #include <iostream>
-namespace draco {
+namespace draco_illixr {
 
 #ifndef DISALLOW_COPY_AND_ASSIGN
 #define DISALLOW_COPY_AND_ASSIGN(TypeName) \
@@ -64,7 +64,7 @@ namespace draco {
 #define VLOG(...) std::cout
 #endif
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #ifdef DRACO_DEBUG
 #define DRACO_DCHECK(x) (assert(x));

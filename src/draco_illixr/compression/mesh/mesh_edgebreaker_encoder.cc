@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/compression/mesh/mesh_edgebreaker_encoder.h"
+#include "draco_illixr/compression/mesh/mesh_edgebreaker_encoder.h"
 
-#include "draco/compression/mesh/mesh_edgebreaker_encoder_impl.h"
-#include "draco/compression/mesh/mesh_edgebreaker_traversal_predictive_encoder.h"
-#include "draco/compression/mesh/mesh_edgebreaker_traversal_valence_encoder.h"
+#include "draco_illixr/compression/mesh/mesh_edgebreaker_encoder_impl.h"
+#include "draco_illixr/compression/mesh/mesh_edgebreaker_traversal_predictive_encoder.h"
+#include "draco_illixr/compression/mesh/mesh_edgebreaker_traversal_valence_encoder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 MeshEdgebreakerEncoder::MeshEdgebreakerEncoder() {}
 
@@ -187,9 +187,9 @@ void MeshEdgebreakerEncoder::ComputeNumberOfEncodedFaces() {
   if (!corner_table) {
     return;
   }
-  //printf("num faces %u, degenerated faces %u\n", corner_table->num_faces(), corner_table->NumDegeneratedFaces()); 
+  //printf("num faces %u, degenerated faces %u\n", corner_table->num_faces(), corner_table->NumDegeneratedFaces());
   set_num_encoded_faces(corner_table->num_faces() -
                         corner_table->NumDegeneratedFaces());
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

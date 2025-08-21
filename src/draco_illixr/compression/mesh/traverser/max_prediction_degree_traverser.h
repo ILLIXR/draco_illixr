@@ -17,10 +17,10 @@
 
 #include <vector>
 
-#include "draco/compression/mesh/traverser/traverser_base.h"
-#include "draco/mesh/corner_table.h"
+#include "draco_illixr/compression/mesh/traverser/traverser_base.h"
+#include "draco_illixr/mesh/corner_table.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // PredictionDegreeTraverser provides framework for traversal over a corner
 // table data structure following paper "Multi-way Geometry Encoding" by
@@ -221,6 +221,6 @@ class MaxPredictionDegreeTraverser
   IndexTypeVector<VertexIndex, int> prediction_degree_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_MESH_TRAVERSER_MAX_PREDICTION_DEGREE_TRAVERSER_H_

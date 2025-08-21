@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/compression/attributes/attributes_decoder.h"
+#include "draco_illixr/compression/attributes/attributes_decoder.h"
 
-#include "draco/core/varint_decoding.h"
+#include "draco_illixr/core/varint_decoding.h"
 
-namespace draco {
+namespace draco_illixr {
 
 AttributesDecoder::AttributesDecoder()
     : point_cloud_decoder_(nullptr), point_cloud_(nullptr) {}
@@ -124,4 +124,4 @@ bool AttributesDecoder::DecodeAttributesDecoderData(DecoderBuffer *in_buffer) {
   return true;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

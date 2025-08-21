@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/io/ply_decoder.h"
+#include "draco_illixr/io/ply_decoder.h"
 
-#include "draco/core/draco_test_base.h"
-#include "draco/core/draco_test_utils.h"
+#include "draco_illixr/core/draco_test_base.h"
+#include "draco_illixr/core/draco_test_utils.h"
 
-namespace draco {
+namespace draco_illixr {
 
 class PlyDecoderTest : public ::testing::Test {
  protected:
@@ -91,4 +91,4 @@ TEST_F(PlyDecoderTest, TestPlyDecodingAll) {
   test_decoding("delim_test.ply");
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

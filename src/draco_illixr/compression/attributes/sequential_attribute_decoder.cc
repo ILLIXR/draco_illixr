@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/compression/attributes/sequential_attribute_decoder.h"
+#include "draco_illixr/compression/attributes/sequential_attribute_decoder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 SequentialAttributeDecoder::SequentialAttributeDecoder()
     : decoder_(nullptr), attribute_(nullptr), attribute_id_(-1) {}
@@ -115,4 +115,4 @@ bool SequentialAttributeDecoder::DecodeValues(
   return true;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

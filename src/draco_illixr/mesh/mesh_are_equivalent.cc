@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/mesh/mesh_are_equivalent.h"
+#include "draco_illixr/mesh/mesh_are_equivalent.h"
 
 #include <algorithm>
 #include <memory>
 
-#include "draco/texture/texture_utils.h"
+#include "draco_illixr/texture/texture_utils.h"
 
-namespace draco {
+namespace draco_illixr {
 
 void MeshAreEquivalent::PrintPosition(const Mesh &mesh, FaceIndex f,
                                       int32_t c) {
@@ -254,4 +254,4 @@ bool MeshAreEquivalent::FaceIndexLess::operator()(FaceIndex f0,
   return false;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

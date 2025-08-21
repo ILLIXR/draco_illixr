@@ -8,9 +8,9 @@
 #include <string>
 #include <vector>
 
-#include "draco/io/file_reader_interface.h"
+#include "draco_illixr/io/file_reader_interface.h"
 
-namespace draco {
+namespace draco_illixr {
 
 class StdioFileReader : public FileReaderInterface {
  public:
@@ -43,6 +43,6 @@ class StdioFileReader : public FileReaderInterface {
   static bool registered_in_factory_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_IO_STDIO_FILE_READER_H_

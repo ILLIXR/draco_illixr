@@ -19,7 +19,7 @@
 #include <map>
 #include <string>
 
-namespace draco {
+namespace draco_illixr {
 
 // Class for storing generic options as a <name, value> pair in a string map.
 // The API provides helper methods for directly storing values of various types
@@ -144,6 +144,6 @@ bool Options::GetVector(const std::string &name, int num_dims,
   return true;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_CORE_OPTIONS_H_

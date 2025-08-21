@@ -43,9 +43,9 @@
 #include <algorithm>
 #include <cmath>
 
-#include "draco/core/macros.h"
+#include "draco_illixr/core/macros.h"
 
-namespace draco {
+namespace draco_illixr {
 
 class OctahedronToolBox {
  public:
@@ -367,6 +367,6 @@ class OctahedronToolBox {
   float dequantization_scale_;
   int32_t center_value_;
 };
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_NORMAL_COMPRESSION_UTILS_H_

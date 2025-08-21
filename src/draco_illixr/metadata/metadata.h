@@ -21,9 +21,9 @@
 #include <string>
 #include <vector>
 
-#include "draco/core/hash_utils.h"
+#include "draco_illixr/core/hash_utils.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Class for storing a value of an entry in Metadata. Internally it is
 // represented by a buffer of data. It can be accessed by various data types,
@@ -204,6 +204,6 @@ struct MetadataHasher {
   }
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_METADATA_METADATA_H_

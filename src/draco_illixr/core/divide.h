@@ -22,7 +22,7 @@
 
 #include <climits>
 
-namespace draco {
+namespace draco_illixr {
 
 struct fastdiv_elem {
   unsigned mult;
@@ -37,6 +37,6 @@ static inline unsigned fastdiv(unsigned x, int y) {
   return (t + x) >> vp10_fastdiv_tab[y].shift;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_CORE_DIVIDE_H_

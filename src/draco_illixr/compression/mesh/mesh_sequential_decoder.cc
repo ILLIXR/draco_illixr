@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/compression/mesh/mesh_sequential_decoder.h"
+#include "draco_illixr/compression/mesh/mesh_sequential_decoder.h"
 
-#include "draco/compression/attributes/linear_sequencer.h"
-#include "draco/compression/attributes/sequential_attribute_decoders_controller.h"
-#include "draco/compression/entropy/symbol_decoding.h"
-#include "draco/core/varint_decoding.h"
+#include "draco_illixr/compression/attributes/linear_sequencer.h"
+#include "draco_illixr/compression/attributes/sequential_attribute_decoders_controller.h"
+#include "draco_illixr/compression/entropy/symbol_decoding.h"
+#include "draco_illixr/core/varint_decoding.h"
 
-namespace draco {
+namespace draco_illixr {
 
 MeshSequentialDecoder::MeshSequentialDecoder() {}
 
@@ -170,4 +170,4 @@ bool MeshSequentialDecoder::DecodeAndDecompressIndices(uint32_t num_faces) {
   return true;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

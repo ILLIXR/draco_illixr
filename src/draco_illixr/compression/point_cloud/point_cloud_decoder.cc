@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/compression/point_cloud/point_cloud_decoder.h"
+#include "draco_illixr/compression/point_cloud/point_cloud_decoder.h"
 
-#include "draco/metadata/metadata_decoder.h"
+#include "draco_illixr/metadata/metadata_decoder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 PointCloudDecoder::PointCloudDecoder()
     : point_cloud_(nullptr),
@@ -196,4 +196,4 @@ const PointAttribute *PointCloudDecoder::GetPortableAttribute(
       parent_att_id);
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

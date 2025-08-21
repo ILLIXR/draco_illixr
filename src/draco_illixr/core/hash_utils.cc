@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/core/hash_utils.h"
+#include "draco_illixr/core/hash_utils.h"
 
 #include <cstddef>
 #include <functional>
 #include <limits>
 
-namespace draco {
+namespace draco_illixr {
 
 // Will never return 1 or 0.
 uint64_t FingerprintString(const char *s, size_t len) {
@@ -55,4 +55,4 @@ uint64_t FingerprintString(const char *s, size_t len) {
   }
   return hash;
 }
-}  // namespace draco
+}  // namespace draco_illixr

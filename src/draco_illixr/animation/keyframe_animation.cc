@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/animation/keyframe_animation.h"
+#include "draco_illixr/animation/keyframe_animation.h"
 
-namespace draco {
+namespace draco_illixr {
 
 KeyframeAnimation::KeyframeAnimation() {}
 
@@ -51,4 +51,4 @@ bool KeyframeAnimation::SetTimestamps(
   return true;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

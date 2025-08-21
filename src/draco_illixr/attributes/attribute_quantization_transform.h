@@ -17,11 +17,11 @@
 
 #include <vector>
 
-#include "draco/attributes/attribute_transform.h"
-#include "draco/attributes/point_attribute.h"
-#include "draco/core/encoder_buffer.h"
+#include "draco_illixr/attributes/attribute_transform.h"
+#include "draco_illixr/attributes/point_attribute.h"
+#include "draco_illixr/core/encoder_buffer.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Attribute transform for quantized attributes.
 class AttributeQuantizationTransform : public AttributeTransform {
@@ -97,6 +97,6 @@ class AttributeQuantizationTransform : public AttributeTransform {
   float range_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_ATTRIBUTE_DEQUANTIZATION_TRANSFORM_H_

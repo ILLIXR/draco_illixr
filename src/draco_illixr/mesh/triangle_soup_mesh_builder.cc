@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/mesh/triangle_soup_mesh_builder.h"
+#include "draco_illixr/mesh/triangle_soup_mesh_builder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 void TriangleSoupMeshBuilder::Start(int num_faces) {
   mesh_ = std::unique_ptr<Mesh>(new Mesh());
@@ -96,4 +96,4 @@ std::unique_ptr<Mesh> TriangleSoupMeshBuilder::Finalize() {
   return std::move(mesh_);
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

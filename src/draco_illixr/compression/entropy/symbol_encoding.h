@@ -15,11 +15,11 @@
 #ifndef DRACO_COMPRESSION_ENTROPY_SYMBOL_ENCODING_H_
 #define DRACO_COMPRESSION_ENTROPY_SYMBOL_ENCODING_H_
 
-#include "draco/compression/config/compression_shared.h"
-#include "draco/core/encoder_buffer.h"
-#include "draco/core/options.h"
+#include "draco_illixr/compression/config/compression_shared.h"
+#include "draco_illixr/core/encoder_buffer.h"
+#include "draco_illixr/core/options.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Encodes an array of symbols using an entropy coding. This function
 // automatically decides whether to encode the symbol values using bit
@@ -42,6 +42,6 @@ void SetSymbolEncodingMethod(Options *options, SymbolCodingMethod method);
 // Returns false if an invalid level has been set.
 bool SetSymbolEncodingCompressionLevel(Options *options, int compression_level);
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ENTROPY_SYMBOL_ENCODING_H_

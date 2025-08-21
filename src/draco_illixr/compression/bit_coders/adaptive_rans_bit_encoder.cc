@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/compression/bit_coders/adaptive_rans_bit_encoder.h"
+#include "draco_illixr/compression/bit_coders/adaptive_rans_bit_encoder.h"
 
-#include "draco/compression/bit_coders/adaptive_rans_bit_coding_shared.h"
+#include "draco_illixr/compression/bit_coders/adaptive_rans_bit_coding_shared.h"
 
-namespace draco {
+namespace draco_illixr {
 
 AdaptiveRAnsBitEncoder::AdaptiveRAnsBitEncoder() {}
 
@@ -56,4 +56,4 @@ void AdaptiveRAnsBitEncoder::EndEncoding(EncoderBuffer *target_buffer) {
 
 void AdaptiveRAnsBitEncoder::Clear() { bits_.clear(); }
 
-}  // namespace draco
+}  // namespace draco_illixr

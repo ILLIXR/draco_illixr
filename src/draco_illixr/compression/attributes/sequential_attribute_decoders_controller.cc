@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/compression/attributes/sequential_attribute_decoders_controller.h"
+#include "draco_illixr/compression/attributes/sequential_attribute_decoders_controller.h"
 #ifdef DRACO_NORMAL_ENCODING_SUPPORTED
-#include "draco/compression/attributes/sequential_normal_attribute_decoder.h"
+#include "draco_illixr/compression/attributes/sequential_normal_attribute_decoder.h"
 #endif
-#include "draco/compression/attributes/sequential_quantization_attribute_decoder.h"
-#include "draco/compression/config/compression_shared.h"
+#include "draco_illixr/compression/attributes/sequential_quantization_attribute_decoder.h"
+#include "draco_illixr/compression/config/compression_shared.h"
 
-namespace draco {
+namespace draco_illixr {
 
 SequentialAttributeDecodersController::SequentialAttributeDecodersController(
     std::unique_ptr<PointsSequencer> sequencer)
@@ -146,4 +146,4 @@ SequentialAttributeDecodersController::CreateSequentialDecoder(
   return nullptr;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

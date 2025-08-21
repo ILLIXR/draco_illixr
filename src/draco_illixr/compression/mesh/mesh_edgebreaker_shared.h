@@ -15,9 +15,9 @@
 #ifndef DRACO_COMPRESSION_MESH_MESH_EDGEBREAKER_SHARED_H_
 #define DRACO_COMPRESSION_MESH_MESH_EDGEBREAKER_SHARED_H_
 
-#include <stdint.h>
+#include <cstdint>
 
-namespace draco {
+namespace draco_illixr {
 
 // Shared declarations used by both edgebreaker encoder and decoder.
 
@@ -124,6 +124,6 @@ enum EdgebreakerValenceCodingMode {
   EDGEBREAKER_VALENCE_MODE_2_7 = 0,  // Use contexts for valences in range 2-7.
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_MESH_MESH_EDGEBREAKER_SHARED_H_

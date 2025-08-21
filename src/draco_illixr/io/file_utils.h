@@ -15,10 +15,11 @@
 #ifndef DRACO_IO_FILE_UTILS_H_
 #define DRACO_IO_FILE_UTILS_H_
 
+#include <cstdint>
 #include <string>
 #include <vector>
 
-namespace draco {
+namespace draco_illixr {
 
 // Splits full path to a file into a folder path + file name.
 // |out_folder_path| will contain the path to the folder containing the file
@@ -53,14 +54,14 @@ std::string RemoveFileExtension(const std::string &filename);
 std::string GetFullPath(const std::string &input_file_relative_path,
                         const std::string &sibling_file_full_path);
 
-// Convenience method. Uses draco::FileReaderFactory internally. Reads contents
+// Convenience method. Uses draco_illixr::FileReaderFactory internally. Reads contents
 // of file referenced by |file_name| into |buffer| and returns true upon
 // success.
 bool ReadFileToBuffer(const std::string &file_name, std::vector<char> *buffer);
 bool ReadFileToBuffer(const std::string &file_name,
                       std::vector<uint8_t> *buffer);
 
-// Convenience method. Uses draco::FileWriterFactory internally. Writes contents
+// Convenience method. Uses draco_illixr::FileWriterFactory internally. Writes contents
 // of |buffer| to file referred to by |file_name|. File is overwritten if it
 // exists. Returns true after successful write.
 bool WriteBufferToFile(const char *buffer, size_t buffer_size,
@@ -70,11 +71,11 @@ bool WriteBufferToFile(const unsigned char *buffer, size_t buffer_size,
 bool WriteBufferToFile(const void *buffer, size_t buffer_size,
                        const std::string &file_name);
 
-// Convenience method. Uses draco::FileReaderFactory internally. Returns size of
+// Convenience method. Uses draco_illixr::FileReaderFactory internally. Returns size of
 // file referenced by |file_name|. Returns 0 when referenced file is empty or
 // does not exist.
 size_t GetFileSize(const std::string &file_name);
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_IO_FILE_UTILS_H_

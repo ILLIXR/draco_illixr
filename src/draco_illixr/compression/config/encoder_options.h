@@ -15,12 +15,12 @@
 #ifndef DRACO_COMPRESSION_CONFIG_ENCODER_OPTIONS_H_
 #define DRACO_COMPRESSION_CONFIG_ENCODER_OPTIONS_H_
 
-#include "draco/attributes/geometry_attribute.h"
-#include "draco/compression/config/draco_options.h"
-#include "draco/compression/config/encoding_features.h"
-#include "draco/draco_features.h"
+#include "draco_illixr/attributes/geometry_attribute.h"
+#include "draco_illixr/compression/config/draco_options.h"
+#include "draco_illixr/compression/config/encoding_features.h"
+#include "draco_illixr/draco_features.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // EncoderOptions allow users to specify so called feature options that are used
 // to inform the encoder which encoding features can be used (i.e. which
@@ -96,6 +96,6 @@ class EncoderOptionsBase : public DracoOptions<AttributeKeyT> {
 // Used to set options that are specific to a given geometry.
 typedef EncoderOptionsBase<int32_t> EncoderOptions;
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_CONFIG_ENCODER_OPTIONS_H_

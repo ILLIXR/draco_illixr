@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/core/data_buffer.h"
+#include "draco_illixr/core/data_buffer.h"
 
 #include <algorithm>
 
-namespace draco {
+namespace draco_illixr {
 
 DataBuffer::DataBuffer() {}
 
@@ -58,4 +58,4 @@ void DataBuffer::WriteDataToStream(std::ostream &stream) {
   stream.write(reinterpret_cast<char *>(data_.data()), data_.size());
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

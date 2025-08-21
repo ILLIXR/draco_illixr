@@ -17,10 +17,10 @@
 
 #include <vector>
 
-#include "draco/compression/mesh/traverser/traverser_base.h"
-#include "draco/mesh/corner_table.h"
+#include "draco_illixr/compression/mesh/traverser/traverser_base.h"
+#include "draco_illixr/mesh/corner_table.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Basic traverser that traverses a mesh in a DFS like fashion using the
 // CornerTable data structure. The necessary bookkeeping is available via the
@@ -167,6 +167,6 @@ class DepthFirstTraverser
   std::vector<CornerIndex> corner_traversal_stack_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_MESH_TRAVERSER_DEPTH_FIRST_TRAVERSER_H_

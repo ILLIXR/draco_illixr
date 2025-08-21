@@ -4,7 +4,7 @@
 // Deprecated: DecoderBuffer is no longer supported and will be removed in
 //             future releases. Please refer to Decoder declaration below for
 //             new decoding functions that do not use DecoderBuffer.
-[Prefix="draco::"]
+[Prefix="draco_illixr::"]
 interface DecoderBuffer {
   void DecoderBuffer();
   void Init([Const] byte[] data, unsigned long data_size);
@@ -12,13 +12,13 @@ interface DecoderBuffer {
 
 // TODO(fgalligan): Can we remove this?
 enum draco_AttributeTransformType {
-  "draco::ATTRIBUTE_INVALID_TRANSFORM",
-  "draco::ATTRIBUTE_NO_TRANSFORM",
-  "draco::ATTRIBUTE_QUANTIZATION_TRANSFORM",
-  "draco::ATTRIBUTE_OCTAHEDRON_TRANSFORM"
+  "draco_illixr::ATTRIBUTE_INVALID_TRANSFORM",
+  "draco_illixr::ATTRIBUTE_NO_TRANSFORM",
+  "draco_illixr::ATTRIBUTE_QUANTIZATION_TRANSFORM",
+  "draco_illixr::ATTRIBUTE_OCTAHEDRON_TRANSFORM"
 };
 
-[Prefix="draco::"]
+[Prefix="draco_illixr::"]
 interface AttributeTransformData {
   void AttributeTransformData();
   long transform_type();
@@ -33,34 +33,34 @@ enum draco_GeometryAttribute_Type {
   "draco_GeometryAttribute::GENERIC"
 };
 
-[Prefix="draco::"]
+[Prefix="draco_illixr::"]
 interface GeometryAttribute {
   void GeometryAttribute();
 };
 
 enum draco_EncodedGeometryType {
-  "draco::INVALID_GEOMETRY_TYPE",
-  "draco::POINT_CLOUD",
-  "draco::TRIANGULAR_MESH"
+  "draco_illixr::INVALID_GEOMETRY_TYPE",
+  "draco_illixr::POINT_CLOUD",
+  "draco_illixr::TRIANGULAR_MESH"
 };
 
 enum draco_DataType {
-  "draco::DT_INVALID",
-  "draco::DT_INT8",
-  "draco::DT_UINT8",
-  "draco::DT_INT16",
-  "draco::DT_UINT16",
-  "draco::DT_INT32",
-  "draco::DT_UINT32",
-  "draco::DT_INT64",
-  "draco::DT_UINT64",
-  "draco::DT_FLOAT32",
-  "draco::DT_FLOAT64",
-  "draco::DT_BOOL",
-  "draco::DT_TYPES_COUNT"
+  "draco_illixr::DT_INVALID",
+  "draco_illixr::DT_INT8",
+  "draco_illixr::DT_UINT8",
+  "draco_illixr::DT_INT16",
+  "draco_illixr::DT_UINT16",
+  "draco_illixr::DT_INT32",
+  "draco_illixr::DT_UINT32",
+  "draco_illixr::DT_INT64",
+  "draco_illixr::DT_UINT64",
+  "draco_illixr::DT_FLOAT32",
+  "draco_illixr::DT_FLOAT64",
+  "draco_illixr::DT_BOOL",
+  "draco_illixr::DT_TYPES_COUNT"
 };
 
-[Prefix="draco::"]
+[Prefix="draco_illixr::"]
 interface PointAttribute {
   void PointAttribute();
   long size();
@@ -76,7 +76,7 @@ interface PointAttribute {
   long unique_id();
 };
 
-[Prefix="draco::"]
+[Prefix="draco_illixr::"]
 interface AttributeQuantizationTransform {
   void AttributeQuantizationTransform();
   boolean InitFromAttribute([Ref, Const] PointAttribute att);
@@ -85,7 +85,7 @@ interface AttributeQuantizationTransform {
   float range();
 };
 
-[Prefix="draco::"]
+[Prefix="draco_illixr::"]
 interface AttributeOctahedronTransform {
   void AttributeOctahedronTransform();
   boolean InitFromAttribute([Ref, Const] PointAttribute att);
@@ -93,7 +93,7 @@ interface AttributeOctahedronTransform {
 };
 
 
-[Prefix="draco::"]
+[Prefix="draco_illixr::"]
 interface PointCloud {
   void PointCloud();
 
@@ -101,7 +101,7 @@ interface PointCloud {
   long num_points();
 };
 
-[Prefix="draco::"]
+[Prefix="draco_illixr::"]
 interface Mesh : PointCloud {
   void Mesh();
   long num_faces();
@@ -111,7 +111,7 @@ interface Mesh : PointCloud {
   long num_points();
 };
 
-[Prefix="draco::"]
+[Prefix="draco_illixr::"]
 interface Metadata {
   void Metadata();
 };
@@ -125,7 +125,7 @@ enum draco_StatusCode {
   "draco_Status::UNKNOWN_VERSION",
 };
 
-[Prefix="draco::"]
+[Prefix="draco_illixr::"]
 interface Status {
   draco_StatusCode code();
   boolean ok();

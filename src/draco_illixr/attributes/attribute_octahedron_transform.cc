@@ -13,12 +13,12 @@
 // limitations under the License.
 //
 
-#include "draco/attributes/attribute_octahedron_transform.h"
+#include "draco_illixr/attributes/attribute_octahedron_transform.h"
 
-#include "draco/attributes/attribute_transform_type.h"
-#include "draco/compression/attributes/normal_compression_utils.h"
+#include "draco_illixr/attributes/attribute_transform_type.h"
+#include "draco_illixr/compression/attributes/normal_compression_utils.h"
 
-namespace draco {
+namespace draco_illixr {
 
 bool AttributeOctahedronTransform::InitFromAttribute(
     const PointAttribute &attribute) {
@@ -142,4 +142,4 @@ bool AttributeOctahedronTransform::GeneratePortableAttribute(
   return true;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

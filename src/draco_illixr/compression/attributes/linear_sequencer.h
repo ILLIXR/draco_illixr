@@ -15,9 +15,9 @@
 #ifndef DRACO_COMPRESSION_ATTRIBUTES_LINEAR_SEQUENCER_H_
 #define DRACO_COMPRESSION_ATTRIBUTES_LINEAR_SEQUENCER_H_
 
-#include "draco/compression/attributes/points_sequencer.h"
+#include "draco_illixr/compression/attributes/points_sequencer.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // A simple sequencer that generates a linear sequence [0, num_points - 1].
 // I.e., the order of the points is preserved for the input data.
@@ -46,6 +46,6 @@ class LinearSequencer : public PointsSequencer {
   int32_t num_points_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_LINEAR_SEQUENCER_H_

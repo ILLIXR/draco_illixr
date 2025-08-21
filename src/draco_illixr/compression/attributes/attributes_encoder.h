@@ -15,11 +15,11 @@
 #ifndef DRACO_COMPRESSION_ATTRIBUTES_ATTRIBUTES_ENCODER_H_
 #define DRACO_COMPRESSION_ATTRIBUTES_ATTRIBUTES_ENCODER_H_
 
-#include "draco/attributes/point_attribute.h"
-#include "draco/core/encoder_buffer.h"
-#include "draco/point_cloud/point_cloud.h"
+#include "draco_illixr/attributes/point_attribute.h"
+#include "draco_illixr/core/encoder_buffer.h"
+#include "draco_illixr/point_cloud/point_cloud.h"
 
-namespace draco {
+namespace draco_illixr {
 
 class PointCloudEncoder;
 
@@ -115,13 +115,13 @@ class AttributesEncoder {
     return static_cast<uint32_t>(point_attribute_ids_.size());
   }
   PointCloudEncoder *encoder() const { //printf("encoder() triggered here\n");
-      return point_cloud_encoder_; 
+      return point_cloud_encoder_;
   }
 
  protected:
   // Transforms the input attribute data into a form that should be losslessly
   // encoded (transform itself can be lossy).
-  virtual bool TransformAttributesToPortableFormat() { 
+  virtual bool TransformAttributesToPortableFormat() {
       printf("reached here\n");
       return true;
   }
@@ -158,6 +158,6 @@ class AttributesEncoder {
   const PointCloud *point_cloud_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_ATTRIBUTES_ENCODER_H_

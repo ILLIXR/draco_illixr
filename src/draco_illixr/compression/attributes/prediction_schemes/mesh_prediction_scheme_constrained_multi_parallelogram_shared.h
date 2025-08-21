@@ -15,7 +15,7 @@
 #ifndef DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_MESH_PREDICTION_SCHEME_CONSTRAINED_MULTI_PARALLELOGRAM_SHARED_H_
 #define DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_MESH_PREDICTION_SCHEME_CONSTRAINED_MULTI_PARALLELOGRAM_SHARED_H_
 
-namespace draco {
+namespace draco_illixr {
 
 // Data shared between constrained multi-parallelogram encoder and decoder.
 namespace constrained_multi_parallelogram {
@@ -29,6 +29,6 @@ enum Mode {
 static constexpr int kMaxNumParallelograms = 4;
 
 }  // namespace constrained_multi_parallelogram
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_MESH_PREDICTION_SCHEME_CONSTRAINED_MULTI_PARALLELOGRAM_SHARED_H_

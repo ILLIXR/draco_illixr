@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/metadata/structural_metadata.h"
+#include "draco_illixr/metadata/structural_metadata.h"
 
 #include <memory>
 #include <utility>
 #include <vector>
 
-#include "draco/core/draco_test_base.h"
-#include "draco/core/draco_test_utils.h"
+#include "draco_illixr/core/draco_test_base.h"
+#include "draco_illixr/core/draco_test_utils.h"
 
 namespace {
 
@@ -27,34 +27,34 @@ namespace {
 
 TEST(StructuralMetadataTest, TestCopy) {
   // Tests copying of structural metadata.
-  draco::StructuralMetadata structural_metadata;
+  draco_illixr::StructuralMetadata structural_metadata;
 
   // Add property table schema to structural metadata.
-  draco::PropertyTable::Schema schema;
+  draco_illixr::PropertyTable::Schema schema;
   schema.json.SetString("Culture");
   structural_metadata.SetPropertyTableSchema(schema);
 
   // Add property table to structural metadata.
-  std::unique_ptr<draco::PropertyTable> table(new draco::PropertyTable());
+  std::unique_ptr<draco_illixr::PropertyTable> table(new draco_illixr::PropertyTable());
   table->SetName("Just Read The Instructions");
   table->SetClass("General Contact Unit");
   table->SetCount(456);
   {
-    std::unique_ptr<draco::PropertyTable::Property> property(
-        new draco::PropertyTable::Property());
+    std::unique_ptr<draco_illixr::PropertyTable::Property> property(
+        new draco_illixr::PropertyTable::Property());
     property->SetName("Determinist");
     table->AddProperty(std::move(property));
   }
   {
-    std::unique_ptr<draco::PropertyTable::Property> property(
-        new draco::PropertyTable::Property());
+    std::unique_ptr<draco_illixr::PropertyTable::Property> property(
+        new draco_illixr::PropertyTable::Property());
     property->SetName("Revisionist");
     table->AddProperty(std::move(property));
   }
   ASSERT_EQ(structural_metadata.AddPropertyTable(std::move(table)), 0);
 
   // Copy the structural metadata.
-  draco::StructuralMetadata copy;
+  draco_illixr::StructuralMetadata copy;
   copy.Copy(structural_metadata);
 
   // Check that the structural metadata property table schema has been copied.
@@ -72,25 +72,25 @@ TEST(StructuralMetadataTest, TestCopy) {
 
 TEST(StructuralMetadataTest, TestPropertyTables) {
   // Tests adding and removing of property tables to structural metadata.
-  draco::StructuralMetadata structural_metadata;
+  draco_illixr::StructuralMetadata structural_metadata;
 
   // Check that property tables can be added.
   {
-    std::unique_ptr<draco::PropertyTable> table(new draco::PropertyTable());
+    std::unique_ptr<draco_illixr::PropertyTable> table(new draco_illixr::PropertyTable());
     table->SetName("Just Read The Instructions");
     ASSERT_EQ(structural_metadata.AddPropertyTable(std::move(table)), 0);
   }
   {
-    std::unique_ptr<draco::PropertyTable> table(new draco::PropertyTable());
+    std::unique_ptr<draco_illixr::PropertyTable> table(new draco_illixr::PropertyTable());
     table->SetName("So Much For Subtlety");
     ASSERT_EQ(structural_metadata.AddPropertyTable(std::move(table)), 1);
   }
   {
-    std::unique_ptr<draco::PropertyTable> table(new draco::PropertyTable());
+    std::unique_ptr<draco_illixr::PropertyTable> table(new draco_illixr::PropertyTable());
     table->SetName("Of Course I Still Love You");
     ASSERT_EQ(structural_metadata.AddPropertyTable(std::move(table)), 2);
   }
-  draco::StructuralMetadata &sm = structural_metadata;
+  draco_illixr::StructuralMetadata &sm = structural_metadata;
 
   // Check that the property tables can be removed.
   ASSERT_EQ(sm.NumPropertyTables(), 3);
@@ -113,24 +113,24 @@ TEST(StructuralMetadataTest, TestPropertyTables) {
 
 TEST(StructuralMetadataTest, TestCompare) {
   // Test comparison of two structural metadata objects.
-  typedef draco::PropertyTable PropertyTable;
+  typedef draco_illixr::PropertyTable PropertyTable;
   {
     // Compare the same structural metadata object.
-    draco::StructuralMetadata a;
+    draco_illixr::StructuralMetadata a;
     ASSERT_TRUE(a == a);
     ASSERT_FALSE(a != a);
   }
   {
     // Compare two identical structural metadata objects.
-    draco::StructuralMetadata a;
-    draco::StructuralMetadata b;
+    draco_illixr::StructuralMetadata a;
+    draco_illixr::StructuralMetadata b;
     ASSERT_TRUE(a == b);
     ASSERT_FALSE(a != b);
   }
   {
     // Compare two structural metadata objects with different schemas.
-    draco::StructuralMetadata a;
-    draco::StructuralMetadata b;
+    draco_illixr::StructuralMetadata a;
+    draco_illixr::StructuralMetadata b;
     PropertyTable::Schema s1;
     PropertyTable::Schema s2;
     s1.json.SetString("one");
@@ -142,8 +142,8 @@ TEST(StructuralMetadataTest, TestCompare) {
   }
   {
     // Compare two objects with different number of proeprty tables.
-    draco::StructuralMetadata a;
-    draco::StructuralMetadata b;
+    draco_illixr::StructuralMetadata a;
+    draco_illixr::StructuralMetadata b;
     a.AddPropertyTable(std::unique_ptr<PropertyTable>(new PropertyTable()));
     b.AddPropertyTable(std::unique_ptr<PropertyTable>(new PropertyTable()));
     b.AddPropertyTable(std::unique_ptr<PropertyTable>(new PropertyTable()));
@@ -152,8 +152,8 @@ TEST(StructuralMetadataTest, TestCompare) {
   }
   {
     // Compare two objects with different proeprty tables.
-    draco::StructuralMetadata a;
-    draco::StructuralMetadata b;
+    draco_illixr::StructuralMetadata a;
+    draco_illixr::StructuralMetadata b;
     auto p1 = std::unique_ptr<PropertyTable>(new PropertyTable());
     auto p2 = std::unique_ptr<PropertyTable>(new PropertyTable());
     p1->SetName("one");

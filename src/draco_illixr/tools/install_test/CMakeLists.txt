@@ -17,9 +17,9 @@ project(install_test C CXX)
 
 include(GNUInstallDirs)
 
-find_package(draco REQUIRED CONFIG)
+find_package(draco_illixr REQUIRED CONFIG)
 
 add_executable(install_check main.cc)
-target_link_libraries(install_check PRIVATE draco::draco)
+target_link_libraries(install_check PRIVATE draco_illixr::draco)
 
 install(TARGETS install_check DESTINATION ${CMAKE_INSTALL_BINDIR})

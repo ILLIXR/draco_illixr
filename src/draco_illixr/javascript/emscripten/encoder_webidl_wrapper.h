@@ -17,17 +17,17 @@
 
 #include <vector>
 
-#include "draco/attributes/point_attribute.h"
-#include "draco/compression/config/compression_shared.h"
-#include "draco/compression/config/encoder_options.h"
-#include "draco/compression/encode.h"
-#include "draco/compression/expert_encode.h"
-#include "draco/mesh/mesh.h"
+#include "draco_illixr/attributes/point_attribute.h"
+#include "draco_illixr/compression/config/compression_shared.h"
+#include "draco_illixr/compression/config/encoder_options.h"
+#include "draco_illixr/compression/encode.h"
+#include "draco_illixr/compression/expert_encode.h"
+#include "draco_illixr/mesh/mesh.h"
 
-typedef draco::GeometryAttribute draco_GeometryAttribute;
-typedef draco::GeometryAttribute::Type draco_GeometryAttribute_Type;
-typedef draco::EncodedGeometryType draco_EncodedGeometryType;
-typedef draco::MeshEncoderMethod draco_MeshEncoderMethod;
+typedef draco_illixr::GeometryAttribute draco_GeometryAttribute;
+typedef draco_illixr::GeometryAttribute::Type draco_GeometryAttribute_Type;
+typedef draco_illixr::EncodedGeometryType draco_EncodedGeometryType;
+typedef draco_illixr::MeshEncoderMethod draco_MeshEncoderMethod;
 
 class DracoInt8Array {
  public:
@@ -44,60 +44,60 @@ class DracoInt8Array {
 class MetadataBuilder {
  public:
   MetadataBuilder();
-  bool AddStringEntry(draco::Metadata *metadata, const char *entry_name,
+  bool AddStringEntry(draco_illixr::Metadata *metadata, const char *entry_name,
                       const char *entry_value);
-  bool AddIntEntry(draco::Metadata *metadata, const char *entry_name,
+  bool AddIntEntry(draco_illixr::Metadata *metadata, const char *entry_name,
                    long entry_value);
-  bool AddIntEntryArray(draco::Metadata *metadata, const char *entry_name,
+  bool AddIntEntryArray(draco_illixr::Metadata *metadata, const char *entry_name,
                         const int32_t *entry_values, int32_t num_values);
-  bool AddDoubleEntry(draco::Metadata *metadata, const char *entry_name,
+  bool AddDoubleEntry(draco_illixr::Metadata *metadata, const char *entry_name,
                       double entry_value);
 };
 
 class PointCloudBuilder {
  public:
   PointCloudBuilder() {}
-  int AddFloatAttribute(draco::PointCloud *pc,
+  int AddFloatAttribute(draco_illixr::PointCloud *pc,
                         draco_GeometryAttribute_Type type, long num_vertices,
                         long num_components, const float *att_values);
-  int AddInt8Attribute(draco::PointCloud *pc, draco_GeometryAttribute_Type type,
+  int AddInt8Attribute(draco_illixr::PointCloud *pc, draco_GeometryAttribute_Type type,
                        long num_vertices, long num_components,
                        const char *att_values);
-  int AddUInt8Attribute(draco::PointCloud *pc,
+  int AddUInt8Attribute(draco_illixr::PointCloud *pc,
                         draco_GeometryAttribute_Type type, long num_vertices,
                         long num_components, const uint8_t *att_values);
-  int AddInt16Attribute(draco::PointCloud *pc,
+  int AddInt16Attribute(draco_illixr::PointCloud *pc,
                         draco_GeometryAttribute_Type type, long num_vertices,
                         long num_components, const int16_t *att_values);
-  int AddUInt16Attribute(draco::PointCloud *pc,
+  int AddUInt16Attribute(draco_illixr::PointCloud *pc,
                          draco_GeometryAttribute_Type type, long num_vertices,
                          long num_components, const uint16_t *att_values);
-  int AddInt32Attribute(draco::PointCloud *pc,
+  int AddInt32Attribute(draco_illixr::PointCloud *pc,
                         draco_GeometryAttribute_Type type, long num_vertices,
                         long num_components, const int32_t *att_values);
-  int AddUInt32Attribute(draco::PointCloud *pc,
+  int AddUInt32Attribute(draco_illixr::PointCloud *pc,
                          draco_GeometryAttribute_Type type, long num_vertices,
                          long num_components, const uint32_t *att_values);
-  bool SetMetadataForAttribute(draco::PointCloud *pc, long attribute_id,
-                               const draco::Metadata *metadata);
-  bool AddMetadata(draco::PointCloud *pc, const draco::Metadata *metadata);
+  bool SetMetadataForAttribute(draco_illixr::PointCloud *pc, long attribute_id,
+                               const draco_illixr::Metadata *metadata);
+  bool AddMetadata(draco_illixr::PointCloud *pc, const draco_illixr::Metadata *metadata);
 
  private:
   template <typename DataTypeT>
-  int AddAttribute(draco::PointCloud *pc, draco_GeometryAttribute_Type type,
+  int AddAttribute(draco_illixr::PointCloud *pc, draco_GeometryAttribute_Type type,
                    long num_vertices, long num_components,
                    const DataTypeT *att_values,
-                   draco::DataType draco_data_type) {
+                   draco_illixr::DataType draco_data_type) {
     if (!pc) {
       return -1;
     }
-    std::unique_ptr<draco::PointAttribute> att(new draco::PointAttribute());
+    std::unique_ptr<draco_illixr::PointAttribute> att(new draco_illixr::PointAttribute());
     att->Init(type, num_components, draco_data_type,
               /* normalized */ false, num_vertices);
     const int att_id = pc->AddAttribute(std::move(att));
-    draco::PointAttribute *const att_ptr = pc->attribute(att_id);
+    draco_illixr::PointAttribute *const att_ptr = pc->attribute(att_id);
 
-    for (draco::PointIndex i(0); i < num_vertices; ++i) {
+    for (draco_illixr::PointIndex i(0); i < num_vertices; ++i) {
       att_ptr->SetAttributeValue(att_ptr->mapped_index(i),
                                  &att_values[i.value() * num_components]);
     }
@@ -116,22 +116,22 @@ class MeshBuilder : public PointCloudBuilder {
  public:
   MeshBuilder();
 
-  bool AddFacesToMesh(draco::Mesh *mesh, long num_faces, const int *faces);
+  bool AddFacesToMesh(draco_illixr::Mesh *mesh, long num_faces, const int *faces);
 
   // Deprecated: Use AddFloatAttribute() instead.
-  int AddFloatAttributeToMesh(draco::Mesh *mesh,
+  int AddFloatAttributeToMesh(draco_illixr::Mesh *mesh,
                               draco_GeometryAttribute_Type type,
                               long num_vertices, long num_components,
                               const float *att_values);
 
   // Deprecated: Use AddInt32Attribute() instead.
-  int AddInt32AttributeToMesh(draco::Mesh *mesh,
+  int AddInt32AttributeToMesh(draco_illixr::Mesh *mesh,
                               draco_GeometryAttribute_Type type,
                               long num_vertices, long num_components,
                               const int32_t *att_values);
 
   // Deprecated: Use AddMetadata() instead.
-  bool AddMetadataToMesh(draco::Mesh *mesh, const draco::Metadata *metadata);
+  bool AddMetadataToMesh(draco_illixr::Mesh *mesh, const draco_illixr::Metadata *metadata);
 };
 
 class Encoder {
@@ -148,21 +148,21 @@ class Encoder {
   void SetSpeedOptions(long encoding_speed, long decoding_speed);
   void SetTrackEncodedProperties(bool flag);
 
-  int EncodeMeshToDracoBuffer(draco::Mesh *mesh, DracoInt8Array *buffer);
+  int EncodeMeshToDracoBuffer(draco_illixr::Mesh *mesh, DracoInt8Array *buffer);
 
-  int EncodePointCloudToDracoBuffer(draco::PointCloud *pc,
+  int EncodePointCloudToDracoBuffer(draco_illixr::PointCloud *pc,
                                     bool deduplicate_values,
                                     DracoInt8Array *buffer);
   int GetNumberOfEncodedPoints();
   int GetNumberOfEncodedFaces();
 
  private:
-  draco::Encoder encoder_;
+  draco_illixr::Encoder encoder_;
 };
 
 class ExpertEncoder {
  public:
-  ExpertEncoder(draco::PointCloud *pc);
+  ExpertEncoder(draco_illixr::PointCloud *pc);
 
   void SetEncodingMethod(long method);
   void SetAttributeQuantization(long att_id, long quantization_bits);
@@ -178,9 +178,9 @@ class ExpertEncoder {
   int GetNumberOfEncodedFaces();
 
  private:
-  std::unique_ptr<draco::ExpertEncoder> encoder_;
+  std::unique_ptr<draco_illixr::ExpertEncoder> encoder_;
 
-  draco::PointCloud *pc_;
+  draco_illixr::PointCloud *pc_;
 };
 
 #endif  // DRACO_JAVASCRIPT_EMSCRIPTEN_ENCODER_WEBIDL_WRAPPER_H_

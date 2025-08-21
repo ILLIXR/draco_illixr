@@ -20,9 +20,9 @@
 
 #include <limits>
 
-#include "draco/core/draco_index_type.h"
+#include "draco_illixr/core/draco_index_type.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Index of a mesh in a scene.
 DEFINE_NEW_DRACO_INDEX_TYPE(uint32_t, MeshIndex)
@@ -66,7 +66,7 @@ static constexpr LightIndex kInvalidLightIndex(
 static constexpr InstanceArrayIndex kInvalidInstanceArrayIndex(
     std::numeric_limits<uint32_t>::max());
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_SCENE_SCENE_INDICES_H_
 #endif  // DRACO_TRANSCODER_SUPPORTED

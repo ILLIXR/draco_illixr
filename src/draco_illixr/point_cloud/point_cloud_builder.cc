@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/point_cloud/point_cloud_builder.h"
+#include "draco_illixr/point_cloud/point_cloud_builder.h"
 
 #include <utility>
 
-namespace draco {
+namespace draco_illixr {
 
 PointCloudBuilder::PointCloudBuilder() {}
 
@@ -75,4 +75,4 @@ std::unique_ptr<PointCloud> PointCloudBuilder::Finalize(
   return std::move(point_cloud_);
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

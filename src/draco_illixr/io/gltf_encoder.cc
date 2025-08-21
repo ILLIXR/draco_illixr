@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/io/gltf_encoder.h"
+#include "draco_illixr/io/gltf_encoder.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 #include <sys/types.h>
@@ -26,23 +26,23 @@
 #include <unordered_map>
 #include <unordered_set>
 
-#include "draco/attributes/geometry_attribute.h"
-#include "draco/attributes/point_attribute.h"
-#include "draco/compression/draco_compression_options.h"
-#include "draco/compression/expert_encode.h"
-#include "draco/core/draco_types.h"
-#include "draco/core/vector_d.h"
-#include "draco/io/file_utils.h"
-#include "draco/io/gltf_utils.h"
-#include "draco/io/texture_io.h"
-#include "draco/mesh/mesh_features.h"
-#include "draco/mesh/mesh_splitter.h"
-#include "draco/mesh/mesh_utils.h"
-#include "draco/scene/instance_array.h"
-#include "draco/scene/scene_indices.h"
-#include "draco/texture/texture_utils.h"
+#include "draco_illixr/attributes/geometry_attribute.h"
+#include "draco_illixr/attributes/point_attribute.h"
+#include "draco_illixr/compression/draco_compression_options.h"
+#include "draco_illixr/compression/expert_encode.h"
+#include "draco_illixr/core/draco_types.h"
+#include "draco_illixr/core/vector_d.h"
+#include "draco_illixr/io/file_utils.h"
+#include "draco_illixr/io/gltf_utils.h"
+#include "draco_illixr/io/texture_io.h"
+#include "draco_illixr/mesh/mesh_features.h"
+#include "draco_illixr/mesh/mesh_splitter.h"
+#include "draco_illixr/mesh/mesh_utils.h"
+#include "draco_illixr/scene/instance_array.h"
+#include "draco_illixr/scene/scene_indices.h"
+#include "draco_illixr/texture/texture_utils.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Values are specfified from glTF 2.0 sampler spec. See here for more
 // information:
@@ -494,7 +494,7 @@ class GltfAsset {
   bool EncodeBuffersProperty(EncoderBuffer *buf_out);
   Status EncodeExtensionsProperties(EncoderBuffer *buf_out);
 
-  // Encodes a draco::VectorNX as a glTF array.
+  // Encodes a draco_illixr::VectorNX as a glTF array.
   template <typename T>
   void EncodeVectorArray(const std::string &array_name, T vec) {
     gltf_json_.BeginArray(array_name);
@@ -1473,7 +1473,7 @@ Status GltfAsset::AddScene(const Scene &scene) {
   for (SceneNodeIndex i(0); i < scene.NumNodes(); ++i) {
     DRACO_RETURN_IF_ERROR(AddSceneNode(scene, i));
   }
-  // There is 1:1 mapping between draco::Scene node indices and |nodes_|.
+  // There is 1:1 mapping between draco_illixr::Scene node indices and |nodes_|.
   for (int i = 0; i < scene.NumRootNodes(); ++i) {
     nodes_[scene.GetRootNodeIndex(i).value()].root_node = true;
   }
@@ -3358,7 +3358,7 @@ Status GltfEncoder::EncodeFile(const T &geometry, const std::string &filename) {
 
   std::string dir_path;
   std::string basename;
-  draco::SplitPath(filename, &dir_path, &basename);
+  draco_illixr::SplitPath(filename, &dir_path, &basename);
   const std::string bin_basename = ReplaceFileExtension(basename, "bin");
   const std::string bin_filename = dir_path + "/" + bin_basename;
   return EncodeFile(geometry, filename, bin_filename, dir_path);
@@ -3373,7 +3373,7 @@ Status GltfEncoder::EncodeFile(const T &geometry, const std::string &filename,
 
   std::string dir_path;
   std::string basename;
-  draco::SplitPath(filename, &dir_path, &basename);
+  draco_illixr::SplitPath(filename, &dir_path, &basename);
   return EncodeFile(geometry, filename, bin_filename, dir_path);
 }
 
@@ -3396,7 +3396,7 @@ Status GltfEncoder::EncodeFile(const T &geometry, const std::string &filename,
   if (extension == "gltf") {
     std::string bin_path;
     std::string bin_basename;
-    draco::SplitPath(bin_filename, &bin_path, &bin_basename);
+    draco_illixr::SplitPath(bin_filename, &bin_path, &bin_basename);
     gltf_asset.buffer_name(bin_basename);
   } else {
     gltf_asset.buffer_name("");
@@ -3613,6 +3613,6 @@ Status GltfEncoder::ProcessGlbFileChunks(
   return OkStatus();
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED

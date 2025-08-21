@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/texture/source_image.h"
+#include "draco_illixr/texture/source_image.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 
-namespace draco {
+namespace draco_illixr {
 
 void SourceImage::Copy(const SourceImage &src) {
   mime_type_ = src.mime_type_;
@@ -24,6 +24,6 @@ void SourceImage::Copy(const SourceImage &src) {
   encoded_data_ = src.encoded_data_;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED

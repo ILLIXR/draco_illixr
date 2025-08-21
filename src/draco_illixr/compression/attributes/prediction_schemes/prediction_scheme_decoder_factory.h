@@ -18,21 +18,21 @@
 #ifndef DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_PREDICTION_SCHEME_DECODER_FACTORY_H_
 #define DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_PREDICTION_SCHEME_DECODER_FACTORY_H_
 
-#include "draco/compression/attributes/prediction_schemes/mesh_prediction_scheme_constrained_multi_parallelogram_decoder.h"
-#include "draco/draco_features.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/mesh_prediction_scheme_constrained_multi_parallelogram_decoder.h"
+#include "draco_illixr/draco_features.h"
 #ifdef DRACO_NORMAL_ENCODING_SUPPORTED
-#include "draco/compression/attributes/prediction_schemes/mesh_prediction_scheme_geometric_normal_decoder.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/mesh_prediction_scheme_geometric_normal_decoder.h"
 #endif
-#include "draco/compression/attributes/prediction_schemes/mesh_prediction_scheme_multi_parallelogram_decoder.h"
-#include "draco/compression/attributes/prediction_schemes/mesh_prediction_scheme_parallelogram_decoder.h"
-#include "draco/compression/attributes/prediction_schemes/mesh_prediction_scheme_tex_coords_decoder.h"
-#include "draco/compression/attributes/prediction_schemes/mesh_prediction_scheme_tex_coords_portable_decoder.h"
-#include "draco/compression/attributes/prediction_schemes/prediction_scheme_decoder.h"
-#include "draco/compression/attributes/prediction_schemes/prediction_scheme_delta_decoder.h"
-#include "draco/compression/attributes/prediction_schemes/prediction_scheme_factory.h"
-#include "draco/compression/mesh/mesh_decoder.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/mesh_prediction_scheme_multi_parallelogram_decoder.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/mesh_prediction_scheme_parallelogram_decoder.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/mesh_prediction_scheme_tex_coords_decoder.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/mesh_prediction_scheme_tex_coords_portable_decoder.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/prediction_scheme_decoder.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/prediction_scheme_delta_decoder.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/prediction_scheme_factory.h"
+#include "draco_illixr/compression/mesh/mesh_decoder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Factory class for creating mesh prediction schemes. The factory implements
 // operator() that is used to create an appropriate mesh prediction scheme in
@@ -189,6 +189,6 @@ CreatePredictionSchemeForDecoder(PredictionSchemeMethod method, int att_id,
       method, att_id, decoder, TransformT());
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_PREDICTION_SCHEME_DECODER_FACTORY_H_

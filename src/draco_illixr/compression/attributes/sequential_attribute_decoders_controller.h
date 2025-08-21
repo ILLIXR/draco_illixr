@@ -15,11 +15,11 @@
 #ifndef DRACO_COMPRESSION_ATTRIBUTES_SEQUENTIAL_ATTRIBUTE_DECODERS_CONTROLLER_H_
 #define DRACO_COMPRESSION_ATTRIBUTES_SEQUENTIAL_ATTRIBUTE_DECODERS_CONTROLLER_H_
 
-#include "draco/compression/attributes/attributes_decoder.h"
-#include "draco/compression/attributes/points_sequencer.h"
-#include "draco/compression/attributes/sequential_attribute_decoder.h"
+#include "draco_illixr/compression/attributes/attributes_decoder.h"
+#include "draco_illixr/compression/attributes/points_sequencer.h"
+#include "draco_illixr/compression/attributes/sequential_attribute_decoder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // A basic implementation of an attribute decoder that decodes data encoded by
 // the SequentialAttributeEncodersController class. The
@@ -56,6 +56,6 @@ class SequentialAttributeDecodersController : public AttributesDecoder {
   std::unique_ptr<PointsSequencer> sequencer_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_SEQUENTIAL_ATTRIBUTE_DECODERS_CONTROLLER_H_

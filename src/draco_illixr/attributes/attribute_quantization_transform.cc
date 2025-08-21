@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/attributes/attribute_quantization_transform.h"
+#include "draco_illixr/attributes/attribute_quantization_transform.h"
 
-#include "draco/attributes/attribute_transform_type.h"
-#include "draco/core/quantization_utils.h"
+#include "draco_illixr/attributes/attribute_transform_type.h"
+#include "draco_illixr/core/quantization_utils.h"
 
-namespace draco {
+namespace draco_illixr {
 
 bool AttributeQuantizationTransform::InitFromAttribute(
     const PointAttribute &attribute) {
@@ -257,4 +257,4 @@ void AttributeQuantizationTransform::GeneratePortableAttribute(
   }
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

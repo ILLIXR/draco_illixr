@@ -15,7 +15,7 @@
 #ifndef DRACO_METADATA_PROPERTY_TABLE_H_
 #define DRACO_METADATA_PROPERTY_TABLE_H_
 
-#include "draco/draco_features.h"
+#include "draco_illixr/draco_features.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 
@@ -23,7 +23,7 @@
 #include <string>
 #include <vector>
 
-namespace draco {
+namespace draco_illixr {
 
 // Describes a property table as defined in the EXT_structural_metadata glTF
 // extension, including property table schema and table properties (columns).
@@ -237,7 +237,7 @@ class PropertyTable {
   std::vector<std::unique_ptr<Property>> properties_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED
 #endif  // DRACO_METADATA_PROPERTY_TABLE_H_

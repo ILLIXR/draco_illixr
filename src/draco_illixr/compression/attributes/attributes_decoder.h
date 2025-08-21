@@ -17,13 +17,13 @@
 
 #include <vector>
 
-#include "draco/compression/attributes/attributes_decoder_interface.h"
-#include "draco/compression/point_cloud/point_cloud_decoder.h"
-#include "draco/core/decoder_buffer.h"
-#include "draco/draco_features.h"
-#include "draco/point_cloud/point_cloud.h"
+#include "draco_illixr/compression/attributes/attributes_decoder_interface.h"
+#include "draco_illixr/compression/point_cloud/point_cloud_decoder.h"
+#include "draco_illixr/core/decoder_buffer.h"
+#include "draco_illixr/draco_features.h"
+#include "draco_illixr/point_cloud/point_cloud.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Base class for decoding one or more attributes that were encoded with a
 // matching AttributesEncoder. It is a basic implementation of
@@ -92,6 +92,6 @@ class AttributesDecoder : public AttributesDecoderInterface {
   PointCloud *point_cloud_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_ATTRIBUTES_DECODER_H_

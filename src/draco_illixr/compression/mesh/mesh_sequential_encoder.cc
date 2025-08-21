@@ -12,16 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/compression/mesh/mesh_sequential_encoder.h"
+#include "draco_illixr/compression/mesh/mesh_sequential_encoder.h"
 
 #include <cstdlib>
 
-#include "draco/compression/attributes/linear_sequencer.h"
-#include "draco/compression/attributes/sequential_attribute_encoders_controller.h"
-#include "draco/compression/entropy/symbol_encoding.h"
-#include "draco/core/varint_encoding.h"
+#include "draco_illixr/compression/attributes/linear_sequencer.h"
+#include "draco_illixr/compression/attributes/sequential_attribute_encoders_controller.h"
+#include "draco_illixr/compression/entropy/symbol_encoding.h"
+#include "draco_illixr/core/varint_encoding.h"
 
-namespace draco {
+namespace draco_illixr {
 
 MeshSequentialEncoder::MeshSequentialEncoder() {}
 
@@ -125,4 +125,4 @@ void MeshSequentialEncoder::ComputeNumberOfEncodedFaces() {
   set_num_encoded_faces(mesh()->num_faces());
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

@@ -17,10 +17,10 @@
 #ifndef DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_MESH_PREDICTION_SCHEME_PARALLELOGRAM_SHARED_H_
 #define DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_MESH_PREDICTION_SCHEME_PARALLELOGRAM_SHARED_H_
 
-#include "draco/mesh/corner_table.h"
-#include "draco/mesh/mesh.h"
+#include "draco_illixr/mesh/corner_table.h"
+#include "draco_illixr/mesh/mesh.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // TODO(draco-eng) consolidate Vertex/next/previous queries to one call
 // (performance).
@@ -73,6 +73,6 @@ inline bool ComputeParallelogramPrediction(
   return false;  // Not all data is available for prediction
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_MESH_PREDICTION_SCHEME_PARALLELOGRAM_SHARED_H_

@@ -19,9 +19,9 @@
 
 #include <vector>
 
-#include "draco/attributes/geometry_indices.h"
+#include "draco_illixr/attributes/geometry_indices.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Data used for encoding and decoding of mesh attributes.
 struct MeshAttributeIndicesEncodingData {
@@ -53,6 +53,6 @@ struct MeshAttributeIndicesEncodingData {
   int num_values;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_MESH_ATTRIBUTE_INDICES_ENCODING_DATA_H_

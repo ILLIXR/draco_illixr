@@ -18,10 +18,10 @@
 
 #include <vector>
 
-#include "draco/compression/entropy/ans.h"
-#include "draco/core/encoder_buffer.h"
+#include "draco_illixr/compression/entropy/ans.h"
+#include "draco_illixr/core/encoder_buffer.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Class for adaptive encoding a sequence of bits using rANS.
 class AdaptiveRAnsBitEncoder {
@@ -56,6 +56,6 @@ class AdaptiveRAnsBitEncoder {
   std::vector<bool> bits_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_BIT_CODERS_ADAPTIVE_RANS_BIT_ENCODER_H_

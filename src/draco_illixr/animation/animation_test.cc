@@ -12,47 +12,47 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/animation/animation.h"
+#include "draco_illixr/animation/animation.h"
 
-#include "draco/core/draco_test_base.h"
-#include "draco/draco_features.h"
+#include "draco_illixr/core/draco_test_base.h"
+#include "draco_illixr/draco_features.h"
 
 namespace {
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 TEST(AnimationTest, TestCopy) {
   // Test copying of animation data.
-  draco::Animation src_anim;
+  draco_illixr::Animation src_anim;
   ASSERT_TRUE(src_anim.GetName().empty());
   src_anim.SetName("Walking");
   ASSERT_EQ(src_anim.GetName(), "Walking");
 
-  std::unique_ptr<draco::AnimationSampler> src_sampler_0(
-      new draco::AnimationSampler());
+  std::unique_ptr<draco_illixr::AnimationSampler> src_sampler_0(
+      new draco_illixr::AnimationSampler());
   src_sampler_0->interpolation_type =
-      draco::AnimationSampler::SamplerInterpolation::CUBICSPLINE;
-  std::unique_ptr<draco::AnimationSampler> src_sampler_1(
-      new draco::AnimationSampler());
+      draco_illixr::AnimationSampler::SamplerInterpolation::CUBICSPLINE;
+  std::unique_ptr<draco_illixr::AnimationSampler> src_sampler_1(
+      new draco_illixr::AnimationSampler());
   src_sampler_1->Copy(*src_sampler_0);
 
   ASSERT_EQ(src_sampler_0->interpolation_type,
             src_sampler_1->interpolation_type);
 
   src_sampler_1->interpolation_type =
-      draco::AnimationSampler::SamplerInterpolation::STEP;
+      draco_illixr::AnimationSampler::SamplerInterpolation::STEP;
 
   src_anim.AddSampler(std::move(src_sampler_0));
   src_anim.AddSampler(std::move(src_sampler_1));
   ASSERT_EQ(src_anim.NumSamplers(), 2);
 
-  std::unique_ptr<draco::AnimationChannel> src_channel(
-      new draco::AnimationChannel());
+  std::unique_ptr<draco_illixr::AnimationChannel> src_channel(
+      new draco_illixr::AnimationChannel());
   src_channel->transformation_type =
-      draco::AnimationChannel::ChannelTransformation::WEIGHTS;
+      draco_illixr::AnimationChannel::ChannelTransformation::WEIGHTS;
   src_anim.AddChannel(std::move(src_channel));
   ASSERT_EQ(src_anim.NumChannels(), 1);
 
-  draco::Animation dst_anim;
+  draco_illixr::Animation dst_anim;
   dst_anim.Copy(src_anim);
 
   ASSERT_EQ(dst_anim.GetName(), src_anim.GetName());

@@ -15,12 +15,12 @@
 #ifndef DRACO_MESH_MESH_ARE_EQUIVALENT_H_
 #define DRACO_MESH_MESH_ARE_EQUIVALENT_H_
 
-#include "draco/core/vector_d.h"
-#include "draco/mesh/mesh.h"
+#include "draco_illixr/core/vector_d.h"
+#include "draco_illixr/mesh/mesh.h"
 
 // This file defines a functor to compare two meshes for equivalency up
 // to permutation of the vertices.
-namespace draco {
+namespace draco_illixr {
 
 // A functor to compare two meshes for equivalency up to permutation of the
 // vertices.
@@ -66,6 +66,6 @@ class MeshAreEquivalent {
   int32_t num_faces_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_MESH_MESH_ARE_EQUIVALENT_H_

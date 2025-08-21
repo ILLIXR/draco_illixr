@@ -13,7 +13,7 @@
 // limitations under the License.
 //
 
-#include "draco/scene/scene_utils.h"
+#include "draco_illixr/scene/scene_utils.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 #include <memory>
@@ -23,15 +23,15 @@
 #include <unordered_set>
 #include <utility>
 
-#include "draco/core/draco_index_type_vector.h"
-#include "draco/core/hash_utils.h"
-#include "draco/core/vector_d.h"
-#include "draco/mesh/mesh_splitter.h"
-#include "draco/mesh/mesh_utils.h"
-#include "draco/scene/scene_indices.h"
-#include "draco/texture/texture_utils.h"
+#include "draco_illixr/core/draco_index_type_vector.h"
+#include "draco_illixr/core/hash_utils.h"
+#include "draco_illixr/core/vector_d.h"
+#include "draco_illixr/mesh/mesh_splitter.h"
+#include "draco_illixr/mesh/mesh_utils.h"
+#include "draco_illixr/scene/scene_indices.h"
+#include "draco_illixr/texture/texture_utils.h"
 
-namespace draco {
+namespace draco_illixr {
 
 IndexTypeVector<MeshInstanceIndex, SceneUtils::MeshInstance>
 SceneUtils::ComputeAllInstances(const Scene &scene) {
@@ -361,9 +361,9 @@ void SceneUtils::PrintInfo(const Scene &input, const Scene &simplified,
       printf("\n");
     }
 
-    void PrintAttInfoRow(const std::string &label, const draco::Scene &input,
-                         const draco::Scene &simplified,
-                         draco::GeometryAttribute::Type att_type) const {
+    void PrintAttInfoRow(const std::string &label, const draco_illixr::Scene &input,
+                         const draco_illixr::Scene &simplified,
+                         draco_illixr::GeometryAttribute::Type att_type) const {
       PrintInfoRow(label, NumAttEntriesOnBaseMeshes(input, att_type),
                    NumAttEntriesOnInstancedMeshes(input, att_type),
                    NumAttEntriesOnBaseMeshes(simplified, att_type),
@@ -398,11 +398,11 @@ void SceneUtils::PrintInfo(const Scene &input, const Scene &simplified,
                          NumPointsOnBaseMeshes(simplified),
                          NumPointsOnInstancedMeshes(simplified));
     printer.PrintAttInfoRow("Number of positions", input, simplified,
-                            draco::GeometryAttribute::POSITION);
+                            draco_illixr::GeometryAttribute::POSITION);
     printer.PrintAttInfoRow("Number of normals", input, simplified,
-                            draco::GeometryAttribute::NORMAL);
+                            draco_illixr::GeometryAttribute::NORMAL);
     printer.PrintAttInfoRow("Number of colors", input, simplified,
-                            draco::GeometryAttribute::COLOR);
+                            draco_illixr::GeometryAttribute::COLOR);
     printer.PrintInfoRow("Number of materials",
                          input.GetMaterialLibrary().NumMaterials(),
                          simplified.GetMaterialLibrary().NumMaterials(),
@@ -957,6 +957,6 @@ SceneUtils::FindLargestBaseMeshTransforms(const Scene &scene) {
   return transforms;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED

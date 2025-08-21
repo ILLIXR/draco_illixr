@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/texture/texture_library.h"
+#include "draco_illixr/texture/texture_library.h"
 
 #include <unordered_map>
 
-#include "draco/core/draco_test_utils.h"
-#include "draco/io/texture_io.h"
+#include "draco_illixr/core/draco_test_utils.h"
+#include "draco_illixr/io/texture_io.h"
 
 namespace {}  // namespace

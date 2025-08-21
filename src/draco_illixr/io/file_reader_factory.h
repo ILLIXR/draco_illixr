@@ -4,9 +4,9 @@
 #include <memory>
 #include <string>
 
-#include "draco/io/file_reader_interface.h"
+#include "draco_illixr/io/file_reader_interface.h"
 
-namespace draco {
+namespace draco_illixr {
 
 class FileReaderFactory {
  public:
@@ -29,6 +29,6 @@ class FileReaderFactory {
       const std::string &file_name);
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_IO_FILE_READER_FACTORY_H_

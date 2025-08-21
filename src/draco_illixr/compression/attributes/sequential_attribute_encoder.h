@@ -15,10 +15,10 @@
 #ifndef DRACO_COMPRESSION_ATTRIBUTES_SEQUENTIAL_ATTRIBUTE_ENCODER_H_
 #define DRACO_COMPRESSION_ATTRIBUTES_SEQUENTIAL_ATTRIBUTE_ENCODER_H_
 
-#include "draco/compression/attributes/prediction_schemes/prediction_scheme_interface.h"
-#include "draco/compression/point_cloud/point_cloud_encoder.h"
+#include "draco_illixr/compression/attributes/prediction_schemes/prediction_scheme_interface.h"
+#include "draco_illixr/compression/point_cloud/point_cloud_encoder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // A base class for encoding attribute values of a single attribute using a
 // given sequence of point ids. The default implementation encodes all attribute
@@ -81,7 +81,7 @@ class SequentialAttributeEncoder {
   const PointAttribute *attribute() const { return attribute_; }
   int attribute_id() const { return attribute_id_; }
   PointCloudEncoder *encoder() const { //printf("encoder() triggered in sequential attribute encoder\n");
-      return encoder_; 
+      return encoder_;
   }
 
  protected:
@@ -131,6 +131,6 @@ class SequentialAttributeEncoder {
   std::unique_ptr<PointAttribute> portable_attribute_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_SEQUENTIAL_ATTRIBUTE_ENCODER_H_

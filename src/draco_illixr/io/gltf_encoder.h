@@ -15,7 +15,7 @@
 #ifndef DRACO_IO_GLTF_ENCODER_H_
 #define DRACO_IO_GLTF_ENCODER_H_
 
-#include "draco/draco_features.h"
+#include "draco_illixr/draco_features.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 #include <iostream>
@@ -24,16 +24,16 @@
 #include <string>
 #include <vector>
 
-#include "draco/core/encoder_buffer.h"
-#include "draco/io/file_writer_factory.h"
-#include "draco/io/file_writer_interface.h"
-#include "draco/io/texture_io.h"
-#include "draco/mesh/mesh.h"
-#include "draco/scene/scene.h"
+#include "draco_illixr/core/encoder_buffer.h"
+#include "draco_illixr/io/file_writer_factory.h"
+#include "draco_illixr/io/file_writer_interface.h"
+#include "draco_illixr/io/texture_io.h"
+#include "draco_illixr/mesh/mesh.h"
+#include "draco_illixr/scene/scene.h"
 
-namespace draco {
+namespace draco_illixr {
 
-// Class for encoding draco::Mesh into the glTF file format.
+// Class for encoding draco_illixr::Mesh into the glTF file format.
 class GltfEncoder {
  public:
   // Types of output modes for the glTF data encoder. |COMPACT| will output
@@ -127,7 +127,7 @@ class GltfEncoder {
   OutputType output_type_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED
 #endif  // DRACO_IO_GLTF_ENCODER_H_

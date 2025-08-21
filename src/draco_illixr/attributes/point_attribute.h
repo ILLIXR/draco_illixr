@@ -17,14 +17,14 @@
 
 #include <memory>
 
-#include "draco/attributes/attribute_transform_data.h"
-#include "draco/attributes/geometry_attribute.h"
-#include "draco/core/draco_index_type_vector.h"
-#include "draco/core/hash_utils.h"
-#include "draco/core/macros.h"
-#include "draco/draco_features.h"
+#include "draco_illixr/attributes/attribute_transform_data.h"
+#include "draco_illixr/attributes/geometry_attribute.h"
+#include "draco_illixr/core/draco_index_type_vector.h"
+#include "draco_illixr/core/hash_utils.h"
+#include "draco_illixr/core/macros.h"
+#include "draco_illixr/draco_features.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Class for storing point specific data about each attribute. In general,
 // multiple points stored in a point cloud can share the same attribute value
@@ -191,6 +191,6 @@ struct PointAttributeHasher {
   }
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_ATTRIBUTES_POINT_ATTRIBUTE_H_

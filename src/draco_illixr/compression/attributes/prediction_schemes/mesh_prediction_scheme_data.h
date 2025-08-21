@@ -15,10 +15,10 @@
 #ifndef DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_MESH_PREDICTION_SCHEME_DATA_H_
 #define DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_MESH_PREDICTION_SCHEME_DATA_H_
 
-#include "draco/mesh/corner_table.h"
-#include "draco/mesh/mesh.h"
+#include "draco_illixr/mesh/corner_table.h"
+#include "draco_illixr/mesh/mesh.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Class stores data about the connectivity data of the mesh and information
 // about how the connectivity was encoded/decoded.
@@ -67,6 +67,6 @@ class MeshPredictionSchemeData {
   const std::vector<CornerIndex> *data_to_corner_map_;
 };
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_COMPRESSION_ATTRIBUTES_PREDICTION_SCHEMES_MESH_PREDICTION_SCHEME_DATA_H_

@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/scene/trs_matrix.h"
+#include "draco_illixr/scene/trs_matrix.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 
-namespace draco {
+namespace draco_illixr {
 
 void TrsMatrix::Copy(const TrsMatrix &tm) {
   matrix_ = tm.matrix_;
@@ -97,6 +97,6 @@ bool TrsMatrix::operator==(const TrsMatrix &trs_matrix) const {
   return true;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED

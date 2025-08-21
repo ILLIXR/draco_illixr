@@ -52,9 +52,9 @@
 
 #include <ostream>
 
-#include "draco/draco_features.h"
+#include "draco_illixr/draco_features.h"
 
-namespace draco {
+namespace draco_illixr {
 
 #define DEFINE_NEW_DRACO_INDEX_TYPE(value_type, name) \
   struct name##_tag_type_ {};                         \
@@ -166,14 +166,14 @@ std::ostream &operator<<(std::ostream &os, IndexType<ValueTypeT, TagT> index) {
   return os << index.value();
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 // Specialize std::hash for the strongly indexed types.
 namespace std {
 
 template <class ValueTypeT, class TagT>
-struct hash<draco::IndexType<ValueTypeT, TagT>> {
-  size_t operator()(const draco::IndexType<ValueTypeT, TagT> &i) const {
+struct hash<draco_illixr::IndexType<ValueTypeT, TagT>> {
+  size_t operator()(const draco_illixr::IndexType<ValueTypeT, TagT> &i) const {
     return static_cast<size_t>(i.value());
   }
 };

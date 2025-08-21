@@ -12,17 +12,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/mesh/mesh_splitter.h"
+#include "draco_illixr/mesh/mesh_splitter.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 #include <memory>
 #include <utility>
 
-#include "draco/core/draco_test_base.h"
-#include "draco/core/draco_test_utils.h"
-#include "draco/core/vector_d.h"
-#include "draco/io/mesh_io.h"
-#include "draco/mesh/mesh_misc_functions.h"
+#include "draco_illixr/core/draco_test_base.h"
+#include "draco_illixr/core/draco_test_utils.h"
+#include "draco_illixr/core/vector_d.h"
+#include "draco_illixr/io/mesh_io.h"
+#include "draco_illixr/mesh/mesh_misc_functions.h"
 
 namespace {}  // namespace
 #endif        // DRACO_TRANSCODER_SUPPORTED

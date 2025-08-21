@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "draco/core/bounding_box.h"
+#include "draco_illixr/core/bounding_box.h"
 
-namespace draco {
+namespace draco_illixr {
 
 BoundingBox::BoundingBox()
     : BoundingBox(Vector3f(std::numeric_limits<float>::max(),
@@ -36,4 +36,4 @@ const bool BoundingBox::IsValid() const {
          GetMaxPoint()[2] != std::numeric_limits<float>::lowest();
 }
 
-}  // namespace draco
+}  // namespace draco_illixr

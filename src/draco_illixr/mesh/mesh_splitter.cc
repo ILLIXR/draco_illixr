@@ -12,18 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/mesh/mesh_splitter.h"
+#include "draco_illixr/mesh/mesh_splitter.h"
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
 #include <memory>
 #include <unordered_map>
 #include <utility>
 
-#include "draco/mesh/mesh_utils.h"
-#include "draco/mesh/triangle_soup_mesh_builder.h"
-#include "draco/point_cloud/point_cloud_builder.h"
+#include "draco_illixr/mesh/mesh_utils.h"
+#include "draco_illixr/mesh/triangle_soup_mesh_builder.h"
+#include "draco_illixr/point_cloud/point_cloud_builder.h"
 
-namespace draco {
+namespace draco_illixr {
 
 // Helper class that handles splitting of meshes with faces / without faces,
 // i.e. point clouds.
@@ -278,7 +278,7 @@ MeshSplitterInternal<PointCloudBuilder>::BuildMeshes(
       continue;
     }
     // For point clouds, we first build a point cloud and copy it over into
-    // a draco::Mesh.
+    // a draco_illixr::Mesh.
     std::unique_ptr<PointCloud> pc = work_data->builders[mi].Finalize(true);
     if (pc == nullptr) {
       continue;
@@ -447,5 +447,5 @@ StatusOr<MeshSplitter::MeshVector> MeshSplitter::SplitMeshToComponents(
   return FinalizeMeshes(mesh, work_data, std::move(out_meshes));
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 #endif  // DRACO_TRANSCODER_SUPPORTED

@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/metadata/metadata_encoder.h"
+#include "draco_illixr/metadata/metadata_encoder.h"
 
-#include "draco/core/varint_encoding.h"
+#include "draco_illixr/core/varint_encoding.h"
 
-namespace draco {
+namespace draco_illixr {
 
 bool MetadataEncoder::EncodeMetadata(EncoderBuffer *out_buffer,
                                      const Metadata *metadata) {
@@ -94,4 +94,4 @@ bool MetadataEncoder::EncodeString(EncoderBuffer *out_buffer,
   }
   return true;
 }
-}  // namespace draco
+}  // namespace draco_illixr

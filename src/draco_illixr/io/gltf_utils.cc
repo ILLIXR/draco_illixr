@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "draco/io/gltf_utils.h"
+#include "draco_illixr/io/gltf_utils.h"
 
 #include <ostream>
 #include <string>
 
 #ifdef DRACO_TRANSCODER_SUPPORTED
-namespace draco {
+namespace draco_illixr {
 
 std::ostream &operator<<(std::ostream &os, const GltfValue &value) {
   if (value.type_ == GltfValue::INT) {
@@ -112,6 +112,6 @@ std::string JsonWriter::MoveData() {
   return str;
 }
 
-}  // namespace draco
+}  // namespace draco_illixr
 
 #endif  // DRACO_TRANSCODER_SUPPORTED
