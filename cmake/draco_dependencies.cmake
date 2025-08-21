@@ -49,31 +49,6 @@ macro(draco_die_missing_submodule dir)
   message(FATAL_ERROR "${dir} missing, run git submodule update --init")
 endmacro()
 
-# Determines the Eigen location and updates the build configuration accordingly.
-macro(draco_setup_eigen)
-  if(DRACO_EIGEN_PATH)
-    set(eigen_path "${DRACO_EIGEN_PATH}")
-
-    if(NOT IS_DIRECTORY "${eigen_path}")
-      message(FATAL_ERROR "DRACO_EIGEN_PATH does not exist.")
-    endif()
-  else()
-    set(eigen_path "${draco_root}/third_party/eigen")
-
-    if(NOT IS_DIRECTORY "${eigen_path}")
-      draco_die_missing_submodule("${eigen_path}")
-    endif()
-  endif()
-
-  set(eigen_include_path "${eigen_path}/Eigen")
-
-  if(NOT EXISTS "${eigen_path}/Eigen")
-    message(FATAL_ERROR "The eigen path does not contain an Eigen directory.")
-  endif()
-
-  list(APPEND draco_include_paths "${eigen_path}")
-endmacro()
-
 # Determines the gulrak/filesystem location and updates the build configuration
 # accordingly.
 macro(draco_setup_filesystem)
