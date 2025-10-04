@@ -110,17 +110,16 @@ void PlyDecoder::DecodeMerge(Mesh &new_mesh){
 }
 //Status PlyDecoder::DecodeExternal(PlyReader &ply_reader) {
 //Status PlyDecoder::DecodeExternal(const PlyReader &ply_reader, bool skip_deduplication) {
-Status PlyDecoder::DecodeExternal(std::unique_ptr<PlyReader> reader, bool skip_deduplication) {
+Status PlyDecoder::DecodeExternal(const std::shared_ptr<PlyReader>& reader, bool skip_deduplication) {
   //auto func_start = std::chrono::high_resolution_clock::now();
   // No need to read the buffer again, use the provided ply_reader
   // First, decode the connectivity data.
-  ply_reader_ = std::move(reader);
   if (out_mesh_)
-    DRACO_RETURN_IF_ERROR(DecodeFaceData(ply_reader_->GetElementByName("face")));
+    DRACO_RETURN_IF_ERROR(DecodeFaceData(reader->GetElementByName("face")));
   // Decode all attributes.
   DRACO_RETURN_IF_ERROR(
-      DecodeVertexData(ply_reader_->GetElementByName("vertex")));
-  const PlyElement *face_element = ply_reader_->GetElementByName("face");
+      DecodeVertexData(reader->GetElementByName("vertex")));
+  const PlyElement *face_element = reader->GetElementByName("face");
 
   //pyh try to grab voxel block info as well
   const PlyProperty *voxelblock_x = face_element->GetPropertyByName("vb_x");
