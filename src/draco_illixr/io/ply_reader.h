@@ -72,6 +72,12 @@ class PlyProperty {
   int data_type_num_bytes_;
   DataType list_data_type_;
   int list_data_type_num_bytes_;
+  
+  // For PlyProperty
+  PlyProperty(const PlyProperty&)            = delete;
+  PlyProperty& operator=(const PlyProperty&) = delete;
+  PlyProperty(PlyProperty&&) noexcept        = default;
+  PlyProperty& operator=(PlyProperty&&) noexcept = default;
 
  private:
   //std::vector<uint8_t> data_;
@@ -113,6 +119,13 @@ class PlyElement {
   //pyh moved to public
   std::string name_;
 
+  // For PlyElement
+  PlyElement(const PlyElement&)            = delete;
+  PlyElement& operator=(const PlyElement&) = delete; 
+  PlyElement(PlyElement&&) noexcept        = default;
+  PlyElement& operator=(PlyElement&&) noexcept = default;
+
+  
  private:
   int64_t num_entries_;
   std::vector<PlyProperty> properties_;
@@ -143,6 +156,12 @@ class PlyReader {
   std::vector<PlyElement> elements_;
   std::map<std::string, int> element_index_;
   Format format_;
+  
+  // For PlyReader
+  PlyReader(const PlyReader&)                = delete;
+  PlyReader& operator=(const PlyReader&)     = delete;
+  PlyReader(PlyReader&&) noexcept            = default;
+  PlyReader& operator=(PlyReader&&) noexcept = default;
  private:
 
   Status ParseHeader(DecoderBuffer *buffer);

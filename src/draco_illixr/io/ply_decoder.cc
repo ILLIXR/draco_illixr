@@ -129,7 +129,6 @@ Status PlyDecoder::DecodeExternal(const PlyReader &ply_reader, bool skip_dedupli
   }else{
 	 // printf("voxel block info found\n");
   }
-  printf("change reflected\n");
   PlyPropertyReader<int> vb_x_reader(voxelblock_x);
   PlyPropertyReader<int> vb_y_reader(voxelblock_y);
   PlyPropertyReader<int> vb_z_reader(voxelblock_z);
