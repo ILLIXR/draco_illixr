@@ -51,7 +51,7 @@ class PlyDecoder {
   DecoderBuffer buffer_;
   //pyh add a nother input parameter that I can skip deduplication when needed
   //Status DecodeExternal(const PlyReader &ply_reader, bool skip_deduplication);
-  Status DecodeExternal(const std::shared_ptr<PlyReader> reader, bool skip_deduplication);
+  Status DecodeExternal(const std::shared_ptr<PlyReader>& reader, bool skip_deduplication);
   //pyh code to merge preprocessed mesh chunks
   void DecodeMerge(Mesh &new_mesh);
   PlyReader ply_reader;
