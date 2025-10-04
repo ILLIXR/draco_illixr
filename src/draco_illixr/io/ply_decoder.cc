@@ -109,7 +109,7 @@ void PlyDecoder::DecodeMerge(Mesh &new_mesh){
 
 }
 //Status PlyDecoder::DecodeExternal(PlyReader &ply_reader) {
-Status PlyDecoder::DecodeExternal(PlyReader &ply_reader, bool skip_deduplication) {
+Status PlyDecoder::DecodeExternal(const PlyReader &ply_reader, bool skip_deduplication) {
   //auto func_start = std::chrono::high_resolution_clock::now();
   // No need to read the buffer again, use the provided ply_reader
   // First, decode the connectivity data.
@@ -129,6 +129,7 @@ Status PlyDecoder::DecodeExternal(PlyReader &ply_reader, bool skip_deduplication
   }else{
 	 // printf("voxel block info found\n");
   }
+  printf("change reflected\n");
   PlyPropertyReader<int> vb_x_reader(voxelblock_x);
   PlyPropertyReader<int> vb_y_reader(voxelblock_y);
   PlyPropertyReader<int> vb_z_reader(voxelblock_z);

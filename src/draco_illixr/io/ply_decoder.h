@@ -50,7 +50,7 @@ class PlyDecoder {
   PointCloud *out_point_cloud_;
   DecoderBuffer buffer_;
   //pyh add a nother input parameter that I can skip deduplication when needed
-  Status DecodeExternal(PlyReader &ply_reader, bool skip_deduplication);
+  Status DecodeExternal(const PlyReader &ply_reader, bool skip_deduplication);
   //pyh code to merge preprocessed mesh chunks
   void DecodeMerge(Mesh &new_mesh);
   PlyReader ply_reader;
