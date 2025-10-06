@@ -1,3 +1,5 @@
+This is a customized version of github.com/google/draco
+
 <p align="center">
 <img width="350px" src="docs/artwork/draco3d-vert.svg" />
 </p>
